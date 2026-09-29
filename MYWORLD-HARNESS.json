@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0.0",
+  "product_id": "P029",
+  "name": "Interoperabilidad Estado Chileno",
+  "owner": "Eduardo Vega",
+  "myworld_project": "P029",
+  "kind": "web_app",
+  "lifecycle_stage": "prototype",
+  "risk": "low",
+  "data_classification": [
+    "public"
+  ],
+  "deployment": {
+    "state": "local",
+    "production_urls": []
+  },
+  "repository": {
+    "type": "git",
+    "default_branch": "main",
+    "remote_policy": "pending"
+  },
+  "commands": {
+    "quality": [
+      "npm run test:data",
+      "npm run check"
+    ],
+    "build": [
+      "npm run build"
+    ],
+    "test": [
+      "npm run test:data",
+      "npx tsx tests/e2e/test-runner.ts"
+    ]
+  },
+  "critical_paths": [
+    "src",
+    "public",
+    "package.json",
+    "dist"
+  ],
+  "forbidden_paths": [
+    ".env",
+    "credentials",
+    "release"
+  ],
+  "multi_agent": {
+    "isolation": "worktree",
+    "integration_owner": "Eduardo Vega"
+  },
+  "observability": {
+    "level": 1,
+    "domains": [
+      "technical",
+      "product"
+    ],
+    "monitors": []
+  },
+  "release": {
+    "backup_required": false,
+    "restore_test_required": false,
+    "rollback_required": true,
+    "rpo_hours": null,
+    "rto_hours": null
+  },
+  "evidence": {
+    "last_audit": null,
+    "pending_register": "MyWorld:harness/state/pending.ndjson"
+  }
+}

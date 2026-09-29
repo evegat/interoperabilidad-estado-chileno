@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import FilterBar from '../components/FilterBar.astro';
+import GraphViewport from '../components/GraphViewport.astro';
+import DetailDrawer from '../components/DetailDrawer.astro';
+import Legend from '../components/Legend.astro';
+import datasetRaw from '../data/interoperabilidad.json';
+import type { DatasetInteroperabilidad } from '../types/interoperabilidad.js';
+
+const dataset = datasetRaw as DatasetInteroperabilidad;
+---
+
+<Layout title="Mapeo de Interoperabilidad del Estado Chileno (Ley 21.180)">
+  <Header dataset={dataset} />
+  <FilterBar />
+  <main class="relative flex-1 w-full overflow-hidden bg-slate-950">
+    <GraphViewport />
+    <Legend />
+    <DetailDrawer />
+  </main>
+</Layout>
+
+<script>
+  import datasetRaw from '../data/interoperabilidad.json';
+  import { initGraphApp } from '../lib/graph-controller.js';
+  import type { DatasetInteroperabilidad } from '../types/interoperabilidad.js';
+
+  const dataset = datasetRaw as DatasetInteroperabilidad;
+
+  function start() {
+    initGraphApp(dataset);
+
+    // Update Header KPI counts dynamically on filter changes
+    window.addEventListener('filters-updated', ((e: CustomEvent) => {
+      const { activeNodesCount, activeEdgesCount } = e.detail || {};
+      const kpiNodos = document.getElementById('kpi-nodos');
+      const kpiAristas = document.getElementById('kpi-aristas');
+      if (kpiNodos && typeof activeNodesCount === 'number') {
+        kpiNodos.textContent = String(activeNodesCount);
+      }
+      if (kpiAristas && typeof activeEdgesCount === 'number') {
+        kpiAristas.textContent = String(activeEdgesCount);
+      }
+    }) as EventListener);
+  }
+
+  if (typeof window !== 'undefined') {
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', start);
+    } else {
+      start();
+    }
+  }
+</script>

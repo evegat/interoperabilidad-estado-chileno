@@ -1,0 +1,38 @@
+{
+  "name": "p029-interoperabilidad-estado-chileno",
+  "version": "1.0.0",
+  "description": "Visualizador interactivo de grafo y dataset estructurado de la interoperabilidad del Estado chileno (Ley 21.180, PISEE, APIs y brechas)",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test:data": "tsx scripts/validate-data.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "interoperabilidad",
+    "chile",
+    "gobierno-digital",
+    "ley-21180",
+    "pisee",
+    "claveunica",
+    "grafo"
+  ],
+  "author": "Eduardo Vega <evega@bastidor.cl>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/tailwind": "^6.0.2",
+    "@types/cytoscape": "^3.21.9",
+    "astro": "^7.3.5",
+    "cytoscape": "^3.34.3",
+    "tailwindcss": "^3.4.19"
+  }
+}

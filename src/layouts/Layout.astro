@@ -1,0 +1,44 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Mapeo de Interoperabilidad del Estado Chileno (Ley 21.180)',
+  description = 'Visualizador interactivo de grafo y dataset estructurado de la interoperabilidad del Estado de Chile: instituciones públicas, PISEE, APIs, convenios y brechas técnicas.',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-950">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="h-full bg-slate-950 text-slate-100 antialiased overflow-hidden flex flex-col font-sans">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  /* Custom scrollbar for dark UI */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #090d16;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+  }
+</style>

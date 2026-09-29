@@ -1,0 +1,86 @@
+---
+---
+
+<div id="graph-container" class="relative w-full h-[calc(100vh-175px)] min-h-[550px] bg-slate-950 overflow-hidden select-none">
+  <!-- Cytoscape Canvas Mount Target -->
+  <div id="cy" class="w-full h-full cursor-grab active:cursor-grabbing"></div>
+
+  <!-- Loading Skeleton Overlay -->
+  <div
+    id="graph-loader"
+    class="absolute inset-0 flex flex-col items-center justify-center bg-slate-950/90 z-20 transition-opacity duration-300 pointer-events-none"
+  >
+    <div class="relative w-16 h-16 mb-4">
+      <div class="absolute inset-0 rounded-full border-4 border-slate-700"></div>
+      <div class="absolute inset-0 rounded-full border-4 border-blue-500 border-t-transparent animate-spin"></div>
+    </div>
+    <span class="text-sm font-medium text-slate-300 animate-pulse">
+      Cargando ecosistema de interoperabilidad...
+    </span>
+    <span class="text-xs text-slate-500 mt-1">
+      Resolviendo topología física y convenios interinstitucionales
+    </span>
+  </div>
+
+  <!-- Floating Navigation HUD Controls -->
+  <div class="absolute top-4 left-4 z-10 flex flex-col space-y-1.5 bg-slate-900/90 backdrop-blur-md p-1.5 rounded-lg border border-slate-700/80 shadow-2xl">
+    <button
+      type="button"
+      id="hud-zoom-in"
+      data-action="zoom-in"
+      class="w-8 h-8 flex items-center justify-center text-slate-200 hover:text-white bg-slate-800/80 hover:bg-slate-700 rounded transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500"
+      title="Acercar (Zoom In)"
+    >
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
+      </svg>
+    </button>
+    <button
+      type="button"
+      id="hud-zoom-out"
+      data-action="zoom-out"
+      class="w-8 h-8 flex items-center justify-center text-slate-200 hover:text-white bg-slate-800/80 hover:bg-slate-700 rounded transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500"
+      title="Alejar (Zoom Out)"
+    >
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 12H4" />
+      </svg>
+    </button>
+    <div class="h-px bg-slate-700 my-0.5"></div>
+    <button
+      type="button"
+      id="hud-fit"
+      data-action="fit"
+      class="w-8 h-8 flex items-center justify-center text-slate-200 hover:text-white bg-slate-800/80 hover:bg-slate-700 rounded transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500"
+      title="Ajustar al encuadre (Fit Viewport)"
+    >
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+      </svg>
+    </button>
+    <button
+      type="button"
+      id="hud-reset"
+      data-action="reset"
+      class="w-8 h-8 flex items-center justify-center text-slate-200 hover:text-white bg-slate-800/80 hover:bg-slate-700 rounded transition-colors focus:outline-none focus:ring-1 focus:ring-blue-500"
+      title="Recalcular Layout (Reset)"
+    >
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Operational Interaction Hint -->
+  <div class="absolute bottom-3 left-4 z-10 hidden sm:flex items-center space-x-3 text-[11px] text-slate-400 bg-slate-900/80 backdrop-blur px-3 py-1.5 rounded-md border border-slate-800/80 shadow">
+    <span class="inline-flex items-center gap-1">
+      <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-[10px] text-slate-300">Click</kbd> Ficha
+    </span>
+    <span class="inline-flex items-center gap-1">
+      <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-[10px] text-slate-300">Arrastrar</kbd> Paneo
+    </span>
+    <span class="inline-flex items-center gap-1">
+      <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-[10px] text-slate-300">Rueda</kbd> Zoom
+    </span>
+  </div>
+</div>

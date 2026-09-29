@@ -1,0 +1,347 @@
+---
+---
+
+<aside
+  id="detail-drawer"
+  class="fixed inset-y-0 right-0 z-40 w-full sm:w-[440px] bg-slate-900/95 backdrop-blur-xl border-l border-slate-800 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out"
+  aria-label="Panel de Detalles Técnicos"
+>
+  <!-- Drawer Header -->
+  <div class="px-5 py-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/60">
+    <div class="flex items-center space-x-2">
+      <span id="drawer-type-badge" class="px-2 py-0.5 rounded text-[11px] font-semibold uppercase tracking-wider bg-blue-900/80 text-blue-200 border border-blue-700/50">
+        Ficha Técnica
+      </span>
+      <span id="drawer-status-badge" class="hidden px-2 py-0.5 rounded text-[11px] font-medium bg-amber-900/60 text-amber-200 border border-amber-700/50">
+        Con Brecha
+      </span>
+    </div>
+    <button
+      type="button"
+      id="drawer-close"
+      class="text-slate-400 hover:text-white p-1 rounded-md hover:bg-slate-800 transition-colors focus:outline-none"
+      title="Cerrar panel"
+    >
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Drawer Scrollable Content Body -->
+  <div id="drawer-content" class="flex-1 overflow-y-auto p-5 space-y-5 text-sm text-slate-300">
+    <!-- Placeholder / Empty State -->
+    <div id="drawer-empty-state" class="h-full flex flex-col items-center justify-center text-center p-6 text-slate-500">
+      <svg class="w-12 h-12 mb-3 text-slate-600 stroke-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <p class="font-medium text-slate-400">Ningún elemento seleccionado</p>
+      <p class="text-xs text-slate-500 mt-1">Haz click en un nodo institucional o en una arista de flujo para consultar su ficha técnica.</p>
+    </div>
+
+    <!-- Node Technical Sheet Container -->
+    <div id="drawer-node-view" class="hidden space-y-4">
+      <div>
+        <div class="flex items-baseline justify-between">
+          <span id="node-sigla" class="text-2xl font-black text-white tracking-tight">SIGLA</span>
+          <span id="node-id" class="text-xs font-mono text-slate-400 bg-slate-800 px-2 py-0.5 rounded">id</span>
+        </div>
+        <h2 id="node-nombre" class="text-sm font-semibold text-slate-200 mt-1 leading-snug">
+          Nombre completo de la institución
+        </h2>
+      </div>
+
+      <!-- Attributes Grid -->
+      <div class="grid grid-cols-2 gap-2 text-xs">
+        <div class="bg-slate-950/70 p-2.5 rounded border border-slate-800/80">
+          <span class="block text-slate-400 font-medium">Tipología</span>
+          <span id="node-tipo" class="font-semibold text-blue-300 capitalize">-</span>
+        </div>
+        <div class="bg-slate-950/70 p-2.5 rounded border border-slate-800/80">
+          <span class="block text-slate-400 font-medium">Dependencia</span>
+          <span id="node-dependencia" class="font-semibold text-slate-200 truncate block">-</span>
+        </div>
+        <div class="bg-slate-950/70 p-2.5 rounded border border-slate-800/80">
+          <span class="block text-slate-400 font-medium">Madurez Digital</span>
+          <span id="node-madurez" class="font-semibold text-emerald-400 capitalize">-</span>
+        </div>
+        <div class="bg-slate-950/70 p-2.5 rounded border border-slate-800/80">
+          <span class="block text-slate-400 font-medium">Ley N° 21.180</span>
+          <span id="node-ley" class="font-semibold text-cyan-300 capitalize">-</span>
+        </div>
+      </div>
+
+      <!-- Ecosystem Role -->
+      <div class="bg-slate-950/50 p-3 rounded-lg border border-slate-800">
+        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Rol en el Ecosistema</span>
+        <p id="node-rol" class="text-xs text-slate-300 leading-relaxed"></p>
+      </div>
+
+      <!-- Degree Connections -->
+      <div class="bg-slate-950/50 p-3 rounded-lg border border-slate-800 space-y-2">
+        <div class="flex items-center justify-between text-xs border-b border-slate-800/80 pb-1.5">
+          <span class="font-bold text-slate-300 uppercase tracking-wider">Topología de Flujos</span>
+          <span id="node-total-conexiones" class="text-blue-400 font-bold">0 conexiones</span>
+        </div>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <div class="bg-slate-900 p-2 rounded border border-slate-800">
+            <span class="text-slate-400 block text-[11px]">Entrantes (In)</span>
+            <span id="node-in-degree" class="text-base font-bold text-slate-200">0</span>
+          </div>
+          <div class="bg-slate-900 p-2 rounded border border-slate-800">
+            <span class="text-slate-400 block text-[11px]">Salientes (Out)</span>
+            <span id="node-out-degree" class="text-base font-bold text-slate-200">0</span>
+          </div>
+        </div>
+        <div id="node-flows-list" class="space-y-1 mt-2 text-xs">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Official Link -->
+      <div>
+        <a
+          id="node-website-link"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full inline-flex items-center justify-center space-x-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-medium text-xs shadow-md transition-colors"
+        >
+          <span>Visitar Portal Institucional</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Edge Technical Sheet Container -->
+    <div id="drawer-edge-view" class="hidden space-y-4">
+      <div>
+        <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Intercambio de Datos</span>
+        <div class="flex items-center space-x-2 mt-1">
+          <span id="edge-origen-sigla" class="text-lg font-black text-blue-400">ORIGEN</span>
+          <svg class="w-4 h-4 text-slate-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+          <span id="edge-destino-sigla" class="text-lg font-black text-cyan-400">DESTINO</span>
+        </div>
+        <p id="edge-data-type" class="text-sm font-semibold text-slate-200 mt-1">
+          Certificado / Datos
+        </p>
+      </div>
+
+      <!-- Interoperability Parameters -->
+      <div class="grid grid-cols-2 gap-2 text-xs">
+        <div class="bg-slate-950/70 p-2.5 rounded border border-slate-800/80">
+          <span class="block text-slate-400 font-medium">Plataforma / Bus</span>
+          <span id="edge-bus" class="font-semibold text-emerald-400 truncate block">-</span>
+        </div>
+        <div class="bg-slate-950/70 p-2.5 rounded border border-slate-800/80">
+          <span class="block text-slate-400 font-medium">Protocolo / Estándar</span>
+          <span id="edge-protocol" class="font-semibold text-blue-300">-</span>
+        </div>
+        <div class="bg-slate-950/70 p-2.5 rounded border border-slate-800/80">
+          <span class="block text-slate-400 font-medium">Nivel de Apertura</span>
+          <span id="edge-apertura" class="font-semibold text-slate-200 truncate block">-</span>
+        </div>
+        <div class="bg-slate-950/70 p-2.5 rounded border border-slate-800/80">
+          <span class="block text-slate-400 font-medium">Frecuencia</span>
+          <span id="edge-frecuencia" class="font-semibold text-slate-200 truncate block">-</span>
+        </div>
+      </div>
+
+      <!-- Legal Base -->
+      <div class="bg-slate-950/50 p-2.5 rounded border border-slate-800/80 text-xs">
+        <span class="block text-slate-400 font-medium">Marco Normativo</span>
+        <span id="edge-base-legal" class="font-semibold text-slate-200">-</span>
+      </div>
+
+      <!-- Observed Gap Alert Banner -->
+      <div id="edge-gap-container" class="bg-amber-950/30 border border-amber-800/60 rounded-lg p-3 text-xs space-y-1">
+        <div class="flex items-center space-x-1.5 text-amber-300 font-bold">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          <span>Diagnóstico de Brecha Observada</span>
+        </div>
+        <p id="edge-gap-text" class="text-amber-200/90 leading-relaxed"></p>
+      </div>
+
+      <!-- Official Source Verification Link -->
+      <div>
+        <a
+          id="edge-source-link"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full inline-flex items-center justify-center space-x-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white rounded-lg font-medium text-xs border border-slate-700 shadow-md transition-colors"
+        >
+          <span>Ver Fuente Oficial Verificable</span>
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<script>
+  import type { SelectionEventDetail, NodeDrawerPayload, EdgeDrawerPayload } from '../lib/graph-controller.js';
+
+  function initDetailDrawer() {
+    const drawer = document.getElementById('detail-drawer');
+    const closeBtn = document.getElementById('drawer-close');
+    const emptyState = document.getElementById('drawer-empty-state');
+    const nodeView = document.getElementById('drawer-node-view');
+    const edgeView = document.getElementById('drawer-edge-view');
+    const typeBadge = document.getElementById('drawer-type-badge');
+    const statusBadge = document.getElementById('drawer-status-badge');
+
+    if (!drawer) return;
+
+    function openDrawer() {
+      drawer?.classList.remove('translate-x-full');
+    }
+
+    function closeDrawer() {
+      drawer?.classList.add('translate-x-full');
+      // Tell controller to clear selection if open
+      const win = window as any;
+      if (win.__graphController) {
+        win.__graphController.clearSelection();
+      }
+    }
+
+    closeBtn?.addEventListener('click', closeDrawer);
+
+    // Listen to selection changes from Cytoscape
+    window.addEventListener('selection-changed', ((e: CustomEvent<SelectionEventDetail>) => {
+      const detail = e.detail;
+      if (!detail || detail.type === 'none') {
+        drawer.classList.add('translate-x-full');
+        return;
+      }
+
+      openDrawer();
+
+      if (detail.type === 'node') {
+        renderNode(detail.data);
+      } else if (detail.type === 'edge') {
+        renderEdge(detail.data);
+      }
+    }) as EventListener);
+
+    function renderNode(node: NodeDrawerPayload) {
+      if (!emptyState || !nodeView || !edgeView) return;
+      emptyState.classList.add('hidden');
+      edgeView.classList.add('hidden');
+      nodeView.classList.remove('hidden');
+
+      if (typeBadge) typeBadge.textContent = 'Institución Pública';
+      if (statusBadge) statusBadge.classList.add('hidden');
+
+      const siglaEl = document.getElementById('node-sigla');
+      const idEl = document.getElementById('node-id');
+      const nombreEl = document.getElementById('node-nombre');
+      const tipoEl = document.getElementById('node-tipo');
+      const depEl = document.getElementById('node-dependencia');
+      const madurezEl = document.getElementById('node-madurez');
+      const leyEl = document.getElementById('node-ley');
+      const rolEl = document.getElementById('node-rol');
+      const totalEl = document.getElementById('node-total-conexiones');
+      const inEl = document.getElementById('node-in-degree');
+      const outEl = document.getElementById('node-out-degree');
+      const linkEl = document.getElementById('node-website-link') as HTMLAnchorElement | null;
+      const flowsListEl = document.getElementById('node-flows-list');
+
+      if (siglaEl) siglaEl.textContent = node.sigla;
+      if (idEl) idEl.textContent = node.id;
+      if (nombreEl) nombreEl.textContent = node.nombre;
+      if (tipoEl) tipoEl.textContent = node.tipo.replace('_', ' ');
+      if (depEl) depEl.textContent = node.dependencia;
+      if (madurezEl) madurezEl.textContent = `Nivel ${node.nivel_madurez_digital}`;
+      if (leyEl) leyEl.textContent = node.estado_adopcion_ley21180.replace(/_/g, ' ');
+      if (rolEl) rolEl.textContent = node.rol_ecosistema;
+      if (totalEl) totalEl.textContent = `${node.total_conexiones} conexiones activas`;
+      if (inEl) inEl.textContent = String(node.in_degree);
+      if (outEl) outEl.textContent = String(node.out_degree);
+      if (linkEl) linkEl.href = node.sitio_web;
+
+      if (flowsListEl) {
+        flowsListEl.innerHTML = '';
+        if (node.aristas_entrantes.length > 0) {
+          const inHeading = document.createElement('p');
+          inHeading.className = 'font-semibold text-slate-400 mt-2 mb-1';
+          inHeading.textContent = 'Flujos que recibe:';
+          flowsListEl.appendChild(inHeading);
+          node.aristas_entrantes.forEach((flow) => {
+            const item = document.createElement('div');
+            item.className = 'bg-slate-900/80 p-1.5 rounded border border-slate-800 text-[11px] flex justify-between';
+            item.innerHTML = `<span class="text-blue-300">← ${flow.origen.toUpperCase()}</span> <span class="text-slate-500 font-mono text-[10px]">${flow.bus}</span>`;
+            flowsListEl.appendChild(item);
+          });
+        }
+        if (node.aristas_salientes.length > 0) {
+          const outHeading = document.createElement('p');
+          outHeading.className = 'font-semibold text-slate-400 mt-2 mb-1';
+          outHeading.textContent = 'Flujos que provee:';
+          flowsListEl.appendChild(outHeading);
+          node.aristas_salientes.forEach((flow) => {
+            const item = document.createElement('div');
+            item.className = 'bg-slate-900/80 p-1.5 rounded border border-slate-800 text-[11px] flex justify-between';
+            item.innerHTML = `<span class="text-emerald-300">→ ${flow.destino.toUpperCase()}</span> <span class="text-slate-500 font-mono text-[10px]">${flow.bus}</span>`;
+            flowsListEl.appendChild(item);
+          });
+        }
+      }
+    }
+
+    function renderEdge(edge: EdgeDrawerPayload) {
+      if (!emptyState || !nodeView || !edgeView) return;
+      emptyState.classList.add('hidden');
+      nodeView.classList.add('hidden');
+      edgeView.classList.remove('hidden');
+
+      if (typeBadge) typeBadge.textContent = 'Flujo de Interoperabilidad';
+      if (statusBadge) {
+        if (edge.brecha_observada && edge.brecha_observada.length > 5) {
+          statusBadge.classList.remove('hidden');
+        } else {
+          statusBadge.classList.add('hidden');
+        }
+      }
+
+      const origenEl = document.getElementById('edge-origen-sigla');
+      const destinoEl = document.getElementById('edge-destino-sigla');
+      const typeEl = document.getElementById('edge-data-type');
+      const busEl = document.getElementById('edge-bus');
+      const protocolEl = document.getElementById('edge-protocol');
+      const aperturaEl = document.getElementById('edge-apertura');
+      const freqEl = document.getElementById('edge-frecuencia');
+      const legalEl = document.getElementById('edge-base-legal');
+      const gapTextEl = document.getElementById('edge-gap-text');
+      const sourceLinkEl = document.getElementById('edge-source-link') as HTMLAnchorElement | null;
+
+      if (origenEl) origenEl.textContent = edge.origen_sigla;
+      if (destinoEl) destinoEl.textContent = edge.destino_sigla;
+      if (typeEl) typeEl.textContent = edge.tipo_dato;
+      if (busEl) busEl.textContent = edge.plataforma_o_bus;
+      if (protocolEl) protocolEl.textContent = edge.estandar_o_protocolo;
+      if (aperturaEl) aperturaEl.textContent = edge.nivel_apertura;
+      if (freqEl) freqEl.textContent = edge.frecuencia_actualizacion;
+      if (legalEl) legalEl.textContent = edge.base_legal || 'Ley N° 21.180';
+      if (gapTextEl) gapTextEl.textContent = edge.brecha_observada || 'Sin brecha crítica registrada';
+      if (sourceLinkEl) sourceLinkEl.href = edge.fuente_oficial_url;
+    }
+  }
+
+  if (typeof window !== 'undefined') {
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', initDetailDrawer);
+    } else {
+      initDetailDrawer();
+    }
+  }
+</script>

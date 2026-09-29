@@ -1,0 +1,86 @@
+---
+import { TIPOLOGIA_CONFIG, PROTOCOLO_CONFIG } from '../lib/graph-styles.js';
+import type { TipoNodo, EstandarProtocolo } from '../types/interoperabilidad.js';
+
+const tipologias = Object.entries(TIPOLOGIA_CONFIG) as [TipoNodo, (typeof TIPOLOGIA_CONFIG)[TipoNodo]][];
+const protocolos = Object.entries(PROTOCOLO_CONFIG) as [EstandarProtocolo, (typeof PROTOCOLO_CONFIG)[EstandarProtocolo]][];
+---
+
+<div class="bg-slate-900/90 backdrop-blur border-b border-slate-800 px-4 sm:px-6 py-2.5 text-xs text-slate-300">
+  <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+    <!-- Institutional Typology Pills -->
+    <div id="filter-typology" class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+      <span class="font-semibold text-slate-400 mr-1 flex items-center gap-1">
+        <svg class="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+        </svg>
+        Tipo:
+      </span>
+      {tipologias.map(([tipo, meta]) => (
+        <label
+          class="cursor-pointer select-none inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-medium border transition-colors bg-slate-950/60 border-slate-700/80 hover:border-slate-500 text-slate-300 has-[:checked]:bg-slate-800 has-[:checked]:border-blue-500 has-[:checked]:text-white"
+        >
+          <input
+            type="checkbox"
+            value={tipo}
+            data-filter="typology"
+            class="sr-only"
+          />
+          <span
+            class="w-2 h-2 rounded-full inline-block"
+            style={`background-color: ${meta.color};`}
+          ></span>
+          <span>{meta.label}</span>
+        </label>
+      ))}
+    </div>
+
+    <!-- Secondary Controls: Protocol Selector & Gaps Toggle & Reset -->
+    <div class="flex flex-wrap items-center gap-2.5 sm:gap-3">
+      <!-- Protocol Select -->
+      <div class="flex items-center space-x-1.5">
+        <label for="filter-protocol" class="font-semibold text-slate-400">Estándar:</label>
+        <select
+          id="filter-protocol"
+          data-filter="protocol"
+          class="bg-slate-950/80 border border-slate-700 rounded-md px-2.5 py-1 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+        >
+          <option value="">Todos los protocolos</option>
+          {protocolos.map(([proto, meta]) => (
+            <option value={proto}>{meta.label}</option>
+          ))}
+        </select>
+      </div>
+
+      <!-- Only Gaps Toggle -->
+      <label class="cursor-pointer select-none inline-flex items-center space-x-1.5 bg-slate-950/80 border border-slate-700 hover:border-amber-500/80 px-2.5 py-1 rounded-md text-xs font-medium text-slate-300 transition-colors has-[:checked]:border-amber-500 has-[:checked]:bg-amber-950/40 has-[:checked]:text-amber-200">
+        <input
+          type="checkbox"
+          id="filter-gaps"
+          data-filter="onlyGaps"
+          class="w-3.5 h-3.5 text-amber-500 rounded bg-slate-900 border-slate-600 focus:ring-amber-500"
+        />
+        <span class="inline-flex items-center gap-1">
+          <svg class="w-3.5 h-3.5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          Solo con brechas
+        </span>
+      </label>
+
+      <!-- Reset Filters Button -->
+      <button
+        type="button"
+        id="reset-filters"
+        data-action="reset-filters"
+        class="inline-flex items-center space-x-1 px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-md border border-slate-700 font-medium transition-colors focus:outline-none focus:ring-1 focus:ring-slate-500"
+        title="Restablecer todos los filtros y búsqueda"
+      >
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        </svg>
+        <span>Restablecer</span>
+      </button>
+    </div>
+  </div>
+</div>
