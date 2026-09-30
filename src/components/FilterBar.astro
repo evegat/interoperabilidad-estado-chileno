@@ -6,19 +6,19 @@ const tipologias = Object.entries(TIPOLOGIA_CONFIG) as [TipoNodo, (typeof TIPOLO
 const protocolos = Object.entries(PROTOCOLO_CONFIG) as [EstandarProtocolo, (typeof PROTOCOLO_CONFIG)[EstandarProtocolo]][];
 ---
 
-<div class="bg-slate-900/90 backdrop-blur border-b border-slate-800 px-4 sm:px-6 py-2.5 text-xs text-slate-300">
-  <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+<div class="bg-[#081d1a]/95 backdrop-blur border-b border-[#163a34] px-4 sm:px-6 py-2 text-xs text-[#8fafaa]">
+  <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2.5">
     <!-- Institutional Typology Pills -->
-    <div id="filter-typology" class="flex flex-wrap items-center gap-1.5 sm:gap-2">
-      <span class="font-semibold text-slate-400 mr-1 flex items-center gap-1">
-        <svg class="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <div id="filter-typology" class="flex flex-wrap items-center gap-1.5">
+      <span class="font-bold text-[#8fafaa] mr-1 flex items-center gap-1 text-[11px] uppercase tracking-wider">
+        <svg class="w-3.5 h-3.5 text-[#54b995]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
         </svg>
         Tipo:
       </span>
       {tipologias.map(([tipo, meta]) => (
         <label
-          class="cursor-pointer select-none inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-medium border transition-colors bg-slate-950/60 border-slate-700/80 hover:border-slate-500 text-slate-300 has-[:checked]:bg-slate-800 has-[:checked]:border-blue-500 has-[:checked]:text-white"
+          class="cursor-pointer select-none inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold border transition-all bg-[#061614]/80 border-[#1a433d] hover:border-[#54b995] text-[#e9efec] has-[:checked]:bg-[#12483f] has-[:checked]:border-[#54b995] has-[:checked]:text-white shadow-sm"
         >
           <input
             type="checkbox"
@@ -36,14 +36,14 @@ const protocolos = Object.entries(PROTOCOLO_CONFIG) as [EstandarProtocolo, (type
     </div>
 
     <!-- Secondary Controls: Protocol Selector & Gaps Toggle & Reset -->
-    <div class="flex flex-wrap items-center gap-2.5 sm:gap-3">
+    <div class="flex flex-wrap items-center gap-2">
       <!-- Protocol Select -->
       <div class="flex items-center space-x-1.5">
-        <label for="filter-protocol" class="font-semibold text-slate-400">Estándar:</label>
+        <label for="filter-protocol" class="font-bold text-[#8fafaa] text-[11px] uppercase tracking-wider">Estándar:</label>
         <select
           id="filter-protocol"
           data-filter="protocol"
-          class="bg-slate-950/80 border border-slate-700 rounded-md px-2.5 py-1 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+          class="bg-[#061614] border border-[#1a433d] rounded-md px-2.5 py-1 text-xs text-[#f7f5ef] focus:outline-none focus:ring-1 focus:ring-[#d7653b]"
         >
           <option value="">Todos los protocolos</option>
           {protocolos.map(([proto, meta]) => (
@@ -53,15 +53,15 @@ const protocolos = Object.entries(PROTOCOLO_CONFIG) as [EstandarProtocolo, (type
       </div>
 
       <!-- Only Gaps Toggle -->
-      <label class="cursor-pointer select-none inline-flex items-center space-x-1.5 bg-slate-950/80 border border-slate-700 hover:border-amber-500/80 px-2.5 py-1 rounded-md text-xs font-medium text-slate-300 transition-colors has-[:checked]:border-amber-500 has-[:checked]:bg-amber-950/40 has-[:checked]:text-amber-200">
+      <label class="cursor-pointer select-none inline-flex items-center space-x-1.5 bg-[#061614] border border-[#1a433d] hover:border-[#d7653b] px-2.5 py-1 rounded-md text-xs font-bold text-[#8fafaa] hover:text-[#f7f5ef] transition-colors has-[:checked]:border-[#d7653b] has-[:checked]:bg-[#d7653b]/20 has-[:checked]:text-[#f4dfd5]">
         <input
           type="checkbox"
           id="filter-gaps"
           data-filter="onlyGaps"
-          class="w-3.5 h-3.5 text-amber-500 rounded bg-slate-900 border-slate-600 focus:ring-amber-500"
+          class="w-3.5 h-3.5 text-[#d7653b] rounded bg-[#061614] border-[#1a433d] focus:ring-[#d7653b]"
         />
         <span class="inline-flex items-center gap-1">
-          <svg class="w-3.5 h-3.5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="w-3.5 h-3.5 text-[#d7653b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
           </svg>
           Solo con brechas
@@ -73,7 +73,7 @@ const protocolos = Object.entries(PROTOCOLO_CONFIG) as [EstandarProtocolo, (type
         type="button"
         id="reset-filters"
         data-action="reset-filters"
-        class="inline-flex items-center space-x-1 px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-md border border-slate-700 font-medium transition-colors focus:outline-none focus:ring-1 focus:ring-slate-500"
+        class="inline-flex items-center space-x-1 px-2.5 py-1 bg-[#12483f] hover:bg-[#1a5e52] text-[#f7f5ef] hover:text-white rounded-md border border-[#235d52] hover:border-[#d7653b] font-bold text-xs transition-colors focus:outline-none focus:ring-1 focus:ring-[#d7653b]"
         title="Restablecer todos los filtros y búsqueda"
       >
         <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

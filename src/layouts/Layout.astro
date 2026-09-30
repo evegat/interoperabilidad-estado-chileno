@@ -5,40 +5,58 @@ interface Props {
 }
 
 const {
-  title = 'Mapeo de Interoperabilidad del Estado Chileno (Ley 21.180)',
-  description = 'Visualizador interactivo de grafo y dataset estructurado de la interoperabilidad del Estado de Chile: instituciones públicas, PISEE, APIs, convenios y brechas técnicas.',
+  title = 'Mapeo de Interoperabilidad del Estado Chileno · Eduardo Vega Toledo (evegat.cl)',
+  description = 'Observatorio interactivo de grafo y dataset estructurado de la interoperabilidad del Estado de Chile: flujos interinstitucionales, PISEE, ClaveÚnica, APIs y brechas normativas. Por Eduardo Vega Toledo.',
 } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="es" class="h-full bg-slate-950">
+<html lang="es" class="h-full bg-[#061614]">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <meta name="author" content="Eduardo Vega Toledo" />
+    <meta name="theme-color" content="#0a2f2b" />
     <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   </head>
-  <body class="h-full bg-slate-950 text-slate-100 antialiased overflow-hidden flex flex-col font-sans">
+  <body class="h-full bg-[#061614] text-[#e9efec] antialiased overflow-hidden flex flex-col font-sans selection:bg-[#d7653b] selection:text-white">
     <slot />
   </body>
 </html>
 
 <style is:global>
-  /* Custom scrollbar for dark UI */
+  :root {
+    --brand-deep: #0a2f2b;
+    --brand-deep-2: #12483f;
+    --brand-ink: #13201e;
+    --brand-paper: #f7f5ef;
+    --brand-soft: #e9efec;
+    --brand-muted: #8fafaa;
+    --brand-accent: #d7653b;
+    --brand-mint: #54b995;
+    --brand-gold: #c5a75a;
+  }
+
+  /* Custom scrollbar matching evegat.cl deep pine */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #090d16;
+    background: #051311;
   }
   ::-webkit-scrollbar-thumb {
-    background: #334155;
+    background: #12483f;
     border-radius: 3px;
+    border: 1px solid #1a433d;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #475569;
+    background: #1a5e52;
   }
 </style>

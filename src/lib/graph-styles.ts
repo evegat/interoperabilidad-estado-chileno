@@ -1,6 +1,7 @@
 /**
  * Declarative Cytoscape Stylesheet and Semantic Color Mappings
  * for P029 Interoperabilidad del Estado Chileno
+ * Tailored to the visual identity and aesthetic of Eduardo Vega Toledo (evegat.cl)
  */
 
 import type { StylesheetStyle } from 'cytoscape';
@@ -16,37 +17,37 @@ export interface TypologyMeta {
 export const TIPOLOGIA_CONFIG: Record<TipoNodo, TypologyMeta> = {
   ministerio: {
     label: 'Ministerio',
-    color: '#2563eb', // blue
+    color: '#0f4c3a', // deep pine emerald
     shape: 'round-rectangle',
     description: 'Órgano rector de políticas públicas sectoriales',
   },
   servicio_publico: {
     label: 'Servicio Público',
-    color: '#0284c7', // cyan / indigo
+    color: '#1b4965', // deep oceanic teal/cyan
     shape: 'ellipse',
     description: 'Entidad ejecutora especializada y proveedora de trámites',
   },
   bus_transversal: {
     label: 'Bus Transversal',
-    color: '#059669', // emerald / teal
+    color: '#d7653b', // signature terracotta from evegat.cl
     shape: 'diamond',
     description: 'Plataforma centralizadora de interoperabilidad del Estado',
   },
   gobierno_local: {
     label: 'Gobierno Local',
-    color: '#d97706', // amber
+    color: '#c5a75a', // warm gold / ochre from evegat.cl
     shape: 'round-pentagon',
     description: 'Municipalidades y articulación territorial comunal',
   },
   organo_autonomo: {
     label: 'Órgano Autónomo',
-    color: '#7c3aed', // purple
+    color: '#5e4b70', // deep plum / purple
     shape: 'octagon',
     description: 'Entidad de control, fiscalización o representación civil',
   },
   superintendencia: {
     label: 'Superintendencia',
-    color: '#e11d48', // rose
+    color: '#9f1239', // deep crimson
     shape: 'barrel',
     description: 'Fiscalizador regulatorio sectorial',
   },
@@ -63,37 +64,37 @@ export const PROTOCOLO_CONFIG: Record<EstandarProtocolo, ProtocolMeta> = {
   'REST / JSON': {
     short: 'REST',
     label: 'REST / JSON',
-    color: '#10b981', // emerald
+    color: '#54b995', // signature mint from evegat.cl
     lineStyle: 'solid',
   },
   'SOAP / XML (WSDL)': {
     short: 'SOAP',
     label: 'SOAP / XML',
-    color: '#f59e0b', // amber
+    color: '#c5a75a', // signature gold from evegat.cl
     lineStyle: 'dashed',
   },
   'OpenID Connect / OAuth2': {
     short: 'OIDC',
     label: 'OIDC / OAuth2',
-    color: '#3b82f6', // blue
+    color: '#38bdf8', // sky cyan
     lineStyle: 'solid',
   },
   'SFTP / Batch plano o CSV': {
     short: 'SFTP',
     label: 'SFTP / Batch',
-    color: '#f97316', // orange
+    color: '#d7653b', // signature terracotta from evegat.cl
     lineStyle: 'dotted',
   },
   'Webhooks / Event-driven': {
     short: 'Webhook',
     label: 'Webhooks / Event-driven',
-    color: '#8b5cf6', // purple
+    color: '#a78bfa', // soft purple
     lineStyle: 'dashed',
   },
   'Bilateral Propietario': {
     short: 'Bilateral',
     label: 'Bilateral Propietario',
-    color: '#ec4899', // pink
+    color: '#f472b6', // soft pink
     lineStyle: 'dashed',
   },
 };
@@ -111,7 +112,7 @@ export function getShortProtocol(protocol: EstandarProtocolo | string): string {
 }
 
 /**
- * Declarative Cytoscape Stylesheet
+ * Declarative Cytoscape Stylesheet matching evegat.cl aesthetic
  */
 export const graphStyles: StylesheetStyle[] = [
   // -------------------------------------------------------------
@@ -121,10 +122,10 @@ export const graphStyles: StylesheetStyle[] = [
     selector: 'node',
     style: {
       'label': 'data(sigla)',
-      'color': '#ffffff',
+      'color': '#f7f5ef',
       'font-size': '11px',
       'font-weight': 'bold',
-      'font-family': 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+      'font-family': 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
       'text-valign': 'center',
       'text-halign': 'center',
       'text-wrap': 'wrap',
@@ -132,8 +133,8 @@ export const graphStyles: StylesheetStyle[] = [
       'width': 64,
       'height': 64,
       'border-width': 2,
-      'border-color': '#ffffff',
-      'border-opacity': 0.8,
+      'border-color': '#f7f5ef',
+      'border-opacity': 0.85,
       'transition-property': 'background-color, line-color, target-arrow-color, opacity, border-width, border-color',
       'transition-duration': 0.25,
       'opacity': 1,
@@ -141,63 +142,73 @@ export const graphStyles: StylesheetStyle[] = [
   },
 
   // -------------------------------------------------------------
-  // Node Typology Shapes & Colors
+  // Node Typology Shapes & Colors (evegat.cl Palette)
   // -------------------------------------------------------------
   {
     selector: 'node[tipo = "ministerio"]',
     style: {
-      'background-color': '#2563eb', // blue
+      'background-color': '#0f4c3a', // deep pine emerald
       'shape': 'round-rectangle',
       'width': 76,
       'height': 54,
+      'border-color': '#54b995',
+      'border-width': 2,
     },
   },
   {
     selector: 'node[tipo = "servicio_publico"]',
     style: {
-      'background-color': '#0284c7', // cyan / indigo
+      'background-color': '#1b4965', // deep oceanic cyan
       'shape': 'ellipse',
       'width': 64,
       'height': 64,
+      'border-color': '#7dd3fc',
+      'border-width': 2,
     },
   },
   {
     selector: 'node[tipo = "bus_transversal"]',
     style: {
-      'background-color': '#059669', // emerald / teal
+      'background-color': '#d7653b', // signature terracotta
       'shape': 'diamond',
-      'width': 80,
-      'height': 80,
+      'width': 82,
+      'height': 82,
       'border-width': 3,
-      'border-color': '#a7f3d0',
+      'border-color': '#fed7aa',
       'font-size': '12px',
     },
   },
   {
     selector: 'node[tipo = "gobierno_local"]',
     style: {
-      'background-color': '#d97706', // amber
+      'background-color': '#c5a75a', // warm gold / ochre
       'shape': 'round-pentagon',
       'width': 70,
       'height': 70,
+      'border-color': '#fef08a',
+      'border-width': 2,
     },
   },
   {
     selector: 'node[tipo = "organo_autonomo"]',
     style: {
-      'background-color': '#7c3aed', // purple
+      'background-color': '#5e4b70', // deep plum
       'shape': 'octagon',
       'width': 68,
       'height': 68,
+      'border-color': '#d8b4fe',
+      'border-width': 2,
     },
   },
   {
     selector: 'node[tipo = "superintendencia"]',
     style: {
-      'background-color': '#e11d48', // rose
+      'background-color': '#9f1239', // deep crimson
       'shape': 'barrel',
       'width': 70,
       'height': 58,
+      'border-color': '#fecdd3',
+      'border-width': 2,
     },
   },
 
@@ -208,23 +219,23 @@ export const graphStyles: StylesheetStyle[] = [
     selector: 'edge',
     style: {
       'width': 2.5,
-      'line-color': '#64748b',
-      'target-arrow-color': '#64748b',
+      'line-color': '#475569',
+      'target-arrow-color': '#475569',
       'target-arrow-shape': 'triangle',
       'curve-style': 'bezier',
-      'arrow-scale': 1.1,
+      'arrow-scale': 1.15,
       'label': 'data(protocol_short)',
       'font-size': '9px',
       'font-weight': 'bold',
-      'font-family': 'monospace',
+      'font-family': 'ui-monospace, SFMono-Regular, Consolas, monospace',
       'text-rotation': 'autorotate',
-      'text-background-opacity': 0.88,
-      'text-background-color': '#090d16',
+      'text-background-opacity': 0.92,
+      'text-background-color': '#061614',
       'text-background-padding': '3px',
       'text-background-shape': 'roundrectangle',
       'text-border-width': 1,
-      'text-border-color': '#334155',
-      'color': '#cbd5e1',
+      'text-border-color': '#163a34',
+      'color': '#8fafaa',
       'opacity': 0.9,
       'transition-property': 'line-color, target-arrow-color, width, opacity',
       'transition-duration': 0.25,
@@ -232,56 +243,56 @@ export const graphStyles: StylesheetStyle[] = [
   },
 
   // -------------------------------------------------------------
-  // Edge Protocol Specific Styles
+  // Edge Protocol Specific Styles (evegat.cl Palette)
   // -------------------------------------------------------------
   {
     selector: 'edge[protocol_short = "REST"]',
     style: {
-      'line-color': '#10b981', // emerald
-      'target-arrow-color': '#10b981',
+      'line-color': '#54b995', // mint
+      'target-arrow-color': '#54b995',
       'line-style': 'solid',
-      'text-border-color': '#10b981',
-      'color': '#6ee7b7',
+      'text-border-color': '#54b995',
+      'color': '#a7f3d0',
     },
   },
   {
     selector: 'edge[protocol_short = "SOAP"]',
     style: {
-      'line-color': '#f59e0b', // amber
-      'target-arrow-color': '#f59e0b',
+      'line-color': '#c5a75a', // gold
+      'target-arrow-color': '#c5a75a',
       'line-style': 'dashed',
-      'text-border-color': '#f59e0b',
-      'color': '#fcd34d',
+      'text-border-color': '#c5a75a',
+      'color': '#fef08a',
     },
   },
   {
     selector: 'edge[protocol_short = "OIDC"]',
     style: {
-      'line-color': '#3b82f6', // blue
-      'target-arrow-color': '#3b82f6',
+      'line-color': '#38bdf8', // sky cyan
+      'target-arrow-color': '#38bdf8',
       'line-style': 'solid',
-      'text-border-color': '#3b82f6',
-      'color': '#93c5fd',
+      'text-border-color': '#38bdf8',
+      'color': '#bae6fd',
     },
   },
   {
     selector: 'edge[protocol_short = "SFTP"]',
     style: {
-      'line-color': '#f97316', // orange
-      'target-arrow-color': '#f97316',
+      'line-color': '#d7653b', // terracotta
+      'target-arrow-color': '#d7653b',
       'line-style': 'dotted',
-      'text-border-color': '#f97316',
-      'color': '#fdba74',
+      'text-border-color': '#d7653b',
+      'color': '#fed7aa',
     },
   },
   {
     selector: 'edge[protocol_short = "Bilateral"]',
     style: {
-      'line-color': '#ec4899', // pink
-      'target-arrow-color': '#ec4899',
+      'line-color': '#f472b6', // pink
+      'target-arrow-color': '#f472b6',
       'line-style': 'dashed',
-      'text-border-color': '#ec4899',
-      'color': '#f472b6',
+      'text-border-color': '#f472b6',
+      'color': '#fbcfe8',
     },
   },
 
@@ -292,7 +303,7 @@ export const graphStyles: StylesheetStyle[] = [
     selector: 'node.highlighted',
     style: {
       'border-width': 4,
-      'border-color': '#38bdf8', // sky blue
+      'border-color': '#54b995', // mint highlight
       'opacity': 1,
       'z-index': 998,
     },
@@ -301,7 +312,7 @@ export const graphStyles: StylesheetStyle[] = [
     selector: 'node.selected',
     style: {
       'border-width': 5,
-      'border-color': '#facc15', // bright yellow
+      'border-color': '#d7653b', // signature terracotta selection
       'opacity': 1,
       'z-index': 999,
     },
@@ -310,8 +321,8 @@ export const graphStyles: StylesheetStyle[] = [
     selector: 'edge.highlighted',
     style: {
       'width': 4,
-      'line-color': '#38bdf8',
-      'target-arrow-color': '#38bdf8',
+      'line-color': '#54b995',
+      'target-arrow-color': '#54b995',
       'opacity': 1,
       'z-index': 998,
     },
@@ -320,8 +331,8 @@ export const graphStyles: StylesheetStyle[] = [
     selector: 'edge.selected',
     style: {
       'width': 4.5,
-      'line-color': '#facc15',
-      'target-arrow-color': '#facc15',
+      'line-color': '#d7653b', // terracotta
+      'target-arrow-color': '#d7653b',
       'opacity': 1,
       'z-index': 999,
     },
