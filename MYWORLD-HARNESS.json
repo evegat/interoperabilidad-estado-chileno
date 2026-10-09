@@ -13,6 +13,7 @@
   "deployment": {
     "state": "public",
     "production_urls": [
+      "https://interoperabilidadpublica.evegat.cl",
       "https://evegat.github.io/interoperabilidad-estado-chileno/"
     ]
   },
