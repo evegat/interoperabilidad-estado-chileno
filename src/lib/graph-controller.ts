@@ -11,6 +11,9 @@ import type {
   AristaInteroperabilidad,
   TipoNodo,
   EstandarProtocolo,
+  CanalInteroperabilidad,
+  MadurezFlujo,
+  CapacidadesAgenteIA,
 } from '../types/interoperabilidad.js';
 import { graphStyles, getShortProtocol } from './graph-styles.js';
 
@@ -19,6 +22,9 @@ export interface FilterState {
   typologies: TipoNodo[];
   protocols: EstandarProtocolo[];
   onlyGaps: boolean;
+  channel?: 'all' | 'PISEE' | 'Convenio' | 'Manual';
+  maturity?: 'all' | 'realtime' | 'batch' | 'manual';
+  imiLevel?: 'all' | 1 | 2 | 3 | 4 | 5 | 6 | string;
 }
 
 export interface NodeDrawerPayload {
@@ -34,8 +40,19 @@ export interface NodeDrawerPayload {
   total_conexiones: number;
   in_degree: number;
   out_degree: number;
-  aristas_entrantes: Array<{ id: string; origen: string; bus: string }>;
-  aristas_salientes: Array<{ id: string; destino: string; bus: string }>;
+  aristas_entrantes: Array<{ id: string; origen: string; origen_sigla?: string; bus: string }>;
+  aristas_salientes: Array<{ id: string; destino: string; destino_sigla?: string; bus: string }>;
+  indice_madurez_interoperabilidad?: number;
+  nivel_madurez_interoperabilidad?: number;
+  agent_ready?: boolean;
+  capacidades_agente?: CapacidadesAgenteIA;
+  documentacion_oficial?: Array<{
+    titulo: string;
+    tipo: string;
+    url: string;
+    ano: number | string;
+    resumen: string;
+  }>;
 }
 
 export interface EdgeDrawerPayload {
@@ -54,6 +71,8 @@ export interface EdgeDrawerPayload {
   brecha_observada: string;
   frecuencia_actualizacion: string;
   base_legal: string;
+  canal?: CanalInteroperabilidad;
+  madurez_tecnica?: MadurezFlujo;
 }
 
 export type SelectionEventDetail =
@@ -71,6 +90,8 @@ export class GraphController {
     typologies: [],
     protocols: [],
     onlyGaps: false,
+    channel: 'all',
+    maturity: 'all',
   };
 
   constructor(dataset: DatasetInteroperabilidad) {
@@ -97,7 +118,22 @@ export class GraphController {
           sitio_web: nodo.sitio_web,
           nivel_madurez_digital: nodo.nivel_madurez_digital,
           estado_adopcion_ley21180: nodo.estado_adopcion_ley21180,
+          indice_madurez_interoperabilidad: nodo.indice_madurez_interoperabilidad,
+          nivel_madurez_interoperabilidad: nodo.nivel_madurez_interoperabilidad,
+          agent_ready: nodo.agent_ready,
+          capacidades_agente: nodo.capacidades_agente,
+          is_agent_ready: Boolean(nodo.agent_ready || nodo.nivel_madurez_interoperabilidad === 6) ? 'true' : 'false',
+          docs_count: nodo.documentacion_oficial ? nodo.documentacion_oficial.length : 0,
+          display_label:
+            (nodo.agent_ready || nodo.nivel_madurez_interoperabilidad === 6)
+              ? (nodo.documentacion_oficial && nodo.documentacion_oficial.length > 0
+                  ? `🤖 ${nodo.sigla}\n📎 ${nodo.documentacion_oficial.length}`
+                  : `🤖 ${nodo.sigla}`)
+              : (nodo.documentacion_oficial && nodo.documentacion_oficial.length > 0
+                  ? `${nodo.sigla}\n📎 ${nodo.documentacion_oficial.length}`
+                  : nodo.sigla),
         },
+        classes: (nodo.agent_ready || nodo.nivel_madurez_interoperabilidad === 6) ? 'agent-ready' : '',
       })),
       ...this.dataset.aristas.map((arista) => ({
         group: 'edges' as const,
@@ -109,6 +145,8 @@ export class GraphController {
           tipo_dato: arista.tipo_dato,
           estandar_o_protocolo: arista.estandar_o_protocolo,
           protocol_short: getShortProtocol(arista.estandar_o_protocolo),
+          canal: arista.canal || (arista.plataforma_o_bus.includes('PISEE') ? 'PISEE' : arista.plataforma_o_bus.includes('Manual') ? 'Manual' : 'Convenio'),
+          madurez_tecnica: arista.madurez_tecnica || (arista.estandar_o_protocolo.includes('REST') ? 'realtime' : arista.estandar_o_protocolo.includes('SFTP') ? 'batch' : 'manual'),
           nivel_apertura: arista.nivel_apertura,
           fuente_oficial_url: arista.fuente_oficial_url,
           brecha_observada: arista.brecha_observada,
@@ -211,8 +249,29 @@ export class GraphController {
       total_conexiones: incoming.length + outgoing.length,
       in_degree: incoming.length,
       out_degree: outgoing.length,
-      aristas_entrantes: incoming.map((e) => ({ id: e.id, origen: e.origen, bus: e.plataforma_o_bus })),
-      aristas_salientes: outgoing.map((e) => ({ id: e.id, destino: e.destino, bus: e.plataforma_o_bus })),
+      indice_madurez_interoperabilidad: nodeData.indice_madurez_interoperabilidad,
+      nivel_madurez_interoperabilidad: nodeData.nivel_madurez_interoperabilidad,
+      agent_ready: nodeData.agent_ready,
+      capacidades_agente: nodeData.capacidades_agente,
+      documentacion_oficial: nodeData.documentacion_oficial || [],
+      aristas_entrantes: incoming.map((e) => {
+        const origenNode = this.nodeMap.get(e.origen);
+        return {
+          id: e.id,
+          origen: e.origen,
+          origen_sigla: origenNode?.sigla || e.origen.toUpperCase(),
+          bus: e.plataforma_o_bus,
+        };
+      }),
+      aristas_salientes: outgoing.map((e) => {
+        const destinoNode = this.nodeMap.get(e.destino);
+        return {
+          id: e.id,
+          destino: e.destino,
+          destino_sigla: destinoNode?.sigla || e.destino.toUpperCase(),
+          bus: e.plataforma_o_bus,
+        };
+      }),
     };
 
     window.dispatchEvent(
@@ -259,6 +318,8 @@ export class GraphController {
       brecha_observada: edgeData.brecha_observada,
       frecuencia_actualizacion: edgeData.frecuencia_actualizacion,
       base_legal: edgeData.base_legal || 'Ley N° 21.180',
+      canal: edgeData.canal || (edgeData.plataforma_o_bus.includes('PISEE') ? 'PISEE' : edgeData.plataforma_o_bus.includes('Manual') ? 'Manual' : 'Convenio'),
+      madurez_tecnica: edgeData.madurez_tecnica || (edgeData.estandar_o_protocolo.includes('REST') ? 'realtime' : edgeData.estandar_o_protocolo.includes('SFTP') ? 'batch' : 'manual'),
     };
 
     window.dispatchEvent(
@@ -343,7 +404,15 @@ export class GraphController {
     this.filters = { ...this.filters, ...filters };
     if (!this.cy) return;
 
-    const { search = '', typologies = [], protocols = [], onlyGaps = false } = this.filters;
+    const {
+      search = '',
+      typologies = [],
+      protocols = [],
+      onlyGaps = false,
+      channel = 'all',
+      maturity = 'all',
+      imiLevel = 'all',
+    } = this.filters;
     const normalizedQuery = search.trim().toLowerCase();
 
     // 1. Filter Nodes
@@ -363,6 +432,13 @@ export class GraphController {
         }
       }
 
+      if (imiLevel && imiLevel !== 'all') {
+        const lvl = typeof imiLevel === 'string' ? parseInt(imiLevel, 10) : imiLevel;
+        if (node.nivel_madurez_interoperabilidad !== lvl) {
+          return false;
+        }
+      }
+
       return true;
     });
 
@@ -370,6 +446,16 @@ export class GraphController {
 
     // 2. Filter Edges
     const matchedEdges = this.dataset.aristas.filter((edge) => {
+      if (channel && channel !== 'all') {
+        const edgeCanal = edge.canal || (edge.plataforma_o_bus.includes('PISEE') ? 'PISEE' : edge.plataforma_o_bus.includes('Manual') ? 'Manual' : 'Convenio');
+        if (edgeCanal !== channel) return false;
+      }
+
+      if (maturity && maturity !== 'all') {
+        const edgeMadurez = edge.madurez_tecnica || (edge.estandar_o_protocolo.includes('REST') ? 'realtime' : edge.estandar_o_protocolo.includes('SFTP') ? 'batch' : 'manual');
+        if (edgeMadurez !== maturity) return false;
+      }
+
       if (onlyGaps) {
         if (!edge.brecha_observada || edge.brecha_observada.trim().length === 0) {
           return false;
@@ -389,10 +475,13 @@ export class GraphController {
 
     // Refine active nodes
     const activeNodes = matchedNodes.filter((node) => {
-      if (typologies.length > 0 || normalizedQuery.length > 0) {
+      if (normalizedQuery.length > 0) {
         return true;
       }
-      if (protocols.length > 0 || onlyGaps) {
+      if (typologies.length > 0 || (imiLevel && imiLevel !== 'all')) {
+        return true;
+      }
+      if (channel !== 'all' || maturity !== 'all' || protocols.length > 0 || onlyGaps) {
         return matchedEdges.some((e) => e.origen === node.id || e.destino === node.id);
       }
       return true;
@@ -436,6 +525,16 @@ export class GraphController {
       }
     }
 
+    const piseeCount = matchedEdges.filter(e => (e.canal === 'PISEE' || e.plataforma_o_bus.includes('PISEE'))).length;
+    const realtimeCount = matchedEdges.filter(e => (e.madurez_tecnica === 'realtime' || e.estandar_o_protocolo.includes('REST') || e.estandar_o_protocolo.includes('OpenID'))).length;
+    const gapsCount = matchedEdges.filter(e => e.brecha_observada && e.brecha_observada.trim().length > 5).length;
+
+    const activeNodesWithImi = activeNodes.filter(n => typeof n.indice_madurez_interoperabilidad === 'number');
+    const avgImi = activeNodesWithImi.length > 0
+      ? Math.round(activeNodesWithImi.reduce((sum, n) => sum + (n.indice_madurez_interoperabilidad || 0), 0) / activeNodesWithImi.length)
+      : 50;
+    const avgImiLevel = avgImi >= 101 ? 6 : avgImi >= 81 ? 5 : avgImi >= 61 ? 4 : avgImi >= 41 ? 3 : avgImi >= 21 ? 2 : 1;
+
     // Dispatch filter state change event for header KPI updates
     window.dispatchEvent(
       new CustomEvent('filters-updated', {
@@ -444,6 +543,11 @@ export class GraphController {
           activeEdgesCount: matchedEdges.length,
           activeNodeIds: Array.from(activeNodeIds),
           activeEdgeIds: Array.from(activeEdgeIds),
+          gapsCount,
+          percentPisee: matchedEdges.length > 0 ? Math.round((piseeCount / matchedEdges.length) * 100) : 0,
+          percentRealtime: matchedEdges.length > 0 ? Math.round((realtimeCount / matchedEdges.length) * 100) : 0,
+          avgImi,
+          avgImiLevel,
         },
       })
     );
@@ -455,13 +559,28 @@ export class GraphController {
       typologies: [],
       protocols: [],
       onlyGaps: false,
+      channel: 'all',
+      maturity: 'all',
+      imiLevel: 'all',
     };
     if (!this.cy) return;
+
+    this.clearSelection();
 
     this.cy.batch(() => {
       this.cy!.elements().removeClass('hidden faded selected highlighted');
       this.cy!.elements().style('display', 'element');
     });
+
+    const piseeCount = this.dataset.aristas.filter(e => (e.canal === 'PISEE' || e.plataforma_o_bus.includes('PISEE'))).length;
+    const realtimeCount = this.dataset.aristas.filter(e => (e.madurez_tecnica === 'realtime' || e.estandar_o_protocolo.includes('REST') || e.estandar_o_protocolo.includes('OpenID'))).length;
+    const gapsCount = this.dataset.aristas.filter(e => e.brecha_observada && e.brecha_observada.trim().length > 5).length;
+
+    const allNodesWithImi = this.dataset.nodos.filter(n => typeof n.indice_madurez_interoperabilidad === 'number');
+    const avgImi = allNodesWithImi.length > 0
+      ? Math.round(allNodesWithImi.reduce((sum, n) => sum + (n.indice_madurez_interoperabilidad || 0), 0) / allNodesWithImi.length)
+      : 50;
+    const avgImiLevel = avgImi >= 101 ? 6 : avgImi >= 81 ? 5 : avgImi >= 61 ? 4 : avgImi >= 41 ? 3 : avgImi >= 21 ? 2 : 1;
 
     window.dispatchEvent(
       new CustomEvent('filters-updated', {
@@ -470,6 +589,11 @@ export class GraphController {
           activeEdgesCount: this.dataset.aristas.length,
           activeNodeIds: this.dataset.nodos.map((n) => n.id),
           activeEdgeIds: this.dataset.aristas.map((e) => e.id),
+          gapsCount,
+          percentPisee: this.dataset.aristas.length > 0 ? Math.round((piseeCount / this.dataset.aristas.length) * 100) : 0,
+          percentRealtime: this.dataset.aristas.length > 0 ? Math.round((realtimeCount / this.dataset.aristas.length) * 100) : 0,
+          avgImi,
+          avgImiLevel,
         },
       })
     );
@@ -507,6 +631,56 @@ export function initGraphApp(dataset: DatasetInteroperabilidad): GraphController
     input.addEventListener('input', (e) => {
       const val = (e.target as HTMLInputElement).value;
       controller.applyFilters({ search: val });
+    });
+  });
+
+  // Channel filter buttons binding
+  const channelBtns = document.querySelectorAll<HTMLButtonElement>('[data-filter="channel"], .channel-btn');
+  channelBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const val = (btn.dataset.value || 'all') as 'all' | 'PISEE' | 'Convenio' | 'Manual';
+      channelBtns.forEach((b) => {
+        b.classList.remove('bg-[#12483f]', 'text-white', 'font-bold');
+        b.classList.add('font-medium');
+      });
+      btn.classList.add('bg-[#12483f]', 'text-white', 'font-bold');
+      controller.applyFilters({ channel: val });
+    });
+  });
+
+  // Maturity filter buttons binding
+  const maturityBtns = document.querySelectorAll<HTMLButtonElement>('[data-filter="maturity"], .maturity-btn');
+  maturityBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const val = (btn.dataset.value || 'all') as 'all' | 'realtime' | 'batch' | 'manual';
+      maturityBtns.forEach((b) => {
+        b.classList.remove('bg-[#12483f]', 'text-white', 'font-bold');
+        b.classList.add('font-medium');
+      });
+      btn.classList.add('bg-[#12483f]', 'text-white', 'font-bold');
+      controller.applyFilters({ maturity: val });
+    });
+  });
+
+  // IMI Level buttons and selects binding
+  const imiBtns = document.querySelectorAll<HTMLButtonElement>('[data-filter="imi"], .imi-btn');
+  imiBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const val = btn.dataset.value || 'all';
+      imiBtns.forEach((b) => {
+        b.classList.remove('bg-[#12483f]', 'text-white', 'font-bold');
+        b.classList.add('font-medium');
+      });
+      btn.classList.add('bg-[#12483f]', 'text-white', 'font-bold');
+      controller.applyFilters({ imiLevel: val });
+    });
+  });
+
+  const imiSelects = document.querySelectorAll<HTMLSelectElement>('#filter-imi, select[data-filter="imi"]');
+  imiSelects.forEach((elem) => {
+    elem.addEventListener('change', (e) => {
+      const val = (e.target as HTMLSelectElement).value;
+      controller.applyFilters({ imiLevel: val || 'all' });
     });
   });
 
@@ -553,6 +727,32 @@ export function initGraphApp(dataset: DatasetInteroperabilidad): GraphController
       typologySelects.forEach((t) => ((t as HTMLInputElement).checked = false));
       protocolSelects.forEach((p) => ((p as HTMLSelectElement).value = ''));
       gapsToggles.forEach((g) => (g.checked = false));
+
+      channelBtns.forEach((b) => {
+        if (b.dataset.value === 'all') {
+          b.classList.add('bg-[#12483f]', 'text-white', 'font-bold');
+        } else {
+          b.classList.remove('bg-[#12483f]', 'text-white', 'font-bold');
+        }
+      });
+
+      maturityBtns.forEach((b) => {
+        if (b.dataset.value === 'all') {
+          b.classList.add('bg-[#12483f]', 'text-white', 'font-bold');
+        } else {
+          b.classList.remove('bg-[#12483f]', 'text-white', 'font-bold');
+        }
+      });
+
+      imiBtns.forEach((b) => {
+        if (b.dataset.value === 'all') {
+          b.classList.add('bg-[#12483f]', 'text-white', 'font-bold');
+        } else {
+          b.classList.remove('bg-[#12483f]', 'text-white', 'font-bold');
+        }
+      });
+      imiSelects.forEach((s) => (s.value = 'all'));
+
       controller.resetFilters();
     });
   });

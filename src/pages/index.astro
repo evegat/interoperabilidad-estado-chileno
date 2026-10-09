@@ -5,6 +5,7 @@ import FilterBar from '../components/FilterBar.astro';
 import GraphViewport from '../components/GraphViewport.astro';
 import DetailDrawer from '../components/DetailDrawer.astro';
 import Legend from '../components/Legend.astro';
+import BenchmarkModal from '../components/BenchmarkModal.astro';
 import datasetRaw from '../data/interoperabilidad.json';
 import type { DatasetInteroperabilidad } from '../types/interoperabilidad.js';
 
@@ -18,6 +19,7 @@ const dataset = datasetRaw as DatasetInteroperabilidad;
     <GraphViewport />
     <Legend />
     <DetailDrawer />
+    <BenchmarkModal />
   </main>
 </Layout>
 
@@ -33,14 +35,30 @@ const dataset = datasetRaw as DatasetInteroperabilidad;
 
     // Update Header KPI counts dynamically on filter changes
     window.addEventListener('filters-updated', ((e: CustomEvent) => {
-      const { activeNodesCount, activeEdgesCount } = e.detail || {};
+      const { activeNodesCount, activeEdgesCount, percentPisee, percentRealtime, gapsCount, avgImi, avgImiLevel } = e.detail || {};
       const kpiNodos = document.getElementById('kpi-nodos');
       const kpiAristas = document.getElementById('kpi-aristas');
+      const kpiPisee = document.getElementById('kpi-pisee');
+      const kpiRealtime = document.getElementById('kpi-realtime');
+      const kpiBrechas = document.getElementById('kpi-brechas');
+      const kpiImi = document.getElementById('kpi-imi');
       if (kpiNodos && typeof activeNodesCount === 'number') {
         kpiNodos.textContent = String(activeNodesCount);
       }
       if (kpiAristas && typeof activeEdgesCount === 'number') {
         kpiAristas.textContent = String(activeEdgesCount);
+      }
+      if (kpiPisee && typeof percentPisee === 'number') {
+        kpiPisee.textContent = `${percentPisee}%`;
+      }
+      if (kpiRealtime && typeof percentRealtime === 'number') {
+        kpiRealtime.textContent = `${percentRealtime}%`;
+      }
+      if (kpiBrechas && typeof gapsCount === 'number') {
+        kpiBrechas.textContent = String(gapsCount);
+      }
+      if (kpiImi && typeof avgImi === 'number') {
+        kpiImi.innerHTML = `${avgImi} pts <span class="text-[10px] text-[#8fafaa] font-medium font-mono">(N${avgImiLevel || 3})</span>`;
       }
     }) as EventListener);
   }

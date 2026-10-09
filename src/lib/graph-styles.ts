@@ -121,7 +121,7 @@ export const graphStyles: StylesheetStyle[] = [
   {
     selector: 'node',
     style: {
-      'label': 'data(sigla)',
+      'label': 'data(display_label)',
       'color': '#f7f5ef',
       'font-size': '11px',
       'font-weight': 'bold',
@@ -353,6 +353,18 @@ export const graphStyles: StylesheetStyle[] = [
     selector: 'node.hidden, edge.hidden',
     style: {
       'display': 'none',
+    },
+  },
+  // -------------------------------------------------------------
+  // Nivel 6: Agent-Ready / IA Soberana (Aura Violeta Distintiva)
+  // -------------------------------------------------------------
+  {
+    selector: 'node.agent-ready, node[is_agent_ready = "true"]',
+    style: {
+      'border-width': 3.5,
+      'border-color': '#a78bfa', // aura violeta para agentes autónomos
+      'border-style': 'solid',
+      'border-opacity': 1,
     },
   },
 ];

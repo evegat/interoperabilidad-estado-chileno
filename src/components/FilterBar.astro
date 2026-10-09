@@ -7,48 +7,150 @@ const protocolos = Object.entries(PROTOCOLO_CONFIG) as [EstandarProtocolo, (type
 ---
 
 <div class="bg-[#081d1a]/95 backdrop-blur border-b border-[#163a34] px-4 sm:px-6 py-2 text-xs text-[#8fafaa]">
-  <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2.5">
-    <!-- Institutional Typology Pills -->
-    <div id="filter-typology" class="flex flex-wrap items-center gap-1.5">
-      <span class="font-bold text-[#8fafaa] mr-1 flex items-center gap-1 text-[11px] uppercase tracking-wider">
-        <svg class="w-3.5 h-3.5 text-[#54b995]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
-        </svg>
-        Tipo:
-      </span>
-      {tipologias.map(([tipo, meta]) => (
-        <label
-          class="cursor-pointer select-none inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold border transition-all bg-[#061614]/80 border-[#1a433d] hover:border-[#54b995] text-[#e9efec] has-[:checked]:bg-[#12483f] has-[:checked]:border-[#54b995] has-[:checked]:text-white shadow-sm"
-        >
-          <input
-            type="checkbox"
-            value={tipo}
-            data-filter="typology"
-            class="sr-only"
-          />
-          <span
-            class="w-2 h-2 rounded-full inline-block"
-            style={`background-color: ${meta.color};`}
-          ></span>
-          <span>{meta.label}</span>
-        </label>
-      ))}
+  <div class="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2.5">
+    
+    <!-- Primary Filters: Canales Oficiales y Niveles de Madurez -->
+    <div class="flex flex-wrap items-center gap-3">
+      <!-- Channel Filter (PISEE, Bilateral, Manual) -->
+      <div class="flex items-center space-x-1.5">
+        <span class="font-bold text-[#8fafaa] text-[11px] uppercase tracking-wider flex items-center gap-1">
+          Canal:
+        </span>
+        <div class="inline-flex rounded-lg bg-[#061614] p-0.5 border border-[#1a433d]" id="filter-channel-group">
+          <button
+            type="button"
+            data-filter="channel"
+            data-value="all"
+            class="channel-btn px-2.5 py-1 rounded-md bg-[#12483f] text-white font-bold text-xs transition-colors"
+          >
+            Todos
+          </button>
+          <button
+            type="button"
+            data-filter="channel"
+            data-value="PISEE"
+            class="channel-btn px-2.5 py-1 rounded-md text-[#54b995] hover:text-white font-medium text-xs transition-colors flex items-center gap-1"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-[#54b995]"></span>
+            PISEE (Oficial)
+          </button>
+          <button
+            type="button"
+            data-filter="channel"
+            data-value="Convenio"
+            class="channel-btn px-2.5 py-1 rounded-md text-[#38bdf8] hover:text-white font-medium text-xs transition-colors flex items-center gap-1"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-[#38bdf8]"></span>
+            Bilateral
+          </button>
+          <button
+            type="button"
+            data-filter="channel"
+            data-value="Manual"
+            class="channel-btn px-2.5 py-1 rounded-md text-[#c5a75a] hover:text-white font-medium text-xs transition-colors flex items-center gap-1"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-[#c5a75a]"></span>
+            Manual / Oficio
+          </button>
+        </div>
+      </div>
+
+      <!-- Maturity Filter (Realtime, Batch, Manual) -->
+      <div class="flex items-center space-x-1.5">
+        <span class="font-bold text-[#8fafaa] text-[11px] uppercase tracking-wider flex items-center gap-1">
+          Madurez:
+        </span>
+        <div class="inline-flex rounded-lg bg-[#061614] p-0.5 border border-[#1a433d]" id="filter-maturity-group">
+          <button
+            type="button"
+            data-filter="maturity"
+            data-value="all"
+            class="maturity-btn px-2.5 py-1 rounded-md bg-[#12483f] text-white font-bold text-xs transition-colors"
+          >
+            Todas
+          </button>
+          <button
+            type="button"
+            data-filter="maturity"
+            data-value="realtime"
+            class="maturity-btn px-2.5 py-1 rounded-md text-[#8fafaa] hover:text-white font-medium text-xs transition-colors"
+          >
+            ⚡ API Tiempo Real
+          </button>
+          <button
+            type="button"
+            data-filter="maturity"
+            data-value="batch"
+            class="maturity-btn px-2.5 py-1 rounded-md text-[#8fafaa] hover:text-white font-medium text-xs transition-colors"
+          >
+            📦 Lotes / SFTP
+          </button>
+          <button
+            type="button"
+            data-filter="maturity"
+            data-value="manual"
+            class="maturity-btn px-2.5 py-1 rounded-md text-[#8fafaa] hover:text-white font-medium text-xs transition-colors"
+          >
+            📄 Documental
+          </button>
+        </div>
+      </div>
     </div>
 
-    <!-- Secondary Controls: Protocol Selector & Gaps Toggle & Reset -->
+    <!-- Secondary Controls: Typology, Protocol, Gaps & Reset -->
     <div class="flex flex-wrap items-center gap-2">
+      <!-- Typology Pills (responsive wrap) -->
+      <div id="filter-typology" class="flex flex-wrap items-center gap-1">
+        <span class="font-bold text-[#8fafaa] mr-0.5 text-[11px] uppercase tracking-wider">Tipo:</span>
+        {tipologias.map(([tipo, meta]) => (
+          <label
+            class="cursor-pointer select-none inline-flex items-center space-x-1 px-2 py-0.5 rounded-full text-[11px] font-semibold border transition-all bg-[#061614]/80 border-[#1a433d] hover:border-[#54b995] text-[#e9efec] has-[:checked]:bg-[#12483f] has-[:checked]:border-[#54b995] has-[:checked]:text-white shadow-sm"
+          >
+            <input
+              type="checkbox"
+              value={tipo}
+              data-filter="typology"
+              class="sr-only"
+            />
+            <span
+              class="w-1.5 h-1.5 rounded-full inline-block"
+              style={`background-color: ${meta.color};`}
+            ></span>
+            <span>{meta.label}</span>
+          </label>
+        ))}
+      </div>
+
       <!-- Protocol Select -->
       <div class="flex items-center space-x-1.5">
         <label for="filter-protocol" class="font-bold text-[#8fafaa] text-[11px] uppercase tracking-wider">Estándar:</label>
         <select
           id="filter-protocol"
           data-filter="protocol"
-          class="bg-[#061614] border border-[#1a433d] rounded-md px-2.5 py-1 text-xs text-[#f7f5ef] focus:outline-none focus:ring-1 focus:ring-[#d7653b]"
+          class="bg-[#061614] border border-[#1a433d] rounded-md px-2 py-1 text-xs text-[#f7f5ef] focus:outline-none focus:ring-1 focus:ring-[#d7653b]"
         >
           <option value="">Todos los protocolos</option>
           {protocolos.map(([proto, meta]) => (
             <option value={proto}>{meta.label}</option>
           ))}
+        </select>
+      </div>
+
+      <!-- IMI Level Filter -->
+      <div class="flex items-center space-x-1.5">
+        <label for="filter-imi" class="font-bold text-[#8fafaa] text-[11px] uppercase tracking-wider">Nivel IMI:</label>
+        <select
+          id="filter-imi"
+          data-filter="imi"
+          class="bg-[#061614] border border-[#1a433d] rounded-md px-2 py-1 text-xs text-[#f7f5ef] focus:outline-none focus:ring-1 focus:ring-[#54b995]"
+        >
+          <option value="all">Todos los niveles (1-6)</option>
+          <option value="6">Nivel 6: Agent-Ready (IA y Agentes)</option>
+          <option value="5">Nivel 5: Once-Only (81-100 pts)</option>
+          <option value="4">Nivel 4: Integrado (61-80 pts)</option>
+          <option value="3">Nivel 3: Conectado (41-60 pts)</option>
+          <option value="2">Nivel 2: Bilateral (21-40 pts)</option>
+          <option value="1">Nivel 1: Silo (0-20 pts)</option>
         </select>
       </div>
 

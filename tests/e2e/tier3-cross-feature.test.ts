@@ -89,6 +89,11 @@ describe('Tier 3: Cross-Feature Combinations (Filters, Search & Drawer Synchroni
         total_conexiones: incoming.length + outgoing.length,
         in_degree: incoming.length,
         out_degree: outgoing.length,
+        indice_madurez_interoperabilidad: node.indice_madurez_interoperabilidad,
+        nivel_madurez_interoperabilidad: node.nivel_madurez_interoperabilidad,
+        agent_ready: node.agent_ready,
+        capacidades_agente: node.capacidades_agente,
+        documentacion_oficial: node.documentacion_oficial || [],
         aristas_entrantes: incoming.map((e) => ({ id: e.id, origen: e.origen, bus: e.plataforma_o_bus })),
         aristas_salientes: outgoing.map((e) => ({ id: e.id, destino: e.destino, bus: e.plataforma_o_bus })),
       };
@@ -105,6 +110,24 @@ describe('Tier 3: Cross-Feature Combinations (Filters, Search & Drawer Synchroni
       assert.ok(payload.rol_ecosistema, 'Payload rol_ecosistema must not be empty');
       assert.match(payload.sitio_web, /^https?:\/\//, 'Payload sitio_web must be valid URL');
       assert.ok(payload.total_conexiones >= 1, `Node ${node.id} must have >= 1 connection`);
+      assert.ok(
+        typeof payload.indice_madurez_interoperabilidad === 'number' &&
+          payload.indice_madurez_interoperabilidad >= 0 &&
+          payload.indice_madurez_interoperabilidad <= 120,
+        `Node ${node.id} must have valid IMI score`
+      );
+      assert.ok(
+        [1, 2, 3, 4, 5, 6].includes(payload.nivel_madurez_interoperabilidad as number),
+        `Node ${node.id} must have valid IMI level`
+      );
+      if (payload.nivel_madurez_interoperabilidad === 6) {
+        assert.equal(payload.agent_ready, true, `Node ${node.id} with N6 must be agent_ready`);
+        assert.ok(payload.capacidades_agente, `Node ${node.id} with N6 must specify capacidades_agente`);
+      }
+      assert.ok(
+        Array.isArray(payload.documentacion_oficial) && payload.documentacion_oficial.length >= 1,
+        `Node ${node.id} must have official documentation`
+      );
     }
   });
 
@@ -177,4 +200,62 @@ describe('Tier 3: Cross-Feature Combinations (Filters, Search & Drawer Synchroni
     assert.equal(resetResult.hiddenNodeIds.size, 0, 'No nodes should remain hidden');
     assert.equal(resetResult.hiddenEdgeIds.size, 0, 'No edges should remain hidden');
   });
+
+  // --------------------------------------------------------------------------
+  // CF6: Channel and Technical Maturity Multi-dimensional Filtering
+  // --------------------------------------------------------------------------
+  test('T3.6 - Channel and Maturity filtering returns accurate subsets and isolates expected protocols', () => {
+    // 1. Channel filter: PISEE
+    const piseeResult = simulateGraphFilter(dataset, { channel: 'PISEE' });
+    assert.ok(piseeResult.activeEdges.length > 0, 'PISEE filter must return active edges');
+    for (const edge of piseeResult.activeEdges) {
+      const canal = edge.canal || (edge.plataforma_o_bus.includes('PISEE') ? 'PISEE' : 'Convenio');
+      assert.equal(canal, 'PISEE', 'All active edges must belong to PISEE channel');
+    }
+
+    // 2. Channel filter: Manual
+    const manualResult = simulateGraphFilter(dataset, { channel: 'Manual' });
+    assert.ok(manualResult.activeEdges.length > 0, 'Manual filter must return active edges');
+    for (const edge of manualResult.activeEdges) {
+      const canal = edge.canal || (edge.plataforma_o_bus.includes('Manual') ? 'Manual' : 'Convenio');
+      assert.equal(canal, 'Manual', 'All active edges must belong to Manual channel');
+    }
+
+    // 3. Maturity filter: batch
+    const batchResult = simulateGraphFilter(dataset, { maturity: 'batch' });
+    assert.ok(batchResult.activeEdges.length > 0, 'Batch filter must return active edges');
+    for (const edge of batchResult.activeEdges) {
+      const madurez = edge.madurez_tecnica || (edge.estandar_o_protocolo.includes('SFTP') ? 'batch' : 'manual');
+      assert.equal(madurez, 'batch', 'All returned edges must have batch maturity technical classification');
+    }
+
+    // 4. Combined: Channel Convenio + Maturity realtime
+    const comboResult = simulateGraphFilter(dataset, { channel: 'Convenio', maturity: 'realtime' });
+    assert.ok(comboResult.activeEdges.length > 0, 'Convenio + Realtime combo must return active edges');
+    for (const edge of comboResult.activeEdges) {
+      assert.equal(edge.canal, 'Convenio');
+      assert.equal(edge.madurez_tecnica, 'realtime');
+    }
+  });
+
+  // --------------------------------------------------------------------------
+  // CF7: Interoperability Maturity Index (IMI) 6-Level Filtering
+  // --------------------------------------------------------------------------
+  test('T3.7 - IMI Maturity Level filtering returns accurate subsets across all 6 levels', () => {
+    for (const lvl of [1, 2, 3, 4, 5, 6] as const) {
+      const result = simulateGraphFilter(dataset, { imiLevel: lvl });
+      assert.ok(result.activeNodes.length > 0, `IMI Level ${lvl} must contain at least one active node`);
+      for (const node of result.activeNodes) {
+        assert.equal(
+          node.nivel_madurez_interoperabilidad,
+          lvl,
+          `Node ${node.sigla} must have IMI level ${lvl}`
+        );
+        if (lvl === 6) {
+          assert.equal(node.agent_ready, true, `Node ${node.sigla} at Level 6 must be agent_ready`);
+        }
+      }
+    }
+  });
 });
+

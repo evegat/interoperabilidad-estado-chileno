@@ -29,7 +29,7 @@
 |---|------|-------|-------------|--------|
 | M1 | Data Engine & QA Validator | Schema TS/JSON, seed dataset (18 relations), validation script `npm run test:data`, metrics computation | Survey | DONE (`src/types/interoperabilidad.ts`, `src/data/interoperabilidad.json`, `scripts/validate-data.ts`, `tests/e2e/*`, all tests pass) |
 | M2 | Astro Web App & Interactive Visualizer | Base Astro setup, Cytoscape.js island, Tailwind UI, HUD controls, filters, detail drawer, static build `dist/` | M1 | DONE (Astro + Tailwind + Cytoscape.js, `dist/index.html` static build clean, HUD & filters verified) |
-| M3 | Harness, Bitácora Sync & E2E Acceptance | `MYWORLD-HARNESS.json`, Git initialization, Obsidian Bitacora entry, comprehensive acceptance pass | M2 | PLANNED |
+| M3 | Harness, Bitácora Sync & E2E Acceptance | `MYWORLD-HARNESS.json`, Git initialization, Obsidian Bitacora entry, comprehensive acceptance pass | M2 | DONE (`MYWORLD-HARNESS.json` valid, Git init `main`, `01 - Bitacora.md` synced, 22/22 E2E tests pass) |
 
 ## Code Layout
 ```

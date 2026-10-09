@@ -9,12 +9,21 @@ const { dataset } = Astro.props;
 
 const totalNodos = dataset.nodos.length;
 const totalAristas = dataset.aristas.length;
-const busesCentrales = dataset.nodos.filter((n) => n.tipo === 'bus_transversal').length;
-const restEdges = dataset.aristas.filter((e) => e.estandar_o_protocolo.includes('REST')).length;
-const percentRest = Math.round((restEdges / totalAristas) * 100);
+const piseeEdges = dataset.aristas.filter((e) => e.canal === 'PISEE' || e.plataforma_o_bus.includes('PISEE')).length;
+const percentPisee = totalAristas > 0 ? Math.round((piseeEdges / totalAristas) * 100) : 0;
+const realtimeEdges = dataset.aristas.filter(
+  (e) => e.madurez_tecnica === 'realtime' || e.estandar_o_protocolo.includes('REST') || e.estandar_o_protocolo.includes('OpenID')
+).length;
+const percentRealtime = totalAristas > 0 ? Math.round((realtimeEdges / totalAristas) * 100) : 0;
 const brechasCriticas = dataset.aristas.filter(
   (e) => e.brecha_observada && e.brecha_observada.trim().length > 5
 ).length;
+
+const nodosConImi = dataset.nodos.filter((n) => typeof n.indice_madurez_interoperabilidad === 'number');
+const avgImi = nodosConImi.length > 0
+  ? Math.round(nodosConImi.reduce((acc, curr) => acc + (curr.indice_madurez_interoperabilidad || 0), 0) / nodosConImi.length)
+  : 50;
+const avgImiLevel = avgImi >= 101 ? 6 : avgImi >= 81 ? 5 : avgImi >= 61 ? 4 : avgImi >= 41 ? 3 : avgImi >= 21 ? 2 : 1;
 ---
 
 <header class="bg-[#0a2320] border-b border-[#163a34] text-[#f7f5ef] shadow-xl sticky top-0 z-30 backdrop-blur-md">
@@ -42,12 +51,15 @@ const brechasCriticas = dataset.aristas.filter(
             <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#12483f] text-[#54b995] border border-[#1e5a4f]">
               P029 · MVP
             </span>
+            <span class="text-[10px] font-mono text-[#54b995] bg-[#051311] px-1.5 py-0.5 rounded border border-[#163a34]">
+              Ley N° 21.180
+            </span>
           </div>
           <h1 class="text-base md:text-lg font-extrabold tracking-tight text-white mt-0.5 flex items-center gap-2">
             Mapeo de Interoperabilidad del Estado Chileno
           </h1>
           <p class="text-xs text-[#8fafaa]">
-            Por <a href="https://evegat.cl" target="_blank" rel="noopener noreferrer" class="text-[#f7f5ef] hover:text-[#d7653b] font-semibold underline underline-offset-2 decoration-[#d7653b]">Eduardo Vega Toledo</a> · Ley N° 21.180 sobre Transformación Digital · PISEE 2.0
+            Por <a href="https://evegat.cl" target="_blank" rel="noopener noreferrer" class="text-[#f7f5ef] hover:text-[#d7653b] font-semibold underline underline-offset-2 decoration-[#d7653b]">Eduardo Vega Toledo</a> · Catálogo PISEE 2.0 · Canales y Brechas Técnicas
           </p>
         </div>
       </div>
@@ -55,7 +67,7 @@ const brechasCriticas = dataset.aristas.filter(
       <!-- Actions & Search Input -->
       <div class="flex items-center space-x-2.5 w-full md:w-auto">
         <!-- Instant Search Input -->
-        <div class="relative flex-1 md:w-72">
+        <div class="relative flex-1 md:w-64">
           <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#8fafaa]">
             <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -65,11 +77,24 @@ const brechasCriticas = dataset.aristas.filter(
             id="search-input"
             name="search"
             type="text"
-            placeholder="Buscar institución (ej. SII, TGR, Registro Civil)..."
+            placeholder="Buscar organismo (ej. SII, TGR, Registro Civil)..."
             class="block w-full pl-9 pr-3 py-1.5 bg-[#061614] border border-[#1a433d] rounded-lg text-xs text-[#f7f5ef] placeholder-[#8fafaa]/70 focus:outline-none focus:ring-2 focus:ring-[#d7653b] focus:border-transparent transition-all"
             autocomplete="off"
           />
         </div>
+
+        <!-- Benchmark Global Button -->
+        <button
+          type="button"
+          id="btn-benchmark"
+          class="inline-flex items-center space-x-1.5 px-3 py-1.5 bg-[#12483f] hover:bg-[#1a5e52] text-[#f7f5ef] hover:text-white rounded-lg border border-[#235d52] hover:border-[#54b995] text-xs font-bold transition-all shadow-sm flex-shrink-0 focus:outline-none"
+          title="Ver comparativa técnica con Estonia (X-Road), Singapur (APEX) y Unión Europea (EIRA)"
+        >
+          <svg class="w-3.5 h-3.5 text-[#54b995]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <span class="hidden sm:inline">Benchmark</span> Global
+        </button>
 
         <!-- Back to Portfolio button -->
         <a
@@ -88,9 +113,9 @@ const brechasCriticas = dataset.aristas.filter(
     </div>
 
     <!-- Summary KPI Indicators styled with evegat colors -->
-    <div class="mt-2.5 pt-2 border-t border-[#163a34] grid grid-cols-2 sm:grid-cols-5 gap-2 text-center">
+    <div class="mt-2.5 pt-2 border-t border-[#163a34] grid grid-cols-2 sm:grid-cols-6 gap-2 text-center">
       <div class="bg-[#061614]/70 rounded-md px-2 py-1.5 border border-[#163a34]">
-        <span class="block text-[10px] text-[#8fafaa] uppercase tracking-wider font-bold">Instituciones</span>
+        <span class="block text-[10px] text-[#8fafaa] uppercase tracking-wider font-bold">Organismos</span>
         <span id="kpi-nodos" class="text-sm font-black text-[#f7f5ef]">{totalNodos}</span>
       </div>
       <div class="bg-[#061614]/70 rounded-md px-2 py-1.5 border border-[#163a34]">
@@ -98,16 +123,20 @@ const brechasCriticas = dataset.aristas.filter(
         <span id="kpi-aristas" class="text-sm font-black text-[#f7f5ef]">{totalAristas}</span>
       </div>
       <div class="bg-[#061614]/70 rounded-md px-2 py-1.5 border border-[#163a34]">
-        <span class="block text-[10px] text-[#8fafaa] uppercase tracking-wider font-bold">Buses Centrales</span>
-        <span class="text-sm font-black text-[#d7653b]">{busesCentrales}</span>
+        <span class="block text-[10px] text-[#8fafaa] uppercase tracking-wider font-bold">Tasa Vía PISEE</span>
+        <span id="kpi-pisee" class="text-sm font-black text-[#54b995]">{percentPisee}%</span>
       </div>
       <div class="bg-[#061614]/70 rounded-md px-2 py-1.5 border border-[#163a34]">
-        <span class="block text-[10px] text-[#8fafaa] uppercase tracking-wider font-bold">Adopción REST</span>
-        <span class="text-sm font-black text-[#54b995]">{percentRest}%</span>
+        <span class="block text-[10px] text-[#8fafaa] uppercase tracking-wider font-bold">API Tiempo Real</span>
+        <span id="kpi-realtime" class="text-sm font-black text-[#38bdf8]">{percentRealtime}%</span>
+      </div>
+      <div class="bg-[#061614]/70 rounded-md px-2 py-1.5 border border-[#163a34]">
+        <span class="block text-[10px] text-[#8fafaa] uppercase tracking-wider font-bold">Brechas Críticas</span>
+        <span id="kpi-brechas" class="text-sm font-black text-[#e4b18e]">{brechasCriticas}</span>
       </div>
       <div class="bg-[#061614]/70 rounded-md px-2 py-1.5 border border-[#163a34] col-span-2 sm:col-span-1">
-        <span class="block text-[10px] text-[#8fafaa] uppercase tracking-wider font-bold">Brechas Críticas</span>
-        <span class="text-sm font-black text-[#e4b18e]">{brechasCriticas}</span>
+        <span class="block text-[10px] text-[#8fafaa] uppercase tracking-wider font-bold">Índice IMI Global</span>
+        <span id="kpi-imi" class="text-sm font-black text-[#54b995]">{avgImi} pts <span class="text-[10px] text-[#8fafaa] font-medium font-mono">(N{avgImiLevel})</span></span>
       </div>
     </div>
   </div>

@@ -71,6 +71,9 @@ export interface FilterCriteria {
   typologies?: TipoNodo[];
   protocols?: EstandarProtocolo[];
   onlyGaps?: boolean;
+  channel?: 'all' | 'PISEE' | 'Convenio' | 'Manual';
+  maturity?: 'all' | 'realtime' | 'batch' | 'manual';
+  imiLevel?: 'all' | 1 | 2 | 3 | 4 | 5 | 6 | string;
 }
 
 export interface FilterResult {
@@ -88,7 +91,15 @@ export function simulateGraphFilter(
   dataset: DatasetInteroperabilidad,
   criteria: FilterCriteria
 ): FilterResult {
-  const { search = '', typologies = [], protocols = [], onlyGaps = false } = criteria;
+  const {
+    search = '',
+    typologies = [],
+    protocols = [],
+    onlyGaps = false,
+    channel = 'all',
+    maturity = 'all',
+    imiLevel = 'all',
+  } = criteria;
   const normalizedQuery = search.trim().toLowerCase();
 
   // 1. Filter Nodes by search query and typologies
@@ -110,13 +121,33 @@ export function simulateGraphFilter(
       }
     }
 
+    // IMI Level match
+    if (imiLevel && imiLevel !== 'all') {
+      const targetLvl = typeof imiLevel === 'string' ? parseInt(imiLevel, 10) : imiLevel;
+      if (node.nivel_madurez_interoperabilidad !== targetLvl) {
+        return false;
+      }
+    }
+
     return true;
   });
 
   const matchedNodeIds = new Set(matchedNodes.map((n) => n.id));
 
-  // 2. Filter Edges by protocol, onlyGaps, and incident nodes
+  // 2. Filter Edges by channel, maturity, protocol, onlyGaps, and incident nodes
   const matchedEdges = dataset.aristas.filter((edge) => {
+    // Channel filter
+    if (channel && channel !== 'all') {
+      const edgeCanal = edge.canal || (edge.plataforma_o_bus.includes('PISEE') ? 'PISEE' : edge.plataforma_o_bus.includes('Manual') ? 'Manual' : 'Convenio');
+      if (edgeCanal !== channel) return false;
+    }
+
+    // Maturity filter
+    if (maturity && maturity !== 'all') {
+      const edgeMadurez = edge.madurez_tecnica || (edge.estandar_o_protocolo.includes('REST') ? 'realtime' : edge.estandar_o_protocolo.includes('SFTP') ? 'batch' : 'manual');
+      if (edgeMadurez !== maturity) return false;
+    }
+
     // Gaps toggle
     if (onlyGaps) {
       if (!edge.brecha_observada || edge.brecha_observada.trim().length === 0) {
@@ -141,11 +172,11 @@ export function simulateGraphFilter(
   // If search was applied, only matched nodes stay active. If no search was applied,
   // nodes connected to matched edges remain active.
   const activeNodes = matchedNodes.filter((node) => {
-    if (typologies.length > 0 || normalizedQuery.length > 0) {
+    if (typologies.length > 0 || (imiLevel && imiLevel !== 'all') || normalizedQuery.length > 0) {
       return true;
     }
-    // If only protocol or gaps filtered, keep nodes that have active edges
-    if (protocols.length > 0 || onlyGaps) {
+    // If only protocol, gaps, channel, or maturity filtered, keep nodes that have active edges
+    if (protocols.length > 0 || onlyGaps || (channel && channel !== 'all') || (maturity && maturity !== 'all')) {
       const hasActiveEdge = matchedEdges.some(
         (e) => e.origen === node.id || e.destino === node.id
       );

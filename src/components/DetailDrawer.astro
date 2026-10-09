@@ -53,6 +53,18 @@
         <h2 id="node-nombre" class="text-sm font-bold text-[#f7f5ef] mt-1 leading-snug">
           Nombre completo de la institución
         </h2>
+        <!-- Immediate Visual Badges: Attachments & IMI -->
+        <div class="flex items-center gap-2 mt-2 flex-wrap">
+          <span id="node-summary-docs-badge" class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#12483f] text-[#54b995] border border-[#1e5a4f]" title="Expediente de documentación oficial trazable">
+            <svg class="w-3 h-3 text-[#54b995]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+            </svg>
+            <span id="node-summary-docs-text">0 adjuntos</span>
+          </span>
+          <span id="node-summary-imi-badge" class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#051311] text-[#e4b18e] border border-[#163a34]">
+            IMI: 0 pts
+          </span>
+        </div>
       </div>
 
       <!-- Attributes Grid -->
@@ -72,6 +84,61 @@
         <div class="bg-[#051311] p-2.5 rounded-lg border border-[#163a34]">
           <span class="block text-[#8fafaa] text-[10px] uppercase font-bold tracking-wider">Ley N° 21.180</span>
           <span id="node-ley" class="font-bold text-[#e4b18e] capitalize mt-0.5 block">-</span>
+        </div>
+      </div>
+
+      <!-- Interoperability Maturity Index (IMI) Card -->
+      <div id="node-imi-card" class="bg-[#051311] p-3 rounded-lg border border-[#163a34] space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="block text-[10px] font-extrabold text-[#8fafaa] uppercase tracking-wider">Índice de Madurez (IMI)</span>
+          <span id="node-imi-badge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#12483f] text-[#54b995] border border-[#1e5a4f]">
+            Nivel 4: Integrado
+          </span>
+        </div>
+        <div class="flex items-baseline justify-between text-xs">
+          <span id="node-imi-level-desc" class="text-[#e9efec] font-semibold text-[11px]">Interoperable Integrado</span>
+          <span id="node-imi-score" class="font-black text-sm text-[#54b995]">0 / 100 pts</span>
+        </div>
+        <!-- Progress bar -->
+        <div class="w-full bg-[#081d1a] h-2 rounded-full overflow-hidden border border-[#163a34]">
+          <div id="node-imi-bar" class="h-full bg-gradient-to-r from-[#d7653b] via-[#c5a75a] via-[#54b995] to-[#a78bfa] rounded-full transition-all duration-500" style="width: 50%;"></div>
+        </div>
+      </div>
+
+      <!-- Agent-Ready / IA Soberana Capabilities Card (shown when agent_ready) -->
+      <div id="node-agent-ready-card" class="hidden bg-[#0c1829]/95 p-3 rounded-lg border border-[#3b82f6]/40 space-y-2.5 shadow-lg">
+        <div class="flex items-center justify-between border-b border-[#1e3a5f] pb-1.5">
+          <div class="flex items-center space-x-1.5">
+            <span class="text-sm">🤖</span>
+            <span class="font-extrabold text-[#93c5fd] uppercase tracking-wider text-[10px]">
+              Capacidades para Agentes de IA (Agent-Ready)
+            </span>
+          </div>
+          <span class="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-[#1d4ed8]/30 text-[#60a5fa] border border-[#2563eb]/50">
+            N6 Soberano
+          </span>
+        </div>
+        <div class="grid grid-cols-2 gap-1.5 text-[11px]" id="node-agent-caps-grid">
+          <div class="flex items-center space-x-1.5 p-1.5 rounded bg-[#071324] border border-[#1e3a5f]" id="cap-mcp">
+            <span class="w-2 h-2 rounded-full bg-[#10b981]"></span>
+            <span class="text-[#e2e8f0]">MCP Tool Calling</span>
+          </div>
+          <div class="flex items-center space-x-1.5 p-1.5 rounded bg-[#071324] border border-[#1e3a5f]" id="cap-openapi">
+            <span class="w-2 h-2 rounded-full bg-[#10b981]"></span>
+            <span class="text-[#e2e8f0]">OpenAPI 3.1 Strict</span>
+          </div>
+          <div class="flex items-center space-x-1.5 p-1.5 rounded bg-[#071324] border border-[#1e3a5f]" id="cap-events">
+            <span class="w-2 h-2 rounded-full bg-[#10b981]"></span>
+            <span class="text-[#e2e8f0]">Event-Driven / SSE</span>
+          </div>
+          <div class="flex items-center space-x-1.5 p-1.5 rounded bg-[#071324] border border-[#1e3a5f]" id="cap-idempotencia">
+            <span class="w-2 h-2 rounded-full bg-[#10b981]"></span>
+            <span class="text-[#e2e8f0]">Idempotencia Segura</span>
+          </div>
+        </div>
+        <div class="text-[10px] text-[#93c5fd]/80 pt-1 border-t border-[#1e3a5f]/60 flex items-center justify-between">
+          <span>📜 Auditoría Criptográfica / Zero Human</span>
+          <span class="font-mono text-[#60a5fa]">Ley 21.180</span>
         </div>
       </div>
 
@@ -98,6 +165,24 @@
           </div>
         </div>
         <div id="node-flows-list" class="space-y-1 mt-2 text-xs">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Official Legal & Technical Documents (Clip Section) -->
+      <div id="node-docs-section" class="bg-[#051311] p-3 rounded-lg border border-[#163a34] space-y-2.5">
+        <div class="flex items-center justify-between border-b border-[#163a34] pb-1.5">
+          <div class="flex items-center space-x-1.5">
+            <svg class="w-4 h-4 text-[#d7653b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+            </svg>
+            <span class="font-extrabold text-[#f7f5ef] uppercase tracking-wider text-[10px]">📎 Documentación Oficial y Respaldo Legal</span>
+          </div>
+          <span id="node-docs-count-badge" class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-[#12483f] text-[#54b995] border border-[#1e5a4f]">
+            0 adjuntos
+          </span>
+        </div>
+        <div id="node-docs-list" class="space-y-2 text-xs">
           <!-- Populated dynamically -->
         </div>
       </div>
@@ -133,6 +218,10 @@
         <p id="edge-data-type" class="text-sm font-bold text-[#f7f5ef] mt-1 leading-snug">
           Certificado / Datos
         </p>
+        <div class="flex items-center gap-2 mt-2">
+          <span id="edge-canal-badge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#12483f] text-[#54b995] border border-[#1e5a4f]">Canal: PISEE</span>
+          <span id="edge-madurez-badge" class="px-2 py-0.5 rounded text-[10px] font-mono text-[#38bdf8] bg-[#0369a1]/20 border border-[#0369a1]/40">⚡ API Tiempo Real</span>
+        </div>
       </div>
 
       <!-- Interoperability Parameters -->
@@ -208,15 +297,17 @@
       drawer?.classList.add('translate-x-full');
     });
 
-    // Close drawer on ESC key
+    // Close drawer on ESC key (only if benchmark modal is not open)
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && drawer && !drawer.classList.contains('translate-x-full')) {
+      const benchmarkModal = document.getElementById('benchmark-modal');
+      const isBenchmarkOpen = benchmarkModal && !benchmarkModal.classList.contains('hidden');
+      if (e.key === 'Escape' && !isBenchmarkOpen && drawer && !drawer.classList.contains('translate-x-full')) {
         drawer.classList.add('translate-x-full');
       }
     });
 
     // Listen for custom graph selection events
-    window.addEventListener('graph-selection', ((event: CustomEvent<SelectionEventDetail>) => {
+    const handleSelection = (event: CustomEvent<SelectionEventDetail>) => {
       const detail = event.detail;
       if (!drawer) return;
 
@@ -228,12 +319,15 @@
       // Open drawer
       drawer.classList.remove('translate-x-full');
 
-      if (detail.type === 'node' && detail.node) {
-        renderNodeSheet(detail.node);
-      } else if (detail.type === 'edge' && detail.edge) {
-        renderEdgeSheet(detail.edge);
+      if (detail.type === 'node' && detail.payload) {
+        renderNodeSheet(detail.payload);
+      } else if (detail.type === 'edge' && detail.payload) {
+        renderEdgeSheet(detail.payload);
       }
-    }) as EventListener);
+    };
+
+    window.addEventListener('selection-changed', handleSelection as EventListener);
+    window.addEventListener('graph-selection', handleSelection as EventListener);
 
     function renderNodeSheet(node: NodeDrawerPayload) {
       if (!emptyState || !nodeView || !edgeView || !typeBadge || !statusBadge) return;
@@ -277,6 +371,107 @@
         elLink.title = `Abrir ${node.sitio_web}`;
       }
 
+      // Populate Interoperability Maturity Index (IMI)
+      const imiScore = typeof node.indice_madurez_interoperabilidad === 'number' ? node.indice_madurez_interoperabilidad : 50;
+      const imiLevel = node.nivel_madurez_interoperabilidad || (imiScore >= 101 ? 6 : imiScore >= 81 ? 5 : imiScore >= 61 ? 4 : imiScore >= 41 ? 3 : imiScore >= 21 ? 2 : 1);
+      
+      const imiDescriptions: Record<number, { title: string; badge: string; colorClass: string }> = {
+        1: { title: 'Silo / Documental (Oficio / Papel)', badge: 'Nivel 1: Silo', colorClass: 'bg-[#9f1239] text-white border-[#be123c]' },
+        2: { title: 'Bilateral / Batch (Archivos planos)', badge: 'Nivel 2: Bilateral', colorClass: 'bg-[#c5a75a]/20 text-[#c5a75a] border-[#c5a75a]/40' },
+        3: { title: 'Conectado Básico / PISEE Incipiente', badge: 'Nivel 3: Conectado', colorClass: 'bg-[#1b4965]/40 text-[#38bdf8] border-[#38bdf8]/40' },
+        4: { title: 'Interoperable Integrado (APIs REST mTLS)', badge: 'Nivel 4: Integrado', colorClass: 'bg-[#12483f] text-[#54b995] border-[#1e5a4f]' },
+        5: { title: 'Proactivo / Once-Only Pleno (Event-Driven)', badge: 'Nivel 5: Once-Only', colorClass: 'bg-[#54b995]/20 text-[#54b995] border-[#54b995]/50' },
+        6: { title: 'Agent-Ready / IA Soberana (MCP & OpenAPI 3.1)', badge: '🤖 Nivel 6: Agent-Ready', colorClass: 'bg-[#a78bfa]/25 text-[#c4b5fd] border-[#a78bfa]/60' },
+      };
+
+      const elImiBadge = document.getElementById('node-imi-badge');
+      const elImiDesc = document.getElementById('node-imi-level-desc');
+      const elImiScore = document.getElementById('node-imi-score');
+      const elImiBar = document.getElementById('node-imi-bar');
+
+      const imiMeta = imiDescriptions[imiLevel] || imiDescriptions[3];
+      if (elImiBadge) {
+        elImiBadge.textContent = imiMeta.badge;
+        elImiBadge.className = `px-2 py-0.5 rounded text-[10px] font-bold border ${imiMeta.colorClass}`;
+      }
+      if (elImiDesc) elImiDesc.textContent = imiMeta.title;
+      if (elImiScore) elImiScore.textContent = `${imiScore} / 120 pts`;
+      if (elImiBar) elImiBar.style.width = `${Math.max(5, Math.min(100, Math.round((imiScore / 120) * 100)))}%`;
+
+      // Update immediate summary header badges
+      const elSummaryDocsText = document.getElementById('node-summary-docs-text');
+      const elSummaryImiBadge = document.getElementById('node-summary-imi-badge');
+      if (elSummaryImiBadge) {
+        elSummaryImiBadge.textContent = `IMI: ${imiScore}/120 (N${imiLevel})`;
+        if (imiLevel === 6) {
+          elSummaryImiBadge.className = 'inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#a78bfa]/25 text-[#c4b5fd] border border-[#a78bfa]/60';
+        } else {
+          elSummaryImiBadge.className = 'inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#051311] text-[#e4b18e] border border-[#163a34]';
+        }
+      }
+
+      // Populate / Toggle Agent-Ready Capabilities Card
+      const elAgentReadyCard = document.getElementById('node-agent-ready-card');
+      if (elAgentReadyCard) {
+        if (node.agent_ready || imiLevel === 6) {
+          elAgentReadyCard.classList.remove('hidden');
+          const cap = node.capacidades_agente;
+          const elCapMcp = document.getElementById('cap-mcp');
+          const elCapOpenapi = document.getElementById('cap-openapi');
+          const elCapEvents = document.getElementById('cap-events');
+          const elCapIdempotencia = document.getElementById('cap-idempotencia');
+          if (elCapMcp) elCapMcp.style.opacity = cap?.mcp_compatible ? '1' : '0.4';
+          if (elCapOpenapi) elCapOpenapi.style.opacity = cap?.openapi_spec ? '1' : '0.4';
+          if (elCapEvents) elCapEvents.style.opacity = cap?.event_driven ? '1' : '0.4';
+          if (elCapIdempotencia) elCapIdempotencia.style.opacity = cap?.idempotencia ? '1' : '0.4';
+        } else {
+          elAgentReadyCard.classList.add('hidden');
+        }
+      }
+
+      // Populate Official Legal & Technical Documents (Clip section)
+      const elDocsBadge = document.getElementById('node-docs-count-badge');
+      const elDocsList = document.getElementById('node-docs-list');
+      const docs = node.documentacion_oficial || [];
+
+      if (elSummaryDocsText) {
+        elSummaryDocsText.textContent = `${docs.length} ${docs.length === 1 ? 'adjunto oficial' : 'adjuntos oficiales'}`;
+      }
+
+      if (elDocsBadge) {
+        elDocsBadge.textContent = `${docs.length} ${docs.length === 1 ? 'adjunto' : 'adjuntos'}`;
+      }
+
+      if (elDocsList) {
+        elDocsList.innerHTML = '';
+        if (docs.length === 0) {
+          elDocsList.innerHTML = '<span class="text-[#8fafaa] italic text-[11px] block py-1">Sin expedientes jurídicos indexados aún</span>';
+        } else {
+          docs.forEach((doc) => {
+            const item = document.createElement('div');
+            item.className = 'p-2.5 rounded-lg bg-[#081d1a] border border-[#163a34] space-y-1 hover:border-[#54b995] transition-colors';
+            
+            const badgeType = doc.tipo.replace('_', ' ');
+            item.innerHTML = `
+              <div class="flex items-center justify-between gap-1 flex-wrap">
+                <span class="px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-[#12483f] text-[#54b995] border border-[#1e5a4f]">
+                  ${badgeType}
+                </span>
+                <span class="text-[10px] font-mono text-[#8fafaa]">${doc.ano || ''}</span>
+              </div>
+              <a href="${doc.url}" target="_blank" rel="noopener noreferrer" class="font-bold text-[#f7f5ef] hover:text-[#d7653b] text-xs leading-snug flex items-center gap-1 group mt-1">
+                <span>${doc.titulo}</span>
+                <svg class="w-3 h-3 text-[#8fafaa] group-hover:text-[#d7653b] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+              <p class="text-[11px] text-[#8fafaa] leading-relaxed pt-0.5">${doc.resumen}</p>
+            `;
+            elDocsList.appendChild(item);
+          });
+        }
+      }
+
       // Populate flow preview list
       if (elFlowsList) {
         elFlowsList.innerHTML = '';
@@ -287,22 +482,46 @@
           elFlowsList.innerHTML = '<span class="text-[#8fafaa] italic">Sin flujos registrados</span>';
         } else {
           incoming.forEach((inEdge) => {
-            const item = document.createElement('div');
-            item.className = 'flex items-center justify-between text-[11px] bg-[#081d1a] px-2 py-1 rounded border border-[#163a34]';
+            const item = document.createElement('button');
+            item.type = 'button';
+            item.className = 'w-full text-left flex items-center justify-between text-[11px] bg-[#081d1a] hover:bg-[#12483f] px-2 py-1.5 rounded border border-[#163a34] hover:border-[#54b995] transition-colors cursor-pointer group';
+            const label = inEdge.origen_sigla || inEdge.origen.toUpperCase();
             item.innerHTML = `
-              <span class="text-[#54b995] font-bold">← Entrante de <strong>${inEdge.origen.toUpperCase()}</strong></span>
+              <span class="text-[#54b995] group-hover:text-white font-bold">← Entrante de <strong>${label}</strong></span>
               <span class="text-[10px] text-[#8fafaa] font-mono">${inEdge.bus}</span>
             `;
+            item.title = `Ver detalle del flujo ${inEdge.id}`;
+            item.addEventListener('click', () => {
+              const controller = (window as unknown as { __graphController?: { cy?: { getElementById: (id: string) => { length: number } }; selectEdge: (edge: unknown) => void } }).__graphController;
+              if (controller?.cy) {
+                const edgeElem = controller.cy.getElementById(inEdge.id);
+                if (edgeElem.length > 0) {
+                  controller.selectEdge(edgeElem);
+                }
+              }
+            });
             elFlowsList.appendChild(item);
           });
 
           outgoing.forEach((outEdge) => {
-            const item = document.createElement('div');
-            item.className = 'flex items-center justify-between text-[11px] bg-[#081d1a] px-2 py-1 rounded border border-[#163a34]';
+            const item = document.createElement('button');
+            item.type = 'button';
+            item.className = 'w-full text-left flex items-center justify-between text-[11px] bg-[#081d1a] hover:bg-[#12483f] px-2 py-1.5 rounded border border-[#163a34] hover:border-[#e4b18e] transition-colors cursor-pointer group';
+            const label = outEdge.destino_sigla || outEdge.destino.toUpperCase();
             item.innerHTML = `
-              <span class="text-[#e4b18e] font-bold">→ Hacia <strong>${outEdge.destino.toUpperCase()}</strong></span>
+              <span class="text-[#e4b18e] group-hover:text-white font-bold">→ Hacia <strong>${label}</strong></span>
               <span class="text-[10px] text-[#8fafaa] font-mono">${outEdge.bus}</span>
             `;
+            item.title = `Ver detalle del flujo ${outEdge.id}`;
+            item.addEventListener('click', () => {
+              const controller = (window as unknown as { __graphController?: { cy?: { getElementById: (id: string) => { length: number } }; selectEdge: (edge: unknown) => void } }).__graphController;
+              if (controller?.cy) {
+                const edgeElem = controller.cy.getElementById(outEdge.id);
+                if (edgeElem.length > 0) {
+                  controller.selectEdge(edgeElem);
+                }
+              }
+            });
             elFlowsList.appendChild(item);
           });
         }
@@ -338,14 +557,25 @@
       const elGapText = document.getElementById('edge-gap-text');
       const elLink = document.getElementById('edge-source-link') as HTMLAnchorElement | null;
 
-      if (elOrigen) elOrigen.textContent = edge.origen_sigla || edge.origen.toUpperCase();
-      if (elDestino) elDestino.textContent = edge.destino_sigla || edge.destino.toUpperCase();
+      if (elOrigen) elOrigen.textContent = edge.origen_sigla || edge.origen_id.toUpperCase();
+      if (elDestino) elDestino.textContent = edge.destino_sigla || edge.destino_id.toUpperCase();
       if (elDataType) elDataType.textContent = edge.tipo_dato;
       if (elBus) elBus.textContent = edge.plataforma_o_bus;
       if (elProtocol) elProtocol.textContent = edge.estandar_o_protocolo;
       if (elApertura) elApertura.textContent = edge.nivel_apertura;
       if (elFrecuencia) elFrecuencia.textContent = edge.frecuencia_actualizacion;
       if (elBaseLegal) elBaseLegal.textContent = edge.base_legal || 'Ley N° 21.180';
+
+      const elCanalBadge = document.getElementById('edge-canal-badge');
+      const elMadurezBadge = document.getElementById('edge-madurez-badge');
+      if (elCanalBadge) {
+        const canal = edge.canal || (edge.plataforma_o_bus.includes('PISEE') ? 'PISEE' : edge.plataforma_o_bus.includes('Manual') ? 'Manual' : 'Convenio');
+        elCanalBadge.textContent = `Canal: ${canal}`;
+      }
+      if (elMadurezBadge) {
+        const mad = edge.madurez_tecnica || (edge.estandar_o_protocolo.includes('REST') ? 'realtime' : edge.estandar_o_protocolo.includes('SFTP') ? 'batch' : 'manual');
+        elMadurezBadge.textContent = mad === 'realtime' ? '⚡ API Tiempo Real' : mad === 'batch' ? '📦 Lotes / SFTP' : '📄 Documental / Manual';
+      }
 
       if (elGapContainer && elGapText) {
         if (hasGap) {

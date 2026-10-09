@@ -11,7 +11,7 @@
     "public"
   ],
   "deployment": {
-    "state": "deployed",
+    "state": "public",
     "production_urls": [
       "https://evegat.github.io/interoperabilidad-estado-chileno/"
     ]
@@ -19,8 +19,7 @@
   "repository": {
     "type": "git",
     "default_branch": "main",
-    "remote_url": "https://github.com/evegat/interoperabilidad-estado-chileno.git",
-    "remote_policy": "enforced"
+    "remote_policy": "existing"
   },
   "commands": {
     "quality": [

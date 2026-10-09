@@ -260,4 +260,85 @@ describe('Challenger Adversarial Stress Suite (Empirical Verification)', () => {
       'Must report insufficient edge count'
     );
   });
+
+  // 10. Adversarial validation of IMI score and maturity levels
+  test('ADV-13: Out-of-bounds IMI score (< 0 or > 120) or non-numeric is rejected', () => {
+    const data1 = getCleanDataset();
+    (data1.nodos[0] as unknown as { indice_madurez_interoperabilidad: number }).indice_madurez_interoperabilidad = 150;
+    const res1 = validarDatasetInteroperabilidad(data1);
+    assert.equal(res1.valido, false);
+    assert.ok(res1.errores.some((e) => e.includes('indice_madurez_interoperabilidad')));
+
+    const data2 = getCleanDataset();
+    (data2.nodos[0] as unknown as { indice_madurez_interoperabilidad: number }).indice_madurez_interoperabilidad = -5;
+    const res2 = validarDatasetInteroperabilidad(data2);
+    assert.equal(res2.valido, false);
+    assert.ok(res2.errores.some((e) => e.includes('indice_madurez_interoperabilidad')));
+
+    const data3 = getCleanDataset();
+    (data3.nodos[0] as unknown as { indice_madurez_interoperabilidad: number }).indice_madurez_interoperabilidad = 121;
+    const res3 = validarDatasetInteroperabilidad(data3);
+    assert.equal(res3.valido, false);
+    assert.ok(res3.errores.some((e) => e.includes('indice_madurez_interoperabilidad')));
+  });
+
+  test('ADV-14: Inconsistent IMI level vs score is rejected', () => {
+    const data = getCleanDataset();
+    data.nodos[0].indice_madurez_interoperabilidad = 95; // Should be Level 5
+    data.nodos[0].nivel_madurez_interoperabilidad = 2 as unknown as 5; // Inconsistent
+    const res = validarDatasetInteroperabilidad(data);
+    assert.equal(res.valido, false);
+    assert.ok(res.errores.some((e) => e.includes('Inconsistencia en IMI')));
+  });
+
+  test('ADV-15: Invalid IMI level enum (not in 1..6) is rejected', () => {
+    const data = getCleanDataset();
+    (data.nodos[0] as unknown as { nivel_madurez_interoperabilidad: number }).nivel_madurez_interoperabilidad = 9;
+    const res = validarDatasetInteroperabilidad(data);
+    assert.equal(res.valido, false);
+    assert.ok(res.errores.some((e) => e.includes('nivel_madurez_interoperabilidad')));
+  });
+
+  test('ADV-15b: Level 6 without agent_ready: true or inconsistent score is rejected', () => {
+    const data = getCleanDataset();
+    data.nodos[0].indice_madurez_interoperabilidad = 115;
+    data.nodos[0].nivel_madurez_interoperabilidad = 6;
+    data.nodos[0].agent_ready = false; // Must be true for Level 6
+    const res = validarDatasetInteroperabilidad(data);
+    assert.equal(res.valido, false);
+    assert.ok(res.errores.some((e) => e.includes('agent_ready')));
+  });
+
+  // 11. Adversarial validation of Official Documentation
+  test('ADV-16: Invalid official document type enum is rejected', () => {
+    const data = getCleanDataset();
+    data.nodos[0].documentacion_oficial = [
+      {
+        titulo: 'Documento Test',
+        tipo: 'tipo_falso_inventado' as unknown as 'decreto',
+        url: 'https://gob.cl/doc.pdf',
+        ano: 2024,
+        resumen: 'Resumen descriptivo valido',
+      },
+    ];
+    const res = validarDatasetInteroperabilidad(data);
+    assert.equal(res.valido, false);
+    assert.ok(res.errores.some((e) => e.includes('"tipo" inválido')));
+  });
+
+  test('ADV-17: Non-HTTP(S) document URL in official documentation is rejected', () => {
+    const data = getCleanDataset();
+    data.nodos[0].documentacion_oficial = [
+      {
+        titulo: 'Documento Test',
+        tipo: 'decreto',
+        url: 'javascript:stealCredentials()',
+        ano: 2024,
+        resumen: 'Resumen descriptivo valido',
+      },
+    ];
+    const res = validarDatasetInteroperabilidad(data);
+    assert.equal(res.valido, false);
+    assert.ok(res.errores.some((e) => e.includes('url') && e.includes('inválida')));
+  });
 });

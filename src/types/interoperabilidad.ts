@@ -20,6 +20,44 @@ export type EstadoLey21180 =
   | 'fase_3_interoperabilidad'
   | 'rezagado';
 
+export type TipoDocumentoOficial =
+  | 'decreto'
+  | 'resolucion'
+  | 'convenio'
+  | 'oficio'
+  | 'guia_tecnica'
+  | 'diccionario_datos'
+  | 'ficha_tramite';
+
+export interface DocumentoOficial {
+  /** Título o nombre formal del documento */
+  titulo: string;
+  /** Tipología jurídica o técnica del documento */
+  tipo: TipoDocumentoOficial;
+  /** Enlace oficial verificable al documento */
+  url: string;
+  /** Año o fecha de emisión del documento */
+  ano: number | string;
+  /** Resumen ejecutivo del alcance regulatorio o técnico */
+  resumen: string;
+}
+
+export type RangoMadurezIMI = 1 | 2 | 3 | 4 | 5 | 6;
+export type NivelMadurezIMI = RangoMadurezIMI;
+
+export interface CapacidadesAgenteIA {
+  /** Soporte o compatibilidad con Model Context Protocol (MCP) */
+  mcp_compatible: boolean;
+  /** Especificación formal machine-readable estricta OpenAPI v3.1 / JSON Schema */
+  openapi_spec: boolean;
+  /** Arquitectura reactiva de eventos, webhooks o SSE */
+  event_driven: boolean;
+  /** Transaccionalidad segura con clave de idempotencia (Idempotency-Key) */
+  idempotencia: boolean;
+  /** Trazabilidad algorítmica y logs de auditoría para ejecuciones autónomas (Zero Human / Ley 21.180) */
+  auditabilidad_algoritmica?: boolean;
+}
+
 export interface NodoInstitucion {
   /** Slug unívoco identificador del nodo (ej. 'srcei', 'pisee', 'sii') */
   id: string;
@@ -39,6 +77,16 @@ export interface NodoInstitucion {
   nivel_madurez_digital: MadurezDigital;
   /** Fase actual de adopción de la Ley N° 21.180 según calendario oficial */
   estado_adopcion_ley21180: EstadoLey21180;
+  /** Índice de Madurez de Interoperabilidad (0 a 120 puntos con N6 Agent-Ready) */
+  indice_madurez_interoperabilidad?: number;
+  /** Nivel de Madurez de Interoperabilidad institucional (1 a 6) */
+  nivel_madurez_interoperabilidad?: RangoMadurezIMI;
+  /** Bandera indicadora de organismo pionero o certificado como Agent-Ready */
+  agent_ready?: boolean;
+  /** Capacidades técnicas avanzadas para interacción con agentes autónomos y LLMs */
+  capacidades_agente?: CapacidadesAgenteIA;
+  /** Expediente de documentación oficial y respaldo legal verificable */
+  documentacion_oficial?: DocumentoOficial[];
 }
 
 export type EstandarProtocolo =
@@ -60,6 +108,10 @@ export type FrecuenciaActualizacion =
   | 'Batch diario'
   | 'Batch mensual'
   | 'A demanda / manual';
+
+export type CanalInteroperabilidad = 'PISEE' | 'Convenio' | 'Manual';
+
+export type MadurezFlujo = 'realtime' | 'batch' | 'manual';
 
 export interface AristaInteroperabilidad {
   /** Slug identificador unívoco de la relación (ej. 'srcei-claveunica-autenticacion') */
@@ -86,6 +138,10 @@ export interface AristaInteroperabilidad {
   volumen_transaccional_estimado?: string;
   /** Mandato legal o reglamentario que fundamenta la interoperabilidad */
   base_legal?: string;
+  /** Canal institucional de intercambio (PISEE oficial, Convenio bilateral, Manual/Oficio) */
+  canal?: CanalInteroperabilidad;
+  /** Nivel de madurez técnica del flujo (realtime, batch, manual) */
+  madurez_tecnica?: MadurezFlujo;
 }
 
 export interface DatasetInteroperabilidad {
@@ -141,6 +197,10 @@ export interface MetricasGrafo {
   distribucion_tipologias: Record<TipoNodo, number>;
   /** Distribución de niveles de madurez digital */
   distribucion_madurez: Record<MadurezDigital, number>;
+  /** Promedio del Índice de Madurez de Interoperabilidad (0 a 120 puntos) */
+  promedio_imi?: number;
+  /** Distribución de organismos por nivel de madurez IMI (1 a 6) */
+  distribucion_imi?: Record<RangoMadurezIMI, number>;
 }
 
 export interface ResultadoValidacion {

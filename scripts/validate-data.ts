@@ -29,6 +29,10 @@ import type {
   FrecuenciaActualizacion,
   CentralidadNodo,
   CuelloDeBotella,
+  CanalInteroperabilidad,
+  MadurezFlujo,
+  TipoDocumentoOficial,
+  RangoMadurezIMI,
 } from '../src/types/interoperabilidad.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -74,6 +78,28 @@ const FRECUENCIAS_VALIDAS = new Set<FrecuenciaActualizacion>([
   'Batch diario',
   'Batch mensual',
   'A demanda / manual',
+]);
+
+const CANALES_VALIDOS = new Set<CanalInteroperabilidad>([
+  'PISEE',
+  'Convenio',
+  'Manual',
+]);
+
+const MADUREZ_VALIDA = new Set<MadurezFlujo>([
+  'realtime',
+  'batch',
+  'manual',
+]);
+
+const TIPOS_DOC_VALIDOS = new Set<TipoDocumentoOficial>([
+  'decreto',
+  'resolucion',
+  'convenio',
+  'oficio',
+  'guia_tecnica',
+  'diccionario_datos',
+  'ficha_tramite',
 ]);
 
 const SLUG_REGEX = /^[a-z0-9_-]+$/;
@@ -186,6 +212,66 @@ export function validarDatasetInteroperabilidad(dataset: DatasetInteroperabilida
     if (!ESTADOS_LEY_VALIDOS.has(nodo.estado_adopcion_ley21180)) {
       errores.push(`${prefix}: "estado_adopcion_ley21180" inválido: "${nodo.estado_adopcion_ley21180}".`);
     }
+
+    if (!nodo.documentacion_oficial || !Array.isArray(nodo.documentacion_oficial) || nodo.documentacion_oficial.length === 0) {
+      errores.push(`${prefix}: "documentacion_oficial" es obligatoria y debe contener al menos 1 documento.`);
+    } else {
+      for (let j = 0; j < nodo.documentacion_oficial.length; j++) {
+        const doc = nodo.documentacion_oficial[j];
+        if (!doc || typeof doc !== 'object') {
+          errores.push(`${prefix}: Documento [${j}] nulo o inválido.`);
+          continue;
+        }
+        if (!doc.titulo || typeof doc.titulo !== 'string' || doc.titulo.trim().length < 3) {
+          errores.push(`${prefix}: Documento [${j}] "titulo" debe tener al menos 3 caracteres.`);
+        }
+        if (!TIPOS_DOC_VALIDOS.has(doc.tipo)) {
+          errores.push(`${prefix}: Documento [${j}] "tipo" inválido: "${doc.tipo}". Válidos: ${Array.from(TIPOS_DOC_VALIDOS).join(', ')}`);
+        }
+        if (!doc.url || !esUrlValida(doc.url)) {
+          errores.push(`${prefix}: Documento [${j}] "url" inválida: "${doc.url}".`);
+        }
+        if (!doc.resumen || typeof doc.resumen !== 'string' || doc.resumen.trim().length < 5) {
+          errores.push(`${prefix}: Documento [${j}] "resumen" debe tener al menos 5 caracteres.`);
+        }
+      }
+    }
+
+    if (
+      typeof nodo.indice_madurez_interoperabilidad !== 'number' ||
+      nodo.indice_madurez_interoperabilidad < 0 ||
+      nodo.indice_madurez_interoperabilidad > 120
+    ) {
+      errores.push(`${prefix}: "indice_madurez_interoperabilidad" obligatorio y debe ser un número entre 0 y 120.`);
+    }
+
+    if (!nodo.nivel_madurez_interoperabilidad || ![1, 2, 3, 4, 5, 6].includes(nodo.nivel_madurez_interoperabilidad)) {
+      errores.push(`${prefix}: "nivel_madurez_interoperabilidad" obligatorio y debe ser un entero entre 1 y 6.`);
+    } else if (typeof nodo.indice_madurez_interoperabilidad === 'number') {
+      const score = nodo.indice_madurez_interoperabilidad;
+      const expectedLvl = score >= 101 ? 6 : score >= 81 ? 5 : score >= 61 ? 4 : score >= 41 ? 3 : score >= 21 ? 2 : 1;
+      if (nodo.nivel_madurez_interoperabilidad !== expectedLvl) {
+        errores.push(
+          `${prefix}: Inconsistencia en IMI. Puntaje ${score} corresponde a Nivel ${expectedLvl}, pero se declaró Nivel ${nodo.nivel_madurez_interoperabilidad}.`
+        );
+      }
+    }
+
+    if (nodo.nivel_madurez_interoperabilidad === 6 && nodo.agent_ready !== true) {
+      errores.push(`${prefix}: Todo nodo con Nivel 6 debe tener el atributo "agent_ready": true.`);
+    }
+
+    if (nodo.capacidades_agente) {
+      const cap = nodo.capacidades_agente;
+      if (
+        typeof cap.mcp_compatible !== 'boolean' ||
+        typeof cap.openapi_spec !== 'boolean' ||
+        typeof cap.event_driven !== 'boolean' ||
+        typeof cap.idempotencia !== 'boolean'
+      ) {
+        errores.push(`${prefix}: "capacidades_agente" debe especificar booleanos para mcp_compatible, openapi_spec, event_driven e idempotencia.`);
+      }
+    }
   }
 
   // Regla 3: Unicidad e Integridad de Aristas y Referencialidad
@@ -265,6 +351,14 @@ export function validarDatasetInteroperabilidad(dataset: DatasetInteroperabilida
 
     if (!FRECUENCIAS_VALIDAS.has(arista.frecuencia_actualizacion)) {
       errores.push(`${prefix}: "frecuencia_actualizacion" inválida: "${arista.frecuencia_actualizacion}".`);
+    }
+
+    if (arista.canal && !CANALES_VALIDOS.has(arista.canal)) {
+      errores.push(`${prefix}: "canal" inválido: "${arista.canal}". Válidos: ${Array.from(CANALES_VALIDOS).join(', ')}`);
+    }
+
+    if (arista.madurez_tecnica && !MADUREZ_VALIDA.has(arista.madurez_tecnica)) {
+      errores.push(`${prefix}: "madurez_tecnica" inválida: "${arista.madurez_tecnica}". Válidos: ${Array.from(MADUREZ_VALIDA).join(', ')}`);
     }
   }
 
@@ -492,6 +586,23 @@ export function validarDatasetInteroperabilidad(dataset: DatasetInteroperabilida
     });
   }
 
+  // Cálculo de Índice de Madurez de Interoperabilidad (IMI)
+  let sumaImi = 0;
+  let nodosConImi = 0;
+  const distribucionImi: Record<RangoMadurezIMI, number> = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
+
+  for (const nodo of dataset.nodos) {
+    if (typeof nodo.indice_madurez_interoperabilidad === 'number') {
+      sumaImi += nodo.indice_madurez_interoperabilidad;
+      nodosConImi++;
+    }
+    if (nodo.nivel_madurez_interoperabilidad && [1, 2, 3, 4, 5, 6].includes(nodo.nivel_madurez_interoperabilidad)) {
+      distribucionImi[nodo.nivel_madurez_interoperabilidad as RangoMadurezIMI]++;
+    }
+  }
+
+  const promedioImi = nodosConImi > 0 ? Number((sumaImi / nodosConImi).toFixed(1)) : undefined;
+
   const metricas: MetricasGrafo = {
     total_nodos: V,
     total_aristas: E,
@@ -504,6 +615,8 @@ export function validarDatasetInteroperabilidad(dataset: DatasetInteroperabilida
     distribucion_apertura: distribucionApertura,
     distribucion_tipologias: distribucionTipologias,
     distribucion_madurez: distribucionMadurez,
+    promedio_imi: promedioImi,
+    distribucion_imi: distribucionImi,
   };
 
   return {
@@ -592,7 +705,22 @@ function imprimirReporte(res: ResultadoValidacion): void {
   for (const [tip, cant] of Object.entries(m.distribucion_tipologias)) {
     console.log(`   • ${tip.padEnd(25, ' ')} : ${cant} nodos`);
   }
-  console.log('\n================================================================================');
+  console.log('');
+
+  if (m.promedio_imi !== undefined) {
+    console.log('📈 ÍNDICE DE MADUREZ DE INTEROPERABILIDAD (IMI):');
+    console.log(`   • Promedio Estatal General: ${m.promedio_imi} / 120 puntos (Escala N1-N6)`);
+    if (m.distribucion_imi) {
+      console.log(`   • Nivel 1 (Silo / Documental, 0-20 pts)         : ${m.distribucion_imi[1]} entidades`);
+      console.log(`   • Nivel 2 (Bilateral / Batch, 21-40 pts)        : ${m.distribucion_imi[2]} entidades`);
+      console.log(`   • Nivel 3 (Conectado Básico / PISEE, 41-60 pts) : ${m.distribucion_imi[3]} entidades`);
+      console.log(`   • Nivel 4 (Interoperable Integrado, 61-80 pts)  : ${m.distribucion_imi[4]} entidades`);
+      console.log(`   • Nivel 5 (Proactivo / Once-Only, 81-100 pts)   : ${m.distribucion_imi[5]} entidades`);
+      console.log(`   • Nivel 6 (Agent-Ready / IA Soberana, 101-120): ${m.distribucion_imi[6]} entidades`);
+    }
+    console.log('');
+  }
+  console.log('================================================================================');
   console.log('✨ VERIFICACIÓN EXITOSA: Código de salida 0');
   console.log('================================================================================\n');
 }

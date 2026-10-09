@@ -47,17 +47,17 @@ const protocolos = Object.entries(PROTOCOLO_CONFIG) as [EstandarProtocolo, (type
       </div>
     </div>
 
-    <!-- Protocolos -->
+    <!-- Protocolos de Transporte -->
     <div class="pt-2 border-t border-[#163a34]">
       <span class="block text-[10px] font-extrabold uppercase tracking-wider text-[#8fafaa] mb-1.5">
-        Protocolo de Transporte (Aristas)
+        Protocolos de Transporte (Aristas)
       </span>
       <div class="space-y-1">
         {protocolos.map(([_, meta]) => (
           <div class="flex items-center justify-between text-[11px]">
             <div class="flex items-center space-x-2">
               <span
-                class="w-4 h-0.5 inline-block"
+                class="w-3.5 h-0.5 inline-block"
                 style={`background-color: ${meta.color}; border-top: 1px ${meta.lineStyle} ${meta.color};`}
               ></span>
               <span class="text-[#e9efec] font-medium">{meta.label}</span>
@@ -68,6 +68,80 @@ const protocolos = Object.entries(PROTOCOLO_CONFIG) as [EstandarProtocolo, (type
           </div>
         ))}
       </div>
+    </div>
+
+    <!-- Canales Institucionales -->
+    <div class="pt-2 border-t border-[#163a34]">
+      <span class="block text-[10px] font-extrabold uppercase tracking-wider text-[#8fafaa] mb-1.5">
+        Canales de Intercambio (Rutas)
+      </span>
+      <div class="space-y-1">
+        <div class="flex items-center justify-between text-[11px]">
+          <div class="flex items-center space-x-2">
+            <span class="w-2 h-2 rounded-full bg-[#54b995]"></span>
+            <span class="text-[#e9efec] font-medium">PISEE (Oficial)</span>
+          </div>
+          <span class="text-[10px] font-mono text-[#54b995] font-bold">Oficial</span>
+        </div>
+        <div class="flex items-center justify-between text-[11px]">
+          <div class="flex items-center space-x-2">
+            <span class="w-2 h-2 rounded-full bg-[#38bdf8]"></span>
+            <span class="text-[#e9efec] font-medium">Convenio Bilateral</span>
+          </div>
+          <span class="text-[10px] font-mono text-[#38bdf8] font-bold">P2P mTLS</span>
+        </div>
+        <div class="flex items-center justify-between text-[11px]">
+          <div class="flex items-center space-x-2">
+            <span class="w-2 h-2 rounded-full bg-[#c5a75a]"></span>
+            <span class="text-[#e9efec] font-medium">Manual / Oficio</span>
+          </div>
+          <span class="text-[10px] font-mono text-[#c5a75a] font-bold">Documental</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Índice de Madurez (IMI) y Documentación -->
+    <div class="pt-2 border-t border-[#163a34]">
+      <span class="block text-[10px] font-extrabold uppercase tracking-wider text-[#8fafaa] mb-1.5">
+        Madurez IMI & Expedientes
+      </span>
+      <div class="space-y-1 text-[11px]">
+        <div class="flex items-center justify-between">
+          <span class="text-[#a78bfa] font-bold flex items-center gap-1">🤖 N6 Agent-Ready</span>
+          <span class="text-[10px] font-mono text-[#a78bfa]">101-120 pts</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-[#54b995] font-semibold">N5 Once-Only</span>
+          <span class="text-[10px] font-mono text-[#8fafaa]">81-100 pts</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-[#54b995] font-medium">N4 Integrado</span>
+          <span class="text-[10px] font-mono text-[#8fafaa]">61-80 pts</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-[#38bdf8] font-medium">N3 Conectado</span>
+          <span class="text-[10px] font-mono text-[#8fafaa]">41-60 pts</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-[#c5a75a] font-medium">N2 Bilateral</span>
+          <span class="text-[10px] font-mono text-[#8fafaa]">21-40 pts</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-[#e4b18e] font-medium">N1 Silo</span>
+          <span class="text-[10px] font-mono text-[#8fafaa]">0-20 pts</span>
+        </div>
+        <div class="flex items-center justify-between pt-1 border-t border-[#163a34]/60 text-[10px]">
+          <span class="text-[#f7f5ef] font-bold flex items-center gap-1">📎 N</span>
+          <span class="text-[#8fafaa]">Expediente legal trazable</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Guía de interacción -->
+    <div class="pt-2 border-t border-[#163a34] text-[10px] text-[#8fafaa] leading-tight space-y-0.5">
+      <div>• Arrastra nodos para reorganizar el grafo</div>
+      <div>• Rueda del mouse para zoom in/out</div>
+      <div>• Clic en nodo o arista para ficha técnica</div>
     </div>
   </div>
 </div>
