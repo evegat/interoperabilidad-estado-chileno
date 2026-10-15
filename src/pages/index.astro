@@ -7,6 +7,7 @@ import DetailDrawer from '../components/DetailDrawer.astro';
 import Legend from '../components/Legend.astro';
 import BenchmarkModal from '../components/BenchmarkModal.astro';
 import BrechasMatrix from '../components/BrechasMatrix.astro';
+import GuideModal from '../components/GuideModal.astro';
 import datasetRaw from '../data/interoperabilidad.json';
 import type { DatasetInteroperabilidad } from '../types/interoperabilidad.js';
 
@@ -22,6 +23,7 @@ const dataset = datasetRaw as DatasetInteroperabilidad;
     <Legend />
     <DetailDrawer />
     <BenchmarkModal />
+    <GuideModal />
   </main>
 </Layout>
 
