@@ -6,6 +6,7 @@ import GraphViewport from '../components/GraphViewport.astro';
 import DetailDrawer from '../components/DetailDrawer.astro';
 import Legend from '../components/Legend.astro';
 import BenchmarkModal from '../components/BenchmarkModal.astro';
+import BrechasMatrix from '../components/BrechasMatrix.astro';
 import datasetRaw from '../data/interoperabilidad.json';
 import type { DatasetInteroperabilidad } from '../types/interoperabilidad.js';
 
@@ -17,6 +18,7 @@ const dataset = datasetRaw as DatasetInteroperabilidad;
   <FilterBar />
   <main class="relative flex-1 w-full overflow-hidden bg-slate-950">
     <GraphViewport />
+    <BrechasMatrix dataset={dataset} />
     <Legend />
     <DetailDrawer />
     <BenchmarkModal />
@@ -32,6 +34,72 @@ const dataset = datasetRaw as DatasetInteroperabilidad;
 
   function start() {
     initGraphApp(dataset);
+
+    // Toggle view: Grafo vs Matriz de Brechas
+    const btnToggleView = document.getElementById('btn-toggle-view');
+    const graphContainer = document.getElementById('graph-container');
+    const matrixContainer = document.getElementById('matrix-container');
+    const legend = document.getElementById('graph-legend');
+
+    btnToggleView?.addEventListener('click', () => {
+      const isMatrixHidden = matrixContainer?.classList.contains('hidden');
+      if (isMatrixHidden) {
+        matrixContainer?.classList.remove('hidden');
+        graphContainer?.classList.add('hidden');
+        legend?.classList.add('hidden');
+        btnToggleView.innerHTML = `
+          <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          </svg>
+          <span>Vista Grafo</span>
+        `;
+      } else {
+        matrixContainer?.classList.add('hidden');
+        graphContainer?.classList.remove('hidden');
+        legend?.classList.remove('hidden');
+        btnToggleView.innerHTML = `
+          <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+          </svg>
+          <span>Matriz de Brechas</span>
+        `;
+      }
+    });
+
+    // Handle CSV export of the matrix
+    window.addEventListener('export-matrix-csv', () => {
+      const headers = ['ID', 'Sigla', 'Nombre', 'Tipo', 'Nivel IMI', 'Puntaje IMI', 'Agent-Ready', 'Flujos Entrantes', 'Flujos Salientes', 'Brechas Criticas', 'Articulos DS 12'];
+      const rows = dataset.nodos.map((n) => {
+        const inFl = dataset.aristas.filter((a) => a.destino === n.id).length;
+        const outFl = dataset.aristas.filter((a) => a.origen === n.id).length;
+        const flujos = dataset.aristas.filter((a) => a.destino === n.id || a.origen === n.id);
+        const crit = flujos.filter((f) => f.severity === 'critica').length;
+        const arts = Array.from(new Set(flujos.map((f) => f.normative_ref).filter(Boolean))).join('; ');
+        return [
+          `"${n.id}"`,
+          `"${n.sigla}"`,
+          `"${n.nombre.replace(/"/g, '""')}"`,
+          `"${n.tipo}"`,
+          n.nivel_madurez_interoperabilidad || 1,
+          n.indice_madurez_interoperabilidad || 0,
+          n.agent_ready ? 'SI' : 'NO',
+          inFl,
+          outFl,
+          crit,
+          `"${arts}"`,
+        ].join(',');
+      });
+
+      const csvContent = [headers.join(','), ...rows].join('\n');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.setAttribute('href', url);
+      link.setAttribute('download', `matriz_interoperabilidad_chile_ds12_${new Date().toISOString().slice(0, 10)}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
 
     // Update Header KPI counts dynamically on filter changes
     window.addEventListener('filters-updated', ((e: CustomEvent) => {

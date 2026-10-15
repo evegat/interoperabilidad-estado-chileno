@@ -1,0 +1,296 @@
+---
+import type { DatasetInteroperabilidad } from '../types/interoperabilidad.js';
+
+interface Props {
+  dataset: DatasetInteroperabilidad;
+}
+
+const { dataset } = Astro.props;
+
+// Preparar datos ordenados por peor madurez (menor IMI) primero
+const nodosConStats = dataset.nodos.map((nodo) => {
+  const entrantes = dataset.aristas.filter((a) => a.destino === nodo.id);
+  const salientes = dataset.aristas.filter((a) => a.origen === nodo.id);
+  const flujos = [...entrantes, ...salientes];
+  
+  const brechasCriticas = flujos.filter(
+    (f) => f.severity === 'critica' || (!f.severity && f.brecha_observada && f.brecha_observada.length > 5 && (f.canal === 'Manual' || f.estandar_o_protocolo.includes('SFTP') || f.estandar_o_protocolo === 'Bilateral Propietario'))
+  );
+  const brechasModeradas = flujos.filter(
+    (f) => f.severity === 'moderada' || (!f.severity && f.brecha_observada && f.brecha_observada.length > 5 && (f.estandar_o_protocolo.includes('SOAP') || f.canal === 'Convenio'))
+  );
+
+  const articulosIncumplidos = Array.from(
+    new Set(flujos.map((f) => f.normative_ref).filter(Boolean))
+  ) as string[];
+
+  return {
+    ...nodo,
+    totalFlujos: flujos.length,
+    flujosEntrantes: entrantes.length,
+    flujosSalientes: salientes.length,
+    totalBrechasCriticas: brechasCriticas.length,
+    totalBrechasModeradas: brechasModeradas.length,
+    articulosIncumplidos,
+  };
+}).sort((a, b) => (a.indice_madurez_interoperabilidad || 0) - (b.indice_madurez_interoperabilidad || 0));
+---
+
+<div id="matrix-container" class="hidden absolute inset-0 z-10 bg-[#061614] overflow-y-auto px-4 sm:px-8 py-6 select-text">
+  <div class="max-w-7xl mx-auto space-y-4">
+    
+    <!-- Matrix Header Banner -->
+    <div class="bg-[#0a2320] border border-[#163a34] rounded-xl p-4 sm:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4 shadow-lg">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-[#d7653b]/20 text-[#e4b18e] border border-[#d7653b]/40">
+            Vista de Gestión y Auditoría
+          </span>
+          <span class="text-xs text-[#8fafaa]">Ley N° 21.180 & DS N° 12/2023 MinSegpres</span>
+        </div>
+        <h2 class="text-lg font-black text-white mt-1">
+          Matriz de Brechas de Interoperabilidad por Organismo
+        </h2>
+        <p class="text-xs text-[#8fafaa] mt-0.5">
+          Auditoría de cumplimiento, criticidad de flujos bilaterales/manuales y articulado normativo pendiente de migración a la Red de Nodos.
+        </p>
+      </div>
+
+      <!-- Quick Summary Stats -->
+      <div class="flex items-center gap-3 text-xs">
+        <div class="bg-[#061614] border border-[#1a433d] px-3 py-2 rounded-lg text-center">
+          <span class="block text-[10px] text-[#8fafaa] uppercase font-bold">Muestra</span>
+          <span class="text-sm font-black text-white">{dataset.nodos.length} OAEs</span>
+        </div>
+        <div class="bg-[#061614] border border-[#1a433d] px-3 py-2 rounded-lg text-center">
+          <span class="block text-[10px] text-[#8fafaa] uppercase font-bold">Críticas</span>
+          <span class="text-sm font-black text-[#e4b18e]">19 Flujos</span>
+        </div>
+        <button
+          type="button"
+          id="btn-export-csv"
+          class="inline-flex items-center gap-1.5 px-3 py-2 bg-[#12483f] hover:bg-[#1a5e52] text-white border border-[#235d52] hover:border-[#54b995] rounded-lg font-bold transition-all shadow-sm focus:outline-none"
+          title="Descargar datos en formato CSV para análisis en Excel o Python"
+        >
+          <svg class="w-4 h-4 text-[#54b995]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          <span>Exportar CSV</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div class="overflow-x-auto rounded-xl border border-[#163a34] bg-[#081d1a]/95 shadow-xl">
+      <table class="w-full text-left border-collapse text-xs">
+        <thead>
+          <tr class="bg-[#051311] border-b border-[#163a34] text-[11px] font-extrabold uppercase tracking-wider text-[#8fafaa]">
+            <th class="py-3 px-4">Organismo / Institución</th>
+            <th class="py-3 px-3 text-center">Nivel IMI (DS 12)</th>
+            <th class="py-3 px-3 text-center">Puntaje</th>
+            <th class="py-3 px-3 text-center">Sello IA</th>
+            <th class="py-3 px-3 text-center">Flujos (In / Out)</th>
+            <th class="py-3 px-3 text-center">Brechas Críticas</th>
+            <th class="py-3 px-3">Artículos DS 12 Vulnerados</th>
+            <th class="py-3 px-4 text-right">Acción</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-[#163a34]/60 text-[#f7f5ef]">
+          {nodosConStats.map((item) => {
+            const imiScore = item.indice_madurez_interoperabilidad || 0;
+            const imiLevel = item.nivel_madurez_interoperabilidad || 1;
+            
+            return (
+              <tr class="hover:bg-[#0a2320] transition-colors group" data-node-id={item.id}>
+                <!-- Organismo -->
+                <td class="py-3 px-4">
+                  <div class="flex items-center gap-2">
+                    <span class="font-black text-white text-sm tracking-tight">{item.sigla}</span>
+                    <span class="text-[10px] font-mono text-[#8fafaa] bg-[#051311] px-1.5 py-0.5 rounded border border-[#163a34]">
+                      {item.tipo.replace('_', ' ')}
+                    </span>
+                  </div>
+                  <div class="text-[11px] text-[#8fafaa] truncate max-w-xs sm:max-w-md mt-0.5">
+                    {item.nombre}
+                  </div>
+                </td>
+
+                <!-- Nivel IMI -->
+                <td class="py-3 px-3 text-center whitespace-nowrap">
+                  <span class={`inline-block px-2 py-0.5 rounded text-[10px] font-bold border ${
+                    imiLevel === 5 ? 'bg-[#54b995]/20 text-[#54b995] border-[#54b995]/40' :
+                    imiLevel === 4 ? 'bg-[#12483f] text-[#54b995] border-[#1e5a4f]' :
+                    imiLevel === 3 ? 'bg-[#1b4965]/40 text-[#38bdf8] border-[#38bdf8]/40' :
+                    imiLevel === 2 ? 'bg-[#c5a75a]/20 text-[#c5a75a] border-[#c5a75a]/40' :
+                    'bg-[#9f1239]/40 text-[#fca5a5] border-[#be123c]/60'
+                  }`}>
+                    N{imiLevel}
+                  </span>
+                </td>
+
+                <!-- Puntaje IMI -->
+                <td class="py-3 px-3 text-center font-mono font-bold text-white">
+                  <span class={imiScore >= 80 ? 'text-[#54b995]' : imiScore >= 60 ? 'text-[#38bdf8]' : imiScore >= 40 ? 'text-[#c5a75a]' : 'text-[#e4b18e]'}>
+                    {imiScore}
+                  </span>
+                  <span class="text-[10px] text-[#8fafaa]">/100</span>
+                </td>
+
+                <!-- Sello Agent-Ready Desacoplado -->
+                <td class="py-3 px-3 text-center whitespace-nowrap">
+                  {item.agent_ready ? (
+                    <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-[#1d4ed8]/20 text-[#93c5fd] border border-[#2563eb]/40" title={`Sello Agent-Ready: ${item.ai_readiness_score || 4}/4 checks técnicos`}>
+                      <span>🤖 4/4</span>
+                    </span>
+                  ) : (
+                    <span class="text-[#8fafaa]/50 font-mono text-[11px]">—</span>
+                  )}
+                </td>
+
+                <!-- Flujos In / Out -->
+                <td class="py-3 px-3 text-center font-mono text-[11px]">
+                  <span class="text-[#54b995] font-bold" title="Entrantes">{item.flujosEntrantes}</span>
+                  <span class="text-[#8fafaa]"> / </span>
+                  <span class="text-[#e4b18e] font-bold" title="Salientes">{item.flujosSalientes}</span>
+                </td>
+
+                <!-- Brechas Críticas -->
+                <td class="py-3 px-3 text-center">
+                  {item.totalBrechasCriticas > 0 ? (
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-black bg-[#d7653b]/25 text-[#f4dfd5] border border-[#d7653b]/50">
+                      ⚠ {item.totalBrechasCriticas} crítica{item.totalBrechasCriticas > 1 ? 's' : ''}
+                    </span>
+                  ) : (
+                    <span class="text-[#54b995] font-mono text-[11px]">✓ 0</span>
+                  )}
+                </td>
+
+                <!-- Artículos DS 12 Vulnerados -->
+                <td class="py-3 px-3">
+                  {item.articulosIncumplidos.length > 0 ? (
+                    <div class="flex flex-wrap gap-1 max-w-xs">
+                      {item.articulosIncumplidos.map((art) => (
+                        <span class="px-1.5 py-0.5 rounded text-[9px] font-mono font-semibold bg-[#051311] text-[#e4b18e] border border-[#163a34]">
+                          {art}
+                        </span>
+                      ))}
+                    </div>
+                  ) : (
+                    <span class="text-[#8fafaa] italic text-[10px]">Conforme o en trámite</span>
+                  )}
+                </td>
+
+                <!-- Acciones Rápidas -->
+                <td class="py-3 px-4 text-right whitespace-nowrap">
+                  <div class="inline-flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      class="btn-matrix-view-graph px-2 py-1 rounded bg-[#12483f] hover:bg-[#1a5e52] text-white text-[10px] font-bold transition-colors border border-[#235d52] focus:outline-none"
+                      data-node-id={item.id}
+                      title="Localizar y centrar en el Grafo"
+                    >
+                      Ver en Grafo
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-matrix-evalti px-2 py-1 rounded bg-[#d7653b]/20 hover:bg-[#d7653b] text-[#e4b18e] hover:text-white text-[10px] font-bold transition-colors border border-[#d7653b]/40 focus:outline-none"
+                      data-node-id={item.id}
+                      title="Abrir minuta técnica para EvalTI / DIPRES"
+                    >
+                      Minuta EvalTI
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initMatrixActions() {
+    const tableBody = document.querySelector('#matrix-container tbody');
+    if (!tableBody) return;
+
+    // View in graph handler
+    tableBody.addEventListener('click', (e) => {
+      const target = (e.target as HTMLElement).closest('.btn-matrix-view-graph') as HTMLButtonElement | null;
+      if (!target) return;
+      const nodeId = target.dataset.nodeId;
+      if (!nodeId) return;
+
+      // Switch to graph view
+      const viewToggle = document.getElementById('btn-toggle-view');
+      const matrixContainer = document.getElementById('matrix-container');
+      const graphContainer = document.getElementById('graph-container');
+      const legend = document.getElementById('graph-legend');
+
+      if (matrixContainer && graphContainer) {
+        matrixContainer.classList.add('hidden');
+        graphContainer.classList.remove('hidden');
+        if (legend) legend.classList.remove('hidden');
+        if (viewToggle) {
+          viewToggle.innerHTML = `
+            <svg class="w-3.5 h-3.5 text-[#54b995]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            <span>Matriz de Brechas</span>
+          `;
+        }
+      }
+
+      // Center node in Cytoscape
+      const controller = (window as unknown as { __graphController?: { cy?: { getElementById: (id: string) => { length: number } }; selectNode: (node: unknown) => void } }).__graphController;
+      if (controller?.cy) {
+        const nodeElem = controller.cy.getElementById(nodeId);
+        if (nodeElem.length > 0) {
+          controller.selectNode(nodeElem);
+          (controller.cy as unknown as { animate: (opts: unknown) => void }).animate({
+            center: { eles: nodeElem },
+            zoom: 1.5,
+            duration: 350,
+          });
+        }
+      }
+    });
+
+    // Minuta EvalTI button in table
+    tableBody.addEventListener('click', (e) => {
+      const target = (e.target as HTMLElement).closest('.btn-matrix-evalti') as HTMLButtonElement | null;
+      if (!target) return;
+      const nodeId = target.dataset.nodeId;
+      if (!nodeId) return;
+
+      const controller = (window as unknown as { __graphController?: { cy?: { getElementById: (id: string) => { length: number } }; selectNode: (node: unknown) => void } }).__graphController;
+      if (controller?.cy) {
+        const nodeElem = controller.cy.getElementById(nodeId);
+        if (nodeElem.length > 0) {
+          controller.selectNode(nodeElem);
+        }
+      }
+      
+      // Trigger generate evalti minuta
+      const generateMinutaBtn = document.getElementById('btn-generate-evalti-minuta');
+      if (generateMinutaBtn) {
+        generateMinutaBtn.click();
+      }
+    });
+
+    // Export CSV handler
+    const exportBtn = document.getElementById('btn-export-csv');
+    exportBtn?.addEventListener('click', () => {
+      window.dispatchEvent(new CustomEvent('export-matrix-csv'));
+    });
+  }
+
+  if (typeof window !== 'undefined') {
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', initMatrixActions);
+    } else {
+      initMatrixActions();
+    }
+  }
+</script>

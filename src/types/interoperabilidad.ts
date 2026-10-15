@@ -42,7 +42,7 @@ export interface DocumentoOficial {
   resumen: string;
 }
 
-export type RangoMadurezIMI = 1 | 2 | 3 | 4 | 5 | 6;
+export type RangoMadurezIMI = 1 | 2 | 3 | 4 | 5;
 export type NivelMadurezIMI = RangoMadurezIMI;
 
 export interface CapacidadesAgenteIA {
@@ -57,6 +57,8 @@ export interface CapacidadesAgenteIA {
   /** Trazabilidad algorítmica y logs de auditoría para ejecuciones autónomas (Zero Human / Ley 21.180) */
   auditabilidad_algoritmica?: boolean;
 }
+
+export type SeveridadBrecha = 'critica' | 'moderada' | 'optima';
 
 export interface NodoInstitucion {
   /** Slug unívoco identificador del nodo (ej. 'srcei', 'pisee', 'sii') */
@@ -77,10 +79,12 @@ export interface NodoInstitucion {
   nivel_madurez_digital: MadurezDigital;
   /** Fase actual de adopción de la Ley N° 21.180 según calendario oficial */
   estado_adopcion_ley21180: EstadoLey21180;
-  /** Índice de Madurez de Interoperabilidad (0 a 120 puntos con N6 Agent-Ready) */
+  /** Índice de Madurez de Interoperabilidad Normativo (0 a 100 puntos según DS N° 12/2023) */
   indice_madurez_interoperabilidad?: number;
-  /** Nivel de Madurez de Interoperabilidad institucional (1 a 6) */
+  /** Nivel de Madurez de Interoperabilidad institucional (1 a 5) */
   nivel_madurez_interoperabilidad?: RangoMadurezIMI;
+  /** Puntaje independiente de preparación para agentes de IA (0 a 4 checks) */
+  ai_readiness_score?: number;
   /** Bandera indicadora de organismo pionero o certificado como Agent-Ready */
   agent_ready?: boolean;
   /** Capacidades técnicas avanzadas para interacción con agentes autónomos y LLMs */
@@ -132,6 +136,10 @@ export interface AristaInteroperabilidad {
   fuente_oficial_url: string;
   /** Diagnóstico de brecha técnica, acoplamiento o fricción observada */
   brecha_observada: string;
+  /** Clasificación de severidad de la brecha observada */
+  severity?: SeveridadBrecha;
+  /** Artículo vulnerado del DS N° 12/2023 MinSegpres */
+  normative_ref?: string;
   /** Periodicidad o frecuencia del intercambio de datos */
   frecuencia_actualizacion: FrecuenciaActualizacion;
   /** Estimación cuantitativa o cualitativa del volumen transaccional */

@@ -13,8 +13,8 @@
       "sitio_web": "https://www.registrocivil.cl",
       "nivel_madurez_digital": "alto",
       "estado_adopcion_ley21180": "fase_3_interoperabilidad",
-      "indice_madurez_interoperabilidad": 106,
-      "nivel_madurez_interoperabilidad": 6,
+      "indice_madurez_interoperabilidad": 92,
+      "nivel_madurez_interoperabilidad": 5,
       "agent_ready": true,
       "capacidades_agente": {
         "mcp_compatible": true,
@@ -45,7 +45,8 @@
           "ano": 2023,
           "resumen": "Especificación de esquemas JSON/REST para verificación de número de serie y vigencia de documentos de identidad."
         }
-      ]
+      ],
+      "ai_readiness_score": 3
     },
     {
       "id": "claveunica",
@@ -74,7 +75,8 @@
           "ano": 2023,
           "resumen": "Protocolo de federación de identidad, scopes de autenticación y tokens JWT para organismos públicos integrados."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "sgd",
@@ -86,8 +88,8 @@
       "sitio_web": "https://digital.gob.cl",
       "nivel_madurez_digital": "alto",
       "estado_adopcion_ley21180": "fase_3_interoperabilidad",
-      "indice_madurez_interoperabilidad": 118,
-      "nivel_madurez_interoperabilidad": 6,
+      "indice_madurez_interoperabilidad": 98,
+      "nivel_madurez_interoperabilidad": 5,
       "agent_ready": true,
       "capacidades_agente": {
         "mcp_compatible": true,
@@ -111,7 +113,8 @@
           "ano": 2022,
           "resumen": "Manual vinculante de diseño de endpoints REST, seguridad mTLS y versionamiento de APIs en el ecosistema público."
         }
-      ]
+      ],
+      "ai_readiness_score": 4
     },
     {
       "id": "pisee",
@@ -140,7 +143,8 @@
           "ano": 2024,
           "resumen": "Catálogo unificado de más de 120 endpoints institucionales activos para intercambio transaccional y Once-Only."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "sii",
@@ -152,8 +156,8 @@
       "sitio_web": "https://www.sii.cl",
       "nivel_madurez_digital": "alto",
       "estado_adopcion_ley21180": "fase_3_interoperabilidad",
-      "indice_madurez_interoperabilidad": 114,
-      "nivel_madurez_interoperabilidad": 6,
+      "indice_madurez_interoperabilidad": 95,
+      "nivel_madurez_interoperabilidad": 5,
       "agent_ready": true,
       "capacidades_agente": {
         "mcp_compatible": true,
@@ -177,7 +181,8 @@
           "ano": 2022,
           "resumen": "Acuerdo de sincronización y liquidación en línea de giros, retenciones y compensaciones fiscales."
         }
-      ]
+      ],
+      "ai_readiness_score": 4
     },
     {
       "id": "tgr",
@@ -206,7 +211,8 @@
           "ano": 2023,
           "resumen": "Especificaciones de pasarelas de pago y distribución automatizada del Fondo Común Municipal."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "chilecompra",
@@ -218,8 +224,8 @@
       "sitio_web": "https://www.chilecompra.cl",
       "nivel_madurez_digital": "alto",
       "estado_adopcion_ley21180": "fase_3_interoperabilidad",
-      "indice_madurez_interoperabilidad": 112,
-      "nivel_madurez_interoperabilidad": 6,
+      "indice_madurez_interoperabilidad": 94,
+      "nivel_madurez_interoperabilidad": 5,
       "agent_ready": true,
       "capacidades_agente": {
         "mcp_compatible": true,
@@ -243,7 +249,8 @@
           "ano": 2024,
           "resumen": "Estándar internacional Open Contracting Data Standard para licitaciones, órdenes de compra y contratos del Estado."
         }
-      ]
+      ],
+      "ai_readiness_score": 4
     },
     {
       "id": "dipres",
@@ -272,7 +279,8 @@
           "ano": 2023,
           "resumen": "Estándares de compromiso y devengo electrónico automatizado entre compras y presupuesto nacional."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "cgr",
@@ -301,7 +309,8 @@
           "ano": 2023,
           "resumen": "Instrucciones obligatorias sobre pistas de auditoría y registros inmutables en plataformas de interoperabilidad."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "municipalidades",
@@ -330,7 +339,8 @@
           "ano": 2023,
           "resumen": "Diagnóstico sectorial que constata que menos del 25% de los municipios cuenta con APIs conectadas al bus central."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "subdere",
@@ -352,7 +362,8 @@
           "ano": 2020,
           "resumen": "Normativa para recolección periódica de matrices financieras y de gestión municipal."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "fonasa",
@@ -374,7 +385,8 @@
           "ano": 2022,
           "resumen": "Interconexión de licencias médicas electrónicas y acreditación automática de cargas familiares en salud."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "suseso",
@@ -396,7 +408,8 @@
           "ano": 2020,
           "resumen": "Estándares técnicos y de seguridad informática para operadores y emisores del sistema de licencias médicas."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "supersalud",
@@ -418,7 +431,8 @@
           "ano": 2021,
           "resumen": "Obligatoriedad de consulta de habilitación profesional para fonasa y prestadores clínicos."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "mdsf",
@@ -440,7 +454,8 @@
           "ano": 2015,
           "resumen": "Regula el cruce administrativo de bases de datos para determinación de la calificación socioeconómica de los hogares."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "ministerios",
@@ -462,7 +477,8 @@
           "ano": 2021,
           "resumen": "Fijación de plazos graduales para expedientes electrónicos e interoperabilidad en carteras de Estado."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "sociedad_civil",
@@ -484,7 +500,8 @@
           "ano": 2011,
           "resumen": "Mecanismos de consulta ciudadana y acceso a información pública digital."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "mineduc",
@@ -506,7 +523,8 @@
           "ano": 2022,
           "resumen": "Habilita la verificación sincrónica Once-Only de títulos y licencias educacionales por organismos públicos."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "pjud",
@@ -528,7 +546,8 @@
           "ano": 2015,
           "resumen": "Obligatoriedad de tramitación electrónica de causas y despacho de oficios e interconexiones jurisdiccionales."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "cmf",
@@ -550,7 +569,8 @@
           "ano": 2023,
           "resumen": "Interconexión de reportes de deuda bancaria y supervisión prudencial electrónica."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "minsal",
@@ -572,7 +592,8 @@
           "ano": 2021,
           "resumen": "Estándar HL7-FHIR y codificación SNOMED para intercambio de datos clínicos y vacunas."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "cenabast",
@@ -594,7 +615,8 @@
           "ano": 2022,
           "resumen": "Procedimientos de gestión de stocks y órdenes de entrega con Mercado Público y servicios de salud."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "sermig",
@@ -616,7 +638,8 @@
           "ano": 2021,
           "resumen": "Interconexión obligatoria entre PDI, Registro Civil y SERMIG para verificación de permisos de residencia."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "pdi",
@@ -638,7 +661,8 @@
           "ano": 2022,
           "resumen": "Acceso en línea a control migratorio de fronteras y registros de órdenes de aprehensión."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "carabineros",
@@ -660,7 +684,8 @@
           "ano": 2023,
           "resumen": "Flujo de partes policiales automatizados hacia el Ministerio Público y tribunales."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "dt",
@@ -682,7 +707,8 @@
           "ano": 2021,
           "resumen": "Establece la obligación de registro digital de contratos de trabajo, finiquitos y libro de remuneraciones electrónico."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "sence",
@@ -704,7 +730,8 @@
           "ano": 2022,
           "resumen": "Verificación automatizada de cursos, asistencia biométrica y validación tributaria con SII."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "mtt",
@@ -726,7 +753,8 @@
           "ano": 2020,
           "resumen": "Bases de interoperabilidad con Registro Civil y juzgados de policía local."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "sernac",
@@ -748,7 +776,8 @@
           "ano": 2022,
           "resumen": "Mecanismo de derivación electrónica expedita de denuncias financieras y de telecomunicaciones."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "ine",
@@ -770,7 +799,8 @@
           "ano": 1970,
           "resumen": "Gobernanza y anonimización de registros administrativos con fines estadísticos oficiales."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "sna",
@@ -799,7 +829,8 @@
           "ano": 2023,
           "resumen": "Protocolo de validación documental y tributaria en ventanilla de comercio exterior."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "ips",
@@ -821,7 +852,8 @@
           "ano": 2008,
           "resumen": "Rectoría de la ventanilla única multicanal de trámites sociales del Estado y pago de PGU."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "interior",
@@ -843,7 +875,8 @@
           "ano": 2011,
           "resumen": "Estatuto de coordinación interinstitucional para las fuerzas de orden y seguridad."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "hacienda",
@@ -865,7 +898,8 @@
           "ano": 2021,
           "resumen": "Consagra a Hacienda como líder ministerial del impulso GovTech y la interoperabilidad estatal."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "minsegpres",
@@ -887,7 +921,8 @@
           "ano": 2019,
           "resumen": "Mandato legal para la tramitación exclusivamente electrónica de los procedimientos administrativos."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "segegob",
@@ -909,7 +944,8 @@
           "ano": 2022,
           "resumen": "Postulación y rendición digital de recursos públicos concursables."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "minrel",
@@ -931,7 +967,8 @@
           "ano": 2016,
           "resumen": "Validez internacional inmediata de documentos públicos interoperados entre consulados y organismos."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "defensa",
@@ -953,7 +990,8 @@
           "ano": 2010,
           "resumen": "Regula las atribuciones conjuntas y sistemas de información en defensa."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "mop",
@@ -975,7 +1013,8 @@
           "ano": 1997,
           "resumen": "Normativa de licitación y adjudicación de grandes obras públicas del Estado."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "minvu",
@@ -1004,7 +1043,8 @@
           "ano": 2023,
           "resumen": "Validación en línea del registro social de hogares en postulaciones a viviendas sociales."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "mintrab",
@@ -1026,7 +1066,8 @@
           "ano": 1969,
           "resumen": "Obligaciones de registro de accidentes y fiscalización coordinada."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "economia",
@@ -1048,7 +1089,8 @@
           "ano": 2013,
           "resumen": "Constitución societaria 100% digital e interoperabilidad automática de inicio con el SII."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "energia",
@@ -1070,7 +1112,8 @@
           "ano": 2009,
           "resumen": "Marco orgánico para planificación del sistema interconectado y fuentes limpias."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "mineria",
@@ -1092,7 +1135,8 @@
           "ano": 1983,
           "resumen": "Concesiones mineras y catastro oficial de pedimentos y manifestaciones."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "bienes_nacionales",
@@ -1114,7 +1158,8 @@
           "ano": 1979,
           "resumen": "Intercambio de expedientes de títulos de dominio con Conservadores de Bienes Raíces."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "mma",
@@ -1136,7 +1181,8 @@
           "ano": 1994,
           "resumen": "Rectoría del Sistema Nacional de Información Ambiental (SINIA)."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "minjusticia",
@@ -1158,7 +1204,8 @@
           "ano": 2016,
           "resumen": "Supervisión funcional de servicios auxiliares de la administración de justicia."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "culturas",
@@ -1180,7 +1227,8 @@
           "ano": 2017,
           "resumen": "Marco legal de gestión cultural y registro nacional de agentes culturales."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "minmujer",
@@ -1202,7 +1250,8 @@
           "ano": 2015,
           "resumen": "Integración transversal del enfoque de género en sistemas de datos del Estado."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "ciencia",
@@ -1224,7 +1273,8 @@
           "ano": 2021,
           "resumen": "Directrices éticas y estándares de interoperabilidad para repositorios de datos de investigación."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "minagri",
@@ -1246,7 +1296,8 @@
           "ano": 1960,
           "resumen": "Supervisión coordinada de servicios del agro (SAG, INDAP, CONAF)."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "anid",
@@ -1268,7 +1319,8 @@
           "ano": 2018,
           "resumen": "Transforma CONICYT en la Agencia Nacional de Investigación y Desarrollo."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "deportes",
@@ -1290,7 +1342,8 @@
           "ano": 2013,
           "resumen": "Regulación del Registro Nacional de Organizaciones Deportivas."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "sag",
@@ -1312,7 +1365,8 @@
           "ano": 1989,
           "resumen": "Certificación oficial electrónica de exportaciones silvoagropecuarias."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "serviu",
@@ -1334,7 +1388,8 @@
           "ano": 2021,
           "resumen": "Habilitación técnica e interoperabilidad con ChileCompra para obras habitacionales."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "servel",
@@ -1356,7 +1411,8 @@
           "ano": 1986,
           "resumen": "Obligatoriedad de sincronización periódica de nacimientos y defunciones con el Registro Civil."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "bcch",
@@ -1378,7 +1434,8 @@
           "ano": 1989,
           "resumen": "Operación del sistema de liquidación bruta en tiempo real y estadísticas de balanza de pagos."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "fiscalia",
@@ -1400,7 +1457,8 @@
           "ano": 1999,
           "resumen": "Interconexión electrónica del Sistema de Apoyo a Fiscales (SAF) con policías y tribunales."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "dpp",
@@ -1422,7 +1480,8 @@
           "ano": 2001,
           "resumen": "Sistema de Gestión de Defensa Penal SIGDP y sincronización con el Poder Judicial."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "sec",
@@ -1444,7 +1503,8 @@
           "ano": 1985,
           "resumen": "Supervisión en tiempo real de interrupciones de suministro eléctrico e interoperabilidad regulatoria."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "sma",
@@ -1466,7 +1526,8 @@
           "ano": 2010,
           "resumen": "Sistema Nacional de Información de Fiscalización Ambiental (SNIFA)."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "conadi",
@@ -1488,7 +1549,8 @@
           "ano": 1993,
           "resumen": "Regulación del Registro Nacional de Comunidades y Asociaciones Indígenas."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "senapred",
@@ -1510,7 +1572,8 @@
           "ano": 2021,
           "resumen": "Obligatoriedad de interconexión tecnológica inmediata de monitoreo sismológico, meteorológico e incendios."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "dgac",
@@ -1532,7 +1595,8 @@
           "ano": 1968,
           "resumen": "Gestión y control de vuelos, licencias aeronáuticas y registros de aeronaves."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "sernapesca",
@@ -1554,7 +1618,8 @@
           "ano": 1989,
           "resumen": "Control de cuotas, veda y trazabilidad marítima mediante sistemas de posicionamiento satelital."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "isp",
@@ -1576,7 +1641,8 @@
           "ano": 2010,
           "resumen": "Ventanilla electrónica de importación y visación de fármacos."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "cochilco",
@@ -1598,7 +1664,8 @@
           "ano": 1976,
           "resumen": "Fiscalización técnica y financiera del valor real de concentrados de cobre exportados."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "spensiones",
@@ -1620,7 +1687,8 @@
           "ano": 1980,
           "resumen": "Supervisión de inversiones previsionales e intercambio con IPS para pago de aportes previsionales."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "cbr",
@@ -1642,7 +1710,8 @@
           "ano": 1857,
           "resumen": "Bases legales de la inscripción y mutación del dominio territorial en Chile."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "inapi",
@@ -1664,7 +1733,8 @@
           "ano": 1991,
           "resumen": "Tramitación y publicación digital de solicitudes de marcas y patentes."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "conaf",
@@ -1686,7 +1756,8 @@
           "ano": 1931,
           "resumen": "Planes de manejo forestal y permisos de corta y explotación."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "dga",
@@ -1708,7 +1779,8 @@
           "ano": 2022,
           "resumen": "Catastro Público de Aguas y transmisión telemática de extracciones efectivas."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "gendarmeria",
@@ -1730,7 +1802,8 @@
           "ano": 1979,
           "resumen": "Órdenes judiciales electrónicas de ingreso y egreso de recintos penitenciarios."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "corfo",
@@ -1752,7 +1825,8 @@
           "ano": 1940,
           "resumen": "Bases de administración de subsidios públicos concursables e intermediación de garantías financieras."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "cplt",
@@ -1774,7 +1848,8 @@
           "ano": 2008,
           "resumen": "Portal de Transparencia del Estado y API de solicitudes ciudadanas."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "gores",
@@ -1796,7 +1871,8 @@
           "ano": 1992,
           "resumen": "Transferencia de competencias y gestión del Fondo Nacional de Desarrollo Regional."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     },
     {
       "id": "sicex",
@@ -1825,7 +1901,8 @@
           "ano": 2023,
           "resumen": "Especificaciones de visaciones sanitarias y declaraciones de exportación interoperadas."
         }
-      ]
+      ],
+      "ai_readiness_score": 0
     }
   ],
   "aristas": [
@@ -1843,7 +1920,9 @@
       "volumen_transaccional_estimado": "Más de 40 millones de autenticaciones mensuales",
       "base_legal": "Ley N° 21.180 Art. 19; DFL 1/2020 Segpres",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "moderada",
+      "normative_ref": "Art. 11 DS N° 12/2023 (Omisión de especificación en Catálogo de Servicios)"
     },
     {
       "id": "claveunica-chilecompra-sso",
@@ -1859,7 +1938,9 @@
       "volumen_transaccional_estimado": "Cientos de miles de sesiones mensuales",
       "base_legal": "Ley N° 19.886 de Compras Públicas; Ley N° 21.180",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "moderada",
+      "normative_ref": "Art. 13 DS N° 12/2023 (Adecuación a modelo de acuerdos formales)"
     },
     {
       "id": "chilecompra-sii-valida-proveedor",
@@ -1875,7 +1956,9 @@
       "volumen_transaccional_estimado": "Decenas de miles de consultas diarias",
       "base_legal": "Ley N° 19.886 y Código Tributario Art. 66",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "moderada",
+      "normative_ref": "Art. 11 DS N° 12/2023 (Omisión de especificación en Catálogo de Servicios)"
     },
     {
       "id": "chilecompra-dipres-sigfe-compromiso",
@@ -1891,7 +1974,9 @@
       "volumen_transaccional_estimado": "Miles de órdenes de compra procesadas diariamente",
       "base_legal": "Ley de Presupuestos del Sector Público; DL 1.263",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "moderada",
+      "normative_ref": "Art. 13 DS N° 12/2023 (Adecuación a modelo de acuerdos formales)"
     },
     {
       "id": "dipres-tgr-pago-proveedores",
@@ -1907,7 +1992,9 @@
       "volumen_transaccional_estimado": "Millones de dólares transferidos por ciclo presupuestario",
       "base_legal": "DFL 1/1994 Hacienda",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "critica",
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
     },
     {
       "id": "sii-tgr-operacion-renta",
@@ -1923,7 +2010,9 @@
       "volumen_transaccional_estimado": "Más de 4 millones de contribuyentes anuales",
       "base_legal": "Código Tributario Art. 35 y Art. 57",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "critica",
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
     },
     {
       "id": "srcei-tgr-deudores-alimentos",
@@ -1939,7 +2028,9 @@
       "volumen_transaccional_estimado": "Cientos de miles de registros de deudores activos",
       "base_legal": "Ley N° 21.389",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "srcei-pisee-servicios-civiles",
@@ -1955,7 +2046,9 @@
       "volumen_transaccional_estimado": "Más de 10 millones de consultas anuales",
       "base_legal": "Ley N° 21.180 Art. 19; DFL 1/2020 Segpres",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "moderada",
+      "normative_ref": "Art. 13 DS N° 12/2023 (Adecuación a modelo de acuerdos formales)"
     },
     {
       "id": "pisee-municipalidades-tramites",
@@ -1971,7 +2064,9 @@
       "volumen_transaccional_estimado": "Heterogéneo y fuertemente concentrado en municipios del Gran Santiago",
       "base_legal": "Ley N° 21.180 Art. 19; Ley N° 18.695",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "subdere-municipalidades-sim-sinim",
@@ -1987,7 +2082,9 @@
       "volumen_transaccional_estimado": "345 matrices municipales trimestrales",
       "base_legal": "DL 1.289; DFL 1/2006 Interior",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "critica",
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
     },
     {
       "id": "municipalidades-tgr-fondo-comun",
@@ -2003,7 +2100,9 @@
       "volumen_transaccional_estimado": "Miles de millones de pesos redistribuidos solidariamente",
       "base_legal": "Ley N° 18.695 Art. 38",
       "canal": "Manual",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "critica",
+      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)"
     },
     {
       "id": "suseso-fonasa-licencias-medicas",
@@ -2019,7 +2118,9 @@
       "volumen_transaccional_estimado": "Más de 7 millones de licencias médicas anuales",
       "base_legal": "D.S. N° 3/1984 Ministerio de Salud; Ley N° 20.585",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "supersalud-fonasa-registro-prestadores",
@@ -2035,7 +2136,9 @@
       "volumen_transaccional_estimado": "Más de 100.000 profesionales registrados",
       "base_legal": "DFL 1/2005 Ministerio de Salud",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "mdsf-sii-cruce-ingresos-rsh",
@@ -2051,7 +2154,9 @@
       "volumen_transaccional_estimado": "Más de 17 millones de personas registradas en el RSH",
       "base_legal": "Ley N° 20.530; D.S. N° 22/2015 MDSF",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "critica",
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
     },
     {
       "id": "mdsf-srcei-parentesco-rsh",
@@ -2067,7 +2172,9 @@
       "volumen_transaccional_estimado": "Actualizaciones mensuales continuas",
       "base_legal": "Ley N° 20.530; D.S. N° 22/2015 MDSF",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "moderada",
+      "normative_ref": "Art. 13 DS N° 12/2023 (Adecuación a modelo de acuerdos formales)"
     },
     {
       "id": "cgr-dipres-siaper-dotacion",
@@ -2083,7 +2190,9 @@
       "volumen_transaccional_estimado": "Cientos de miles de cargos públicos fiscalizados",
       "base_legal": "Ley N° 10.336 de la CGR",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "sgd-ministerios-docdigital",
@@ -2097,9 +2206,11 @@
       "brecha_observada": "Coexistencia de gestores documentales propietarios dentro de ciertos ministerios que obligan a realizar doble registro manual entre DocDigital y su sistema interno.",
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "volumen_transaccional_estimado": "Más de 500.000 documentos oficiales anuales",
-      "base_legal": "Ley N° 21.180 (Fase 1); D.S. N° 4/2021 Segpres",
+      "base_legal": "Ley N° 21.180 (Fase 1); Norma Técnica de Interoperabilidad (DS N° 12/2023 MinSegpres) y Reglamento Ley N° 21.180 (DS N° 4/2020)",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "moderada",
+      "normative_ref": "Art. 11 DS N° 12/2023 (Omisión de especificación en Catálogo de Servicios)"
     },
     {
       "id": "chilecompra-publico-api-datos",
@@ -2115,7 +2226,9 @@
       "volumen_transaccional_estimado": "Cientos de miles de llamadas de consulta diarias",
       "base_legal": "Ley N° 19.886 Art. 19; Ley N° 20.285",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "mineduc-pisee-licencias",
@@ -2130,7 +2243,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley N° 21.180 sobre Transformación Digital",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "pisee-sence-escolaridad",
@@ -2145,7 +2260,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley N° 19.518 y Ley N° 21.180",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "pjud-pisee-pensiones",
@@ -2160,7 +2277,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley N° 21.389",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "dt-pisee-contratos",
@@ -2175,7 +2294,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Código del Trabajo y Ley N° 21.180",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "pisee-ips-subsidios",
@@ -2190,7 +2311,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley N° 20.255 y Ley N° 21.419",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "moderada",
+      "normative_ref": "Art. 11 DS N° 12/2023 (Omisión de especificación en Catálogo de Servicios)"
     },
     {
       "id": "srcei-pdi-pasaportes",
@@ -2205,7 +2328,9 @@
       "frecuencia_actualizacion": "Near-real-time",
       "base_legal": "Convenio Interinstitucional PDI-SRCEI",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "moderada",
+      "normative_ref": "Art. 11 DS N° 12/2023 (Omisión de especificación en Catálogo de Servicios)"
     },
     {
       "id": "pdi-sermig-movimientos",
@@ -2220,7 +2345,9 @@
       "frecuencia_actualizacion": "Batch diario",
       "base_legal": "Ley N° 21.325 de Migración y Extranjería",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "critica",
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
     },
     {
       "id": "minsal-fonasa-ges",
@@ -2235,7 +2362,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley N° 19.966 del Régimen de Garantías en Salud",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "cenabast-minsal-farmacos",
@@ -2250,7 +2379,9 @@
       "frecuencia_actualizacion": "Batch diario",
       "base_legal": "DFL N° 1/2005 Ministerio de Salud",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "critica",
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
     },
     {
       "id": "sna-sii-aduanas",
@@ -2265,7 +2396,9 @@
       "frecuencia_actualizacion": "Batch diario",
       "base_legal": "Ordenanza de Aduanas y Código Tributario",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "moderada",
+      "normative_ref": "Art. 15 DS N° 12/2023 (Incumplimiento de Estándar Semántico en Gestor de Códigos)"
     },
     {
       "id": "cmf-sii-fatca",
@@ -2280,7 +2413,9 @@
       "frecuencia_actualizacion": "Batch mensual",
       "base_legal": "Ley N° 20.780 y Acuerdos OCDE",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "critica",
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
     },
     {
       "id": "mtt-municipalidades-multas",
@@ -2295,7 +2430,9 @@
       "frecuencia_actualizacion": "Batch diario",
       "base_legal": "Ley N° 18.290 de Tránsito",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "critica",
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
     },
     {
       "id": "carabineros-mtt-encargos",
@@ -2310,7 +2447,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley Orgánica Constitucional de Carabineros N° 18.961",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "municipalidades-mdsf-informes",
@@ -2325,7 +2464,9 @@
       "frecuencia_actualizacion": "A demanda / manual",
       "base_legal": "Ley N° 20.379 y Decreto Supremo N° 22 MDSF",
       "canal": "Manual",
-      "madurez_tecnica": "manual"
+      "madurez_tecnica": "manual",
+      "severity": "critica",
+      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)"
     },
     {
       "id": "sernac-cmf-reclamos",
@@ -2340,7 +2481,9 @@
       "frecuencia_actualizacion": "A demanda / manual",
       "base_legal": "Ley N° 19.496 sobre Protección del Consumidor",
       "canal": "Manual",
-      "madurez_tecnica": "manual"
+      "madurez_tecnica": "manual",
+      "severity": "critica",
+      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)"
     },
     {
       "id": "ine-subdere-proyecciones",
@@ -2355,7 +2498,9 @@
       "frecuencia_actualizacion": "A demanda / manual",
       "base_legal": "Decreto Ley N° 3.063 sobre Rentas Municipales",
       "canal": "Manual",
-      "madurez_tecnica": "manual"
+      "madurez_tecnica": "manual",
+      "severity": "critica",
+      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)"
     },
     {
       "id": "ips-municipalidades-pensiones",
@@ -2370,7 +2515,9 @@
       "frecuencia_actualizacion": "A demanda / manual",
       "base_legal": "Ley N° 20.255 de Reforma Previsional",
       "canal": "Manual",
-      "madurez_tecnica": "manual"
+      "madurez_tecnica": "manual",
+      "severity": "critica",
+      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)"
     },
     {
       "id": "sna-sii-declaraciones-aduaneras",
@@ -2385,7 +2532,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley N° 21.180 y Ordenanza de Aduanas DFL N° 30",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "sii-sna-padron-exportadores",
@@ -2400,7 +2549,9 @@
       "frecuencia_actualizacion": "Near-real-time",
       "base_legal": "Ley N° 20.659 y DFL N° 30",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "sna-tgr-aranceles-aduaneros",
@@ -2415,7 +2566,9 @@
       "frecuencia_actualizacion": "Near-real-time",
       "base_legal": "DFL N° 1/1994 y DFL N° 30",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "sicex-sna-tramitacion-declaraciones",
@@ -2430,7 +2583,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "D.S. N° 1.002/2012 Hacienda",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "moderada",
+      "normative_ref": "Art. 15 DS N° 12/2023 (Incumplimiento de Estándar Semántico en Gestor de Códigos)"
     },
     {
       "id": "sag-sicex-certificados-fitosanitarios",
@@ -2445,7 +2600,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley N° 18.755 y D.S. N° 1.002",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "sernapesca-sicex-desembarque-pesquero",
@@ -2460,7 +2617,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley General de Pesca y D.S. N° 1.002",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "moderada",
+      "normative_ref": "Art. 15 DS N° 12/2023 (Incumplimiento de Estándar Semántico en Gestor de Códigos)"
     },
     {
       "id": "isp-sicex-visacion-farmaceutica",
@@ -2475,7 +2634,9 @@
       "frecuencia_actualizacion": "Near-real-time",
       "base_legal": "D.S. N° 3/2010 Minsal",
       "canal": "PISEE",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "moderada",
+      "normative_ref": "Art. 13 DS N° 12/2023 (Adecuación a modelo de acuerdos formales)"
     },
     {
       "id": "cochilco-sicex-exportacion-cobre",
@@ -2490,7 +2651,9 @@
       "frecuencia_actualizacion": "Batch diario",
       "base_legal": "D.L. N° 1.349 y D.S. N° 1.002",
       "canal": "PISEE",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "sicex-tgr-pago-electronico-tarifas",
@@ -2505,7 +2668,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "DFL N° 1/1994 Hacienda",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "minvu-municipalidades-dom-digital",
@@ -2520,7 +2685,9 @@
       "frecuencia_actualizacion": "Near-real-time",
       "base_legal": "D.S. N° 47 OGUC y Ley 21.180",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "municipalidades-sii-recepciones-obras",
@@ -2535,7 +2702,9 @@
       "frecuencia_actualizacion": "Batch mensual",
       "base_legal": "Ley N° 17.235 sobre Impuesto Territorial",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "critica",
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
     },
     {
       "id": "bienes-nacionales-sii-catastro",
@@ -2550,7 +2719,9 @@
       "frecuencia_actualizacion": "Batch diario",
       "base_legal": "D.L. N° 1.939 y Ley N° 21.180",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "sii-cbr-avaluos-mutaciones",
@@ -2565,7 +2736,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley N° 17.235 y D.S. N° 4/2020 Segpres",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "cbr-sii-transferencias-inmuebles",
@@ -2580,7 +2753,9 @@
       "frecuencia_actualizacion": "Batch mensual",
       "base_legal": "Ley N° 17.235 artículo 36",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "critica",
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
     },
     {
       "id": "minjusticia-cbr-archivo-judicial",
@@ -2595,7 +2770,9 @@
       "frecuencia_actualizacion": "A demanda / manual",
       "base_legal": "Código Orgánico de Tribunales",
       "canal": "Manual",
-      "madurez_tecnica": "manual"
+      "madurez_tecnica": "manual",
+      "severity": "critica",
+      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)"
     },
     {
       "id": "minvu-mdsf-rsh-postulaciones",
@@ -2610,7 +2787,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "D.S. N° 22/2015 MDSF",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "serviu-minvu-ejecucion-subsidios",
@@ -2625,7 +2804,9 @@
       "frecuencia_actualizacion": "Batch diario",
       "base_legal": "D.S. N° 49/2011 MINVU",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "minvu-sii-propiedades-habitacionales",
@@ -2640,7 +2821,9 @@
       "frecuencia_actualizacion": "Near-real-time",
       "base_legal": "Ley N° 21.180 y D.S. N° 1/2011",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "mop-chilecompra-licitaciones-obras",
@@ -2655,7 +2838,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley N° 19.886 y DFL N° 850 MOP",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "mop-dipres-inversion-bip",
@@ -2670,7 +2855,9 @@
       "frecuencia_actualizacion": "Near-real-time",
       "base_legal": "D.L. N° 1.263 y Ley de Presupuestos",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "mop-dga-derechos-aprovechamiento",
@@ -2685,7 +2872,9 @@
       "frecuencia_actualizacion": "Batch diario",
       "base_legal": "Código de Aguas DFL N° 1.122",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "dga-sma-caudales-ecologicos",
@@ -2700,7 +2889,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley N° 21.435 y Ley N° 20.417",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "srcei-servel-defunciones-padron",
@@ -2715,7 +2906,9 @@
       "frecuencia_actualizacion": "Batch diario",
       "base_legal": "Ley N° 18.556 artículo 17",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "servel-srcei-cambios-domicilio",
@@ -2730,7 +2923,9 @@
       "frecuencia_actualizacion": "Batch diario",
       "base_legal": "Ley N° 18.556 y Ley N° 21.180",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "fiscalia-pdi-ordenes-investigar",
@@ -2745,7 +2940,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley N° 19.640 y Código Procesal Penal",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "carabineros-fiscalia-partes-denuncias",
@@ -2760,7 +2957,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Código Procesal Penal artículo 83",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "pjud-gendarmeria-ordenes-libertad",
@@ -2775,7 +2974,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley N° 20.886 y Código Procesal Penal",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "dpp-pjud-asignacion-defensas",
@@ -2790,7 +2991,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley N° 19.718 y Ley N° 20.886",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "fiscalia-srcei-prontuario-penal",
@@ -2805,7 +3008,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "D.L. N° 409 y Ley N° 19.640",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "sec-energia-balance-electrico",
@@ -2820,7 +3025,9 @@
       "frecuencia_actualizacion": "Near-real-time",
       "base_legal": "Ley N° 18.410 y Ley N° 20.402",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "sma-sec-fiscalizacion-emisores",
@@ -2835,7 +3042,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley N° 20.417 y Ley N° 18.410",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "mma-sma-planes-descontaminacion",
@@ -2850,7 +3059,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley N° 19.300 y Ley N° 20.417",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "spensiones-ips-pension-garantizada",
@@ -2865,7 +3076,9 @@
       "frecuencia_actualizacion": "Batch diario",
       "base_legal": "Ley N° 21.419 de Pensión Garantizada Universal",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "sence-dt-capacitacion-laboral",
@@ -2880,7 +3093,9 @@
       "frecuencia_actualizacion": "Batch diario",
       "base_legal": "Ley N° 19.518 y Ley N° 21.327",
       "canal": "PISEE",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "mintrab-suseso-accidentes-trabajo",
@@ -2895,7 +3110,9 @@
       "frecuencia_actualizacion": "Near-real-time",
       "base_legal": "Ley N° 16.744 sobre Accidentes del Trabajo",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "corfo-sii-garantias-fogape",
@@ -2910,7 +3127,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "D.L. N° 3.472 y Ley N° 21.229",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "bcch-cmf-estabilidad-financiera",
@@ -2925,7 +3144,9 @@
       "frecuencia_actualizacion": "Near-real-time",
       "base_legal": "Ley N° 18.840 y D.L. N° 3.538",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "inapi-economia-patentes-marcas",
@@ -2940,7 +3161,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley N° 19.039 y Ley N° 20.659",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "gores-subdere-inversion-fndr",
@@ -2955,7 +3178,9 @@
       "frecuencia_actualizacion": "Batch mensual",
       "base_legal": "Ley N° 19.175 y Ley de Presupuestos",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "critica",
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
     },
     {
       "id": "gores-dipres-ejecucion-regional",
@@ -2970,7 +3195,9 @@
       "frecuencia_actualizacion": "Batch diario",
       "base_legal": "D.L. N° 1.263 y Ley N° 19.175",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "municipalidades-gores-postulacion-fril",
@@ -2985,7 +3212,9 @@
       "frecuencia_actualizacion": "A demanda / manual",
       "base_legal": "Ley N° 19.175",
       "canal": "Manual",
-      "madurez_tecnica": "manual"
+      "madurez_tecnica": "manual",
+      "severity": "critica",
+      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)"
     },
     {
       "id": "cplt-cgr-declaraciones-patrimonio",
@@ -3000,7 +3229,9 @@
       "frecuencia_actualizacion": "Batch diario",
       "base_legal": "Ley N° 20.880 sobre Probidad en la Función Pública",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "conadi-mdsf-calidad-indigena",
@@ -3015,7 +3246,9 @@
       "frecuencia_actualizacion": "Batch mensual",
       "base_legal": "Ley N° 19.253 y D.S. N° 22/2015",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "critica",
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
     },
     {
       "id": "senapred-interior-alertas-tempranas",
@@ -3030,7 +3263,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley N° 21.364",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "dgac-defensa-trazabilidad-aerea",
@@ -3045,7 +3280,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley N° 16.752 y Código Aeronáutico",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "minsegpres-cgr-tramitacion-decretos",
@@ -3060,7 +3297,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "Ley N° 10.336 y Ley N° 21.180",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "segegob-sociedad-civil-consultas",
@@ -3075,7 +3314,9 @@
       "frecuencia_actualizacion": "A demanda / manual",
       "base_legal": "Ley N° 20.500",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "minmujer-mdsf-cuidados",
@@ -3090,7 +3331,9 @@
       "frecuencia_actualizacion": "Near-real-time",
       "base_legal": "Ley N° 20.820 y D.S. N° 22/2015",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "culturas-hacienda-donaciones-culturales",
@@ -3105,7 +3348,9 @@
       "frecuencia_actualizacion": "Batch diario",
       "base_legal": "Ley N° 18.985 y Ley N° 21.045",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "ciencia-anid-becas-investigacion",
@@ -3120,7 +3365,9 @@
       "frecuencia_actualizacion": "Near-real-time",
       "base_legal": "Ley N° 21.105",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "minagri-sag-sanidad-agropecuaria",
@@ -3135,7 +3382,9 @@
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
       "base_legal": "DFL N° 294 y Ley N° 18.755",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "conaf-mma-areas-protegidas",
@@ -3150,7 +3399,9 @@
       "frecuencia_actualizacion": "Batch diario",
       "base_legal": "Ley de Bosques y Ley N° 19.300",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "minrel-sermig-visas-consulares",
@@ -3165,7 +3416,9 @@
       "frecuencia_actualizacion": "Near-real-time",
       "base_legal": "Ley N° 21.325 y Reglamento Consular",
       "canal": "Convenio",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "cochilco-mineria-politica-cobre",
@@ -3180,7 +3433,9 @@
       "frecuencia_actualizacion": "Batch diario",
       "base_legal": "D.L. N° 1.349 y Código de Minería",
       "canal": "Convenio",
-      "madurez_tecnica": "batch"
+      "madurez_tecnica": "batch",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     },
     {
       "id": "deportes-mineduc-juegos-escolares",
@@ -3195,7 +3450,9 @@
       "frecuencia_actualizacion": "Near-real-time",
       "base_legal": "Ley N° 20.686 y Ley General de Educación",
       "canal": "PISEE",
-      "madurez_tecnica": "realtime"
+      "madurez_tecnica": "realtime",
+      "severity": "optima",
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
     }
   ]
 }

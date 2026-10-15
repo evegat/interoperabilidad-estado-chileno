@@ -240,16 +240,16 @@ export function validarDatasetInteroperabilidad(dataset: DatasetInteroperabilida
     if (
       typeof nodo.indice_madurez_interoperabilidad !== 'number' ||
       nodo.indice_madurez_interoperabilidad < 0 ||
-      nodo.indice_madurez_interoperabilidad > 120
+      nodo.indice_madurez_interoperabilidad > 100
     ) {
-      errores.push(`${prefix}: "indice_madurez_interoperabilidad" obligatorio y debe ser un número entre 0 y 120.`);
+      errores.push(`${prefix}: "indice_madurez_interoperabilidad" obligatorio y debe ser un número entre 0 y 100.`);
     }
 
-    if (!nodo.nivel_madurez_interoperabilidad || ![1, 2, 3, 4, 5, 6].includes(nodo.nivel_madurez_interoperabilidad)) {
-      errores.push(`${prefix}: "nivel_madurez_interoperabilidad" obligatorio y debe ser un entero entre 1 y 6.`);
+    if (!nodo.nivel_madurez_interoperabilidad || ![1, 2, 3, 4, 5].includes(nodo.nivel_madurez_interoperabilidad)) {
+      errores.push(`${prefix}: "nivel_madurez_interoperabilidad" obligatorio y debe ser un entero entre 1 y 5.`);
     } else if (typeof nodo.indice_madurez_interoperabilidad === 'number') {
       const score = nodo.indice_madurez_interoperabilidad;
-      const expectedLvl = score >= 101 ? 6 : score >= 81 ? 5 : score >= 61 ? 4 : score >= 41 ? 3 : score >= 21 ? 2 : 1;
+      const expectedLvl = score >= 81 ? 5 : score >= 61 ? 4 : score >= 41 ? 3 : score >= 21 ? 2 : 1;
       if (nodo.nivel_madurez_interoperabilidad !== expectedLvl) {
         errores.push(
           `${prefix}: Inconsistencia en IMI. Puntaje ${score} corresponde a Nivel ${expectedLvl}, pero se declaró Nivel ${nodo.nivel_madurez_interoperabilidad}.`
@@ -257,8 +257,8 @@ export function validarDatasetInteroperabilidad(dataset: DatasetInteroperabilida
       }
     }
 
-    if (nodo.nivel_madurez_interoperabilidad === 6 && nodo.agent_ready !== true) {
-      errores.push(`${prefix}: Todo nodo con Nivel 6 debe tener el atributo "agent_ready": true.`);
+    if (nodo.agent_ready === true && typeof nodo.ai_readiness_score !== 'number') {
+      advertencias.push(`${prefix}: Entidad con "agent_ready": true debería registrar "ai_readiness_score".`);
     }
 
     if (nodo.capacidades_agente) {
@@ -589,14 +589,14 @@ export function validarDatasetInteroperabilidad(dataset: DatasetInteroperabilida
   // Cálculo de Índice de Madurez de Interoperabilidad (IMI)
   let sumaImi = 0;
   let nodosConImi = 0;
-  const distribucionImi: Record<RangoMadurezIMI, number> = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
+  const distribucionImi: Record<RangoMadurezIMI, number> = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
 
   for (const nodo of dataset.nodos) {
     if (typeof nodo.indice_madurez_interoperabilidad === 'number') {
       sumaImi += nodo.indice_madurez_interoperabilidad;
       nodosConImi++;
     }
-    if (nodo.nivel_madurez_interoperabilidad && [1, 2, 3, 4, 5, 6].includes(nodo.nivel_madurez_interoperabilidad)) {
+    if (nodo.nivel_madurez_interoperabilidad && [1, 2, 3, 4, 5].includes(nodo.nivel_madurez_interoperabilidad)) {
       distribucionImi[nodo.nivel_madurez_interoperabilidad as RangoMadurezIMI]++;
     }
   }
@@ -709,14 +709,13 @@ function imprimirReporte(res: ResultadoValidacion): void {
 
   if (m.promedio_imi !== undefined) {
     console.log('📈 ÍNDICE DE MADUREZ DE INTEROPERABILIDAD (IMI):');
-    console.log(`   • Promedio Estatal General: ${m.promedio_imi} / 120 puntos (Escala N1-N6)`);
+    console.log(`   • Promedio Estatal General: ${m.promedio_imi} / 100 puntos (Escala N1-N5 DS N° 12/2023)`);
     if (m.distribucion_imi) {
       console.log(`   • Nivel 1 (Silo / Documental, 0-20 pts)         : ${m.distribucion_imi[1]} entidades`);
       console.log(`   • Nivel 2 (Bilateral / Batch, 21-40 pts)        : ${m.distribucion_imi[2]} entidades`);
       console.log(`   • Nivel 3 (Conectado Básico / PISEE, 41-60 pts) : ${m.distribucion_imi[3]} entidades`);
       console.log(`   • Nivel 4 (Interoperable Integrado, 61-80 pts)  : ${m.distribucion_imi[4]} entidades`);
-      console.log(`   • Nivel 5 (Proactivo / Once-Only, 81-100 pts)   : ${m.distribucion_imi[5]} entidades`);
-      console.log(`   • Nivel 6 (Agent-Ready / IA Soberana, 101-120): ${m.distribucion_imi[6]} entidades`);
+      console.log(`   • Nivel 5 (Once-Only & Gobernanza, 81-100 pts)  : ${m.distribucion_imi[5]} entidades`);
     }
     console.log('');
   }

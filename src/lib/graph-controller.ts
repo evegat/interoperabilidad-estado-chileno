@@ -122,10 +122,10 @@ export class GraphController {
           nivel_madurez_interoperabilidad: nodo.nivel_madurez_interoperabilidad,
           agent_ready: nodo.agent_ready,
           capacidades_agente: nodo.capacidades_agente,
-          is_agent_ready: Boolean(nodo.agent_ready || nodo.nivel_madurez_interoperabilidad === 6) ? 'true' : 'false',
+          is_agent_ready: Boolean(nodo.agent_ready) ? 'true' : 'false',
           docs_count: nodo.documentacion_oficial ? nodo.documentacion_oficial.length : 0,
           display_label:
-            (nodo.agent_ready || nodo.nivel_madurez_interoperabilidad === 6)
+            nodo.agent_ready
               ? (nodo.documentacion_oficial && nodo.documentacion_oficial.length > 0
                   ? `🤖 ${nodo.sigla}\n📎 ${nodo.documentacion_oficial.length}`
                   : `🤖 ${nodo.sigla}`)
@@ -133,7 +133,7 @@ export class GraphController {
                   ? `${nodo.sigla}\n📎 ${nodo.documentacion_oficial.length}`
                   : nodo.sigla),
         },
-        classes: (nodo.agent_ready || nodo.nivel_madurez_interoperabilidad === 6) ? 'agent-ready' : '',
+        classes: nodo.agent_ready ? 'agent-ready' : '',
       })),
       ...this.dataset.aristas.map((arista) => ({
         group: 'edges' as const,
@@ -533,7 +533,7 @@ export class GraphController {
     const avgImi = activeNodesWithImi.length > 0
       ? Math.round(activeNodesWithImi.reduce((sum, n) => sum + (n.indice_madurez_interoperabilidad || 0), 0) / activeNodesWithImi.length)
       : 50;
-    const avgImiLevel = avgImi >= 101 ? 6 : avgImi >= 81 ? 5 : avgImi >= 61 ? 4 : avgImi >= 41 ? 3 : avgImi >= 21 ? 2 : 1;
+    const avgImiLevel = avgImi >= 81 ? 5 : avgImi >= 61 ? 4 : avgImi >= 41 ? 3 : avgImi >= 21 ? 2 : 1;
 
     // Dispatch filter state change event for header KPI updates
     window.dispatchEvent(
@@ -580,7 +580,7 @@ export class GraphController {
     const avgImi = allNodesWithImi.length > 0
       ? Math.round(allNodesWithImi.reduce((sum, n) => sum + (n.indice_madurez_interoperabilidad || 0), 0) / allNodesWithImi.length)
       : 50;
-    const avgImiLevel = avgImi >= 101 ? 6 : avgImi >= 81 ? 5 : avgImi >= 61 ? 4 : avgImi >= 41 ? 3 : avgImi >= 21 ? 2 : 1;
+    const avgImiLevel = avgImi >= 81 ? 5 : avgImi >= 61 ? 4 : avgImi >= 41 ? 3 : avgImi >= 21 ? 2 : 1;
 
     window.dispatchEvent(
       new CustomEvent('filters-updated', {
@@ -625,13 +625,45 @@ export function initGraphApp(dataset: DatasetInteroperabilidad): GraphController
   const resetBtns = document.querySelectorAll('#hud-reset, [data-action="reset"]');
   resetBtns.forEach((btn) => btn.addEventListener('click', () => controller.resetLayout()));
 
-  // Search input binding
+  // Search input binding & Cmd+K Shortcut
   const searchInputs = document.querySelectorAll<HTMLInputElement>('input[name="search"], #search-input');
   searchInputs.forEach((input) => {
     input.addEventListener('input', (e) => {
       const val = (e.target as HTMLInputElement).value;
       controller.applyFilters({ search: val });
     });
+
+    // Enter key selects and centers first matched node immediately
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const val = input.value.trim().toLowerCase();
+        if (val.length > 0 && controller.cy) {
+          const matched = controller.cy.nodes(':visible');
+          if (matched.length > 0) {
+            const firstNode = matched[0];
+            controller.selectNode(firstNode);
+            controller.cy.animate({
+              center: { eles: firstNode },
+              zoom: 1.5,
+              duration: 300,
+            });
+            input.blur();
+          }
+        }
+      }
+    });
+  });
+
+  // Global Cmd+K / Ctrl+K listener
+  window.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      const primarySearch = document.getElementById('search-input') as HTMLInputElement | null;
+      if (primarySearch) {
+        primarySearch.focus();
+        primarySearch.select();
+      }
+    }
   });
 
   // Channel filter buttons binding

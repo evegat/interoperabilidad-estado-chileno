@@ -187,14 +187,26 @@
         </div>
       </div>
 
-      <!-- Official Link -->
-      <div>
+      <!-- Action Buttons: Portal & Minuta EvalTI -->
+      <div class="space-y-2 pt-1">
+        <button
+          type="button"
+          id="btn-generate-evalti-minuta"
+          class="w-full inline-flex items-center justify-center space-x-2 px-4 py-2.5 bg-[#d7653b] hover:bg-[#c95631] text-white rounded-lg font-black text-xs shadow-lg transition-colors focus:outline-none"
+          title="Generar minuta técnica estructurada para justificación presupuestaria ante DIPRES y SGD (EvalTI)"
+        >
+          <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          <span>Generar Minuta de Brecha (EvalTI)</span>
+        </button>
+
         <a
           id="node-website-link"
           href="#"
           target="_blank"
           rel="noopener noreferrer"
-          class="w-full inline-flex items-center justify-center space-x-2 px-4 py-2 bg-[#d7653b] hover:bg-[#c95631] text-white rounded-lg font-bold text-xs shadow-lg transition-colors"
+          class="w-full inline-flex items-center justify-center space-x-2 px-4 py-2 bg-[#12483f] hover:bg-[#1a5e52] text-[#f7f5ef] hover:text-white rounded-lg font-bold text-xs border border-[#235d52] hover:border-[#54b995] transition-colors"
         >
           <span>Visitar Portal Institucional</span>
           <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -373,15 +385,14 @@
 
       // Populate Interoperability Maturity Index (IMI)
       const imiScore = typeof node.indice_madurez_interoperabilidad === 'number' ? node.indice_madurez_interoperabilidad : 50;
-      const imiLevel = node.nivel_madurez_interoperabilidad || (imiScore >= 101 ? 6 : imiScore >= 81 ? 5 : imiScore >= 61 ? 4 : imiScore >= 41 ? 3 : imiScore >= 21 ? 2 : 1);
+      const imiLevel = node.nivel_madurez_interoperabilidad || (imiScore >= 81 ? 5 : imiScore >= 61 ? 4 : imiScore >= 41 ? 3 : imiScore >= 21 ? 2 : 1);
       
       const imiDescriptions: Record<number, { title: string; badge: string; colorClass: string }> = {
-        1: { title: 'Silo / Documental (Oficio / Papel)', badge: 'Nivel 1: Silo', colorClass: 'bg-[#9f1239] text-white border-[#be123c]' },
-        2: { title: 'Bilateral / Batch (Archivos planos)', badge: 'Nivel 2: Bilateral', colorClass: 'bg-[#c5a75a]/20 text-[#c5a75a] border-[#c5a75a]/40' },
-        3: { title: 'Conectado Básico / PISEE Incipiente', badge: 'Nivel 3: Conectado', colorClass: 'bg-[#1b4965]/40 text-[#38bdf8] border-[#38bdf8]/40' },
-        4: { title: 'Interoperable Integrado (APIs REST mTLS)', badge: 'Nivel 4: Integrado', colorClass: 'bg-[#12483f] text-[#54b995] border-[#1e5a4f]' },
-        5: { title: 'Proactivo / Once-Only Pleno (Event-Driven)', badge: 'Nivel 5: Once-Only', colorClass: 'bg-[#54b995]/20 text-[#54b995] border-[#54b995]/50' },
-        6: { title: 'Agent-Ready / IA Soberana (MCP & OpenAPI 3.1)', badge: '🤖 Nivel 6: Agent-Ready', colorClass: 'bg-[#a78bfa]/25 text-[#c4b5fd] border-[#a78bfa]/60' },
+        1: { title: 'Silo Documental (Oficio / Papel)', badge: 'Nivel 1: Silo (0-20 pts)', colorClass: 'bg-[#9f1239] text-white border-[#be123c]' },
+        2: { title: 'Bilateral Ad-Hoc (Archivos planos / SFTP)', badge: 'Nivel 2: Bilateral (21-40 pts)', colorClass: 'bg-[#c5a75a]/20 text-[#c5a75a] border-[#c5a75a]/40' },
+        3: { title: 'Conectado Legacy (PISEE centralizado incipiente)', badge: 'Nivel 3: Conectado (41-60 pts)', colorClass: 'bg-[#1b4965]/40 text-[#38bdf8] border-[#38bdf8]/40' },
+        4: { title: 'Integrado DS N° 12 (Nodos distribuidos & REST mTLS)', badge: 'Nivel 4: Integrado (61-80 pts)', colorClass: 'bg-[#12483f] text-[#54b995] border-[#1e5a4f]' },
+        5: { title: 'Once-Only & Gobernanza Plena (Servicios comunes SGD)', badge: 'Nivel 5: Once-Only (81-100 pts)', colorClass: 'bg-[#54b995]/20 text-[#54b995] border-[#54b995]/50' },
       };
 
       const elImiBadge = document.getElementById('node-imi-badge');
@@ -395,25 +406,21 @@
         elImiBadge.className = `px-2 py-0.5 rounded text-[10px] font-bold border ${imiMeta.colorClass}`;
       }
       if (elImiDesc) elImiDesc.textContent = imiMeta.title;
-      if (elImiScore) elImiScore.textContent = `${imiScore} / 120 pts`;
-      if (elImiBar) elImiBar.style.width = `${Math.max(5, Math.min(100, Math.round((imiScore / 120) * 100)))}%`;
+      if (elImiScore) elImiScore.textContent = `${imiScore} / 100 pts`;
+      if (elImiBar) elImiBar.style.width = `${Math.max(5, Math.min(100, imiScore))}%`;
 
       // Update immediate summary header badges
       const elSummaryDocsText = document.getElementById('node-summary-docs-text');
       const elSummaryImiBadge = document.getElementById('node-summary-imi-badge');
       if (elSummaryImiBadge) {
-        elSummaryImiBadge.textContent = `IMI: ${imiScore}/120 (N${imiLevel})`;
-        if (imiLevel === 6) {
-          elSummaryImiBadge.className = 'inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#a78bfa]/25 text-[#c4b5fd] border border-[#a78bfa]/60';
-        } else {
-          elSummaryImiBadge.className = 'inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#051311] text-[#e4b18e] border border-[#163a34]';
-        }
+        elSummaryImiBadge.textContent = `IMI: ${imiScore}/100 (N${imiLevel})`;
+        elSummaryImiBadge.className = 'inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#051311] text-[#e4b18e] border border-[#163a34]';
       }
 
-      // Populate / Toggle Agent-Ready Capabilities Card
+      // Populate / Toggle Agent-Ready Capabilities Card (desacoplada de IMI)
       const elAgentReadyCard = document.getElementById('node-agent-ready-card');
       if (elAgentReadyCard) {
-        if (node.agent_ready || imiLevel === 6) {
+        if (node.agent_ready) {
           elAgentReadyCard.classList.remove('hidden');
           const cap = node.capacidades_agente;
           const elCapMcp = document.getElementById('cap-mcp');
@@ -591,6 +598,65 @@
         elLink.title = `Consultar fuente oficial: ${edge.fuente_oficial_url}`;
       }
     }
+
+    // Minuta EvalTI Handler
+    let currentNodePayload: NodeDrawerPayload | null = null;
+    window.addEventListener('selection-changed', ((e: CustomEvent<SelectionEventDetail>) => {
+      if (e.detail?.type === 'node') {
+        currentNodePayload = e.detail.payload;
+      }
+    }) as EventListener);
+
+    const btnMinuta = document.getElementById('btn-generate-evalti-minuta');
+    btnMinuta?.addEventListener('click', () => {
+      if (!currentNodePayload) return;
+      const n = currentNodePayload;
+      const imi = n.indice_madurez_interoperabilidad || 0;
+      const lvl = n.nivel_madurez_interoperabilidad || 1;
+
+      const minutaText = [
+        `# MINUTA TÉCNICA DE BRECHA DE INTEROPERABILIDAD (JUSTIFICACIÓN EVALTI / DIPRES)`,
+        `**Organismo:** ${n.nombre} (${n.sigla})`,
+        `**Tipología:** ${n.tipo.toUpperCase()} | Dependencia: ${n.dependencia}`,
+        `**Marco Jurídico Mandante:** Ley N° 21.180 (Transformación Digital del Estado) y DS N° 12/2023 MinSegpres (Norma Técnica de Interoperabilidad)`,
+        `**Fecha de Emisión:** ${new Date().toLocaleDateString('es-CL')}`,
+        `**Fuente de Auditoría:** Laboratorio GovTech evegat.cl (P029 - Mapeo de Interoperabilidad)`,
+        ``,
+        `---`,
+        `## 1. Diagnóstico de Madurez Normativa (IMI DS N° 12/2023)`,
+        `- **Puntaje Obtenido:** ${imi} / 100 puntos`,
+        `- **Nivel Normativo:** Nivel ${lvl}`,
+        `- **Sello Agent-Ready (IA):** ${n.agent_ready ? 'Cumple (4/4 checks)' : 'No Habilitado (Requiere OpenAPI 3.1 & Nodos Distribuidos)'}`,
+        `- **Flujos Totales Auditados:** ${n.total_conexiones} (${n.in_degree} entrantes, ${n.out_degree} salientes)`,
+        ``,
+        `## 2. Artículos Vulnerados o Pendientes de Adecuación (DS N° 12/2023 MinSegpres)`,
+        `- **Art. 4 (Arquitectura Distribuida):** Debe implementar y operar un Nodo de Interoperabilidad propio o delegado para desacoplarse de transferencias bilaterales directas.`,
+        `- **Art. 11 (Catálogo de Servicios):** Obligación de registrar metadatos, esquemas de datos y contratos en el Catálogo de Interoperabilidad de la SGD.`,
+        `- **Art. 13 (Gestor de Acuerdos):** Todo intercambio interinstitucional debe formalizarse electrónicamente mediante el Gestor de Acuerdos centralizado.`,
+        `- **Art. 16 (Gestor de Autorizaciones y Consentimiento):** Obligación de consulta al gestor común para resguardo de la Ley N° 21.719 de Protección de Datos Personales.`,
+        ``,
+        `## 3. Justificación de Inversión Tecnológica (Para Formulario EvalTI)`,
+        `El proyecto de inversión TI postulado es de carácter estrictamente habilitante para el cumplimiento de los hitos perentorios de la Ley N° 21.180. Su ejecución reemplaza transferencias por archivos planos y procesos manuales por consumo seguro en tiempo de ejecución (APIs REST mTLS sobre la Red de Interoperabilidad), mitigando el riesgo de observaciones por parte de la Contraloría General de la República (CGR).`,
+        ``,
+        `---`,
+        `*Generado automáticamente desde https://interoperabilidadpublica.evegat.cl · Auditoría y Consultoría GovTech: Eduardo Vega Toledo (evegat.cl)*`
+      ].join('\n');
+
+      navigator.clipboard.writeText(minutaText).then(() => {
+        const originalText = btnMinuta.innerHTML;
+        btnMinuta.innerHTML = `
+          <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span class="text-emerald-300 font-bold">¡Minuta Copiada al Portapapeles!</span>
+        `;
+        setTimeout(() => {
+          btnMinuta.innerHTML = originalText;
+        }, 3000);
+      }).catch(() => {
+        alert('Copia el siguiente texto para tu minuta EvalTI:\n\n' + minutaText);
+      });
+    });
   }
 
   if (typeof window !== 'undefined') {

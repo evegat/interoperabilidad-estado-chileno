@@ -239,10 +239,10 @@ describe('Tier 3: Cross-Feature Combinations (Filters, Search & Drawer Synchroni
   });
 
   // --------------------------------------------------------------------------
-  // CF7: Interoperability Maturity Index (IMI) 6-Level Filtering
+  // CF7: Interoperability Maturity Index (IMI) 5-Level Filtering & Agent-Ready
   // --------------------------------------------------------------------------
-  test('T3.7 - IMI Maturity Level filtering returns accurate subsets across all 6 levels', () => {
-    for (const lvl of [1, 2, 3, 4, 5, 6] as const) {
+  test('T3.7 - IMI Maturity Level filtering returns accurate subsets across all 5 levels (DS 12)', () => {
+    for (const lvl of [1, 2, 3, 4, 5] as const) {
       const result = simulateGraphFilter(dataset, { imiLevel: lvl });
       assert.ok(result.activeNodes.length > 0, `IMI Level ${lvl} must contain at least one active node`);
       for (const node of result.activeNodes) {
@@ -251,10 +251,15 @@ describe('Tier 3: Cross-Feature Combinations (Filters, Search & Drawer Synchroni
           lvl,
           `Node ${node.sigla} must have IMI level ${lvl}`
         );
-        if (lvl === 6) {
-          assert.equal(node.agent_ready, true, `Node ${node.sigla} at Level 6 must be agent_ready`);
-        }
       }
+    }
+
+    // Verify decoupled agent_ready nodes exist
+    const agentReadyNodes = dataset.nodos.filter((n) => n.agent_ready === true);
+    assert.ok(agentReadyNodes.length >= 4, 'Must have at least 4 agent_ready pioneer nodes (SGD, SII, ChileCompra, SRCEI)');
+    for (const node of agentReadyNodes) {
+      assert.ok(node.ai_readiness_score !== undefined && node.ai_readiness_score > 0, `Node ${node.sigla} must have ai_readiness_score`);
+      assert.ok(node.capacidades_agente !== undefined, `Node ${node.sigla} must have capacidades_agente`);
     }
   });
 });

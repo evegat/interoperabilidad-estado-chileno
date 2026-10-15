@@ -16,14 +16,14 @@ const realtimeEdges = dataset.aristas.filter(
 ).length;
 const percentRealtime = totalAristas > 0 ? Math.round((realtimeEdges / totalAristas) * 100) : 0;
 const brechasCriticas = dataset.aristas.filter(
-  (e) => e.brecha_observada && e.brecha_observada.trim().length > 5
+  (e) => e.severity === 'critica' || (!e.severity && e.brecha_observada && e.brecha_observada.trim().length > 5 && (e.canal === 'Manual' || e.estandar_o_protocolo.includes('SFTP') || e.estandar_o_protocolo === 'Bilateral Propietario'))
 ).length;
 
 const nodosConImi = dataset.nodos.filter((n) => typeof n.indice_madurez_interoperabilidad === 'number');
 const avgImi = nodosConImi.length > 0
   ? Math.round(nodosConImi.reduce((acc, curr) => acc + (curr.indice_madurez_interoperabilidad || 0), 0) / nodosConImi.length)
   : 50;
-const avgImiLevel = avgImi >= 101 ? 6 : avgImi >= 81 ? 5 : avgImi >= 61 ? 4 : avgImi >= 41 ? 3 : avgImi >= 21 ? 2 : 1;
+const avgImiLevel = avgImi >= 81 ? 5 : avgImi >= 61 ? 4 : avgImi >= 41 ? 3 : avgImi >= 21 ? 2 : 1;
 ---
 
 <header class="bg-[#0a2320] border-b border-[#163a34] text-[#f7f5ef] shadow-xl sticky top-0 z-30 backdrop-blur-md">
@@ -49,17 +49,20 @@ const avgImiLevel = avgImi >= 101 ? 6 : avgImi >= 81 ? 5 : avgImi >= 61 ? 4 : av
               Laboratorio GovTech · evegat.cl
             </span>
             <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#12483f] text-[#54b995] border border-[#1e5a4f]">
-              P029 · MVP
+              P029 · v2.0
             </span>
-            <span class="text-[10px] font-mono text-[#54b995] bg-[#051311] px-1.5 py-0.5 rounded border border-[#163a34]">
-              Ley N° 21.180
+            <span class="text-[10px] font-mono text-[#54b995] bg-[#051311] px-1.5 py-0.5 rounded border border-[#163a34]" title="Norma Técnica de Interoperabilidad (DS N° 12/2023 MinSegpres) y Reglamento Ley N° 21.180 (DS N° 4/2020)">
+              DS N° 12/2023 · Ley 21.180
+            </span>
+            <span class="text-[10px] font-mono text-[#8fafaa] bg-[#051311] px-1.5 py-0.5 rounded border border-[#163a34]" title="Muestra auditada focalizada en 77 organismos prioritarios">
+              Muestra: 77 OAEs
             </span>
           </div>
           <h1 class="text-base md:text-lg font-extrabold tracking-tight text-white mt-0.5 flex items-center gap-2">
             Mapeo de Interoperabilidad del Estado Chileno
           </h1>
           <p class="text-xs text-[#8fafaa]">
-            Por <a href="https://evegat.cl" target="_blank" rel="noopener noreferrer" class="text-[#f7f5ef] hover:text-[#d7653b] font-semibold underline underline-offset-2 decoration-[#d7653b]">Eduardo Vega Toledo</a> · Catálogo PISEE 2.0 · Canales y Brechas Técnicas
+            Por <a href="https://evegat.cl" target="_blank" rel="noopener noreferrer" class="text-[#f7f5ef] hover:text-[#d7653b] font-semibold underline underline-offset-2 decoration-[#d7653b]">Eduardo Vega Toledo</a> · Red de Nodos de Interoperabilidad · Gestores Centralizados SGD · Brechas DS N° 12/2023
           </p>
         </div>
       </div>
@@ -77,10 +80,15 @@ const avgImiLevel = avgImi >= 101 ? 6 : avgImi >= 81 ? 5 : avgImi >= 61 ? 4 : av
             id="search-input"
             name="search"
             type="text"
-            placeholder="Buscar organismo (ej. SII, TGR, Registro Civil)..."
-            class="block w-full pl-9 pr-3 py-1.5 bg-[#061614] border border-[#1a433d] rounded-lg text-xs text-[#f7f5ef] placeholder-[#8fafaa]/70 focus:outline-none focus:ring-2 focus:ring-[#d7653b] focus:border-transparent transition-all"
+            placeholder="Buscar organismo (ej. SII, TGR)..."
+            class="block w-full pl-9 pr-12 py-1.5 bg-[#061614] border border-[#1a433d] rounded-lg text-xs text-[#f7f5ef] placeholder-[#8fafaa]/70 focus:outline-none focus:ring-2 focus:ring-[#d7653b] focus:border-transparent transition-all"
             autocomplete="off"
           />
+          <div class="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none">
+            <kbd class="px-1.5 py-0.5 text-[10px] font-mono text-[#8fafaa] bg-[#051311] border border-[#163a34] rounded">
+              ⌘K
+            </kbd>
+          </div>
         </div>
 
         <!-- Benchmark Global Button -->
@@ -115,7 +123,7 @@ const avgImiLevel = avgImi >= 101 ? 6 : avgImi >= 81 ? 5 : avgImi >= 61 ? 4 : av
     <!-- Summary KPI Indicators styled with evegat colors -->
     <div class="mt-2.5 pt-2 border-t border-[#163a34] grid grid-cols-2 sm:grid-cols-6 gap-2 text-center">
       <div class="bg-[#061614]/70 rounded-md px-2 py-1.5 border border-[#163a34]">
-        <span class="block text-[10px] text-[#8fafaa] uppercase tracking-wider font-bold">Organismos</span>
+        <span class="block text-[10px] text-[#8fafaa] uppercase tracking-wider font-bold">Muestra Auditada</span>
         <span id="kpi-nodos" class="text-sm font-black text-[#f7f5ef]">{totalNodos}</span>
       </div>
       <div class="bg-[#061614]/70 rounded-md px-2 py-1.5 border border-[#163a34]">
@@ -123,7 +131,7 @@ const avgImiLevel = avgImi >= 101 ? 6 : avgImi >= 81 ? 5 : avgImi >= 61 ? 4 : av
         <span id="kpi-aristas" class="text-sm font-black text-[#f7f5ef]">{totalAristas}</span>
       </div>
       <div class="bg-[#061614]/70 rounded-md px-2 py-1.5 border border-[#163a34]">
-        <span class="block text-[10px] text-[#8fafaa] uppercase tracking-wider font-bold">Tasa Vía PISEE</span>
+        <span class="block text-[10px] text-[#8fafaa] uppercase tracking-wider font-bold">Red Oficial / PISEE</span>
         <span id="kpi-pisee" class="text-sm font-black text-[#54b995]">{percentPisee}%</span>
       </div>
       <div class="bg-[#061614]/70 rounded-md px-2 py-1.5 border border-[#163a34]">
@@ -135,7 +143,7 @@ const avgImiLevel = avgImi >= 101 ? 6 : avgImi >= 81 ? 5 : avgImi >= 61 ? 4 : av
         <span id="kpi-brechas" class="text-sm font-black text-[#e4b18e]">{brechasCriticas}</span>
       </div>
       <div class="bg-[#061614]/70 rounded-md px-2 py-1.5 border border-[#163a34] col-span-2 sm:col-span-1">
-        <span class="block text-[10px] text-[#8fafaa] uppercase tracking-wider font-bold">Índice IMI Global</span>
+        <span class="block text-[10px] text-[#8fafaa] uppercase tracking-wider font-bold">Índice IMI Global (DS 12)</span>
         <span id="kpi-imi" class="text-sm font-black text-[#54b995]">{avgImi} pts <span class="text-[10px] text-[#8fafaa] font-medium font-mono">(N{avgImiLevel})</span></span>
       </div>
     </div>
