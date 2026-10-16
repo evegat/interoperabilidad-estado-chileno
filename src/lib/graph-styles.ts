@@ -375,4 +375,18 @@ export const graphStyles: StylesheetStyle[] = [
       'border-opacity': 1,
     },
   },
+  // -------------------------------------------------------------
+  // Nodos Silos Desconectados / Trámite 100% Papel (Borde Rojo / Opacidad Atenuada)
+  // -------------------------------------------------------------
+  {
+    selector: 'node[es_silo = "true"], node.silo',
+    style: {
+      'background-color': '#450a0a', // deep red/burgundy
+      'border-width': 3,
+      'border-color': '#ef4444', // red warning border
+      'border-style': 'dashed',
+      'border-opacity': 0.95,
+      'opacity': 0.85,
+    },
+  },
 ];

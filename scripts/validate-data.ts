@@ -362,20 +362,28 @@ export function validarDatasetInteroperabilidad(dataset: DatasetInteroperabilida
     }
   }
 
-  // Regla 4: Zero Orphan Nodes (Sin Nodos Huérfanos)
+  // Regla 4: Zero Orphan Nodes (Sin Nodos Huérfanos Involuntarios)
   reglasEvaluadas++;
-  const nodosHuerfanos: string[] = [];
+  const nodosHuerfanosInvoluntarios: string[] = [];
+  const nodosSilosAislados: string[] = [];
   for (const [id, nodo] of nodosMap.entries()) {
     const inDeg = inDegreeMap.get(id) || 0;
     const outDeg = outDegreeMap.get(id) || 0;
     const totalDeg = inDeg + outDeg;
     if (totalDeg === 0) {
-      nodosHuerfanos.push(`${nodo.sigla} (${id})`);
+      if (nodo.es_silo === true) {
+        nodosSilosAislados.push(`${nodo.sigla} (${id})`);
+      } else {
+        nodosHuerfanosInvoluntarios.push(`${nodo.sigla} (${id})`);
+      }
     }
   }
 
-  if (nodosHuerfanos.length > 0) {
-    errores.push(`Se detectaron nodos huérfanos sin ninguna relación entrante ni saliente: ${nodosHuerfanos.join(', ')}`);
+  if (nodosHuerfanosInvoluntarios.length > 0) {
+    errores.push(`Se detectaron nodos huérfanos sin ninguna relación ni declaración formal de silo ("es_silo: true"): ${nodosHuerfanosInvoluntarios.join(', ')}`);
+  }
+  if (nodosSilosAislados.length > 0) {
+    advertencias.push(`Organismos en Silo 100% Desconectados auditados (${nodosSilosAislados.length}): ${nodosSilosAislados.join(', ')}`);
   }
 
   // Regla 5: Cálculo de Métricas Topológicas

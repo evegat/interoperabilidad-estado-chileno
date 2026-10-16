@@ -46,7 +46,8 @@
           "resumen": "Especificación de esquemas JSON/REST para verificación de número de serie y vigencia de documentos de identidad."
         }
       ],
-      "ai_readiness_score": 3
+      "ai_readiness_score": 3,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "claveunica",
@@ -76,7 +77,8 @@
           "resumen": "Protocolo de federación de identidad, scopes de autenticación y tokens JWT para organismos públicos integrados."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "sgd",
@@ -114,7 +116,8 @@
           "resumen": "Manual vinculante de diseño de endpoints REST, seguridad mTLS y versionamiento de APIs en el ecosistema público."
         }
       ],
-      "ai_readiness_score": 4
+      "ai_readiness_score": 4,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "pisee",
@@ -144,7 +147,8 @@
           "resumen": "Catálogo unificado de más de 120 endpoints institucionales activos para intercambio transaccional y Once-Only."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "sii",
@@ -182,7 +186,8 @@
           "resumen": "Acuerdo de sincronización y liquidación en línea de giros, retenciones y compensaciones fiscales."
         }
       ],
-      "ai_readiness_score": 4
+      "ai_readiness_score": 4,
+      "eje_tematico": "finanzas_tributario"
     },
     {
       "id": "tgr",
@@ -212,7 +217,8 @@
           "resumen": "Especificaciones de pasarelas de pago y distribución automatizada del Fondo Común Municipal."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "finanzas_tributario"
     },
     {
       "id": "chilecompra",
@@ -250,7 +256,8 @@
           "resumen": "Estándar internacional Open Contracting Data Standard para licitaciones, órdenes de compra y contratos del Estado."
         }
       ],
-      "ai_readiness_score": 4
+      "ai_readiness_score": 4,
+      "eje_tematico": "finanzas_tributario"
     },
     {
       "id": "dipres",
@@ -280,7 +287,8 @@
           "resumen": "Estándares de compromiso y devengo electrónico automatizado entre compras y presupuesto nacional."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "finanzas_tributario"
     },
     {
       "id": "cgr",
@@ -310,7 +318,8 @@
           "resumen": "Instrucciones obligatorias sobre pistas de auditoría y registros inmutables en plataformas de interoperabilidad."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "municipalidades",
@@ -340,7 +349,8 @@
           "resumen": "Diagnóstico sectorial que constata que menos del 25% de los municipios cuenta con APIs conectadas al bus central."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "territorio_medioambiente"
     },
     {
       "id": "subdere",
@@ -363,7 +373,8 @@
           "resumen": "Normativa para recolección periódica de matrices financieras y de gestión municipal."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "territorio_medioambiente"
     },
     {
       "id": "fonasa",
@@ -386,7 +397,8 @@
           "resumen": "Interconexión de licencias médicas electrónicas y acreditación automática de cargas familiares en salud."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "salud_seguridad_social"
     },
     {
       "id": "suseso",
@@ -409,7 +421,8 @@
           "resumen": "Estándares técnicos y de seguridad informática para operadores y emisores del sistema de licencias médicas."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "salud_seguridad_social"
     },
     {
       "id": "supersalud",
@@ -432,7 +445,8 @@
           "resumen": "Obligatoriedad de consulta de habilitación profesional para fonasa y prestadores clínicos."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "salud_seguridad_social"
     },
     {
       "id": "mdsf",
@@ -455,7 +469,8 @@
           "resumen": "Regula el cruce administrativo de bases de datos para determinación de la calificación socioeconómica de los hogares."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "proteccion_social_vivienda"
     },
     {
       "id": "ministerios",
@@ -478,7 +493,8 @@
           "resumen": "Fijación de plazos graduales para expedientes electrónicos e interoperabilidad en carteras de Estado."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "sociedad_civil",
@@ -501,7 +517,8 @@
           "resumen": "Mecanismos de consulta ciudadana y acceso a información pública digital."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "mineduc",
@@ -524,7 +541,8 @@
           "resumen": "Habilita la verificación sincrónica Once-Only de títulos y licencias educacionales por organismos públicos."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "educacion_becas"
     },
     {
       "id": "pjud",
@@ -547,7 +565,8 @@
           "resumen": "Obligatoriedad de tramitación electrónica de causas y despacho de oficios e interconexiones jurisdiccionales."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "cmf",
@@ -570,7 +589,8 @@
           "resumen": "Interconexión de reportes de deuda bancaria y supervisión prudencial electrónica."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "finanzas_tributario"
     },
     {
       "id": "minsal",
@@ -593,7 +613,8 @@
           "resumen": "Estándar HL7-FHIR y codificación SNOMED para intercambio de datos clínicos y vacunas."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "salud_seguridad_social"
     },
     {
       "id": "cenabast",
@@ -616,7 +637,8 @@
           "resumen": "Procedimientos de gestión de stocks y órdenes de entrega con Mercado Público y servicios de salud."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "salud_seguridad_social"
     },
     {
       "id": "sermig",
@@ -639,7 +661,8 @@
           "resumen": "Interconexión obligatoria entre PDI, Registro Civil y SERMIG para verificación de permisos de residencia."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "pdi",
@@ -662,7 +685,8 @@
           "resumen": "Acceso en línea a control migratorio de fronteras y registros de órdenes de aprehensión."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "carabineros",
@@ -685,7 +709,8 @@
           "resumen": "Flujo de partes policiales automatizados hacia el Ministerio Público y tribunales."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "dt",
@@ -708,7 +733,8 @@
           "resumen": "Establece la obligación de registro digital de contratos de trabajo, finiquitos y libro de remuneraciones electrónico."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "sence",
@@ -731,7 +757,8 @@
           "resumen": "Verificación automatizada de cursos, asistencia biométrica y validación tributaria con SII."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "proteccion_social_vivienda"
     },
     {
       "id": "mtt",
@@ -754,7 +781,8 @@
           "resumen": "Bases de interoperabilidad con Registro Civil y juzgados de policía local."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "territorio_medioambiente"
     },
     {
       "id": "sernac",
@@ -777,7 +805,8 @@
           "resumen": "Mecanismo de derivación electrónica expedita de denuncias financieras y de telecomunicaciones."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "ine",
@@ -800,7 +829,8 @@
           "resumen": "Gobernanza y anonimización de registros administrativos con fines estadísticos oficiales."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "sna",
@@ -830,7 +860,8 @@
           "resumen": "Protocolo de validación documental y tributaria en ventanilla de comercio exterior."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "ips",
@@ -853,7 +884,8 @@
           "resumen": "Rectoría de la ventanilla única multicanal de trámites sociales del Estado y pago de PGU."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "proteccion_social_vivienda"
     },
     {
       "id": "interior",
@@ -876,7 +908,8 @@
           "resumen": "Estatuto de coordinación interinstitucional para las fuerzas de orden y seguridad."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "hacienda",
@@ -899,7 +932,8 @@
           "resumen": "Consagra a Hacienda como líder ministerial del impulso GovTech y la interoperabilidad estatal."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "finanzas_tributario"
     },
     {
       "id": "minsegpres",
@@ -922,7 +956,8 @@
           "resumen": "Mandato legal para la tramitación exclusivamente electrónica de los procedimientos administrativos."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "segegob",
@@ -945,7 +980,8 @@
           "resumen": "Postulación y rendición digital de recursos públicos concursables."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "minrel",
@@ -968,7 +1004,8 @@
           "resumen": "Validez internacional inmediata de documentos públicos interoperados entre consulados y organismos."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "defensa",
@@ -991,7 +1028,8 @@
           "resumen": "Regula las atribuciones conjuntas y sistemas de información en defensa."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "mop",
@@ -1014,7 +1052,8 @@
           "resumen": "Normativa de licitación y adjudicación de grandes obras públicas del Estado."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "territorio_medioambiente"
     },
     {
       "id": "minvu",
@@ -1044,7 +1083,8 @@
           "resumen": "Validación en línea del registro social de hogares en postulaciones a viviendas sociales."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "proteccion_social_vivienda"
     },
     {
       "id": "mintrab",
@@ -1067,7 +1107,8 @@
           "resumen": "Obligaciones de registro de accidentes y fiscalización coordinada."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "economia",
@@ -1090,7 +1131,8 @@
           "resumen": "Constitución societaria 100% digital e interoperabilidad automática de inicio con el SII."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "energia",
@@ -1113,7 +1155,8 @@
           "resumen": "Marco orgánico para planificación del sistema interconectado y fuentes limpias."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "mineria",
@@ -1136,7 +1179,8 @@
           "resumen": "Concesiones mineras y catastro oficial de pedimentos y manifestaciones."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "bienes_nacionales",
@@ -1159,7 +1203,8 @@
           "resumen": "Intercambio de expedientes de títulos de dominio con Conservadores de Bienes Raíces."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "territorio_medioambiente"
     },
     {
       "id": "mma",
@@ -1182,7 +1227,8 @@
           "resumen": "Rectoría del Sistema Nacional de Información Ambiental (SINIA)."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "territorio_medioambiente"
     },
     {
       "id": "minjusticia",
@@ -1205,7 +1251,8 @@
           "resumen": "Supervisión funcional de servicios auxiliares de la administración de justicia."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "culturas",
@@ -1228,7 +1275,8 @@
           "resumen": "Marco legal de gestión cultural y registro nacional de agentes culturales."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "minmujer",
@@ -1251,7 +1299,8 @@
           "resumen": "Integración transversal del enfoque de género en sistemas de datos del Estado."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "ciencia",
@@ -1274,7 +1323,8 @@
           "resumen": "Directrices éticas y estándares de interoperabilidad para repositorios de datos de investigación."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "minagri",
@@ -1297,7 +1347,8 @@
           "resumen": "Supervisión coordinada de servicios del agro (SAG, INDAP, CONAF)."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "territorio_medioambiente"
     },
     {
       "id": "anid",
@@ -1320,7 +1371,8 @@
           "resumen": "Transforma CONICYT en la Agencia Nacional de Investigación y Desarrollo."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "deportes",
@@ -1343,7 +1395,8 @@
           "resumen": "Regulación del Registro Nacional de Organizaciones Deportivas."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "educacion_becas"
     },
     {
       "id": "sag",
@@ -1366,7 +1419,8 @@
           "resumen": "Certificación oficial electrónica de exportaciones silvoagropecuarias."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "territorio_medioambiente"
     },
     {
       "id": "serviu",
@@ -1389,7 +1443,8 @@
           "resumen": "Habilitación técnica e interoperabilidad con ChileCompra para obras habitacionales."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "proteccion_social_vivienda"
     },
     {
       "id": "servel",
@@ -1412,7 +1467,8 @@
           "resumen": "Obligatoriedad de sincronización periódica de nacimientos y defunciones con el Registro Civil."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "bcch",
@@ -1435,7 +1491,8 @@
           "resumen": "Operación del sistema de liquidación bruta en tiempo real y estadísticas de balanza de pagos."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "finanzas_tributario"
     },
     {
       "id": "fiscalia",
@@ -1458,7 +1515,8 @@
           "resumen": "Interconexión electrónica del Sistema de Apoyo a Fiscales (SAF) con policías y tribunales."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "dpp",
@@ -1481,7 +1539,8 @@
           "resumen": "Sistema de Gestión de Defensa Penal SIGDP y sincronización con el Poder Judicial."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "sec",
@@ -1504,7 +1563,8 @@
           "resumen": "Supervisión en tiempo real de interrupciones de suministro eléctrico e interoperabilidad regulatoria."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "territorio_medioambiente"
     },
     {
       "id": "sma",
@@ -1527,7 +1587,8 @@
           "resumen": "Sistema Nacional de Información de Fiscalización Ambiental (SNIFA)."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "territorio_medioambiente"
     },
     {
       "id": "conadi",
@@ -1550,7 +1611,8 @@
           "resumen": "Regulación del Registro Nacional de Comunidades y Asociaciones Indígenas."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "senapred",
@@ -1573,7 +1635,8 @@
           "resumen": "Obligatoriedad de interconexión tecnológica inmediata de monitoreo sismológico, meteorológico e incendios."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "dgac",
@@ -1596,7 +1659,8 @@
           "resumen": "Gestión y control de vuelos, licencias aeronáuticas y registros de aeronaves."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "sernapesca",
@@ -1619,7 +1683,8 @@
           "resumen": "Control de cuotas, veda y trazabilidad marítima mediante sistemas de posicionamiento satelital."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "isp",
@@ -1642,7 +1707,8 @@
           "resumen": "Ventanilla electrónica de importación y visación de fármacos."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "salud_seguridad_social"
     },
     {
       "id": "cochilco",
@@ -1665,7 +1731,8 @@
           "resumen": "Fiscalización técnica y financiera del valor real de concentrados de cobre exportados."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "spensiones",
@@ -1688,7 +1755,8 @@
           "resumen": "Supervisión de inversiones previsionales e intercambio con IPS para pago de aportes previsionales."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "proteccion_social_vivienda"
     },
     {
       "id": "cbr",
@@ -1711,7 +1779,8 @@
           "resumen": "Bases legales de la inscripción y mutación del dominio territorial en Chile."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "inapi",
@@ -1734,7 +1803,8 @@
           "resumen": "Tramitación y publicación digital de solicitudes de marcas y patentes."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "conaf",
@@ -1757,7 +1827,8 @@
           "resumen": "Planes de manejo forestal y permisos de corta y explotación."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "territorio_medioambiente"
     },
     {
       "id": "dga",
@@ -1780,7 +1851,8 @@
           "resumen": "Catastro Público de Aguas y transmisión telemática de extracciones efectivas."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "territorio_medioambiente"
     },
     {
       "id": "gendarmeria",
@@ -1803,7 +1875,8 @@
           "resumen": "Órdenes judiciales electrónicas de ingreso y egreso de recintos penitenciarios."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "corfo",
@@ -1826,7 +1899,8 @@
           "resumen": "Bases de administración de subsidios públicos concursables e intermediación de garantías financieras."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "cplt",
@@ -1849,7 +1923,8 @@
           "resumen": "Portal de Transparencia del Estado y API de solicitudes ciudadanas."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "gores",
@@ -1872,7 +1947,8 @@
           "resumen": "Transferencia de competencias y gestión del Fondo Nacional de Desarrollo Regional."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "territorio_medioambiente"
     },
     {
       "id": "sicex",
@@ -1902,7 +1978,8 @@
           "resumen": "Especificaciones de visaciones sanitarias y declaraciones de exportación interoperadas."
         }
       ],
-      "ai_readiness_score": 0
+      "ai_readiness_score": 0,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "apdp",
@@ -1941,7 +2018,8 @@
           "ano": 2024,
           "resumen": "Crea la Agencia de Protección de Datos Personales y establece principios de licitud, consentimiento y evaluaciones de impacto en el Estado."
         }
-      ]
+      ],
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "anci",
@@ -1980,7 +2058,8 @@
           "ano": 2024,
           "resumen": "Establece la institucionalidad de ciberseguridad, deberes de notificación de incidentes y facultades normativas y sancionatorias de la ANCI."
         }
-      ]
+      ],
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "docdigital",
@@ -2019,7 +2098,8 @@
           "ano": 2020,
           "resumen": "Dispone el uso obligatorio de DocDigital para el intercambio de oficios y documentos oficiales entre órganos del Estado."
         }
-      ]
+      ],
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "notificaciones",
@@ -2049,7 +2129,8 @@
           "ano": 2025,
           "resumen": "Fija el estándar técnico, acuse de recibo y la validez probatoria de las notificaciones electrónicas de actos administrativos."
         }
-      ]
+      ],
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "compin",
@@ -2079,7 +2160,8 @@
           "ano": 1984,
           "resumen": "Regula la calificación de reposos médicos, visación pericial y tramitación de subsidios por incapacidad laboral."
         }
-      ]
+      ],
+      "eje_tematico": "salud_seguridad_social"
     },
     {
       "id": "sinim",
@@ -2109,7 +2191,8 @@
           "ano": 2018,
           "resumen": "Fija los formatos estandarizados de carga contable, fondos transferidos y cálculo del Fondo Común Municipal."
         }
-      ]
+      ],
+      "eje_tematico": "territorio_medioambiente"
     },
     {
       "id": "pasarela_tgr",
@@ -2148,6 +2231,232 @@
           "ano": 2023,
           "resumen": "Fija los protocolos de compensación bancaria, integración por webhooks y liquidación en cuenta única fiscal."
         }
+      ],
+      "eje_tematico": "finanzas_tributario"
+    },
+    {
+      "id": "junaeb",
+      "nombre": "Junta Nacional de Auxilio Escolar y Becas",
+      "sigla": "JUNAEB",
+      "tipo": "servicio_publico",
+      "dependencia": "Ministerio de Educación",
+      "eje_tematico": "educacion_becas",
+      "rol_ecosistema": "Asignador de becas estudiantiles, alimentación escolar (PAE) y pase escolar TNE.",
+      "sitio_web": "https://www.junaeb.cl",
+      "nivel_madurez_digital": "medio",
+      "estado_adopcion_ley21180": "fase_2_procedimientos",
+      "indice_madurez_interoperabilidad": 52,
+      "nivel_madurez_interoperabilidad": 3,
+      "procesos_clave": [
+        "Pase Escolar TNE",
+        "Beca de Alimentación BAES",
+        "Becas de Mantención Indígena y Presidente"
+      ],
+      "documentacion_oficial": [
+        {
+          "titulo": "Ley N° 15.720 Crea la Junta Nacional de Auxilio Escolar y Becas",
+          "tipo": "decreto",
+          "url": "https://www.bcn.cl/leychile/navegar?idNorma=28511",
+          "ano": 1964,
+          "resumen": "Marco legal orgánico que faculta a JUNAEB a administrar becas, residencias y servicios asistenciales a estudiantes."
+        }
+      ]
+    },
+    {
+      "id": "subesup",
+      "nombre": "Subsecretaría de Educación Superior",
+      "sigla": "SubESup",
+      "tipo": "servicio_publico",
+      "dependencia": "Ministerio de Educación",
+      "eje_tematico": "educacion_becas",
+      "rol_ecosistema": "Administrador del Formulario Único de Acreditación Socioeconómica (FUAS), asignación de Gratuidad y aranceles regulados.",
+      "sitio_web": "https://educacionsuperior.mineduc.cl",
+      "nivel_madurez_digital": "medio",
+      "estado_adopcion_ley21180": "fase_2_procedimientos",
+      "indice_madurez_interoperabilidad": 55,
+      "nivel_madurez_interoperabilidad": 3,
+      "procesos_clave": [
+        "Postulación y Asignación de Gratuidad Universitaria (FUAS)",
+        "Becas de Arancel",
+        "Fondo Solidario de Crédito Universitario"
+      ],
+      "documentacion_oficial": [
+        {
+          "titulo": "Ley N° 21.091 sobre Educación Superior",
+          "tipo": "decreto",
+          "url": "https://www.bcn.cl/leychile/navegar?idNorma=1118958",
+          "ano": 2018,
+          "resumen": "Crea la Subsecretaría de Educación Superior y fija el sistema de financiamiento institucional y gratuidad."
+        }
+      ]
+    },
+    {
+      "id": "ingresa",
+      "nombre": "Comisión Administradora del Sistema de Créditos para Estudios Superiores (Ingresa)",
+      "sigla": "Ingresa",
+      "tipo": "servicio_publico",
+      "dependencia": "Ministerio de Educación",
+      "eje_tematico": "educacion_becas",
+      "rol_ecosistema": "Administrador del Crédito con Aval del Estado (CAE), cobranza contingente y nóminas de egresados deudores.",
+      "sitio_web": "https://www.ingresa.cl",
+      "nivel_madurez_digital": "medio",
+      "estado_adopcion_ley21180": "fase_2_procedimientos",
+      "indice_madurez_interoperabilidad": 48,
+      "nivel_madurez_interoperabilidad": 3,
+      "procesos_clave": [
+        "Asignación y Renovación Crédito CAE",
+        "Pago contingente al ingreso (10% arancel)",
+        "Cruce de deudores con TGR"
+      ],
+      "documentacion_oficial": [
+        {
+          "titulo": "Ley N° 20.027 Establece normas para el financiamiento de estudios de educación superior",
+          "tipo": "decreto",
+          "url": "https://www.bcn.cl/leychile/navegar?idNorma=239276",
+          "ano": 2005,
+          "resumen": "Regula el Crédito con Aval del Estado y las facultades de la Comisión Ingresa."
+        }
+      ]
+    },
+    {
+      "id": "demre",
+      "nombre": "Departamento de Evaluación, Medición y Registro Educacional (DEMRE - U. de Chile)",
+      "sigla": "DEMRE",
+      "tipo": "organo_autonomo",
+      "dependencia": "Universidad de Chile / Consejo de Rectores CRUCH",
+      "eje_tematico": "educacion_becas",
+      "rol_ecosistema": "Administración, rendición y publicación de puntajes de la Prueba de Acceso a la Educación Superior (PAES).",
+      "sitio_web": "https://demre.cl",
+      "nivel_madurez_digital": "alto",
+      "estado_adopcion_ley21180": "fase_2_procedimientos",
+      "indice_madurez_interoperabilidad": 64,
+      "nivel_madurez_interoperabilidad": 4,
+      "procesos_clave": [
+        "Inscripción y Rendición PAES",
+        "Cálculo de NEM y Ranking de Notas",
+        "Postulación Centralizada a Universidades"
+      ],
+      "documentacion_oficial": [
+        {
+          "titulo": "Convenio Marco CRUCH - MINEDUC Sistema de Acceso a la Educación Superior",
+          "tipo": "convenio",
+          "url": "https://acceso.mineduc.cl/normativa",
+          "ano": 2020,
+          "resumen": "Fija los protocolos de transferencia de puntajes de pruebas de admisión y notas de enseñanza media."
+        }
+      ]
+    },
+    {
+      "id": "supereduc",
+      "nombre": "Superintendencia de Educación",
+      "sigla": "SuperEduc",
+      "tipo": "superintendencia",
+      "dependencia": "Ministerio de Educación",
+      "eje_tematico": "educacion_becas",
+      "rol_ecosistema": "Fiscalización del uso de recursos públicos escolares, subvenciones y resguardo de derechos de la comunidad educativa.",
+      "sitio_web": "https://www.supereduc.cl",
+      "nivel_madurez_digital": "medio",
+      "estado_adopcion_ley21180": "fase_2_procedimientos",
+      "indice_madurez_interoperabilidad": 58,
+      "nivel_madurez_interoperabilidad": 3,
+      "procesos_clave": [
+        "Fiscalización de Subvención Escolar Preferencial (SEP)",
+        "Denuncias de vulneración de derechos en colegios",
+        "Rendición de cuentas sostenedores"
+      ],
+      "documentacion_oficial": [
+        {
+          "titulo": "Ley N° 20.529 Sistema Nacional de Aseguramiento de la Calidad de la Educación",
+          "tipo": "decreto",
+          "url": "https://www.bcn.cl/leychile/navegar?idNorma=1028635",
+          "ano": 2011,
+          "resumen": "Crea la Superintendencia de Educación y fija sus facultades fiscalizadoras."
+        }
+      ]
+    },
+    {
+      "id": "junji",
+      "nombre": "Junta Nacional de Jardines Infantiles",
+      "sigla": "JUNJI",
+      "tipo": "servicio_publico",
+      "dependencia": "Ministerio de Educación",
+      "eje_tematico": "educacion_becas",
+      "rol_ecosistema": "Gestión y provisión de salas cuna y jardines infantiles públicos en primera infancia.",
+      "sitio_web": "https://www.junji.gob.cl",
+      "nivel_madurez_digital": "medio",
+      "estado_adopcion_ley21180": "fase_2_procedimientos",
+      "indice_madurez_interoperabilidad": 45,
+      "nivel_madurez_interoperabilidad": 3,
+      "procesos_clave": [
+        "Postulación y Matrícula en Salas Cuna Públicas",
+        "Acreditación socioeconómica para cupos prioritarios"
+      ],
+      "documentacion_oficial": [
+        {
+          "titulo": "Ley N° 17.301 Crea la Junta Nacional de Jardines Infantiles",
+          "tipo": "decreto",
+          "url": "https://www.bcn.cl/leychile/navegar?idNorma=28990",
+          "ano": 1970,
+          "resumen": "Regula las atribuciones de la JUNJI en educación parvularia."
+        }
+      ]
+    },
+    {
+      "id": "slep_red",
+      "nombre": "Red Nacional de Servicios Locales de Educación Pública (SLEP)",
+      "sigla": "Red SLEP",
+      "tipo": "servicio_publico",
+      "dependencia": "Ministerio de Educación / Dirección de Educación Pública",
+      "eje_tematico": "educacion_becas",
+      "rol_ecosistema": "Administración descentralizada de establecimientos educacionales públicos traspasados desde municipios.",
+      "sitio_web": "https://educacionpublica.gob.cl",
+      "es_silo": true,
+      "nivel_madurez_digital": "bajo",
+      "estado_adopcion_ley21180": "rezagado",
+      "indice_madurez_interoperabilidad": 18,
+      "nivel_madurez_interoperabilidad": 1,
+      "procesos_clave": [
+        "Pago de remuneraciones docentes",
+        "Gestión de matrículas y asistencia escolar",
+        "Mantenimiento de infraestructura colegios"
+      ],
+      "documentacion_oficial": [
+        {
+          "titulo": "Ley N° 21.040 Crea el Sistema de Educación Pública",
+          "tipo": "decreto",
+          "url": "https://www.bcn.cl/leychile/navegar?idNorma=1111237",
+          "ano": 2017,
+          "resumen": "Dispone la desmunicipalización y creación progresiva de los Servicios Locales de Educación."
+        }
+      ]
+    },
+    {
+      "id": "dgmn",
+      "nombre": "Dirección General de Movilización Nacional",
+      "sigla": "DGMN",
+      "tipo": "servicio_publico",
+      "dependencia": "Ministerio de Defensa Nacional",
+      "eje_tematico": "justicia_seguridad",
+      "rol_ecosistema": "Custodio del Registro Militar obligatorio, control de armas, explosivos y artes marciales.",
+      "sitio_web": "https://www.dgmn.cl",
+      "es_silo": true,
+      "nivel_madurez_digital": "bajo",
+      "estado_adopcion_ley21180": "rezagado",
+      "indice_madurez_interoperabilidad": 15,
+      "nivel_madurez_interoperabilidad": 1,
+      "procesos_clave": [
+        "Sorteo del Servicio Militar Obligatorio",
+        "Acreditación de exclusión militar estudiantil o médica",
+        "Inscripción de armas de fuego"
+      ],
+      "documentacion_oficial": [
+        {
+          "titulo": "Decreto Ley N° 2.306 Dicta normas sobre Reclutamiento y Movilización de las FF.AA.",
+          "tipo": "decreto",
+          "url": "https://www.bcn.cl/leychile/navegar?idNorma=6955",
+          "ano": 1978,
+          "resumen": "Regula las obligaciones militares y la potestad registral de la DGMN."
+        }
       ]
     }
   ],
@@ -2168,7 +2477,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "moderada",
-      "normative_ref": "Art. 11 DS N° 12/2023 (Omisión de especificación en Catálogo de Servicios)"
+      "normative_ref": "Art. 11 DS N° 12/2023 (Omisión de especificación en Catálogo de Servicios)",
+      "eje_tematico": "identidad_ciudadana",
+      "proceso_ciudadano": "Autenticación digital unificada y verificación de identidad ciudadana",
+      "proceso_bloqueado_en_silo": "El ciudadano debe acudir a hacer filas a oficinas del Registro Civil"
     },
     {
       "id": "claveunica-chilecompra-sso",
@@ -2186,7 +2498,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "moderada",
-      "normative_ref": "Art. 13 DS N° 12/2023 (Adecuación a modelo de acuerdos formales)"
+      "normative_ref": "Art. 13 DS N° 12/2023 (Adecuación a modelo de acuerdos formales)",
+      "eje_tematico": "identidad_ciudadana",
+      "proceso_ciudadano": "Autenticación digital unificada y verificación de identidad ciudadana",
+      "proceso_bloqueado_en_silo": "El ciudadano debe acudir a hacer filas a oficinas del Registro Civil"
     },
     {
       "id": "chilecompra-sii-valida-proveedor",
@@ -2204,7 +2519,10 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "moderada",
-      "normative_ref": "Art. 11 DS N° 12/2023 (Omisión de especificación en Catálogo de Servicios)"
+      "normative_ref": "Art. 11 DS N° 12/2023 (Omisión de especificación en Catálogo de Servicios)",
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
     {
       "id": "chilecompra-dipres-sigfe-compromiso",
@@ -2222,7 +2540,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "moderada",
-      "normative_ref": "Art. 13 DS N° 12/2023 (Adecuación a modelo de acuerdos formales)"
+      "normative_ref": "Art. 13 DS N° 12/2023 (Adecuación a modelo de acuerdos formales)",
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
     {
       "id": "dipres-tgr-pago-proveedores",
@@ -2240,7 +2561,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "critica",
-      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)",
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
     {
       "id": "sii-tgr-operacion-renta",
@@ -2258,7 +2582,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "critica",
-      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)",
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
     {
       "id": "srcei-tgr-deudores-alimentos",
@@ -2276,7 +2603,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "justicia_seguridad",
+      "proceso_ciudadano": "Retención judicial de devolución de impuestos por pensión alimenticia adeudada",
+      "proceso_bloqueado_en_silo": "El deudor recibe la devolución completa y los hijos quedan desprotegidos"
     },
     {
       "id": "srcei-pisee-servicios-civiles",
@@ -2294,7 +2624,10 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "moderada",
-      "normative_ref": "Art. 13 DS N° 12/2023 (Adecuación a modelo de acuerdos formales)"
+      "normative_ref": "Art. 13 DS N° 12/2023 (Adecuación a modelo de acuerdos formales)",
+      "eje_tematico": "identidad_ciudadana",
+      "proceso_ciudadano": "Autenticación digital unificada y verificación de identidad ciudadana",
+      "proceso_bloqueado_en_silo": "El ciudadano debe acudir a hacer filas a oficinas del Registro Civil"
     },
     {
       "id": "pisee-municipalidades-tramites",
@@ -2348,7 +2681,10 @@
       "canal": "Manual",
       "madurez_tecnica": "realtime",
       "severity": "critica",
-      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)"
+      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)",
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
     {
       "id": "suseso-fonasa-licencias-medicas",
@@ -2366,7 +2702,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "salud_seguridad_social",
+      "proceso_ciudadano": "Pago oportuno de subsidio por incapacidad laboral (Licencia Médica)",
+      "proceso_bloqueado_en_silo": "El trabajador queda meses sin sueldo si COMPIN y FONASA no sincronizan el peritaje"
     },
     {
       "id": "supersalud-fonasa-registro-prestadores",
@@ -2402,7 +2741,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "critica",
-      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)",
+      "eje_tematico": "proteccion_social_vivienda",
+      "proceso_ciudadano": "Postulación y asignación de Subsidio Habitacional DS49 y Subsidio al Empleo",
+      "proceso_bloqueado_en_silo": "La familia queda fuera de postulación al subsidio por discrepancia de datos"
     },
     {
       "id": "mdsf-srcei-parentesco-rsh",
@@ -2420,7 +2762,10 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "moderada",
-      "normative_ref": "Art. 13 DS N° 12/2023 (Adecuación a modelo de acuerdos formales)"
+      "normative_ref": "Art. 13 DS N° 12/2023 (Adecuación a modelo de acuerdos formales)",
+      "eje_tematico": "proteccion_social_vivienda",
+      "proceso_ciudadano": "Postulación y asignación de Subsidio Habitacional DS49 y Subsidio al Empleo",
+      "proceso_bloqueado_en_silo": "La familia queda fuera de postulación al subsidio por discrepancia de datos"
     },
     {
       "id": "cgr-dipres-siaper-dotacion",
@@ -2474,7 +2819,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
     {
       "id": "mineduc-pisee-licencias",
@@ -2559,7 +2907,10 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "moderada",
-      "normative_ref": "Art. 11 DS N° 12/2023 (Omisión de especificación en Catálogo de Servicios)"
+      "normative_ref": "Art. 11 DS N° 12/2023 (Omisión de especificación en Catálogo de Servicios)",
+      "eje_tematico": "proteccion_social_vivienda",
+      "proceso_ciudadano": "Postulación y asignación de Subsidio Habitacional DS49 y Subsidio al Empleo",
+      "proceso_bloqueado_en_silo": "La familia queda fuera de postulación al subsidio por discrepancia de datos"
     },
     {
       "id": "srcei-pdi-pasaportes",
@@ -2576,7 +2927,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "moderada",
-      "normative_ref": "Art. 11 DS N° 12/2023 (Omisión de especificación en Catálogo de Servicios)"
+      "normative_ref": "Art. 11 DS N° 12/2023 (Omisión de especificación en Catálogo de Servicios)",
+      "eje_tematico": "identidad_ciudadana",
+      "proceso_ciudadano": "Autenticación digital unificada y verificación de identidad ciudadana",
+      "proceso_bloqueado_en_silo": "El ciudadano debe acudir a hacer filas a oficinas del Registro Civil"
     },
     {
       "id": "pdi-sermig-movimientos",
@@ -2644,7 +2998,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "moderada",
-      "normative_ref": "Art. 15 DS N° 12/2023 (Incumplimiento de Estándar Semántico en Gestor de Códigos)"
+      "normative_ref": "Art. 15 DS N° 12/2023 (Incumplimiento de Estándar Semántico en Gestor de Códigos)",
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
     {
       "id": "cmf-sii-fatca",
@@ -2661,7 +3018,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "critica",
-      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)",
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
     {
       "id": "mtt-municipalidades-multas",
@@ -2780,7 +3140,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
     {
       "id": "sii-sna-padron-exportadores",
@@ -2797,7 +3160,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
     {
       "id": "sna-tgr-aranceles-aduaneros",
@@ -2814,7 +3180,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
     {
       "id": "sicex-sna-tramitacion-declaraciones",
@@ -2916,7 +3285,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
     {
       "id": "minvu-municipalidades-dom-digital",
@@ -2950,7 +3322,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "critica",
-      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)",
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
     {
       "id": "bienes-nacionales-sii-catastro",
@@ -2967,7 +3342,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
     {
       "id": "sii-cbr-avaluos-mutaciones",
@@ -2984,7 +3362,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
     {
       "id": "cbr-sii-transferencias-inmuebles",
@@ -3001,7 +3382,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "critica",
-      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)",
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
     {
       "id": "minjusticia-cbr-archivo-judicial",
@@ -3035,7 +3419,10 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "proteccion_social_vivienda",
+      "proceso_ciudadano": "Postulación y asignación de Subsidio Habitacional DS49 y Subsidio al Empleo",
+      "proceso_bloqueado_en_silo": "La familia queda fuera de postulación al subsidio por discrepancia de datos"
     },
     {
       "id": "serviu-minvu-ejecucion-subsidios",
@@ -3052,7 +3439,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "proteccion_social_vivienda",
+      "proceso_ciudadano": "Postulación y asignación de Subsidio Habitacional DS49 y Subsidio al Empleo",
+      "proceso_bloqueado_en_silo": "La familia queda fuera de postulación al subsidio por discrepancia de datos"
     },
     {
       "id": "minvu-sii-propiedades-habitacionales",
@@ -3069,7 +3459,10 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
     {
       "id": "mop-chilecompra-licitaciones-obras",
@@ -3086,7 +3479,10 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
     {
       "id": "mop-dipres-inversion-bip",
@@ -3120,7 +3516,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "territorio_medioambiente",
+      "proceso_ciudadano": "Fiscalización ambiental comunitaria y derechos de aprovechamiento de agua",
+      "proceso_bloqueado_en_silo": "Comunidades locales no pueden denunciar contaminación en tiempo real"
     },
     {
       "id": "dga-sma-caudales-ecologicos",
@@ -3137,7 +3536,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "territorio_medioambiente",
+      "proceso_ciudadano": "Fiscalización ambiental comunitaria y derechos de aprovechamiento de agua",
+      "proceso_bloqueado_en_silo": "Comunidades locales no pueden denunciar contaminación en tiempo real"
     },
     {
       "id": "srcei-servel-defunciones-padron",
@@ -3154,7 +3556,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "identidad_ciudadana",
+      "proceso_ciudadano": "Autenticación digital unificada y verificación de identidad ciudadana",
+      "proceso_bloqueado_en_silo": "El ciudadano debe acudir a hacer filas a oficinas del Registro Civil"
     },
     {
       "id": "servel-srcei-cambios-domicilio",
@@ -3171,7 +3576,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "identidad_ciudadana",
+      "proceso_ciudadano": "Autenticación digital unificada y verificación de identidad ciudadana",
+      "proceso_bloqueado_en_silo": "El ciudadano debe acudir a hacer filas a oficinas del Registro Civil"
     },
     {
       "id": "fiscalia-pdi-ordenes-investigar",
@@ -3256,7 +3664,10 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "identidad_ciudadana",
+      "proceso_ciudadano": "Autenticación digital unificada y verificación de identidad ciudadana",
+      "proceso_bloqueado_en_silo": "El ciudadano debe acudir a hacer filas a oficinas del Registro Civil"
     },
     {
       "id": "sec-energia-balance-electrico",
@@ -3290,7 +3701,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "territorio_medioambiente",
+      "proceso_ciudadano": "Fiscalización ambiental comunitaria y derechos de aprovechamiento de agua",
+      "proceso_bloqueado_en_silo": "Comunidades locales no pueden denunciar contaminación en tiempo real"
     },
     {
       "id": "mma-sma-planes-descontaminacion",
@@ -3307,7 +3721,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "territorio_medioambiente",
+      "proceso_ciudadano": "Fiscalización ambiental comunitaria y derechos de aprovechamiento de agua",
+      "proceso_bloqueado_en_silo": "Comunidades locales no pueden denunciar contaminación en tiempo real"
     },
     {
       "id": "spensiones-ips-pension-garantizada",
@@ -3358,7 +3775,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "salud_seguridad_social",
+      "proceso_ciudadano": "Pago oportuno de subsidio por incapacidad laboral (Licencia Médica)",
+      "proceso_bloqueado_en_silo": "El trabajador queda meses sin sueldo si COMPIN y FONASA no sincronizan el peritaje"
     },
     {
       "id": "corfo-sii-garantias-fogape",
@@ -3375,7 +3795,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
     {
       "id": "bcch-cmf-estabilidad-financiera",
@@ -3528,7 +3951,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "territorio_medioambiente",
+      "proceso_ciudadano": "Fiscalización ambiental comunitaria y derechos de aprovechamiento de agua",
+      "proceso_bloqueado_en_silo": "Comunidades locales no pueden denunciar contaminación en tiempo real"
     },
     {
       "id": "minsegpres-cgr-tramitacion-decretos",
@@ -3647,7 +4073,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "territorio_medioambiente",
+      "proceso_ciudadano": "Fiscalización ambiental comunitaria y derechos de aprovechamiento de agua",
+      "proceso_bloqueado_en_silo": "Comunidades locales no pueden denunciar contaminación en tiempo real"
     },
     {
       "id": "minrel-sermig-visas-consulares",
@@ -3932,7 +4361,10 @@
         "economicos_tributarios"
       ],
       "base_licitud": "obligacion_legal",
-      "requiere_eipd": true
+      "requiere_eipd": true,
+      "eje_tematico": "salud_seguridad_social",
+      "proceso_ciudadano": "Pago oportuno de subsidio por incapacidad laboral (Licencia Médica)",
+      "proceso_bloqueado_en_silo": "El trabajador queda meses sin sueldo si COMPIN y FONASA no sincronizan el peritaje"
     },
     {
       "id": "compin-fonasa-subsidios",
@@ -3958,7 +4390,10 @@
         "economicos_tributarios"
       ],
       "base_licitud": "obligacion_legal",
-      "requiere_eipd": true
+      "requiere_eipd": true,
+      "eje_tematico": "salud_seguridad_social",
+      "proceso_ciudadano": "Pago oportuno de subsidio por incapacidad laboral (Licencia Médica)",
+      "proceso_bloqueado_en_silo": "El trabajador queda meses sin sueldo si COMPIN y FONASA no sincronizan el peritaje"
     },
     {
       "id": "municipalidades-sinim-reportes",
@@ -4025,7 +4460,10 @@
         "economicos_tributarios"
       ],
       "base_licitud": "obligacion_legal",
-      "requiere_eipd": false
+      "requiere_eipd": false,
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
     {
       "id": "pasarela-tgr-tgr-conciliacion",
@@ -4049,7 +4487,172 @@
         "economicos_tributarios"
       ],
       "base_licitud": "obligacion_legal",
-      "requiere_eipd": false
+      "requiere_eipd": false,
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
+      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
+    },
+    {
+      "id": "mineduc-subesup-matricula-nem",
+      "origen": "mineduc",
+      "destino": "subesup",
+      "plataforma_o_bus": "Bus Central MINEDUC (SIGE)",
+      "tipo_dato": "Concentración de Notas de Enseñanza Media (NEM) y Matrícula Activa",
+      "eje_tematico": "educacion_becas",
+      "proceso_ciudadano": "Postulación y asignación de Gratuidad Universitaria y Becas de Arancel (FUAS)",
+      "proceso_bloqueado_en_silo": "El estudiante debe peregrinar a su colegio por un certificado físico de notas para apelar a la gratuidad",
+      "estandar_o_protocolo": "REST / JSON",
+      "nivel_apertura": "Restringido interinstitucional",
+      "fuente_oficial_url": "https://educacionsuperior.mineduc.cl/fuas-normativa",
+      "brecha_observada": "La sincronización de egresados de cuarto medio se ejecuta en lotes batch periódicos, retrasando resultados del FUAS.",
+      "severity": "moderada",
+      "normative_ref": "Art. 8 DS N° 12/2023",
+      "frecuencia_actualizacion": "Batch diario",
+      "canal": "Convenio",
+      "madurez_tecnica": "batch",
+      "involucra_datos_personales": true,
+      "categoria_datos_personales": [
+        "identificatorios"
+      ],
+      "base_licitud": "obligacion_legal"
+    },
+    {
+      "id": "mdsf-subesup-rsh-fuas",
+      "origen": "mdsf",
+      "destino": "subesup",
+      "plataforma_o_bus": "Web Services RSH / Convenio MDSF",
+      "tipo_dato": "Calificación Socioeconómica (RSH) del Grupo Familiar Postulante",
+      "eje_tematico": "proteccion_social_vivienda",
+      "proceso_ciudadano": "Determinación del 60% de menores ingresos para acceso a Gratuidad Universitaria",
+      "proceso_bloqueado_en_silo": "Si la cartola RSH no coincide, el alumno queda sin gratuidad y debe acreditar ingresos con boletas en papel ante la asistente social universitaria",
+      "estandar_o_protocolo": "SFTP / Batch plano o CSV",
+      "nivel_apertura": "Restringido interinstitucional",
+      "fuente_oficial_url": "https://beneficiosestudiantiles.cl/requisitos-gratuidad",
+      "brecha_observada": "El cruce con el Registro Social de Hogares se realiza mediante cargas masivas diferidas por lotes en vez de consulta síncrona en tiempo real.",
+      "severity": "critica",
+      "normative_ref": "Art. 8 y 13 DS N° 12/2023",
+      "frecuencia_actualizacion": "Batch mensual",
+      "canal": "Convenio",
+      "madurez_tecnica": "batch",
+      "involucra_datos_personales": true,
+      "categoria_datos_personales": [
+        "identificatorios",
+        "economicos_tributarios"
+      ],
+      "base_licitud": "mision_interes_publico",
+      "requiere_eipd": true
+    },
+    {
+      "id": "demre-subesup-paes-puntajes",
+      "origen": "demre",
+      "destino": "subesup",
+      "plataforma_o_bus": "API Acceso Mineduc / Convenio UChile",
+      "tipo_dato": "Puntajes Oficiales PAES (Comprensión Lectora, Matemáticas, Ciencias e Historia)",
+      "eje_tematico": "educacion_becas",
+      "proceso_ciudadano": "Selección centralizada y adjudicación de cupos y becas de excelencia académica",
+      "proceso_bloqueado_en_silo": "El postulante debe digitar manualmente sus puntajes o esperar días para ver su estatus de beca",
+      "estandar_o_protocolo": "REST / JSON",
+      "nivel_apertura": "Restringido interinstitucional",
+      "fuente_oficial_url": "https://acceso.mineduc.cl",
+      "brecha_observada": "Operación semi-síncrona con periodos de alta concurrencia que degradan la disponibilidad en días de publicación.",
+      "severity": "moderada",
+      "normative_ref": "Art. 4 DS N° 12/2023",
+      "frecuencia_actualizacion": "Tiempo real / sincrónico",
+      "canal": "Convenio",
+      "madurez_tecnica": "realtime",
+      "involucra_datos_personales": true,
+      "categoria_datos_personales": [
+        "identificatorios"
+      ]
+    },
+    {
+      "id": "mineduc-junaeb-matricula-tne",
+      "origen": "mineduc",
+      "destino": "junaeb",
+      "plataforma_o_bus": "SIGE / Convenio Mineduc-Junaeb",
+      "tipo_dato": "Nómina Oficial de Alumnos Matriculados Regulares en Educación Básica, Media y Superior",
+      "eje_tematico": "educacion_becas",
+      "proceso_ciudadano": "Activación del Pase Escolar TNE (tarifa rebajada en transporte público) y Beca BAES",
+      "proceso_bloqueado_en_silo": "El estudiante pierde el beneficio tarifario y debe pagar tarifa adulta en Metro y Micro hasta que el colegio cargue la planilla",
+      "estandar_o_protocolo": "SFTP / Batch plano o CSV",
+      "nivel_apertura": "Restringido interinstitucional",
+      "fuente_oficial_url": "https://www.tne.cl",
+      "brecha_observada": "Dependencia crítica de planillas manuales y desfase quincenal en la carga de matrículas universitarias y de colegios.",
+      "severity": "critica",
+      "normative_ref": "Art. 8 DS N° 12/2023",
+      "frecuencia_actualizacion": "Batch mensual",
+      "canal": "Convenio",
+      "madurez_tecnica": "batch",
+      "involucra_datos_personales": true,
+      "categoria_datos_personales": [
+        "identificatorios"
+      ]
+    },
+    {
+      "id": "ingresa-tgr-retencion-cae",
+      "origen": "ingresa",
+      "destino": "tgr",
+      "plataforma_o_bus": "Convenio Interinstitucional Ingresa-TGR",
+      "tipo_dato": "Nómina de Deudores Morosos del Crédito CAE con Mandato de Retención Tributaria",
+      "eje_tematico": "finanzas_tributario",
+      "proceso_ciudadano": "Retención de la devolución anual de impuestos a la renta para amortización de deuda del CAE",
+      "proceso_bloqueado_en_silo": "El deudor paga el crédito pero Tesorería le retiene la devolución por falta de actualización en línea entre bancos e Ingresa",
+      "estandar_o_protocolo": "SFTP / Batch plano o CSV",
+      "nivel_apertura": "Restringido interinstitucional",
+      "fuente_oficial_url": "https://www.ingresa.cl/devolucion-impuestos",
+      "brecha_observada": "Intercambio batch diferido anual que genera desfases en saldos pagados y retenciones indebidas a contribuyentes.",
+      "severity": "critica",
+      "normative_ref": "Art. 8 DS N° 12/2023",
+      "frecuencia_actualizacion": "Batch mensual",
+      "canal": "Convenio",
+      "madurez_tecnica": "batch",
+      "involucra_datos_personales": true,
+      "categoria_datos_personales": [
+        "identificatorios",
+        "economicos_tributarios"
+      ]
+    },
+    {
+      "id": "srcei-junji-nacimientos-matricula",
+      "origen": "srcei",
+      "destino": "junji",
+      "plataforma_o_bus": "Convenio de Interoperabilidad Civil-Parvularia",
+      "tipo_dato": "Validación de Certificados de Nacimiento y Filiación Materna/Paterna",
+      "eje_tematico": "identidad_ciudadana",
+      "proceso_ciudadano": "Postulación y matrícula de lactantes y párvulos en Salas Cuna Públicas",
+      "proceso_bloqueado_en_silo": "La madre debe acudir presencialmente con el certificado de nacimiento impreso para inscribir a su hijo en la sala cuna",
+      "estandar_o_protocolo": "REST / JSON",
+      "nivel_apertura": "Restringido interinstitucional",
+      "fuente_oficial_url": "https://simonline.junji.gob.cl",
+      "brecha_observada": "Consumo parcial disponible solo en ciertos jardines metropolitanos; en regiones se sigue exigiendo certificado en papel.",
+      "severity": "moderada",
+      "normative_ref": "Art. 2 Ley N° 21.180",
+      "frecuencia_actualizacion": "Tiempo real / sincrónico",
+      "canal": "Convenio",
+      "madurez_tecnica": "realtime",
+      "involucra_datos_personales": true,
+      "categoria_datos_personales": [
+        "identificatorios"
+      ]
+    },
+    {
+      "id": "supereduc-mineduc-fiscalizacion-sep",
+      "origen": "supereduc",
+      "destino": "mineduc",
+      "plataforma_o_bus": "Sistema de Información General de Estudiantes (SIGE)",
+      "tipo_dato": "Sanciones, Inhabilitaciones y Cumplimiento de Rendición de Subvenciones Escolares",
+      "eje_tematico": "educacion_becas",
+      "proceso_ciudadano": "Pago oportuno de subvenciones a colegios y continuidad de clases sin paros por insolvencia sostenedora",
+      "proceso_bloqueado_en_silo": "Colegios públicos quedan sin recursos para calefacción o alimentación por retención cautelar de subvención",
+      "estandar_o_protocolo": "REST / JSON",
+      "nivel_apertura": "Restringido interinstitucional",
+      "fuente_oficial_url": "https://www.supereduc.cl/portal-sostenedor",
+      "brecha_observada": "Integración en proceso de homologación hacia PISEE 2.0 con eventos síncronos.",
+      "severity": "optima",
+      "normative_ref": "Art. 4 DS N° 12/2023",
+      "frecuencia_actualizacion": "Tiempo real / sincrónico",
+      "canal": "Convenio",
+      "madurez_tecnica": "realtime"
     }
   ]
 }

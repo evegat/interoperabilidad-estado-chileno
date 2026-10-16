@@ -119,6 +119,15 @@ export interface ComplianceLey21719Flujo {
   categoria_datos_personales?: CategoriaDatosPersonales[];
 }
 
+export type EjeTematico =
+  | 'identidad_ciudadana'
+  | 'educacion_becas'
+  | 'salud_seguridad_social'
+  | 'proteccion_social_vivienda'
+  | 'finanzas_tributario'
+  | 'justicia_seguridad'
+  | 'territorio_medioambiente';
+
 export interface NodoInstitucion {
   /** Slug unívoco identificador del nodo (ej. 'srcei', 'pisee', 'sii') */
   id: string;
@@ -130,10 +139,16 @@ export interface NodoInstitucion {
   tipo: TipoNodo;
   /** Ministerio o poder del Estado del cual depende orgánica o funcionalmente */
   dependencia: string;
+  /** Eje temático principal de competencia o datos gestionados */
+  eje_tematico?: EjeTematico;
   /** Descripción del rol que cumple dentro del ecosistema de interoperabilidad */
   rol_ecosistema: string;
   /** URL oficial institucional verificable */
   sitio_web: string;
+  /** Indica si la institución es un silo sin conectores formales hacia la red */
+  es_silo?: boolean;
+  /** Trámites o procesos ciudadanos que gestiona o donde participa */
+  procesos_clave?: string[];
   /** Estimación cualitativa de madurez digital técnica */
   nivel_madurez_digital: MadurezDigital;
   /** Fase actual de adopción de la Ley N° 21.180 según calendario oficial */
@@ -193,6 +208,12 @@ export interface AristaInteroperabilidad {
   plataforma_o_bus: string;
   /** Naturaleza o tipo del dato intercambiado */
   tipo_dato: string;
+  /** Eje temático del dato transferido */
+  eje_tematico?: EjeTematico;
+  /** Proceso o trámite de la vida de las personas al que sirve este flujo */
+  proceso_ciudadano?: string;
+  /** Trámite o proceso que se bloquea o degrada a papel si este flujo falla */
+  proceso_bloqueado_en_silo?: string;
   /** Estándar técnico o protocolo de comunicación */
   estandar_o_protocolo: EstandarProtocolo;
   /** Clasificación de seguridad y acceso de los datos */

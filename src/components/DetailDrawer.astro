@@ -64,6 +64,20 @@
           <span id="node-summary-imi-badge" class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#031329] text-[#e4b18e] border border-[#1e3a5f]">
             Digital: 0%
           </span>
+          <span id="node-theme-badge" class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#38bdf8]/15 text-[#38bdf8] border border-[#38bdf8]/30">
+            Sector
+          </span>
+        </div>
+
+        <!-- Silo Warning Banner (visible only if es_silo) -->
+        <div id="node-silo-banner" class="hidden mt-2 p-2.5 rounded-lg bg-[#9f1239]/20 border border-[#be123c]/50 text-xs space-y-1">
+          <div class="flex items-center gap-1.5 font-black text-[#fca5a5]">
+            <span>⚠️</span>
+            <span>ORGANISMO EN SILO ESTATAL (0% CONECTADO)</span>
+          </div>
+          <p class="text-[11px] text-[#fca5a5]/90 leading-tight">
+            Esta institución no registra interfaces de interoperabilidad en la Red de Nodos ni APIs en el Catálogo SGD. Sus trámites dependen de oficios en papel, planillas manuales o presencia física del ciudadano.
+          </p>
         </div>
       </div>
 
@@ -365,9 +379,31 @@
         <p id="edge-data-type" class="text-sm font-bold text-[#f7f5ef] mt-1 leading-snug">
           Certificado / Datos
         </p>
-        <div class="flex items-center gap-2 mt-2">
+        <div class="flex items-center gap-2 mt-2 flex-wrap">
           <span id="edge-canal-badge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#0b4aa2] text-[#54b995] border border-[#1d4d91]">Canal: PISEE</span>
           <span id="edge-madurez-badge" class="px-2 py-0.5 rounded text-[10px] font-mono text-[#38bdf8] bg-[#0369a1]/20 border border-[#0369a1]/40">⚡ API Tiempo Real</span>
+          <span id="edge-theme-badge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#54b995]/15 text-[#54b995] border border-[#54b995]/30">🎓 Educación</span>
+        </div>
+      </div>
+
+      <!-- Proceso Ciudadano Vital Card -->
+      <div id="edge-process-card" class="bg-[#041a37] p-3 rounded-lg border border-[#38bdf8]/40 space-y-2">
+        <div class="flex items-center justify-between border-b border-[#1e3a5f] pb-1.5">
+          <span class="text-[10px] font-extrabold text-[#38bdf8] uppercase tracking-wider flex items-center gap-1.5">
+            <span>🎯</span> ¿Para qué sirve este intercambio al ciudadano?
+          </span>
+          <span class="text-[9px] font-mono text-[#94a3b8]">Proceso Vital</span>
+        </div>
+        <p id="edge-proceso-ciudadano" class="text-xs font-bold text-white leading-snug">
+          -
+        </p>
+        <div class="bg-[#9f1239]/20 p-2 rounded border border-[#be123c]/40 space-y-1">
+          <span class="text-[10px] font-extrabold text-[#fca5a5] uppercase flex items-center gap-1">
+            <span>⚠️</span> Impacto si falla o queda en Silo:
+          </span>
+          <p id="edge-proceso-bloqueado" class="text-[11px] text-[#fca5a5] leading-tight">
+            -
+          </p>
         </div>
       </div>
 
@@ -607,12 +643,37 @@
       if (elImiScore) elImiScore.textContent = `${imiScore}% (${imiScore} / 100 pts)`;
       if (elImiBar) elImiBar.style.width = `${Math.max(5, Math.min(100, imiScore))}%`;
 
-      // Update immediate summary header badges
+      // Update immediate summary header badges & silo banner
       const elSummaryDocsText = document.getElementById('node-summary-docs-text');
       const elSummaryImiBadge = document.getElementById('node-summary-imi-badge');
+      const elThemeBadge = document.getElementById('node-theme-badge');
+      const elSiloBanner = document.getElementById('node-silo-banner');
+
       if (elSummaryImiBadge) {
         elSummaryImiBadge.textContent = `Digital: ${imiScore}% (N${imiLevel})`;
         elSummaryImiBadge.className = 'inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#031329] text-[#e4b18e] border border-[#1e3a5f]';
+      }
+
+      const themeLabels: Record<string, string> = {
+        educacion_becas: '🎓 Educación y Becas',
+        salud_seguridad_social: '🏥 Salud y Licencias',
+        finanzas_tributario: '💰 Finanzas y Renta',
+        proteccion_social_vivienda: '🏠 Social y Vivienda',
+        justicia_seguridad: '⚖️ Justicia y Seguridad',
+        identidad_ciudadana: '🆔 Identidad Ciudadana',
+        territorio_medioambiente: '🌱 Territorio y Agua',
+      };
+      if (elThemeBadge) {
+        const themeKey = node.eje_tematico || 'identidad_ciudadana';
+        elThemeBadge.textContent = themeLabels[themeKey] || 'Sector Público';
+      }
+
+      if (elSiloBanner) {
+        if (node.es_silo) {
+          elSiloBanner.classList.remove('hidden');
+        } else {
+          elSiloBanner.classList.add('hidden');
+        }
       }
 
       // Compute 5-factor auditable breakdown totaling exactly imiScore
@@ -945,6 +1006,33 @@
 
       const elCanalBadge = document.getElementById('edge-canal-badge');
       const elMadurezBadge = document.getElementById('edge-madurez-badge');
+      const elThemeBadge = document.getElementById('edge-theme-badge');
+      const elProcesoCiudadano = document.getElementById('edge-proceso-ciudadano');
+      const elProcesoBloqueado = document.getElementById('edge-proceso-bloqueado');
+
+      const themeLabels: Record<string, string> = {
+        educacion_becas: '🎓 Educación y Becas',
+        salud_seguridad_social: '🏥 Salud y Licencias',
+        finanzas_tributario: '💰 Finanzas y Renta',
+        proteccion_social_vivienda: '🏠 Social y Vivienda',
+        justicia_seguridad: '⚖️ Justicia y Seguridad',
+        identidad_ciudadana: '🆔 Identidad Ciudadana',
+        territorio_medioambiente: '🌱 Territorio y Agua',
+      };
+
+      if (elThemeBadge) {
+        const themeKey = edge.eje_tematico || 'identidad_ciudadana';
+        elThemeBadge.textContent = themeLabels[themeKey] || 'Sector Público';
+      }
+
+      if (elProcesoCiudadano) {
+        elProcesoCiudadano.textContent = edge.proceso_ciudadano || `Tramitación y verificación oficial entre ${edge.origen_sigla} y ${edge.destino_sigla}`;
+      }
+
+      if (elProcesoBloqueado) {
+        elProcesoBloqueado.textContent = edge.proceso_bloqueado_en_silo || 'El ciudadano debe solicitar certificados físicos o presenciales para acreditar el trámite.';
+      }
+
       if (elCanalBadge) {
         const canal = edge.canal || (edge.plataforma_o_bus.includes('PISEE') ? 'PISEE' : edge.plataforma_o_bus.includes('Manual') ? 'Manual' : 'Convenio');
         elCanalBadge.textContent = `Canal: ${canal}`;

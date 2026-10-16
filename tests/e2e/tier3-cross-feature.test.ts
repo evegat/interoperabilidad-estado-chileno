@@ -109,7 +109,11 @@ describe('Tier 3: Cross-Feature Combinations (Filters, Search & Drawer Synchroni
       assert.ok(payload.dependencia, 'Payload dependencia must not be empty');
       assert.ok(payload.rol_ecosistema, 'Payload rol_ecosistema must not be empty');
       assert.match(payload.sitio_web, /^https?:\/\//, 'Payload sitio_web must be valid URL');
-      assert.ok(payload.total_conexiones >= 1, `Node ${node.id} must have >= 1 connection`);
+      if (node.es_silo) {
+        assert.ok(payload.total_conexiones >= 0, `Node ${node.id} is an audited silo (can have 0 connections)`);
+      } else {
+        assert.ok(payload.total_conexiones >= 1, `Node ${node.id} must have >= 1 connection`);
+      }
       assert.ok(
         typeof payload.indice_madurez_interoperabilidad === 'number' &&
           payload.indice_madurez_interoperabilidad >= 0 &&

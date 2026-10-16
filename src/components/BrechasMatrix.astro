@@ -133,6 +133,11 @@ const totalBrechasCriticasCount = dataset.aristas.filter(
                     <span class="text-[10px] font-mono text-[#94a3b8] bg-[#031329] px-1.5 py-0.5 rounded border border-[#1e3a5f]">
                       {item.tipo.replace('_', ' ')}
                     </span>
+                    {item.es_silo && (
+                      <span class="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-[#ef4444]/20 text-[#fca5a5] border border-[#ef4444]/40">
+                        SILO
+                      </span>
+                    )}
                   </div>
                   <div class="text-[11px] text-[#94a3b8] truncate max-w-xs sm:max-w-md mt-0.5">
                     {item.nombre}

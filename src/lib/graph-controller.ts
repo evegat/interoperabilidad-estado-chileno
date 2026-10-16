@@ -25,6 +25,7 @@ export interface FilterState {
   channel?: 'all' | 'PISEE' | 'Convenio' | 'Manual';
   maturity?: 'all' | 'realtime' | 'batch' | 'manual';
   imiLevel?: 'all' | 1 | 2 | 3 | 4 | 5 | 6 | string;
+  theme?: string;
 }
 
 export interface NodeDrawerPayload {
@@ -55,6 +56,9 @@ export interface NodeDrawerPayload {
   }>;
   calificacion_ciberseguridad?: string;
   tipo_despliegue_nodo?: string;
+  eje_tematico?: string;
+  es_silo?: boolean;
+  procesos_clave?: string[];
   compliance_ley21719?: {
     oficial_proteccion_datos: boolean;
     registro_actividades_tratamiento: boolean;
@@ -73,6 +77,9 @@ export interface EdgeDrawerPayload {
   destino_nombre: string;
   plataforma_o_bus: string;
   tipo_dato: string;
+  eje_tematico?: string;
+  proceso_ciudadano?: string;
+  proceso_bloqueado_en_silo?: string;
   estandar_o_protocolo: EstandarProtocolo;
   nivel_apertura: string;
   fuente_oficial_url: string;
@@ -138,16 +145,20 @@ export class GraphController {
           capacidades_agente: nodo.capacidades_agente,
           is_agent_ready: Boolean(nodo.agent_ready) ? 'true' : 'false',
           docs_count: nodo.documentacion_oficial ? nodo.documentacion_oficial.length : 0,
+          es_silo: nodo.es_silo ? 'true' : 'false',
+          eje_tematico: nodo.eje_tematico || 'identidad_ciudadana',
           display_label:
-            nodo.agent_ready
-              ? (nodo.documentacion_oficial && nodo.documentacion_oficial.length > 0
-                  ? `🤖 ${nodo.sigla}\n📎 ${nodo.documentacion_oficial.length}`
-                  : `🤖 ${nodo.sigla}`)
-              : (nodo.documentacion_oficial && nodo.documentacion_oficial.length > 0
-                  ? `${nodo.sigla}\n📎 ${nodo.documentacion_oficial.length}`
-                  : nodo.sigla),
+            nodo.es_silo
+              ? `⚠️ ${nodo.sigla}\n[SILO PAPEL]`
+              : nodo.agent_ready
+                ? (nodo.documentacion_oficial && nodo.documentacion_oficial.length > 0
+                    ? `🤖 ${nodo.sigla}\n📎 ${nodo.documentacion_oficial.length}`
+                    : `🤖 ${nodo.sigla}`)
+                : (nodo.documentacion_oficial && nodo.documentacion_oficial.length > 0
+                    ? `${nodo.sigla}\n📎 ${nodo.documentacion_oficial.length}`
+                    : nodo.sigla),
         },
-        classes: nodo.agent_ready ? 'agent-ready' : '',
+        classes: `${nodo.agent_ready ? 'agent-ready ' : ''}${nodo.es_silo ? 'silo ' : ''}`.trim(),
       })),
       ...this.dataset.aristas.map((arista) => ({
         group: 'edges' as const,
@@ -157,6 +168,9 @@ export class GraphController {
           target: arista.destino,
           plataforma_o_bus: arista.plataforma_o_bus,
           tipo_dato: arista.tipo_dato,
+          eje_tematico: arista.eje_tematico || 'identidad_ciudadana',
+          proceso_ciudadano: arista.proceso_ciudadano || '',
+          proceso_bloqueado_en_silo: arista.proceso_bloqueado_en_silo || '',
           estandar_o_protocolo: arista.estandar_o_protocolo,
           protocol_short: getShortProtocol(arista.estandar_o_protocolo),
           canal: arista.canal || (arista.plataforma_o_bus.includes('PISEE') ? 'PISEE' : arista.plataforma_o_bus.includes('Manual') ? 'Manual' : 'Convenio'),
@@ -273,6 +287,9 @@ export class GraphController {
       capacidades_agente: nodeData.capacidades_agente,
       calificacion_ciberseguridad: nodeData.calificacion_ciberseguridad,
       tipo_despliegue_nodo: nodeData.tipo_despliegue_nodo,
+      eje_tematico: nodeData.eje_tematico,
+      es_silo: nodeData.es_silo,
+      procesos_clave: nodeData.procesos_clave,
       compliance_ley21719: nodeData.compliance_ley21719,
       documentacion_oficial: nodeData.documentacion_oficial || [],
       aristas_entrantes: incoming.map((e) => {
@@ -333,6 +350,9 @@ export class GraphController {
       destino_nombre: destinoNode?.nombre || edgeData.destino,
       plataforma_o_bus: edgeData.plataforma_o_bus,
       tipo_dato: edgeData.tipo_dato,
+      eje_tematico: edgeData.eje_tematico,
+      proceso_ciudadano: edgeData.proceso_ciudadano,
+      proceso_bloqueado_en_silo: edgeData.proceso_bloqueado_en_silo,
       estandar_o_protocolo: edgeData.estandar_o_protocolo,
       nivel_apertura: edgeData.nivel_apertura,
       fuente_oficial_url: edgeData.fuente_oficial_url,
@@ -446,6 +466,7 @@ export class GraphController {
       channel = 'all',
       maturity = 'all',
       imiLevel = 'all',
+      theme = 'all',
     } = this.filters;
     const normalizedQuery = search.trim().toLowerCase();
 
@@ -473,6 +494,16 @@ export class GraphController {
         }
       }
 
+      if (theme && theme !== 'all') {
+        const nodeTheme = node.eje_tematico || 'identidad_ciudadana';
+        const hasConnectedEdgeInTheme = this.dataset.aristas.some(
+          (e) => (e.origen === node.id || e.destino === node.id) && (e.eje_tematico === theme)
+        );
+        if (nodeTheme !== theme && !hasConnectedEdgeInTheme) {
+          return false;
+        }
+      }
+
       return true;
     });
 
@@ -480,6 +511,11 @@ export class GraphController {
 
     // 2. Filter Edges
     const matchedEdges = this.dataset.aristas.filter((edge) => {
+      if (theme && theme !== 'all') {
+        const edgeTheme = edge.eje_tematico || 'identidad_ciudadana';
+        if (edgeTheme !== theme) return false;
+      }
+
       if (channel && channel !== 'all') {
         const edgeCanal = edge.canal || (edge.plataforma_o_bus.includes('PISEE') ? 'PISEE' : edge.plataforma_o_bus.includes('Manual') ? 'Manual' : 'Convenio');
         if (edgeCanal !== channel) return false;
@@ -513,10 +549,13 @@ export class GraphController {
       if (normalizedQuery.length > 0) {
         return true;
       }
+      if (node.es_silo && (theme === 'all' || node.eje_tematico === theme)) {
+        return true;
+      }
       if (typologies.length > 0 || (imiLevel && imiLevel !== 'all')) {
         return true;
       }
-      if (channel !== 'all' || maturity !== 'all' || protocols.length > 0 || onlyGaps) {
+      if (channel !== 'all' || maturity !== 'all' || protocols.length > 0 || onlyGaps || (theme && theme !== 'all')) {
         return matchedEdges.some((e) => e.origen === node.id || e.destino === node.id);
       }
       return true;
@@ -748,6 +787,14 @@ export function initGraphApp(dataset: DatasetInteroperabilidad): GraphController
     });
   });
 
+  const themeSelects = document.querySelectorAll<HTMLSelectElement>('#filter-theme, select[data-filter="theme"]');
+  themeSelects.forEach((elem) => {
+    elem.addEventListener('change', (e) => {
+      const val = (e.target as HTMLSelectElement).value;
+      controller.applyFilters({ theme: val || 'all' });
+    });
+  });
+
   // Filter controls binding
   const typologySelects = document.querySelectorAll<HTMLInputElement | HTMLSelectElement>(
     '[data-filter="typology"], #filter-typology'
@@ -816,6 +863,7 @@ export function initGraphApp(dataset: DatasetInteroperabilidad): GraphController
         }
       });
       imiSelects.forEach((s) => (s.value = 'all'));
+      themeSelects.forEach((t) => (t.value = 'all'));
 
       controller.resetFilters();
     });
