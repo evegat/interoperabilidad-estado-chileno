@@ -55,40 +55,40 @@ const nodosConStats = dataset.nodos.map((nodo) => {
 }).sort((a, b) => (a.indice_madurez_interoperabilidad || 0) - (b.indice_madurez_interoperabilidad || 0));
 ---
 
-<div id="matrix-container" class="hidden absolute inset-0 z-10 bg-[#061614] overflow-y-auto px-4 sm:px-8 py-6 select-text">
+<div id="matrix-container" class="hidden absolute inset-0 z-10 bg-[#041a37] overflow-y-auto px-4 sm:px-8 py-6 select-text">
   <div class="max-w-7xl mx-auto space-y-4">
     
     <!-- Matrix Header Banner -->
-    <div class="bg-[#0a2320] border border-[#163a34] rounded-xl p-4 sm:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4 shadow-lg">
+    <div class="bg-[#06234a] border border-[#1e3a5f] rounded-xl p-4 sm:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4 shadow-lg">
       <div>
         <div class="flex items-center gap-2">
           <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-[#d7653b]/20 text-[#e4b18e] border border-[#d7653b]/40">
             Vista de Gestión y Auditoría · v2.1
           </span>
-          <span class="text-xs text-[#8fafaa]">Ley N° 21.180 & DS N° 12/2023 MinSegpres</span>
+          <span class="text-xs text-[#94a3b8]">Ley N° 21.180 & DS N° 12/2023 MinSegpres</span>
         </div>
         <h2 class="text-lg font-black text-white mt-1">
           Matriz de Brechas e Impacto Sistémico por Organismo
         </h2>
-        <p class="text-xs text-[#8fafaa] mt-0.5">
+        <p class="text-xs text-[#94a3b8] mt-0.5">
           Auditoría de cumplimiento, bloqueo aguas abajo (principio Once-Only Art. 1° Ley 21.180) y articulado normativo pendiente de migración.
         </p>
       </div>
 
       <!-- Quick Summary Stats -->
       <div class="flex items-center gap-3 text-xs">
-        <div class="bg-[#061614] border border-[#1a433d] px-3 py-2 rounded-lg text-center">
-          <span class="block text-[10px] text-[#8fafaa] uppercase font-bold">Muestra</span>
+        <div class="bg-[#041a37] border border-[#1e3a5f] px-3 py-2 rounded-lg text-center">
+          <span class="block text-[10px] text-[#94a3b8] uppercase font-bold">Muestra</span>
           <span class="text-sm font-black text-white">{dataset.nodos.length} OAEs</span>
         </div>
-        <div class="bg-[#061614] border border-[#1a433d] px-3 py-2 rounded-lg text-center">
-          <span class="block text-[10px] text-[#8fafaa] uppercase font-bold">Críticas</span>
+        <div class="bg-[#041a37] border border-[#1e3a5f] px-3 py-2 rounded-lg text-center">
+          <span class="block text-[10px] text-[#94a3b8] uppercase font-bold">Críticas</span>
           <span class="text-sm font-black text-[#e4b18e]">19 Flujos</span>
         </div>
         <button
           type="button"
           id="btn-export-csv"
-          class="inline-flex items-center gap-1.5 px-3 py-2 bg-[#12483f] hover:bg-[#1a5e52] text-white border border-[#235d52] hover:border-[#54b995] rounded-lg font-bold transition-all shadow-sm focus:outline-none"
+          class="inline-flex items-center gap-1.5 px-3 py-2 bg-[#0b4aa2] hover:bg-[#1d4d91] text-white border border-[#1d4d91] hover:border-[#54b995] rounded-lg font-bold transition-all shadow-sm focus:outline-none"
           title="Descargar datos en formato CSV para análisis en Excel o Python"
         >
           <svg class="w-4 h-4 text-[#54b995]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -100,10 +100,10 @@ const nodosConStats = dataset.nodos.map((nodo) => {
     </div>
 
     <!-- Table Container -->
-    <div class="overflow-x-auto rounded-xl border border-[#163a34] bg-[#081d1a]/95 shadow-xl">
+    <div class="overflow-x-auto rounded-xl border border-[#1e3a5f] bg-[#06234a]/95 shadow-xl">
       <table class="w-full text-left border-collapse text-xs">
         <thead>
-          <tr class="bg-[#051311] border-b border-[#163a34] text-[11px] font-extrabold uppercase tracking-wider text-[#8fafaa]">
+          <tr class="bg-[#031329] border-b border-[#1e3a5f] text-[11px] font-extrabold uppercase tracking-wider text-[#94a3b8]">
             <th class="py-3 px-4">Organismo / Institución</th>
             <th class="py-3 px-3 text-center">Nivel IMI (DS 12)</th>
             <th class="py-3 px-3 text-center">Puntaje</th>
@@ -115,22 +115,22 @@ const nodosConStats = dataset.nodos.map((nodo) => {
             <th class="py-3 px-4 text-right">Acción</th>
           </tr>
         </thead>
-        <tbody class="divide-y divide-[#163a34]/60 text-[#f7f5ef]">
+        <tbody class="divide-y divide-[#1e3a5f]/60 text-[#f7f5ef]">
           {nodosConStats.map((item) => {
             const imiScore = item.indice_madurez_interoperabilidad || 0;
             const imiLevel = item.nivel_madurez_interoperabilidad || 1;
             
             return (
-              <tr class="hover:bg-[#0a2320] transition-colors group" data-node-id={item.id}>
+              <tr class="hover:bg-[#06234a] transition-colors group" data-node-id={item.id}>
                 <!-- Organismo -->
                 <td class="py-3 px-4">
                   <div class="flex items-center gap-2">
                     <span class="font-black text-white text-sm tracking-tight">{item.sigla}</span>
-                    <span class="text-[10px] font-mono text-[#8fafaa] bg-[#051311] px-1.5 py-0.5 rounded border border-[#163a34]">
+                    <span class="text-[10px] font-mono text-[#94a3b8] bg-[#031329] px-1.5 py-0.5 rounded border border-[#1e3a5f]">
                       {item.tipo.replace('_', ' ')}
                     </span>
                   </div>
-                  <div class="text-[11px] text-[#8fafaa] truncate max-w-xs sm:max-w-md mt-0.5">
+                  <div class="text-[11px] text-[#94a3b8] truncate max-w-xs sm:max-w-md mt-0.5">
                     {item.nombre}
                   </div>
                 </td>
@@ -139,7 +139,7 @@ const nodosConStats = dataset.nodos.map((nodo) => {
                 <td class="py-3 px-3 text-center whitespace-nowrap">
                   <span class={`inline-block px-2 py-0.5 rounded text-[10px] font-bold border ${
                     imiLevel === 5 ? 'bg-[#54b995]/20 text-[#54b995] border-[#54b995]/40' :
-                    imiLevel === 4 ? 'bg-[#12483f] text-[#54b995] border-[#1e5a4f]' :
+                    imiLevel === 4 ? 'bg-[#0b4aa2] text-[#54b995] border-[#1d4d91]' :
                     imiLevel === 3 ? 'bg-[#1b4965]/40 text-[#38bdf8] border-[#38bdf8]/40' :
                     imiLevel === 2 ? 'bg-[#c5a75a]/20 text-[#c5a75a] border-[#c5a75a]/40' :
                     'bg-[#9f1239]/40 text-[#fca5a5] border-[#be123c]/60'
@@ -153,7 +153,7 @@ const nodosConStats = dataset.nodos.map((nodo) => {
                   <span class={imiScore >= 80 ? 'text-[#54b995]' : imiScore >= 60 ? 'text-[#38bdf8]' : imiScore >= 40 ? 'text-[#c5a75a]' : 'text-[#e4b18e]'}>
                     {imiScore}
                   </span>
-                  <span class="text-[10px] text-[#8fafaa]">/100</span>
+                  <span class="text-[10px] text-[#94a3b8]">/100</span>
                 </td>
 
                 <!-- Sello Agent-Ready Desacoplado -->
@@ -163,14 +163,14 @@ const nodosConStats = dataset.nodos.map((nodo) => {
                       <span>🤖 4/4</span>
                     </span>
                   ) : (
-                    <span class="text-[#8fafaa]/50 font-mono text-[11px]">—</span>
+                    <span class="text-[#94a3b8]/50 font-mono text-[11px]">—</span>
                   )}
                 </td>
 
                 <!-- Flujos In / Out -->
                 <td class="py-3 px-3 text-center font-mono text-[11px]">
                   <span class="text-[#54b995] font-bold" title="Entrantes">{item.flujosEntrantes}</span>
-                  <span class="text-[#8fafaa]"> / </span>
+                  <span class="text-[#94a3b8]"> / </span>
                   <span class="text-[#e4b18e] font-bold" title="Salientes">{item.flujosSalientes}</span>
                 </td>
 
@@ -180,12 +180,12 @@ const nodosConStats = dataset.nodos.map((nodo) => {
                     <span class={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono font-bold border ${
                       item.downstreamDependents >= 15 ? 'bg-[#a78bfa]/20 text-[#c4b5fd] border-[#a78bfa]/50' :
                       item.downstreamDependents >= 5 ? 'bg-[#38bdf8]/15 text-[#38bdf8] border-[#38bdf8]/40' :
-                      'bg-[#051311] text-[#8fafaa] border-[#163a34]'
+                      'bg-[#031329] text-[#94a3b8] border-[#1e3a5f]'
                     }`} title={`Una falla o brecha en ${item.sigla} impacta en cascada a ${item.downstreamDependents} organismos aguas abajo`}>
                       ⛓ {item.downstreamDependents} OAEs
                     </span>
                   ) : (
-                    <span class="text-[#8fafaa]/40 font-mono text-[10px]" title="Nodo consumidor final (sin dependientes aguas abajo)">Sumidero (0)</span>
+                    <span class="text-[#94a3b8]/40 font-mono text-[10px]" title="Nodo consumidor final (sin dependientes aguas abajo)">Sumidero (0)</span>
                   )}
                 </td>
 
@@ -205,13 +205,13 @@ const nodosConStats = dataset.nodos.map((nodo) => {
                   {item.articulosIncumplidos.length > 0 ? (
                     <div class="flex flex-wrap gap-1 max-w-xs">
                       {item.articulosIncumplidos.map((art) => (
-                        <span class="px-1.5 py-0.5 rounded text-[9px] font-mono font-semibold bg-[#051311] text-[#e4b18e] border border-[#163a34]">
+                        <span class="px-1.5 py-0.5 rounded text-[9px] font-mono font-semibold bg-[#031329] text-[#e4b18e] border border-[#1e3a5f]">
                           {art}
                         </span>
                       ))}
                     </div>
                   ) : (
-                    <span class="text-[#8fafaa] italic text-[10px]">Conforme o en trámite</span>
+                    <span class="text-[#94a3b8] italic text-[10px]">Conforme o en trámite</span>
                   )}
                 </td>
 
@@ -220,7 +220,7 @@ const nodosConStats = dataset.nodos.map((nodo) => {
                   <div class="inline-flex items-center gap-1.5">
                     <button
                       type="button"
-                      class="btn-matrix-view-graph px-2 py-1 rounded bg-[#12483f] hover:bg-[#1a5e52] text-white text-[10px] font-bold transition-colors border border-[#235d52] focus:outline-none"
+                      class="btn-matrix-view-graph px-2 py-1 rounded bg-[#0b4aa2] hover:bg-[#1d4d91] text-white text-[10px] font-bold transition-colors border border-[#1d4d91] focus:outline-none"
                       data-node-id={item.id}
                       title="Localizar y centrar en el Grafo"
                     >

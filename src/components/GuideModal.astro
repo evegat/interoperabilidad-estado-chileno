@@ -8,31 +8,37 @@
   aria-modal="true"
   aria-labelledby="guide-modal-title"
 >
-  <div class="bg-[#081d1a] border border-[#163a34] rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl flex flex-col text-[#8fafaa]">
+  <div class="bg-[#06234a] border border-[#1e3a5f] rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl flex flex-col text-[#94a3b8]">
     
     <!-- Modal Header -->
-    <div class="p-5 sm:p-6 border-b border-[#163a34] flex items-start justify-between bg-[#051311]/90">
-      <div>
-        <div class="flex items-center gap-2 mb-1 flex-wrap">
-          <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#54b995] bg-[#12483f] px-2 py-0.5 rounded border border-[#1e5a4f]">
-            Guía Operativa & Marco Técnico
+    <div class="p-5 sm:p-6 border-b border-[#1e3a5f] flex items-start justify-between bg-[#041a37]/95">
+      <div class="space-y-2 pr-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#f7f5ef] bg-[#0b4aa2] px-2.5 py-0.5 rounded border border-[#1d4d91]">
+            Bienvenido al Observatorio GovTech · P029
           </span>
-          <span class="text-[10px] font-mono text-[#e4b18e] bg-[#d7653b]/20 px-2 py-0.5 rounded border border-[#d7653b]/30">
-            P029 · Chile en la OCDE 2026
+          <span class="text-[10px] font-mono text-[#e4b18e] bg-[#d7653b]/20 px-2 py-0.5 rounded border border-[#d7653b]/40">
+            DS N° 12/2023 · Chile Top 10 OCDE 2026
           </span>
         </div>
         <h2 id="guide-modal-title" class="text-xl sm:text-2xl font-black text-white tracking-tight">
-          Interoperabilidad del Estado: Qué es, Cómo usar el Mapeo e Hitos Globales
+          Mapeo de Interoperabilidad del Estado Chileno: Cómo leer y usar la plataforma
         </h2>
-        <p class="text-xs text-[#8fafaa] mt-1 leading-relaxed">
-          Comprende el marco legal de la Ley N° 21.180, la evolución técnica de Chile en los rankings de la OCDE y cómo auditar los flujos del Estado.
-        </p>
+        <!-- Prominent Author Attribution Box -->
+        <div class="inline-flex flex-wrap items-center gap-2.5 bg-[#06234a] border border-[#1d4d91] rounded-xl px-3.5 py-2 text-xs">
+          <span class="w-7 h-7 rounded-full bg-[#0b4aa2] border border-[#d7653b] text-white font-black text-[11px] flex items-center justify-center flex-shrink-0">
+            EV
+          </span>
+          <div class="text-[#cbd5e1] leading-snug">
+            Investigación, arquitectura y desarrollo por <a href="https://evegat.cl" target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#d7653b] font-extrabold underline decoration-[#d7653b] underline-offset-2">Eduardo Vega Toledo (evegat.cl)</a> · Especialista en Transformación Digital del Estado, Interoperabilidad e IA Pública.
+          </div>
+        </div>
       </div>
       <button
         id="btn-close-guide"
         type="button"
-        class="text-[#8fafaa] hover:text-white p-1.5 rounded-lg hover:bg-[#12483f] transition-colors focus:outline-none flex-shrink-0"
-        title="Cerrar guía"
+        class="text-[#94a3b8] hover:text-white p-1.5 rounded-lg hover:bg-[#0b4aa2] transition-colors focus:outline-none flex-shrink-0"
+        title="Cerrar guía e ir al mapa"
       >
         <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -41,112 +47,133 @@
     </div>
 
     <!-- Tab Navigation -->
-    <div class="flex border-b border-[#163a34] bg-[#061614] px-5 sm:px-6 gap-2 sm:gap-4 overflow-x-auto text-xs font-bold">
+    <div class="flex border-b border-[#1e3a5f] bg-[#041a37] px-5 sm:px-6 gap-2 sm:gap-4 overflow-x-auto text-xs font-bold">
       <button
         type="button"
         data-guide-tab="tutorial"
-        class="guide-tab-btn py-3 px-2 border-b-2 border-[#54b995] text-white flex items-center gap-1.5 transition-colors whitespace-nowrap"
+        class="guide-tab-btn py-3 px-2 border-b-2 border-[#d7653b] text-white flex items-center gap-1.5 transition-colors whitespace-nowrap"
       >
-        <span>🎯 Paso a Paso: Cómo Usar la Plataforma</span>
+        <span>🗺️ Cómo Leer el Mapa y Usar la Plataforma</span>
       </button>
       <button
         type="button"
         data-guide-tab="conceptos"
-        class="guide-tab-btn py-3 px-2 border-b-2 border-transparent text-[#8fafaa] hover:text-[#f7f5ef] flex items-center gap-1.5 transition-colors whitespace-nowrap"
+        class="guide-tab-btn py-3 px-2 border-b-2 border-transparent text-[#94a3b8] hover:text-[#f7f5ef] flex items-center gap-1.5 transition-colors whitespace-nowrap"
       >
         <span>🏛️ Qué es Interoperabilidad e Historia</span>
       </button>
       <button
         type="button"
         data-guide-tab="ocde"
-        class="guide-tab-btn py-3 px-2 border-b-2 border-transparent text-[#8fafaa] hover:text-[#f7f5ef] flex items-center gap-1.5 transition-colors whitespace-nowrap"
+        class="guide-tab-btn py-3 px-2 border-b-2 border-transparent text-[#94a3b8] hover:text-[#f7f5ef] flex items-center gap-1.5 transition-colors whitespace-nowrap"
       >
         <span>📈 Salto Histórico Chile en OCDE (2026)</span>
       </button>
       <button
         type="button"
         data-guide-tab="iniciativas"
-        class="guide-tab-btn py-3 px-2 border-b-2 border-transparent text-[#8fafaa] hover:text-[#f7f5ef] flex items-center gap-1.5 transition-colors whitespace-nowrap"
+        class="guide-tab-btn py-3 px-2 border-b-2 border-transparent text-[#94a3b8] hover:text-[#f7f5ef] flex items-center gap-1.5 transition-colors whitespace-nowrap"
       >
         <span>🌐 Observatorios e Iniciativas Similares</span>
       </button>
     </div>
 
     <!-- Scrollable Body Content -->
-    <div class="flex-1 overflow-y-auto p-5 sm:p-6 space-y-6 text-xs text-[#8fafaa] leading-relaxed">
+    <div class="flex-1 overflow-y-auto p-5 sm:p-6 space-y-5 text-xs text-[#cbd5e1] leading-relaxed">
       
-      <!-- TAB 1: TUTORIAL PASO A PASO -->
+      <!-- TAB 1: GUÍA VISUAL + TUTORIAL PASO A PASO -->
       <div id="guide-panel-tutorial" class="guide-panel space-y-4">
-        <div class="p-4 rounded-xl bg-[#0a2320] border border-[#163a34] text-[#f7f5ef]">
-          <h3 class="font-extrabold text-sm text-[#54b995] flex items-center gap-2">
-            <span>🚀 4 Pasos para Auditar y Operar el Ecosistema</span>
+        <!-- Guía Visual Rápida: Qué estás viendo en pantalla -->
+        <div class="p-4 rounded-xl bg-[#041a37] border border-[#1d4d91] space-y-3">
+          <h3 class="font-extrabold text-sm text-white flex items-center gap-2">
+            <span>👁️ Guía Visual Rápida: ¿Cómo entender el mapa en 15 segundos?</span>
           </h3>
-          <p class="text-xs text-[#8fafaa] mt-1">
-            Esta plataforma no es una infografía estática: es un motor topológico interactivo para decisores públicos, auditores, desarrolladores GovTech y periodistas de investigación.
-          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-[11px]">
+            <div class="p-3 rounded-lg bg-[#06234a] border border-[#1e3a5f] space-y-1.5">
+              <div class="font-extrabold text-[#38bdf8] flex items-center gap-1.5">
+                <span>🔷 1. Las Figuras (77 Organismos)</span>
+              </div>
+              <p class="text-[#cbd5e1]">
+                Cada figura es una institución pública. Su tamaño refleja cuántas conexiones tiene y su forma indica su rol: <strong>Hexágonos azules</strong> (nodos centrales como Registro Civil, ClaveÚnica, PISEE), <strong>Rectángulos verdes</strong> (Servicios como SII, FONASA, TGR) y <strong>Octágonos dorados</strong> (Ministerios).
+              </p>
+            </div>
+            <div class="p-3 rounded-lg bg-[#06234a] border border-[#1e3a5f] space-y-1.5">
+              <div class="font-extrabold text-[#54b995] flex items-center gap-1.5">
+                <span>⚡ 2. Las Flechas (90 Flujos de Datos)</span>
+              </div>
+              <p class="text-[#cbd5e1]">
+                Las <strong>líneas continuas (verdes/azules)</strong> son conexiones automáticas por API o bus oficial. Las <strong>líneas punteadas naranjas/rojas (19 casos)</strong> son <strong>Brechas Críticas</strong>: instituciones que aún intercambian datos por oficio en papel, planillas SFTP o canales aislados.
+              </p>
+            </div>
+            <div class="p-3 rounded-lg bg-[#06234a] border border-[#1e3a5f] space-y-1.5">
+              <div class="font-extrabold text-[#c5a75a] flex items-center gap-1.5">
+                <span>📊 3. El Puntaje [0–100 pts]</span>
+              </div>
+              <p class="text-[#cbd5e1]">
+                Junto a cada sigla verás su <strong>Índice de Madurez IMI</strong> (0 a 100 pts según el DS N° 12/2023): desde <strong>N1 Silo Documental</strong> hasta <strong>N5 Once-Only</strong> (no pedir certificados al ciudadano). El ícono <strong>🤖</strong> indica preparación para Agentes de IA.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+        <!-- 4 Pasos Operativos -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <!-- Paso 1 -->
-          <div class="p-4 rounded-xl bg-[#051311] border border-[#163a34] space-y-1.5 hover:border-[#1e5a4f] transition-all">
+          <div class="p-3.5 rounded-xl bg-[#041a37] border border-[#1e3a5f] space-y-1.5 hover:border-[#0b4aa2] transition-all">
             <div class="flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-[#12483f] text-[#54b995] font-black flex items-center justify-center text-xs">1</span>
-              <h4 class="font-bold text-white text-xs">Búsqueda Instantánea con ⌘K o Input</h4>
+              <span class="w-6 h-6 rounded-full bg-[#0b4aa2] text-white font-black flex items-center justify-center text-xs">1</span>
+              <h4 class="font-bold text-white text-xs">Busca cualquier institución con ⌘K o Rueda de Zoom</h4>
             </div>
-            <p class="text-[11px] text-[#8fafaa]">
-              Presiona <kbd class="px-1.5 py-0.5 rounded bg-[#12483f] text-white font-mono text-[10px]">⌘K</kbd> o <kbd class="px-1.5 py-0.5 rounded bg-[#12483f] text-white font-mono text-[10px]">Ctrl+K</kbd> desde cualquier lugar. Escribe la sigla (ej. <em>SII, SRCEI, FONASA, ChileCompra</em>) y presiona <kbd class="px-1.5 py-0.5 rounded bg-[#12483f] text-white font-mono text-[10px]">Enter</kbd>: el grafo centrará el nodo de inmediato y abrirá su ficha lateral sin buscarlo manualmente en el canvas.
+            <p class="text-[11px] text-[#cbd5e1]">
+              Usa la <strong>rueda del mouse</strong> para hacer zoom rápido sobre el mapa, o presiona <kbd class="px-1.5 py-0.5 rounded bg-[#0b4aa2] text-white font-mono text-[10px]">⌘K</kbd> / <kbd class="px-1.5 py-0.5 rounded bg-[#0b4aa2] text-white font-mono text-[10px]">Ctrl+K</kbd>, escribe una sigla (ej. <em>SII, SRCEI, FONASA</em>) y presiona <kbd class="px-1.5 py-0.5 rounded bg-[#0b4aa2] text-white font-mono text-[10px]">Enter</kbd> para ir directo a ella.
             </p>
           </div>
 
           <!-- Paso 2 -->
-          <div class="p-4 rounded-xl bg-[#051311] border border-[#163a34] space-y-1.5 hover:border-[#1e5a4f] transition-all">
+          <div class="p-3.5 rounded-xl bg-[#041a37] border border-[#1e3a5f] space-y-1.5 hover:border-[#0b4aa2] transition-all">
             <div class="flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-[#12483f] text-[#54b995] font-black flex items-center justify-center text-xs">2</span>
-              <h4 class="font-bold text-white text-xs">Explorar Nodos y Aristas (Ficha Técnica)</h4>
+              <span class="w-6 h-6 rounded-full bg-[#0b4aa2] text-white font-black flex items-center justify-center text-xs">2</span>
+              <h4 class="font-bold text-white text-xs">Haz Click en un Organismo o Flecha</h4>
             </div>
-            <p class="text-[11px] text-[#8fafaa]">
-              Haz click sobre cualquier <strong>círculo (nodo institucional)</strong> o sobre cualquier <strong>flecha (flujo de datos)</strong>. En el panel derecho se desplegará el tipo de dato, protocolo, base legal, expedientes oficiales enlazados y el diagnóstico exacto de la brecha.
+            <p class="text-[11px] text-[#cbd5e1]">
+              Al hacer click sobre cualquier figura o línea, se abre a la derecha su <strong>Ficha de Auditoría</strong>: verás qué datos envía o recibe, por qué protocolo viajan, qué ley lo regula y qué artículo del DS N° 12/2023 presenta brecha.
             </p>
           </div>
 
           <!-- Paso 3 -->
-          <div class="p-4 rounded-xl bg-[#051311] border border-[#163a34] space-y-1.5 hover:border-[#1e5a4f] transition-all">
+          <div class="p-3.5 rounded-xl bg-[#041a37] border border-[#1e3a5f] space-y-1.5 hover:border-[#0b4aa2] transition-all">
             <div class="flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-[#12483f] text-[#54b995] font-black flex items-center justify-center text-xs">3</span>
-              <h4 class="font-bold text-white text-xs">Alternar a la "Matriz de Brechas"</h4>
+              <span class="w-6 h-6 rounded-full bg-[#0b4aa2] text-white font-black flex items-center justify-center text-xs">3</span>
+              <h4 class="font-bold text-white text-xs">Cambia a la "Matriz de Brechas" (Tabla)</h4>
             </div>
-            <p class="text-[11px] text-[#8fafaa]">
-              Haz click en el botón naranja <strong>[Matriz de Brechas]</strong> en la barra superior. Cambiarás a una tabla de auditoría donde las 77 instituciones se ordenan de menor a mayor madurez (peor IMI primero), indicando cuántas brechas críticas tienen y qué artículos del DS 12 incumplen.
+            <p class="text-[11px] text-[#cbd5e1]">
+              Si prefieres una tabla ejecutiva en vez del grafo, pulsa el botón naranja <strong>[Matriz de Brechas]</strong> arriba a la derecha. Verás el ranking de los 77 organismos ordenados por criticidad y su efecto dominó aguas abajo, exportable a CSV.
             </p>
           </div>
 
           <!-- Paso 4 -->
-          <div class="p-4 rounded-xl bg-[#051311] border border-[#163a34] space-y-1.5 hover:border-[#1e5a4f] transition-all">
+          <div class="p-3.5 rounded-xl bg-[#041a37] border border-[#1e3a5f] space-y-1.5 hover:border-[#0b4aa2] transition-all">
             <div class="flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-[#12483f] text-[#54b995] font-black flex items-center justify-center text-xs">4</span>
-              <h4 class="font-bold text-white text-xs">Generar Minuta para EvalTI / DIPRES</h4>
+              <span class="w-6 h-6 rounded-full bg-[#0b4aa2] text-white font-black flex items-center justify-center text-xs">4</span>
+              <h4 class="font-bold text-white text-xs">Genera Minutas EvalTI / DIPRES en 1 Clic</h4>
             </div>
-            <p class="text-[11px] text-[#8fafaa]">
-              Al seleccionar una institución rezagada, pulsa <strong>"Generar Minuta de Brecha (EvalTI)"</strong>. Obtendrás en 1 clic un informe técnico en Markdown estructurado para postular fondos de inversión TI o responder a observaciones de Contraloría.
+            <p class="text-[11px] text-[#cbd5e1]">
+              Dentro de la ficha de cualquier institución, el botón <strong>"Generar Minuta de Brecha (EvalTI)"</strong> copia un informe técnico con imputación presupuestaria (Subtítulo 29) listo para respaldar proyectos TI ante DIPRES y SGD.
             </p>
           </div>
-        </div>
-
-        <div class="p-3.5 rounded-lg bg-[#081d1a] border border-[#163a34] flex items-center justify-between text-[11px]">
-          <span class="text-[#f7f5ef]">💡 <strong>Consejo de Navegación:</strong> Puedes usar la rueda del ratón para hacer zoom, arrastrar el fondo para moverte o pulsar "Fit" en los controles flotantes de la izquierda para reencuadrar.</span>
         </div>
       </div>
 
       <!-- TAB 2: QUÉ ES INTEROPERABILIDAD E HISTORIA -->
       <div id="guide-panel-conceptos" class="guide-panel hidden space-y-4">
-        <div class="p-4 rounded-xl bg-[#051311] border border-[#163a34] space-y-2">
+        <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] space-y-2">
           <h3 class="font-extrabold text-sm text-[#54b995]">
             ¿Qué es la Interoperabilidad en el Sector Público?
           </h3>
-          <p class="text-[#e9efec]">
+          <p class="text-[#f1f5f9]">
             Es la capacidad de las organizaciones públicas diversas de interactuar con vistas a objetivos comunes mutuamente acordados, compartiendo información y conocimientos entre sus respectivos sistemas informáticos de forma segura, estandarizada y continua.
           </p>
-          <p class="text-[#8fafaa]">
+          <p class="text-[#94a3b8]">
             Bajo el principio de <em>"Once-Only"</em> (Sólo Una Vez), el Estado **no debe exigirle al ciudadano un documento o certificado que otra repartición pública ya tiene en sus bases de datos**. Si tramitas un subsidio en el Ministerio de Desarrollo Social, el Estado debe consultar automáticamente al Registro Civil y al SII sin obligar a la persona a hacer filas por certificados.
           </p>
         </div>
@@ -159,62 +186,62 @@
 
           <div class="space-y-2.5">
             <!-- Hito 1: PISEE inicial -->
-            <div class="p-3 rounded-lg bg-[#051311] border-l-4 border-l-[#54b995] border border-[#163a34]">
+            <div class="p-3 rounded-lg bg-[#031329] border-l-4 border-l-[#54b995] border border-[#1e3a5f]">
               <div class="flex items-center justify-between flex-wrap gap-1">
                 <strong class="text-white">2005–2010: Nace el bus PISEE y el Oficio Circular N° 15</strong>
                 <span class="text-[10px] font-mono text-[#54b995]">Etapa Concentradora</span>
               </div>
-              <p class="text-[11px] text-[#8fafaa] mt-1">
+              <p class="text-[11px] text-[#94a3b8] mt-1">
                 Se crea la Plataforma Integrada de Servicios Electrónicos del Estado (PISEE) como un bus único centralizado de integración para conectar ministerios, operado por Segpres. Las instituciones debían desarrollar conectores SOAP/XML pesados.
               </p>
             </div>
 
             <!-- Hito 2: Ley 21.180 -->
-            <div class="p-3 rounded-lg bg-[#051311] border-l-4 border-l-[#38bdf8] border border-[#163a34]">
+            <div class="p-3 rounded-lg bg-[#031329] border-l-4 border-l-[#38bdf8] border border-[#1e3a5f]">
               <div class="flex items-center justify-between flex-wrap gap-1">
                 <strong class="text-white">2019: Promulgación de la Ley N° 21.180</strong>
                 <a href="https://www.bcn.cl/leychile/navegar?idNorma=1138547" target="_blank" rel="noopener noreferrer" class="text-[10px] text-[#38bdf8] underline hover:text-white">
                   Ley N° 21.180 (BCN) ↗
                 </a>
               </div>
-              <p class="text-[11px] text-[#8fafaa] mt-1">
+              <p class="text-[11px] text-[#94a3b8] mt-1">
                 Establece la <strong>Transformación Digital del Estado</strong> como un mandato legal imperativo: todos los procedimientos administrativos deben realizarse en soporte electrónico y comunicarse mediante interoperabilidad obligatoria.
               </p>
             </div>
 
             <!-- Hito 3: DS 4/2020 -->
-            <div class="p-3 rounded-lg bg-[#051311] border-l-4 border-l-[#c5a75a] border border-[#163a34]">
+            <div class="p-3 rounded-lg bg-[#031329] border-l-4 border-l-[#c5a75a] border border-[#1e3a5f]">
               <div class="flex items-center justify-between flex-wrap gap-1">
                 <strong class="text-white">2020: DS N° 4/2020 MinSegpres (Reglamento Ley 21.180)</strong>
                 <a href="https://www.bcn.cl/leychile/navegar?idNorma=1169116" target="_blank" rel="noopener noreferrer" class="text-[10px] text-[#c5a75a] underline hover:text-white">
                   DS N° 4/2020 (BCN) ↗
                 </a>
               </div>
-              <p class="text-[11px] text-[#8fafaa] mt-1">
+              <p class="text-[11px] text-[#94a3b8] mt-1">
                 Reglamento que formaliza las fases de implementación (Comunicaciones, Notificaciones, Procedimientos e Interoperabilidad) y fija los deberes generales de gobernanza digital.
               </p>
             </div>
 
             <!-- Hito 4: DS 12/2023 -->
-            <div class="p-3 rounded-lg bg-[#051311] border-l-4 border-l-[#d7653b] border border-[#163a34]">
+            <div class="p-3 rounded-lg bg-[#031329] border-l-4 border-l-[#d7653b] border border-[#1e3a5f]">
               <div class="flex items-center justify-between flex-wrap gap-1">
                 <strong class="text-white">2023: DS N° 12/2023 MinSegpres (Norma Técnica de Interoperabilidad)</strong>
                 <a href="https://www.bcn.cl/leychile/navegar?idNorma=1198539" target="_blank" rel="noopener noreferrer" class="text-[10px] text-[#e4b18e] underline hover:text-white">
                   DS N° 12/2023 (BCN) ↗
                 </a>
               </div>
-              <p class="text-[11px] text-[#8fafaa] mt-1">
+              <p class="text-[11px] text-[#94a3b8] mt-1">
                 Jubila el paradigma del bus concentrador y crea la <strong>Red de Interoperabilidad basada en Nodos distribuidos</strong> y servicios comunes de la SGD: Catálogo, Gestor de Acuerdos, Gestor de Códigos y Gestor de Autorizaciones/Consentimiento.
               </p>
             </div>
 
             <!-- Hito 5: Ley 21.658 y 21.719 -->
-            <div class="p-3 rounded-lg bg-[#051311] border-l-4 border-l-[#a78bfa] border border-[#163a34]">
+            <div class="p-3 rounded-lg bg-[#031329] border-l-4 border-l-[#a78bfa] border border-[#1e3a5f]">
               <div class="flex items-center justify-between flex-wrap gap-1">
                 <strong class="text-white">2024–2026: SGD en Hacienda y Ley N° 21.719 de Datos Personales</strong>
                 <span class="text-[10px] font-mono text-[#a78bfa]">Vigencia Plena</span>
               </div>
-              <p class="text-[11px] text-[#8fafaa] mt-1">
+              <p class="text-[11px] text-[#94a3b8] mt-1">
                 La Secretaría de Gobierno Digital se traslada al Ministerio de Hacienda (Ley 21.658) y la aprobación de la nueva Ley de Datos Personales (Ley 21.719) exige consentimiento estricto trazable en cada consulta interinstitucional.
               </p>
             </div>
@@ -225,9 +252,9 @@
       <!-- TAB 3: SALTO HISTÓRICO CHILE EN LA OCDE (2026) -->
       <div id="guide-panel-ocde" class="guide-panel hidden space-y-4">
         <!-- Noticia Destacada -->
-        <div class="p-5 rounded-xl bg-gradient-to-r from-[#0c2420] via-[#0e332c] to-[#12483f] border border-[#54b995]/50 shadow-xl space-y-3">
+        <div class="p-5 rounded-xl bg-gradient-to-r from-[#0c2420] via-[#0e332c] to-[#0b4aa2] border border-[#54b995]/50 shadow-xl space-y-3">
           <div class="flex items-center justify-between flex-wrap gap-2">
-            <span class="px-2.5 py-0.5 rounded-full bg-[#54b995] text-[#061614] font-black text-[10px] uppercase tracking-wider">
+            <span class="px-2.5 py-0.5 rounded-full bg-[#54b995] text-[#041a37] font-black text-[10px] uppercase tracking-wider">
               Hito Histórico Internacional · Febrero 2026
             </span>
             <span class="text-[11px] font-mono text-[#54b995]">OECD Digital Government Index (DGI)</span>
@@ -237,36 +264,36 @@
             Chile salta 22 puestos en el ranking de Gobierno Digital de la OCDE: del lugar 32 al Top 10 global (N° 1 en América Latina)
           </h3>
 
-          <p class="text-[#e9efec] text-xs leading-relaxed">
+          <p class="text-[#f1f5f9] text-xs leading-relaxed">
             En la última medición del <strong>Digital Government Index (DGI)</strong> publicada por la Organización para la Cooperación y el Desarrollo Económicos (OCDE), Chile protagonizó el mayor ascenso de su historia: escaló del puesto 32 al <strong>10° lugar a nivel mundial</strong>, obteniendo una puntuación de <strong>0,79</strong> (por sobre el promedio OCDE de 0,605) y consolidándose como el <strong>líder absoluto en América Latina</strong>.
           </p>
 
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-[#1e5a4f]/60 text-center">
-            <div class="bg-[#051311]/60 p-2 rounded-lg">
-              <span class="block text-[10px] text-[#8fafaa] uppercase font-bold">Posición Global</span>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-[#1d4d91]/60 text-center">
+            <div class="bg-[#031329]/60 p-2 rounded-lg">
+              <span class="block text-[10px] text-[#94a3b8] uppercase font-bold">Posición Global</span>
               <span class="text-base font-black text-[#54b995]">Puesto 10</span>
             </div>
-            <div class="bg-[#051311]/60 p-2 rounded-lg">
-              <span class="block text-[10px] text-[#8fafaa] uppercase font-bold">América Latina</span>
+            <div class="bg-[#031329]/60 p-2 rounded-lg">
+              <span class="block text-[10px] text-[#94a3b8] uppercase font-bold">América Latina</span>
               <span class="text-base font-black text-[#38bdf8]">N° 1</span>
             </div>
-            <div class="bg-[#051311]/60 p-2 rounded-lg">
-              <span class="block text-[10px] text-[#8fafaa] uppercase font-bold">Ascenso</span>
+            <div class="bg-[#031329]/60 p-2 rounded-lg">
+              <span class="block text-[10px] text-[#94a3b8] uppercase font-bold">Ascenso</span>
               <span class="text-base font-black text-[#e4b18e]">+22 Lugares</span>
             </div>
-            <div class="bg-[#051311]/60 p-2 rounded-lg">
-              <span class="block text-[10px] text-[#8fafaa] uppercase font-bold">Puntaje DGI</span>
+            <div class="bg-[#031329]/60 p-2 rounded-lg">
+              <span class="block text-[10px] text-[#94a3b8] uppercase font-bold">Puntaje DGI</span>
               <span class="text-base font-black text-white">0,79 / 1.0</span>
             </div>
           </div>
         </div>
 
         <!-- Análisis Crítico y Qué Significa para Este Mapeo -->
-        <div class="p-4 rounded-xl bg-[#051311] border border-[#163a34] space-y-2">
+        <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] space-y-2">
           <h4 class="font-bold text-white text-xs flex items-center gap-2">
             <span>🔍 ¿Por qué subió Chile y cuál es la brecha pendiente?</span>
           </h4>
-          <p class="text-[#8fafaa] text-[11px] leading-relaxed">
+          <p class="text-[#94a3b8] text-[11px] leading-relaxed">
             La OCDE reconoció los avances estructurales de Chile en <strong>gobernanza centralizada</strong> (creación de la SGD con rango ministerial en Hacienda), la adopción masiva de <strong>ClaveÚnica</strong> (más de 15 millones de usuarios) y el marco formal de la <strong>Ley 21.180</strong>.
           </p>
           <p class="text-[#f7f5ef] text-[11px] leading-relaxed">
@@ -276,7 +303,7 @@
             <a href="https://digital.gob.cl" target="_blank" rel="noopener noreferrer" class="text-[11px] text-[#54b995] font-bold underline hover:text-white">
               Comunicado Oficial de Gobierno Digital ↗
             </a>
-            <span class="text-[#8fafaa]">·</span>
+            <span class="text-[#94a3b8]">·</span>
             <a href="https://www.oecd.org/digital/digital-government/" target="_blank" rel="noopener noreferrer" class="text-[11px] text-[#38bdf8] font-bold underline hover:text-white">
               OECD Digital Government Index Portal ↗
             </a>
@@ -286,23 +313,23 @@
 
       <!-- TAB 4: OBSERVATORIOS E INICIATIVAS SIMILARES -->
       <div id="guide-panel-iniciativas" class="guide-panel hidden space-y-4">
-        <div class="p-4 rounded-xl bg-[#051311] border border-[#163a34] space-y-2">
+        <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] space-y-2">
           <h3 class="font-extrabold text-sm text-[#54b995]">
             Iniciativas Similares y Observatorios de Referencia
           </h3>
-          <p class="text-[#e9efec]">
+          <p class="text-[#f1f5f9]">
             El mapeo de grafos de interoperabilidad de P029 se inspira y dialoga con los principales observatorios e iniciativas de administración electrónica a nivel global e iberoamericano:
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
           <!-- Referente 1: España CTT y PAe -->
-          <div class="p-4 rounded-xl bg-[#051311] border border-[#163a34] space-y-1.5 hover:border-[#1e5a4f] transition-all">
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] space-y-1.5 hover:border-[#1d4d91] transition-all">
             <div class="flex items-center justify-between">
               <h4 class="font-bold text-white text-xs">🇪🇸 Esquema Nacional de Interoperabilidad (ENI)</h4>
               <span class="text-[10px] font-mono text-[#54b995]">España</span>
             </div>
-            <p class="text-[11px] text-[#8fafaa]">
+            <p class="text-[11px] text-[#94a3b8]">
               Operado a través del <strong>PAe (Portal de Administración Electrónica)</strong> y el <strong>Centro de Transferencia de Tecnología (CTT)</strong>. Mantiene un directorio público de servicios comunes interoperables y soluciones tecnológicas reutilizables entre comunidades autónomas y ministerios.
             </p>
             <a href="https://administracionelectronica.gob.es" target="_blank" rel="noopener noreferrer" class="text-[10px] text-[#54b995] font-bold underline block pt-1">
@@ -311,12 +338,12 @@
           </div>
 
           <!-- Referente 2: X-Road Visualizer Estonia -->
-          <div class="p-4 rounded-xl bg-[#051311] border border-[#163a34] space-y-1.5 hover:border-[#1e5a4f] transition-all">
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] space-y-1.5 hover:border-[#1d4d91] transition-all">
             <div class="flex items-center justify-between">
               <h4 class="font-bold text-white text-xs">🇪🇪 X-Road Visualizer & Metrics</h4>
               <span class="text-[10px] font-mono text-[#38bdf8]">Estonia / NIIS</span>
             </div>
-            <p class="text-[11px] text-[#8fafaa]">
+            <p class="text-[11px] text-[#94a3b8]">
               El Instituto Nórdico para Soluciones de Interoperabilidad (NIIS) publica un tablero interactivo con el flujo de transacciones de X-Road en vivo, visualizando las conexiones entre subsistemas del Estado estonio y finlandés en tiempo real.
             </p>
             <a href="https://x-road.global" target="_blank" rel="noopener noreferrer" class="text-[10px] text-[#38bdf8] font-bold underline block pt-1">
@@ -325,12 +352,12 @@
           </div>
 
           <!-- Referente 3: Red Gealc & OEA/BID -->
-          <div class="p-4 rounded-xl bg-[#051311] border border-[#163a34] space-y-1.5 hover:border-[#1e5a4f] transition-all">
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] space-y-1.5 hover:border-[#1d4d91] transition-all">
             <div class="flex items-center justify-between">
               <h4 class="font-bold text-white text-xs">🌎 Red GEALC (OEA / BID)</h4>
               <span class="text-[10px] font-mono text-[#c5a75a]">Latinoamérica</span>
             </div>
-            <p class="text-[11px] text-[#8fafaa]">
+            <p class="text-[11px] text-[#94a3b8]">
               Red de Gobierno Electrónico de América Latina y el Caribe. Reúne a los directores de gobierno digital de la región para estandarizar marcos de interoperabilidad transfronteriza y firma digital intergubernamental.
             </p>
             <a href="https://redgealc.org" target="_blank" rel="noopener noreferrer" class="text-[10px] text-[#c5a75a] font-bold underline block pt-1">
@@ -339,12 +366,12 @@
           </div>
 
           <!-- Referente 4: OPSI OCDE -->
-          <div class="p-4 rounded-xl bg-[#051311] border border-[#163a34] space-y-1.5 hover:border-[#1e5a4f] transition-all">
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] space-y-1.5 hover:border-[#1d4d91] transition-all">
             <div class="flex items-center justify-between">
               <h4 class="font-bold text-white text-xs">🏛️ OPSI — Observatory of Public Sector Innovation</h4>
               <span class="text-[10px] font-mono text-[#a78bfa]">OCDE Global</span>
             </div>
-            <p class="text-[11px] text-[#8fafaa]">
+            <p class="text-[11px] text-[#94a3b8]">
               El observatorio de innovación pública de la OCDE recopila casos de estudio globales sobre rediseño de arquitecturas de datos, interoperabilidad semántica y transformación de servicios hacia modelos proactivos.
             </p>
             <a href="https://oecd-opsi.org" target="_blank" rel="noopener noreferrer" class="text-[10px] text-[#a78bfa] font-bold underline block pt-1">
@@ -357,16 +384,16 @@
     </div>
 
     <!-- Modal Footer -->
-    <div class="p-4 border-t border-[#163a34] bg-[#051311]/90 flex flex-col sm:flex-row items-center justify-between gap-3">
-      <span class="text-[11px] text-[#8fafaa]">
-        Desarrollado como iniciativa de investigación GovTech independiente · <a href="https://evegat.cl" target="_blank" rel="noopener noreferrer" class="text-[#54b995] font-bold hover:underline">evegat.cl</a>
+    <div class="p-4 border-t border-[#1e3a5f] bg-[#041a37]/95 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <span class="text-[11px] text-[#cbd5e1]">
+        Investigación, datos y arquitectura por <a href="https://evegat.cl" target="_blank" rel="noopener noreferrer" class="text-white font-extrabold hover:text-[#d7653b] underline decoration-[#d7653b]">Eduardo Vega Toledo (evegat.cl)</a> · Puedes reabrir esta guía en cualquier momento desde el botón <strong>¿Cómo funciona?</strong>
       </span>
       <button
         id="btn-close-guide-footer"
         type="button"
-        class="px-4 py-2 bg-[#12483f] hover:bg-[#1a5e52] text-white rounded-lg font-bold text-xs border border-[#235d52] hover:border-[#54b995] transition-colors focus:outline-none"
+        class="px-5 py-2 bg-[#d7653b] hover:bg-[#c95631] text-white rounded-lg font-extrabold text-xs border border-[#e4b18e]/40 shadow-lg transition-colors focus:outline-none flex-shrink-0"
       >
-        Entendido, Ir al Mapeo
+        Explorar el Mapa Ahora →
       </button>
     </div>
 
@@ -390,11 +417,24 @@
     function closeModal() {
       modal?.classList.add('hidden');
       document.body.classList.remove('overflow-hidden');
+      try {
+        sessionStorage.setItem('p029_guide_seen', '1');
+      } catch {}
     }
 
     openBtn?.addEventListener('click', openModal);
     closeBtn?.addEventListener('click', closeModal);
     footerCloseBtn?.addEventListener('click', closeModal);
+
+    // Auto-open on initial load so visitors immediately understand the map and authorship
+    try {
+      const params = new URLSearchParams(window.location.search);
+      if (!params.has('nomodal')) {
+        openModal();
+      }
+    } catch {
+      openModal();
+    }
 
     // Tab switcher logic
     tabBtns.forEach((btn) => {
@@ -404,13 +444,13 @@
 
         // Reset tab button styles
         tabBtns.forEach((b) => {
-          b.classList.remove('border-[#54b995]', 'text-white');
-          b.classList.add('border-transparent', 'text-[#8fafaa]');
+          b.classList.remove('border-[#d7653b]', 'border-[#54b995]', 'text-white');
+          b.classList.add('border-transparent', 'text-[#94a3b8]');
         });
 
         // Activate clicked tab button
-        btn.classList.add('border-[#54b995]', 'text-white');
-        btn.classList.remove('border-transparent', 'text-[#8fafaa]');
+        btn.classList.add('border-[#d7653b]', 'text-white');
+        btn.classList.remove('border-transparent', 'text-[#94a3b8]');
 
         // Show matching panel
         panels.forEach((panel) => {

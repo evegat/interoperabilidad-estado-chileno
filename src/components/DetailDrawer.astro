@@ -3,13 +3,13 @@
 
 <aside
   id="detail-drawer"
-  class="fixed inset-y-0 right-0 z-40 w-full sm:w-[440px] bg-[#081d1a]/98 backdrop-blur-xl border-l border-[#163a34] shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out"
+  class="fixed inset-y-0 right-0 z-40 w-full sm:w-[440px] bg-[#06234a]/98 backdrop-blur-xl border-l border-[#1e3a5f] shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out"
   aria-label="Panel de Detalles Técnicos"
 >
   <!-- Drawer Header -->
-  <div class="px-5 py-3.5 border-b border-[#163a34] flex items-center justify-between bg-[#051311]/90">
+  <div class="px-5 py-3.5 border-b border-[#1e3a5f] flex items-center justify-between bg-[#031329]/90">
     <div class="flex items-center space-x-2">
-      <span id="drawer-type-badge" class="px-2 py-0.5 rounded text-[11px] font-extrabold uppercase tracking-wider bg-[#12483f] text-[#54b995] border border-[#1e5a4f]">
+      <span id="drawer-type-badge" class="px-2 py-0.5 rounded text-[11px] font-extrabold uppercase tracking-wider bg-[#0b4aa2] text-[#54b995] border border-[#1d4d91]">
         Ficha Técnica
       </span>
       <span id="drawer-status-badge" class="hidden px-2 py-0.5 rounded text-[11px] font-bold bg-[#d7653b]/20 text-[#e4b18e] border border-[#d7653b]/40">
@@ -19,7 +19,7 @@
     <button
       type="button"
       id="drawer-close"
-      class="text-[#8fafaa] hover:text-white p-1 rounded-md hover:bg-[#12483f] transition-colors focus:outline-none"
+      class="text-[#94a3b8] hover:text-white p-1 rounded-md hover:bg-[#0b4aa2] transition-colors focus:outline-none"
       title="Cerrar panel"
     >
       <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -29,16 +29,16 @@
   </div>
 
   <!-- Drawer Scrollable Content Body -->
-  <div id="drawer-content" class="flex-1 overflow-y-auto p-5 space-y-4 text-xs text-[#8fafaa]">
+  <div id="drawer-content" class="flex-1 overflow-y-auto p-5 space-y-4 text-xs text-[#94a3b8]">
     <!-- Placeholder / Empty State -->
-    <div id="drawer-empty-state" class="h-full flex flex-col items-center justify-center text-center p-6 text-[#8fafaa]">
-      <div class="w-14 h-14 rounded-full bg-[#12483f]/60 border border-[#1a433d] flex items-center justify-center mb-3">
+    <div id="drawer-empty-state" class="h-full flex flex-col items-center justify-center text-center p-6 text-[#94a3b8]">
+      <div class="w-14 h-14 rounded-full bg-[#0b4aa2]/60 border border-[#1e3a5f] flex items-center justify-center mb-3">
         <svg class="w-7 h-7 text-[#54b995]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       </div>
       <p class="font-bold text-sm text-[#f7f5ef]">Ningún elemento seleccionado</p>
-      <p class="text-xs text-[#8fafaa] mt-1 max-w-xs leading-relaxed">
+      <p class="text-xs text-[#94a3b8] mt-1 max-w-xs leading-relaxed">
         Haz click en un nodo institucional o en una arista de flujo para consultar su ficha técnica, protocolos y marco normativo.
       </p>
     </div>
@@ -48,20 +48,20 @@
       <div>
         <div class="flex items-baseline justify-between">
           <span id="node-sigla" class="text-2xl font-black text-white tracking-tight">SIGLA</span>
-          <span id="node-id" class="text-[11px] font-mono text-[#8fafaa] bg-[#051311] border border-[#163a34] px-2 py-0.5 rounded">id</span>
+          <span id="node-id" class="text-[11px] font-mono text-[#94a3b8] bg-[#031329] border border-[#1e3a5f] px-2 py-0.5 rounded">id</span>
         </div>
         <h2 id="node-nombre" class="text-sm font-bold text-[#f7f5ef] mt-1 leading-snug">
           Nombre completo de la institución
         </h2>
         <!-- Immediate Visual Badges: Attachments & IMI -->
         <div class="flex items-center gap-2 mt-2 flex-wrap">
-          <span id="node-summary-docs-badge" class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#12483f] text-[#54b995] border border-[#1e5a4f]" title="Expediente de documentación oficial trazable">
+          <span id="node-summary-docs-badge" class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#0b4aa2] text-[#54b995] border border-[#1d4d91]" title="Expediente de documentación oficial trazable">
             <svg class="w-3 h-3 text-[#54b995]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
             </svg>
             <span id="node-summary-docs-text">0 adjuntos</span>
           </span>
-          <span id="node-summary-imi-badge" class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#051311] text-[#e4b18e] border border-[#163a34]">
+          <span id="node-summary-imi-badge" class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#031329] text-[#e4b18e] border border-[#1e3a5f]">
             IMI: 0 pts
           </span>
         </div>
@@ -69,38 +69,38 @@
 
       <!-- Attributes Grid -->
       <div class="grid grid-cols-2 gap-2 text-xs">
-        <div class="bg-[#051311] p-2.5 rounded-lg border border-[#163a34]">
-          <span class="block text-[#8fafaa] text-[10px] uppercase font-bold tracking-wider">Tipología</span>
+        <div class="bg-[#031329] p-2.5 rounded-lg border border-[#1e3a5f]">
+          <span class="block text-[#94a3b8] text-[10px] uppercase font-bold tracking-wider">Tipología</span>
           <span id="node-tipo" class="font-bold text-[#54b995] capitalize mt-0.5 block">-</span>
         </div>
-        <div class="bg-[#051311] p-2.5 rounded-lg border border-[#163a34]">
-          <span class="block text-[#8fafaa] text-[10px] uppercase font-bold tracking-wider">Dependencia</span>
+        <div class="bg-[#031329] p-2.5 rounded-lg border border-[#1e3a5f]">
+          <span class="block text-[#94a3b8] text-[10px] uppercase font-bold tracking-wider">Dependencia</span>
           <span id="node-dependencia" class="font-bold text-[#f7f5ef] truncate block mt-0.5">-</span>
         </div>
-        <div class="bg-[#051311] p-2.5 rounded-lg border border-[#163a34]">
-          <span class="block text-[#8fafaa] text-[10px] uppercase font-bold tracking-wider">Madurez Digital</span>
+        <div class="bg-[#031329] p-2.5 rounded-lg border border-[#1e3a5f]">
+          <span class="block text-[#94a3b8] text-[10px] uppercase font-bold tracking-wider">Madurez Digital</span>
           <span id="node-madurez" class="font-bold text-[#54b995] capitalize mt-0.5 block">-</span>
         </div>
-        <div class="bg-[#051311] p-2.5 rounded-lg border border-[#163a34]">
-          <span class="block text-[#8fafaa] text-[10px] uppercase font-bold tracking-wider">Ley N° 21.180</span>
+        <div class="bg-[#031329] p-2.5 rounded-lg border border-[#1e3a5f]">
+          <span class="block text-[#94a3b8] text-[10px] uppercase font-bold tracking-wider">Ley N° 21.180</span>
           <span id="node-ley" class="font-bold text-[#e4b18e] capitalize mt-0.5 block">-</span>
         </div>
       </div>
 
       <!-- Interoperability Maturity Index (IMI) Card -->
-      <div id="node-imi-card" class="bg-[#051311] p-3 rounded-lg border border-[#163a34] space-y-2">
+      <div id="node-imi-card" class="bg-[#031329] p-3 rounded-lg border border-[#1e3a5f] space-y-2">
         <div class="flex items-center justify-between">
-          <span class="block text-[10px] font-extrabold text-[#8fafaa] uppercase tracking-wider">Índice de Madurez (IMI)</span>
-          <span id="node-imi-badge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#12483f] text-[#54b995] border border-[#1e5a4f]">
+          <span class="block text-[10px] font-extrabold text-[#94a3b8] uppercase tracking-wider">Índice de Madurez (IMI)</span>
+          <span id="node-imi-badge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#0b4aa2] text-[#54b995] border border-[#1d4d91]">
             Nivel 4: Integrado
           </span>
         </div>
         <div class="flex items-baseline justify-between text-xs">
-          <span id="node-imi-level-desc" class="text-[#e9efec] font-semibold text-[11px]">Interoperable Integrado</span>
+          <span id="node-imi-level-desc" class="text-[#f1f5f9] font-semibold text-[11px]">Interoperable Integrado</span>
           <span id="node-imi-score" class="font-black text-sm text-[#54b995]">0 / 100 pts</span>
         </div>
         <!-- Progress bar -->
-        <div class="w-full bg-[#081d1a] h-2 rounded-full overflow-hidden border border-[#163a34]">
+        <div class="w-full bg-[#06234a] h-2 rounded-full overflow-hidden border border-[#1e3a5f]">
           <div id="node-imi-bar" class="h-full bg-gradient-to-r from-[#d7653b] via-[#c5a75a] via-[#54b995] to-[#a78bfa] rounded-full transition-all duration-500" style="width: 50%;"></div>
         </div>
       </div>
@@ -143,24 +143,24 @@
       </div>
 
       <!-- Ecosystem Role -->
-      <div class="bg-[#051311] p-3 rounded-lg border border-[#163a34]">
-        <span class="block text-[10px] font-extrabold text-[#8fafaa] uppercase tracking-wider mb-1">Rol en el Ecosistema</span>
-        <p id="node-rol" class="text-xs text-[#e9efec] leading-relaxed"></p>
+      <div class="bg-[#031329] p-3 rounded-lg border border-[#1e3a5f]">
+        <span class="block text-[10px] font-extrabold text-[#94a3b8] uppercase tracking-wider mb-1">Rol en el Ecosistema</span>
+        <p id="node-rol" class="text-xs text-[#f1f5f9] leading-relaxed"></p>
       </div>
 
       <!-- Degree Connections -->
-      <div class="bg-[#051311] p-3 rounded-lg border border-[#163a34] space-y-2">
-        <div class="flex items-center justify-between text-xs border-b border-[#163a34] pb-1.5">
+      <div class="bg-[#031329] p-3 rounded-lg border border-[#1e3a5f] space-y-2">
+        <div class="flex items-center justify-between text-xs border-b border-[#1e3a5f] pb-1.5">
           <span class="font-bold text-[#f7f5ef] uppercase tracking-wider text-[10px]">Topología de Flujos</span>
           <span id="node-total-conexiones" class="text-[#54b995] font-black">0 conexiones</span>
         </div>
         <div class="grid grid-cols-2 gap-2 text-xs">
-          <div class="bg-[#081d1a] p-2 rounded border border-[#163a34]">
-            <span class="text-[#8fafaa] block text-[10px] uppercase font-bold">Entrantes (In)</span>
+          <div class="bg-[#06234a] p-2 rounded border border-[#1e3a5f]">
+            <span class="text-[#94a3b8] block text-[10px] uppercase font-bold">Entrantes (In)</span>
             <span id="node-in-degree" class="text-base font-black text-white">0</span>
           </div>
-          <div class="bg-[#081d1a] p-2 rounded border border-[#163a34]">
-            <span class="text-[#8fafaa] block text-[10px] uppercase font-bold">Salientes (Out)</span>
+          <div class="bg-[#06234a] p-2 rounded border border-[#1e3a5f]">
+            <span class="text-[#94a3b8] block text-[10px] uppercase font-bold">Salientes (Out)</span>
             <span id="node-out-degree" class="text-base font-black text-white">0</span>
           </div>
         </div>
@@ -170,15 +170,15 @@
       </div>
 
       <!-- Official Legal & Technical Documents (Clip Section) -->
-      <div id="node-docs-section" class="bg-[#051311] p-3 rounded-lg border border-[#163a34] space-y-2.5">
-        <div class="flex items-center justify-between border-b border-[#163a34] pb-1.5">
+      <div id="node-docs-section" class="bg-[#031329] p-3 rounded-lg border border-[#1e3a5f] space-y-2.5">
+        <div class="flex items-center justify-between border-b border-[#1e3a5f] pb-1.5">
           <div class="flex items-center space-x-1.5">
             <svg class="w-4 h-4 text-[#d7653b]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
             </svg>
             <span class="font-extrabold text-[#f7f5ef] uppercase tracking-wider text-[10px]">📎 Documentación Oficial y Respaldo Legal</span>
           </div>
-          <span id="node-docs-count-badge" class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-[#12483f] text-[#54b995] border border-[#1e5a4f]">
+          <span id="node-docs-count-badge" class="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-[#0b4aa2] text-[#54b995] border border-[#1d4d91]">
             0 adjuntos
           </span>
         </div>
@@ -206,7 +206,7 @@
           href="https://github.com/evegat/interoperabilidad-estado-chileno/issues/new"
           target="_blank"
           rel="noopener noreferrer"
-          class="w-full inline-flex items-center justify-center space-x-2 px-4 py-2 bg-[#061614] hover:bg-[#12483f] text-[#54b995] hover:text-white rounded-lg font-bold text-[11px] border border-[#1e5a4f] hover:border-[#54b995] transition-colors"
+          class="w-full inline-flex items-center justify-center space-x-2 px-4 py-2 bg-[#041a37] hover:bg-[#0b4aa2] text-[#54b995] hover:text-white rounded-lg font-bold text-[11px] border border-[#1d4d91] hover:border-[#54b995] transition-colors"
           title="Derecho a Réplica Institucional: Enviar evidencia oficial (Resolución / Swagger / Convenio) para actualizar este nodo"
         >
           <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -220,7 +220,7 @@
           href="#"
           target="_blank"
           rel="noopener noreferrer"
-          class="w-full inline-flex items-center justify-center space-x-2 px-4 py-2 bg-[#12483f] hover:bg-[#1a5e52] text-[#f7f5ef] hover:text-white rounded-lg font-bold text-xs border border-[#235d52] hover:border-[#54b995] transition-colors"
+          class="w-full inline-flex items-center justify-center space-x-2 px-4 py-2 bg-[#0b4aa2] hover:bg-[#1d4d91] text-[#f7f5ef] hover:text-white rounded-lg font-bold text-xs border border-[#1d4d91] hover:border-[#54b995] transition-colors"
         >
           <span>Visitar Portal Institucional</span>
           <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -233,10 +233,10 @@
     <!-- Edge Technical Sheet Container -->
     <div id="drawer-edge-view" class="hidden space-y-3.5">
       <div>
-        <span class="text-[10px] font-extrabold text-[#8fafaa] uppercase tracking-wider">Intercambio de Datos</span>
+        <span class="text-[10px] font-extrabold text-[#94a3b8] uppercase tracking-wider">Intercambio de Datos</span>
         <div class="flex items-center space-x-2 mt-1">
           <span id="edge-origen-sigla" class="text-lg font-black text-[#54b995]">ORIGEN</span>
-          <svg class="w-4 h-4 text-[#8fafaa] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="w-4 h-4 text-[#94a3b8] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
           <span id="edge-destino-sigla" class="text-lg font-black text-[#e4b18e]">DESTINO</span>
@@ -245,35 +245,35 @@
           Certificado / Datos
         </p>
         <div class="flex items-center gap-2 mt-2">
-          <span id="edge-canal-badge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#12483f] text-[#54b995] border border-[#1e5a4f]">Canal: PISEE</span>
+          <span id="edge-canal-badge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#0b4aa2] text-[#54b995] border border-[#1d4d91]">Canal: PISEE</span>
           <span id="edge-madurez-badge" class="px-2 py-0.5 rounded text-[10px] font-mono text-[#38bdf8] bg-[#0369a1]/20 border border-[#0369a1]/40">⚡ API Tiempo Real</span>
         </div>
       </div>
 
       <!-- Interoperability Parameters -->
       <div class="grid grid-cols-2 gap-2 text-xs">
-        <div class="bg-[#051311] p-2.5 rounded-lg border border-[#163a34]">
-          <span class="block text-[#8fafaa] text-[10px] uppercase font-bold tracking-wider">Plataforma / Bus</span>
+        <div class="bg-[#031329] p-2.5 rounded-lg border border-[#1e3a5f]">
+          <span class="block text-[#94a3b8] text-[10px] uppercase font-bold tracking-wider">Plataforma / Bus</span>
           <span id="edge-bus" class="font-bold text-[#d7653b] truncate block mt-0.5">-</span>
         </div>
-        <div class="bg-[#051311] p-2.5 rounded-lg border border-[#163a34]">
-          <span class="block text-[#8fafaa] text-[10px] uppercase font-bold tracking-wider">Protocolo / Estándar</span>
+        <div class="bg-[#031329] p-2.5 rounded-lg border border-[#1e3a5f]">
+          <span class="block text-[#94a3b8] text-[10px] uppercase font-bold tracking-wider">Protocolo / Estándar</span>
           <span id="edge-protocol" class="font-bold text-[#54b995] truncate block mt-0.5">-</span>
         </div>
-        <div class="bg-[#051311] p-2.5 rounded-lg border border-[#163a34]">
-          <span class="block text-[#8fafaa] text-[10px] uppercase font-bold tracking-wider">Nivel de Apertura</span>
+        <div class="bg-[#031329] p-2.5 rounded-lg border border-[#1e3a5f]">
+          <span class="block text-[#94a3b8] text-[10px] uppercase font-bold tracking-wider">Nivel de Apertura</span>
           <span id="edge-apertura" class="font-bold text-[#f7f5ef] truncate block mt-0.5">-</span>
         </div>
-        <div class="bg-[#051311] p-2.5 rounded-lg border border-[#163a34]">
-          <span class="block text-[#8fafaa] text-[10px] uppercase font-bold tracking-wider">Frecuencia</span>
+        <div class="bg-[#031329] p-2.5 rounded-lg border border-[#1e3a5f]">
+          <span class="block text-[#94a3b8] text-[10px] uppercase font-bold tracking-wider">Frecuencia</span>
           <span id="edge-frecuencia" class="font-bold text-[#f7f5ef] truncate block mt-0.5">-</span>
         </div>
       </div>
 
       <!-- Legal Base -->
-      <div class="bg-[#051311] p-2.5 rounded-lg border border-[#163a34] text-xs">
-        <span class="block text-[#8fafaa] text-[10px] uppercase font-bold tracking-wider">Marco Normativo</span>
-        <span id="edge-base-legal" class="font-semibold text-[#e9efec] mt-0.5 block leading-relaxed">-</span>
+      <div class="bg-[#031329] p-2.5 rounded-lg border border-[#1e3a5f] text-xs">
+        <span class="block text-[#94a3b8] text-[10px] uppercase font-bold tracking-wider">Marco Normativo</span>
+        <span id="edge-base-legal" class="font-semibold text-[#f1f5f9] mt-0.5 block leading-relaxed">-</span>
       </div>
 
       <!-- Observed Gap Alert Banner -->
@@ -294,7 +294,7 @@
           href="https://github.com/evegat/interoperabilidad-estado-chileno/issues/new"
           target="_blank"
           rel="noopener noreferrer"
-          class="w-full inline-flex items-center justify-center space-x-2 px-4 py-2 bg-[#061614] hover:bg-[#12483f] text-[#54b995] hover:text-white rounded-lg font-bold text-[11px] border border-[#1e5a4f] hover:border-[#54b995] transition-colors"
+          class="w-full inline-flex items-center justify-center space-x-2 px-4 py-2 bg-[#041a37] hover:bg-[#0b4aa2] text-[#54b995] hover:text-white rounded-lg font-bold text-[11px] border border-[#1d4d91] hover:border-[#54b995] transition-colors"
           title="Derecho a Réplica Institucional: Enviar evidencia de migración de flujo (Swagger / Resolución)"
         >
           <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -308,7 +308,7 @@
           href="#"
           target="_blank"
           rel="noopener noreferrer"
-          class="w-full inline-flex items-center justify-center space-x-2 px-4 py-2 bg-[#12483f] hover:bg-[#1a5e52] text-[#f7f5ef] hover:text-white rounded-lg font-bold text-xs border border-[#235d52] hover:border-[#d7653b] shadow-md transition-colors"
+          class="w-full inline-flex items-center justify-center space-x-2 px-4 py-2 bg-[#0b4aa2] hover:bg-[#1d4d91] text-[#f7f5ef] hover:text-white rounded-lg font-bold text-xs border border-[#1d4d91] hover:border-[#d7653b] shadow-md transition-colors"
         >
           <span>Ver Fuente Oficial Verificable</span>
           <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -436,7 +436,7 @@
         1: { title: 'Silo Documental (Oficio / Papel)', badge: 'Nivel 1: Silo (0-20 pts)', colorClass: 'bg-[#9f1239] text-white border-[#be123c]' },
         2: { title: 'Bilateral Ad-Hoc (Archivos planos / SFTP)', badge: 'Nivel 2: Bilateral (21-40 pts)', colorClass: 'bg-[#c5a75a]/20 text-[#c5a75a] border-[#c5a75a]/40' },
         3: { title: 'Conectado Legacy (PISEE centralizado incipiente)', badge: 'Nivel 3: Conectado (41-60 pts)', colorClass: 'bg-[#1b4965]/40 text-[#38bdf8] border-[#38bdf8]/40' },
-        4: { title: 'Integrado DS N° 12 (Nodos distribuidos & REST mTLS)', badge: 'Nivel 4: Integrado (61-80 pts)', colorClass: 'bg-[#12483f] text-[#54b995] border-[#1e5a4f]' },
+        4: { title: 'Integrado DS N° 12 (Nodos distribuidos & REST mTLS)', badge: 'Nivel 4: Integrado (61-80 pts)', colorClass: 'bg-[#0b4aa2] text-[#54b995] border-[#1d4d91]' },
         5: { title: 'Once-Only & Gobernanza Plena (Servicios comunes SGD)', badge: 'Nivel 5: Once-Only (81-100 pts)', colorClass: 'bg-[#54b995]/20 text-[#54b995] border-[#54b995]/50' },
       };
 
@@ -459,7 +459,7 @@
       const elSummaryImiBadge = document.getElementById('node-summary-imi-badge');
       if (elSummaryImiBadge) {
         elSummaryImiBadge.textContent = `IMI: ${imiScore}/100 (N${imiLevel})`;
-        elSummaryImiBadge.className = 'inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#051311] text-[#e4b18e] border border-[#163a34]';
+        elSummaryImiBadge.className = 'inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#031329] text-[#e4b18e] border border-[#1e3a5f]';
       }
 
       // Populate / Toggle Agent-Ready Capabilities Card (desacoplada de IMI)
@@ -497,27 +497,27 @@
       if (elDocsList) {
         elDocsList.innerHTML = '';
         if (docs.length === 0) {
-          elDocsList.innerHTML = '<span class="text-[#8fafaa] italic text-[11px] block py-1">Sin expedientes jurídicos indexados aún</span>';
+          elDocsList.innerHTML = '<span class="text-[#94a3b8] italic text-[11px] block py-1">Sin expedientes jurídicos indexados aún</span>';
         } else {
           docs.forEach((doc) => {
             const item = document.createElement('div');
-            item.className = 'p-2.5 rounded-lg bg-[#081d1a] border border-[#163a34] space-y-1 hover:border-[#54b995] transition-colors';
+            item.className = 'p-2.5 rounded-lg bg-[#06234a] border border-[#1e3a5f] space-y-1 hover:border-[#54b995] transition-colors';
             
             const badgeType = doc.tipo.replace('_', ' ');
             item.innerHTML = `
               <div class="flex items-center justify-between gap-1 flex-wrap">
-                <span class="px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-[#12483f] text-[#54b995] border border-[#1e5a4f]">
+                <span class="px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-[#0b4aa2] text-[#54b995] border border-[#1d4d91]">
                   ${badgeType}
                 </span>
-                <span class="text-[10px] font-mono text-[#8fafaa]">${doc.ano || ''}</span>
+                <span class="text-[10px] font-mono text-[#94a3b8]">${doc.ano || ''}</span>
               </div>
               <a href="${doc.url}" target="_blank" rel="noopener noreferrer" class="font-bold text-[#f7f5ef] hover:text-[#d7653b] text-xs leading-snug flex items-center gap-1 group mt-1">
                 <span>${doc.titulo}</span>
-                <svg class="w-3 h-3 text-[#8fafaa] group-hover:text-[#d7653b] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg class="w-3 h-3 text-[#94a3b8] group-hover:text-[#d7653b] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </a>
-              <p class="text-[11px] text-[#8fafaa] leading-relaxed pt-0.5">${doc.resumen}</p>
+              <p class="text-[11px] text-[#94a3b8] leading-relaxed pt-0.5">${doc.resumen}</p>
             `;
             elDocsList.appendChild(item);
           });
@@ -531,16 +531,16 @@
         const outgoing = node.aristas_salientes || [];
 
         if (incoming.length === 0 && outgoing.length === 0) {
-          elFlowsList.innerHTML = '<span class="text-[#8fafaa] italic">Sin flujos registrados</span>';
+          elFlowsList.innerHTML = '<span class="text-[#94a3b8] italic">Sin flujos registrados</span>';
         } else {
           incoming.forEach((inEdge) => {
             const item = document.createElement('button');
             item.type = 'button';
-            item.className = 'w-full text-left flex items-center justify-between text-[11px] bg-[#081d1a] hover:bg-[#12483f] px-2 py-1.5 rounded border border-[#163a34] hover:border-[#54b995] transition-colors cursor-pointer group';
+            item.className = 'w-full text-left flex items-center justify-between text-[11px] bg-[#06234a] hover:bg-[#0b4aa2] px-2 py-1.5 rounded border border-[#1e3a5f] hover:border-[#54b995] transition-colors cursor-pointer group';
             const label = inEdge.origen_sigla || inEdge.origen.toUpperCase();
             item.innerHTML = `
               <span class="text-[#54b995] group-hover:text-white font-bold">← Entrante de <strong>${label}</strong></span>
-              <span class="text-[10px] text-[#8fafaa] font-mono">${inEdge.bus}</span>
+              <span class="text-[10px] text-[#94a3b8] font-mono">${inEdge.bus}</span>
             `;
             item.title = `Ver detalle del flujo ${inEdge.id}`;
             item.addEventListener('click', () => {
@@ -558,11 +558,11 @@
           outgoing.forEach((outEdge) => {
             const item = document.createElement('button');
             item.type = 'button';
-            item.className = 'w-full text-left flex items-center justify-between text-[11px] bg-[#081d1a] hover:bg-[#12483f] px-2 py-1.5 rounded border border-[#163a34] hover:border-[#e4b18e] transition-colors cursor-pointer group';
+            item.className = 'w-full text-left flex items-center justify-between text-[11px] bg-[#06234a] hover:bg-[#0b4aa2] px-2 py-1.5 rounded border border-[#1e3a5f] hover:border-[#e4b18e] transition-colors cursor-pointer group';
             const label = outEdge.destino_sigla || outEdge.destino.toUpperCase();
             item.innerHTML = `
               <span class="text-[#e4b18e] group-hover:text-white font-bold">→ Hacia <strong>${label}</strong></span>
-              <span class="text-[10px] text-[#8fafaa] font-mono">${outEdge.bus}</span>
+              <span class="text-[10px] text-[#94a3b8] font-mono">${outEdge.bus}</span>
             `;
             item.title = `Ver detalle del flujo ${outEdge.id}`;
             item.addEventListener('click', () => {

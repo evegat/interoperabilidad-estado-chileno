@@ -152,7 +152,7 @@ export class GraphController {
           brecha_observada: arista.brecha_observada,
           frecuencia_actualizacion: arista.frecuencia_actualizacion,
           base_legal: arista.base_legal || 'Ley N° 21.180',
-          has_gap: Boolean(arista.brecha_observada && arista.brecha_observada.length > 5) ? 'true' : 'false',
+          has_gap: Boolean(arista.severity === 'critica' || (!arista.severity && arista.brecha_observada && arista.brecha_observada.length > 5)) ? 'true' : 'false',
         },
       })),
     ];
@@ -164,19 +164,19 @@ export class GraphController {
       layout: {
         name: 'cose',
         animate: false,
-        componentSpacing: 90,
-        nodeRepulsion: () => 450000,
-        nodeOverlap: 25,
-        idealEdgeLength: () => 130,
+        componentSpacing: 110,
+        nodeRepulsion: () => 580000,
+        nodeOverlap: 35,
+        idealEdgeLength: () => 170,
         edgeElasticity: () => 100,
         nestingFactor: 5,
-        gravity: 80,
-        numIter: 1000,
-        padding: 50,
+        gravity: 65,
+        numIter: 1200,
+        padding: 60,
       },
       minZoom: 0.25,
       maxZoom: 3.5,
-      wheelSensitivity: 0.35,
+      wheelSensitivity: 1.15,
     });
 
     this.cy = cy;
@@ -374,15 +374,15 @@ export class GraphController {
       name: 'cose',
       animate: true,
       animationDuration: 600,
-      componentSpacing: 90,
-      nodeRepulsion: () => 450000,
-      nodeOverlap: 25,
-      idealEdgeLength: () => 130,
+      componentSpacing: 110,
+      nodeRepulsion: () => 580000,
+      nodeOverlap: 35,
+      idealEdgeLength: () => 170,
       edgeElasticity: () => 100,
       nestingFactor: 5,
-      gravity: 80,
-      numIter: 1000,
-      padding: 50,
+      gravity: 65,
+      numIter: 1200,
+      padding: 60,
     });
     layout.run();
   }
@@ -457,7 +457,8 @@ export class GraphController {
       }
 
       if (onlyGaps) {
-        if (!edge.brecha_observada || edge.brecha_observada.trim().length === 0) {
+        const isCritica = edge.severity === 'critica' || (!edge.severity && edge.brecha_observada && edge.brecha_observada.trim().length > 0);
+        if (!isCritica) {
           return false;
         }
       }
@@ -527,7 +528,7 @@ export class GraphController {
 
     const piseeCount = matchedEdges.filter(e => (e.canal === 'PISEE' || e.plataforma_o_bus.includes('PISEE'))).length;
     const realtimeCount = matchedEdges.filter(e => (e.madurez_tecnica === 'realtime' || e.estandar_o_protocolo.includes('REST') || e.estandar_o_protocolo.includes('OpenID'))).length;
-    const gapsCount = matchedEdges.filter(e => e.brecha_observada && e.brecha_observada.trim().length > 5).length;
+    const gapsCount = matchedEdges.filter(e => e.severity === 'critica' || (!e.severity && e.brecha_observada && e.brecha_observada.trim().length > 5)).length;
 
     const activeNodesWithImi = activeNodes.filter(n => typeof n.indice_madurez_interoperabilidad === 'number');
     const avgImi = activeNodesWithImi.length > 0
@@ -574,7 +575,7 @@ export class GraphController {
 
     const piseeCount = this.dataset.aristas.filter(e => (e.canal === 'PISEE' || e.plataforma_o_bus.includes('PISEE'))).length;
     const realtimeCount = this.dataset.aristas.filter(e => (e.madurez_tecnica === 'realtime' || e.estandar_o_protocolo.includes('REST') || e.estandar_o_protocolo.includes('OpenID'))).length;
-    const gapsCount = this.dataset.aristas.filter(e => e.brecha_observada && e.brecha_observada.trim().length > 5).length;
+    const gapsCount = this.dataset.aristas.filter(e => e.severity === 'critica' || (!e.severity && e.brecha_observada && e.brecha_observada.trim().length > 5)).length;
 
     const allNodesWithImi = this.dataset.nodos.filter(n => typeof n.indice_madurez_interoperabilidad === 'number');
     const avgImi = allNodesWithImi.length > 0
@@ -672,10 +673,10 @@ export function initGraphApp(dataset: DatasetInteroperabilidad): GraphController
     btn.addEventListener('click', () => {
       const val = (btn.dataset.value || 'all') as 'all' | 'PISEE' | 'Convenio' | 'Manual';
       channelBtns.forEach((b) => {
-        b.classList.remove('bg-[#12483f]', 'text-white', 'font-bold');
+        b.classList.remove('bg-[#0b4aa2]', 'text-white', 'font-bold');
         b.classList.add('font-medium');
       });
-      btn.classList.add('bg-[#12483f]', 'text-white', 'font-bold');
+      btn.classList.add('bg-[#0b4aa2]', 'text-white', 'font-bold');
       controller.applyFilters({ channel: val });
     });
   });
@@ -686,10 +687,10 @@ export function initGraphApp(dataset: DatasetInteroperabilidad): GraphController
     btn.addEventListener('click', () => {
       const val = (btn.dataset.value || 'all') as 'all' | 'realtime' | 'batch' | 'manual';
       maturityBtns.forEach((b) => {
-        b.classList.remove('bg-[#12483f]', 'text-white', 'font-bold');
+        b.classList.remove('bg-[#0b4aa2]', 'text-white', 'font-bold');
         b.classList.add('font-medium');
       });
-      btn.classList.add('bg-[#12483f]', 'text-white', 'font-bold');
+      btn.classList.add('bg-[#0b4aa2]', 'text-white', 'font-bold');
       controller.applyFilters({ maturity: val });
     });
   });
@@ -700,10 +701,10 @@ export function initGraphApp(dataset: DatasetInteroperabilidad): GraphController
     btn.addEventListener('click', () => {
       const val = btn.dataset.value || 'all';
       imiBtns.forEach((b) => {
-        b.classList.remove('bg-[#12483f]', 'text-white', 'font-bold');
+        b.classList.remove('bg-[#0b4aa2]', 'text-white', 'font-bold');
         b.classList.add('font-medium');
       });
-      btn.classList.add('bg-[#12483f]', 'text-white', 'font-bold');
+      btn.classList.add('bg-[#0b4aa2]', 'text-white', 'font-bold');
       controller.applyFilters({ imiLevel: val });
     });
   });
@@ -762,25 +763,25 @@ export function initGraphApp(dataset: DatasetInteroperabilidad): GraphController
 
       channelBtns.forEach((b) => {
         if (b.dataset.value === 'all') {
-          b.classList.add('bg-[#12483f]', 'text-white', 'font-bold');
+          b.classList.add('bg-[#0b4aa2]', 'text-white', 'font-bold');
         } else {
-          b.classList.remove('bg-[#12483f]', 'text-white', 'font-bold');
+          b.classList.remove('bg-[#0b4aa2]', 'text-white', 'font-bold');
         }
       });
 
       maturityBtns.forEach((b) => {
         if (b.dataset.value === 'all') {
-          b.classList.add('bg-[#12483f]', 'text-white', 'font-bold');
+          b.classList.add('bg-[#0b4aa2]', 'text-white', 'font-bold');
         } else {
-          b.classList.remove('bg-[#12483f]', 'text-white', 'font-bold');
+          b.classList.remove('bg-[#0b4aa2]', 'text-white', 'font-bold');
         }
       });
 
       imiBtns.forEach((b) => {
         if (b.dataset.value === 'all') {
-          b.classList.add('bg-[#12483f]', 'text-white', 'font-bold');
+          b.classList.add('bg-[#0b4aa2]', 'text-white', 'font-bold');
         } else {
-          b.classList.remove('bg-[#12483f]', 'text-white', 'font-bold');
+          b.classList.remove('bg-[#0b4aa2]', 'text-white', 'font-bold');
         }
       });
       imiSelects.forEach((s) => (s.value = 'all'));

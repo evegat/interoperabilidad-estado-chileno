@@ -17,13 +17,13 @@ export interface TypologyMeta {
 export const TIPOLOGIA_CONFIG: Record<TipoNodo, TypologyMeta> = {
   ministerio: {
     label: 'Ministerio',
-    color: '#0f4c3a', // deep pine emerald
+    color: '#0b4aa2', // signature royal navy blue from evegat.cl
     shape: 'round-rectangle',
     description: 'Órgano rector de políticas públicas sectoriales',
   },
   servicio_publico: {
     label: 'Servicio Público',
-    color: '#1b4965', // deep oceanic teal/cyan
+    color: '#0284c7', // sky blue
     shape: 'ellipse',
     description: 'Entidad ejecutora especializada y proveedora de trámites',
   },
@@ -41,13 +41,13 @@ export const TIPOLOGIA_CONFIG: Record<TipoNodo, TypologyMeta> = {
   },
   organo_autonomo: {
     label: 'Órgano Autónomo',
-    color: '#5e4b70', // deep plum / purple
+    color: '#6366f1', // indigo
     shape: 'octagon',
     description: 'Entidad de control, fiscalización o representación civil',
   },
   superintendencia: {
     label: 'Superintendencia',
-    color: '#9f1239', // deep crimson
+    color: '#be123c', // crimson
     shape: 'barrel',
     description: 'Fiscalizador regulatorio sectorial',
   },
@@ -64,7 +64,7 @@ export const PROTOCOLO_CONFIG: Record<EstandarProtocolo, ProtocolMeta> = {
   'REST / JSON': {
     short: 'REST',
     label: 'REST / JSON',
-    color: '#54b995', // signature mint from evegat.cl
+    color: '#38bdf8', // clean sky blue
     lineStyle: 'solid',
   },
   'SOAP / XML (WSDL)': {
@@ -76,7 +76,7 @@ export const PROTOCOLO_CONFIG: Record<EstandarProtocolo, ProtocolMeta> = {
   'OpenID Connect / OAuth2': {
     short: 'OIDC',
     label: 'OIDC / OAuth2',
-    color: '#38bdf8', // sky cyan
+    color: '#54b995', // signature mint from evegat.cl
     lineStyle: 'solid',
   },
   'SFTP / Batch plano o CSV': {
@@ -112,7 +112,7 @@ export function getShortProtocol(protocol: EstandarProtocolo | string): string {
 }
 
 /**
- * Declarative Cytoscape Stylesheet matching evegat.cl aesthetic
+ * Declarative Cytoscape Stylesheet matching evegat.cl Navy aesthetic
  */
 export const graphStyles: StylesheetStyle[] = [
   // -------------------------------------------------------------
@@ -122,43 +122,43 @@ export const graphStyles: StylesheetStyle[] = [
     selector: 'node',
     style: {
       'label': 'data(display_label)',
-      'color': '#f7f5ef',
+      'color': '#f8fafc',
       'font-size': '11px',
       'font-weight': 'bold',
       'font-family': 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
       'text-valign': 'center',
       'text-halign': 'center',
       'text-wrap': 'wrap',
-      'text-max-width': '70px',
-      'width': 64,
-      'height': 64,
+      'text-max-width': '72px',
+      'width': 66,
+      'height': 66,
       'border-width': 2,
-      'border-color': '#f7f5ef',
-      'border-opacity': 0.85,
+      'border-color': '#cbd5e1',
+      'border-opacity': 0.9,
       'transition-property': 'background-color, line-color, target-arrow-color, opacity, border-width, border-color',
-      'transition-duration': 0.25,
+      'transition-duration': 0.2,
       'opacity': 1,
     },
   },
 
   // -------------------------------------------------------------
-  // Node Typology Shapes & Colors (evegat.cl Palette)
+  // Node Typology Shapes & Colors (evegat.cl Navy Palette)
   // -------------------------------------------------------------
   {
     selector: 'node[tipo = "ministerio"]',
     style: {
-      'background-color': '#0f4c3a', // deep pine emerald
+      'background-color': '#0b4aa2', // signature royal navy blue
       'shape': 'round-rectangle',
-      'width': 76,
+      'width': 78,
       'height': 54,
-      'border-color': '#54b995',
-      'border-width': 2,
+      'border-color': '#93c5fd',
+      'border-width': 2.5,
     },
   },
   {
     selector: 'node[tipo = "servicio_publico"]',
     style: {
-      'background-color': '#1b4965', // deep oceanic cyan
+      'background-color': '#0369a1', // deep sky blue
       'shape': 'ellipse',
       'width': 64,
       'height': 64,
@@ -171,8 +171,8 @@ export const graphStyles: StylesheetStyle[] = [
     style: {
       'background-color': '#d7653b', // signature terracotta
       'shape': 'diamond',
-      'width': 82,
-      'height': 82,
+      'width': 86,
+      'height': 86,
       'border-width': 3,
       'border-color': '#fed7aa',
       'font-size': '12px',
@@ -181,22 +181,22 @@ export const graphStyles: StylesheetStyle[] = [
   {
     selector: 'node[tipo = "gobierno_local"]',
     style: {
-      'background-color': '#c5a75a', // warm gold / ochre
+      'background-color': '#b45309', // warm amber/gold
       'shape': 'round-pentagon',
       'width': 70,
       'height': 70,
-      'border-color': '#fef08a',
+      'border-color': '#fde68a',
       'border-width': 2,
     },
   },
   {
     selector: 'node[tipo = "organo_autonomo"]',
     style: {
-      'background-color': '#5e4b70', // deep plum
+      'background-color': '#4338ca', // deep indigo
       'shape': 'octagon',
       'width': 68,
       'height': 68,
-      'border-color': '#d8b4fe',
+      'border-color': '#c7d2fe',
       'border-width': 2,
     },
   },
@@ -218,7 +218,7 @@ export const graphStyles: StylesheetStyle[] = [
   {
     selector: 'edge',
     style: {
-      'width': 2.5,
+      'width': 2.2,
       'line-color': '#475569',
       'target-arrow-color': '#475569',
       'target-arrow-shape': 'triangle',
@@ -230,29 +230,29 @@ export const graphStyles: StylesheetStyle[] = [
       'font-family': 'ui-monospace, SFMono-Regular, Consolas, monospace',
       'text-rotation': 'autorotate',
       'text-background-opacity': 0.92,
-      'text-background-color': '#061614',
+      'text-background-color': '#041a37',
       'text-background-padding': '3px',
       'text-background-shape': 'roundrectangle',
       'text-border-width': 1,
-      'text-border-color': '#163a34',
-      'color': '#8fafaa',
-      'opacity': 0.9,
+      'text-border-color': '#1d4d91',
+      'color': '#94a3b8',
+      'opacity': 0.88,
       'transition-property': 'line-color, target-arrow-color, width, opacity',
-      'transition-duration': 0.25,
+      'transition-duration': 0.2,
     },
   },
 
   // -------------------------------------------------------------
-  // Edge Protocol Specific Styles (evegat.cl Palette)
+  // Edge Protocol Specific Styles
   // -------------------------------------------------------------
   {
     selector: 'edge[protocol_short = "REST"]',
     style: {
-      'line-color': '#54b995', // mint
-      'target-arrow-color': '#54b995',
+      'line-color': '#38bdf8', // sky blue
+      'target-arrow-color': '#38bdf8',
       'line-style': 'solid',
-      'text-border-color': '#54b995',
-      'color': '#a7f3d0',
+      'text-border-color': '#0284c7',
+      'color': '#bae6fd',
     },
   },
   {
