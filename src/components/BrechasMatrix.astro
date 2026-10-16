@@ -7,6 +7,22 @@ interface Props {
 
 const { dataset } = Astro.props;
 
+// Función para calcular dependencias aguas abajo (alcance transitivo desde este nodo)
+function calcularImpactoAguasAbajo(nodeId: string): number {
+  const visitados = new Set<string>();
+  const cola: string[] = [nodeId];
+  while (cola.length > 0) {
+    const actual = cola.shift()!;
+    for (const arista of dataset.aristas) {
+      if (arista.origen === actual && !visitados.has(arista.destino) && arista.destino !== nodeId) {
+        visitados.add(arista.destino);
+        cola.push(arista.destino);
+      }
+    }
+  }
+  return visitados.size;
+}
+
 // Preparar datos ordenados por peor madurez (menor IMI) primero
 const nodosConStats = dataset.nodos.map((nodo) => {
   const entrantes = dataset.aristas.filter((a) => a.destino === nodo.id);
@@ -24,6 +40,8 @@ const nodosConStats = dataset.nodos.map((nodo) => {
     new Set(flujos.map((f) => f.normative_ref).filter(Boolean))
   ) as string[];
 
+  const downstreamDependents = calcularImpactoAguasAbajo(nodo.id);
+
   return {
     ...nodo,
     totalFlujos: flujos.length,
@@ -32,6 +50,7 @@ const nodosConStats = dataset.nodos.map((nodo) => {
     totalBrechasCriticas: brechasCriticas.length,
     totalBrechasModeradas: brechasModeradas.length,
     articulosIncumplidos,
+    downstreamDependents,
   };
 }).sort((a, b) => (a.indice_madurez_interoperabilidad || 0) - (b.indice_madurez_interoperabilidad || 0));
 ---
@@ -44,15 +63,15 @@ const nodosConStats = dataset.nodos.map((nodo) => {
       <div>
         <div class="flex items-center gap-2">
           <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-[#d7653b]/20 text-[#e4b18e] border border-[#d7653b]/40">
-            Vista de Gestión y Auditoría
+            Vista de Gestión y Auditoría · v2.1
           </span>
           <span class="text-xs text-[#8fafaa]">Ley N° 21.180 & DS N° 12/2023 MinSegpres</span>
         </div>
         <h2 class="text-lg font-black text-white mt-1">
-          Matriz de Brechas de Interoperabilidad por Organismo
+          Matriz de Brechas e Impacto Sistémico por Organismo
         </h2>
         <p class="text-xs text-[#8fafaa] mt-0.5">
-          Auditoría de cumplimiento, criticidad de flujos bilaterales/manuales y articulado normativo pendiente de migración a la Red de Nodos.
+          Auditoría de cumplimiento, bloqueo aguas abajo (principio Once-Only Art. 1° Ley 21.180) y articulado normativo pendiente de migración.
         </p>
       </div>
 
@@ -90,6 +109,7 @@ const nodosConStats = dataset.nodos.map((nodo) => {
             <th class="py-3 px-3 text-center">Puntaje</th>
             <th class="py-3 px-3 text-center">Sello IA</th>
             <th class="py-3 px-3 text-center">Flujos (In / Out)</th>
+            <th class="py-3 px-3 text-center" title="Organismos afectados aguas abajo que dependen directa o transitivamente de los datos emitidos por esta entidad (Principio Once-Only Art. 1° Ley 21.180)">Impacto Aguas Abajo</th>
             <th class="py-3 px-3 text-center">Brechas Críticas</th>
             <th class="py-3 px-3">Artículos DS 12 Vulnerados</th>
             <th class="py-3 px-4 text-right">Acción</th>
@@ -152,6 +172,21 @@ const nodosConStats = dataset.nodos.map((nodo) => {
                   <span class="text-[#54b995] font-bold" title="Entrantes">{item.flujosEntrantes}</span>
                   <span class="text-[#8fafaa]"> / </span>
                   <span class="text-[#e4b18e] font-bold" title="Salientes">{item.flujosSalientes}</span>
+                </td>
+
+                <!-- Impacto Aguas Abajo (Downstream Dependents) -->
+                <td class="py-3 px-3 text-center whitespace-nowrap">
+                  {item.downstreamDependents > 0 ? (
+                    <span class={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono font-bold border ${
+                      item.downstreamDependents >= 15 ? 'bg-[#a78bfa]/20 text-[#c4b5fd] border-[#a78bfa]/50' :
+                      item.downstreamDependents >= 5 ? 'bg-[#38bdf8]/15 text-[#38bdf8] border-[#38bdf8]/40' :
+                      'bg-[#051311] text-[#8fafaa] border-[#163a34]'
+                    }`} title={`Una falla o brecha en ${item.sigla} impacta en cascada a ${item.downstreamDependents} organismos aguas abajo`}>
+                      ⛓ {item.downstreamDependents} OAEs
+                    </span>
+                  ) : (
+                    <span class="text-[#8fafaa]/40 font-mono text-[10px]" title="Nodo consumidor final (sin dependientes aguas abajo)">Sumidero (0)</span>
+                  )}
                 </td>
 
                 <!-- Brechas Críticas -->

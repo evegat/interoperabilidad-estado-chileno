@@ -70,10 +70,26 @@ const dataset = datasetRaw as DatasetInteroperabilidad;
 
     // Handle CSV export of the matrix
     window.addEventListener('export-matrix-csv', () => {
-      const headers = ['ID', 'Sigla', 'Nombre', 'Tipo', 'Nivel IMI', 'Puntaje IMI', 'Agent-Ready', 'Flujos Entrantes', 'Flujos Salientes', 'Brechas Criticas', 'Articulos DS 12'];
+      function calcDownstream(nodeId: string): number {
+        const visited = new Set<string>();
+        const queue: string[] = [nodeId];
+        while (queue.length > 0) {
+          const curr = queue.shift()!;
+          for (const edge of dataset.aristas) {
+            if (edge.origen === curr && !visited.has(edge.destino) && edge.destino !== nodeId) {
+              visited.add(edge.destino);
+              queue.push(edge.destino);
+            }
+          }
+        }
+        return visited.size;
+      }
+
+      const headers = ['ID', 'Sigla', 'Nombre', 'Tipo', 'Nivel IMI', 'Puntaje IMI', 'Agent-Ready', 'Flujos Entrantes', 'Flujos Salientes', 'Impacto Aguas Abajo (OAEs)', 'Brechas Criticas', 'Articulos DS 12'];
       const rows = dataset.nodos.map((n) => {
         const inFl = dataset.aristas.filter((a) => a.destino === n.id).length;
         const outFl = dataset.aristas.filter((a) => a.origen === n.id).length;
+        const downstream = calcDownstream(n.id);
         const flujos = dataset.aristas.filter((a) => a.destino === n.id || a.origen === n.id);
         const crit = flujos.filter((f) => f.severity === 'critica').length;
         const arts = Array.from(new Set(flujos.map((f) => f.normative_ref).filter(Boolean))).join('; ');
@@ -87,6 +103,7 @@ const dataset = datasetRaw as DatasetInteroperabilidad;
           n.agent_ready ? 'SI' : 'NO',
           inFl,
           outFl,
+          downstream,
           crit,
           `"${arts}"`,
         ].join(',');

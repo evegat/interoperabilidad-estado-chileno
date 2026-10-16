@@ -187,7 +187,7 @@
         </div>
       </div>
 
-      <!-- Action Buttons: Portal & Minuta EvalTI -->
+      <!-- Action Buttons: Portal, Minuta EvalTI & Derecho a Réplica -->
       <div class="space-y-2 pt-1">
         <button
           type="button"
@@ -200,6 +200,20 @@
           </svg>
           <span>Generar Minuta de Brecha (EvalTI)</span>
         </button>
+
+        <a
+          id="node-report-update-link"
+          href="https://github.com/evegat/interoperabilidad-estado-chileno/issues/new"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full inline-flex items-center justify-center space-x-2 px-4 py-2 bg-[#061614] hover:bg-[#12483f] text-[#54b995] hover:text-white rounded-lg font-bold text-[11px] border border-[#1e5a4f] hover:border-[#54b995] transition-colors"
+          title="Derecho a Réplica Institucional: Enviar evidencia oficial (Resolución / Swagger / Convenio) para actualizar este nodo"
+        >
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>Reportar Actualización con Evidencia (PR / Issue)</span>
+        </a>
 
         <a
           id="node-website-link"
@@ -273,8 +287,22 @@
         <p id="edge-gap-text" class="text-[#f4dfd5] leading-relaxed"></p>
       </div>
 
-      <!-- Official Source Verification Link -->
-      <div>
+      <!-- Official Source Verification & Update Report Link -->
+      <div class="space-y-2">
+        <a
+          id="edge-report-update-link"
+          href="https://github.com/evegat/interoperabilidad-estado-chileno/issues/new"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full inline-flex items-center justify-center space-x-2 px-4 py-2 bg-[#061614] hover:bg-[#12483f] text-[#54b995] hover:text-white rounded-lg font-bold text-[11px] border border-[#1e5a4f] hover:border-[#54b995] transition-colors"
+          title="Derecho a Réplica Institucional: Enviar evidencia de migración de flujo (Swagger / Resolución)"
+        >
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>Reportar Actualización de Flujo con Evidencia</span>
+        </a>
+
         <a
           id="edge-source-link"
           href="#"
@@ -381,6 +409,23 @@
       if (elLink) {
         elLink.href = node.sitio_web;
         elLink.title = `Abrir ${node.sitio_web}`;
+      }
+
+      const elNodeReportLink = document.getElementById('node-report-update-link') as HTMLAnchorElement | null;
+      if (elNodeReportLink) {
+        const issueTitle = encodeURIComponent(`[Actualización Institucional] ${node.sigla} - ${node.nombre}`);
+        const issueBody = encodeURIComponent(
+          `## Solicitud de Actualización / Derecho a Réplica Institucional\n\n` +
+          `- **Organismo:** ${node.nombre} (${node.sigla})\n` +
+          `- **ID Nodo:** \`${node.id}\`\n` +
+          `- **Nivel IMI Actual:** Nivel ${node.nivel_madurez_interoperabilidad || 3} (${node.indice_madurez_interoperabilidad || 50}/100 pts)\n\n` +
+          `### 1. Cambio o Migración Técnica Reportada\n` +
+          `(Describa si se habilitó un Nodo de Interoperabilidad DS N° 12/2023, migración a REST/JSON o incorporación al Catálogo SGD)\n\n` +
+          `### 2. Evidencia Oficial Verificable (Obligatorio)\n` +
+          `- **URL Resolución Exenta / Convenio / Ficha Catálogo SGD:** \n` +
+          `- **URL Especificación OpenAPI / Swagger (si aplica):** \n`
+        );
+        elNodeReportLink.href = `https://github.com/evegat/interoperabilidad-estado-chileno/issues/new?title=${issueTitle}&body=${issueBody}`;
       }
 
       // Populate Interoperability Maturity Index (IMI)
@@ -597,6 +642,26 @@
         elLink.href = edge.fuente_oficial_url;
         elLink.title = `Consultar fuente oficial: ${edge.fuente_oficial_url}`;
       }
+
+      const elEdgeReportLink = document.getElementById('edge-report-update-link') as HTMLAnchorElement | null;
+      if (elEdgeReportLink) {
+        const origenLabel = edge.origen_sigla || edge.origen_id.toUpperCase();
+        const destinoLabel = edge.destino_sigla || edge.destino_id.toUpperCase();
+        const issueTitle = encodeURIComponent(`[Actualización de Flujo] ${origenLabel} -> ${destinoLabel} (${edge.id})`);
+        const issueBody = encodeURIComponent(
+          `## Solicitud de Actualización de Flujo con Evidencia\n\n` +
+          `- **Flujo ID:** \`${edge.id}\`\n` +
+          `- **Origen:** ${origenLabel} (${edge.origen_nombre})\n` +
+          `- **Destino:** ${destinoLabel} (${edge.destino_nombre})\n` +
+          `- **Protocolo Actual Registrado:** ${edge.estandar_o_protocolo} (${edge.plataforma_o_bus})\n\n` +
+          `### 1. Nuevo Estándar o Canal Implementado\n` +
+          `(Indique si migró de SFTP/SOAP a REST/JSON sobre Red de Nodos DS N° 12/2023)\n\n` +
+          `### 2. Evidencia Oficial Verificable (Obligatorio)\n` +
+          `- **Resolución Exenta / Convenio en Gestor de Acuerdos SGD:** \n` +
+          `- **Documentación Técnica / Swagger / Catálogo SGD:** \n`
+        );
+        elEdgeReportLink.href = `https://github.com/evegat/interoperabilidad-estado-chileno/issues/new?title=${issueTitle}&body=${issueBody}`;
+      }
     }
 
     // Minuta EvalTI Handler
@@ -620,7 +685,7 @@
         `**Tipología:** ${n.tipo.toUpperCase()} | Dependencia: ${n.dependencia}`,
         `**Marco Jurídico Mandante:** Ley N° 21.180 (Transformación Digital del Estado) y DS N° 12/2023 MinSegpres (Norma Técnica de Interoperabilidad)`,
         `**Fecha de Emisión:** ${new Date().toLocaleDateString('es-CL')}`,
-        `**Fuente de Auditoría:** Laboratorio GovTech evegat.cl (P029 - Mapeo de Interoperabilidad)`,
+        `**Fuente de Auditoría:** Laboratorio GovTech evegat.cl (P029 - Mapeo de Interoperabilidad v2.1)`,
         ``,
         `---`,
         `## 1. Diagnóstico de Madurez Normativa (IMI DS N° 12/2023)`,
@@ -637,6 +702,12 @@
         ``,
         `## 3. Justificación de Inversión Tecnológica (Para Formulario EvalTI)`,
         `El proyecto de inversión TI postulado es de carácter estrictamente habilitante para el cumplimiento de los hitos perentorios de la Ley N° 21.180. Su ejecución reemplaza transferencias por archivos planos y procesos manuales por consumo seguro en tiempo de ejecución (APIs REST mTLS sobre la Red de Interoperabilidad), mitigando el riesgo de observaciones por parte de la Contraloría General de la República (CGR).`,
+        ``,
+        `## 4. Imputación Presupuestaria Sugerida (Ley de Presupuestos / DAF - DIPRES)`,
+        `- **Subtítulo 29 (Adquisición de Activos No Financieros):**`,
+        `  - **Ítem 06 (Equipos Informáticos):** Infraestructura de soporte o appliances de seguridad para despliegue de Nodo de Interoperabilidad institucional.`,
+        `  - **Ítem 07 (Programas Informáticos):** Desarrollo, licenciamiento y refactorización de conectores API REST/JSON (OpenAPI 3.1), homologación semántica para el Gestor de Códigos e integración con el Gestor de Consentimiento (Ley N° 21.719).`,
+        `- **Mecanismo de Contratación Sugerido:** Catálogo de Compras Públicas (ChileCompra) / Convenio Marco de Desarrollo y Mantención de Software e Interoperabilidad o Licitación Pública sujeta a visación técnica EvalTI.`,
         ``,
         `---`,
         `*Generado automáticamente desde https://interoperabilidadpublica.evegat.cl · Auditoría y Consultoría GovTech: Eduardo Vega Toledo (evegat.cl)*`
