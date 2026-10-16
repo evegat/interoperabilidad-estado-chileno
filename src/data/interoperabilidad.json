@@ -148,7 +148,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "identidad_ciudadana"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "sii",
@@ -319,7 +319,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "identidad_ciudadana"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "municipalidades",
@@ -350,7 +350,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "territorio_medioambiente"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "subdere",
@@ -374,7 +374,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "territorio_medioambiente"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "fonasa",
@@ -470,7 +470,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "proteccion_social_vivienda"
+      "eje_tematico": "proteccion_social"
     },
     {
       "id": "ministerios",
@@ -518,7 +518,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "identidad_ciudadana"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "mineduc",
@@ -715,26 +715,31 @@
     {
       "id": "dt",
       "nombre": "Dirección del Trabajo",
-      "sigla": "Dirección del Trabajo",
+      "sigla": "DT",
       "tipo": "servicio_publico",
       "dependencia": "Ministerio del Trabajo y Previsión Social",
-      "rol_ecosistema": "Registro electrónico laboral de contratos, finiquitos, libro de remuneraciones electrónico y fiscalización sindical.",
+      "rol_ecosistema": "Custodio del Registro Electrónico Laboral, contratos, finiquitos electrónicos y fiscalización laboral.",
       "sitio_web": "https://www.dt.gob.cl",
       "nivel_madurez_digital": "alto",
       "estado_adopcion_ley21180": "fase_3_interoperabilidad",
-      "indice_madurez_interoperabilidad": 76,
+      "indice_madurez_interoperabilidad": 78,
       "nivel_madurez_interoperabilidad": 4,
       "documentacion_oficial": [
         {
-          "titulo": "Ley N° 21.327 de Modernización de la Dirección del Trabajo y Registro Electrónico Laboral",
+          "titulo": "Ley N° 21.327 sobre Modernización de la Dirección del Trabajo",
           "tipo": "decreto",
-          "url": "https://www.bcn.cl/leychile/navegar?idNorma=1158865",
+          "url": "https://www.bcn.cl/leychile/navegar?idNorma=1159346",
           "ano": 2021,
-          "resumen": "Establece la obligación de registro digital de contratos de trabajo, finiquitos y libro de remuneraciones electrónico."
+          "resumen": "Crea el Registro Electrónico Laboral obligatorio y mandata la interoperabilidad con organismos previsionales y tributarios."
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "identidad_ciudadana"
+      "eje_tematico": "trabajo_pensiones",
+      "procesos_clave": [
+        "Finiquito Laboral Electrónico",
+        "Libro de Remuneraciones Electrónico (LRE)",
+        "Mediaciones y fiscalización"
+      ]
     },
     {
       "id": "sence",
@@ -758,7 +763,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "proteccion_social_vivienda"
+      "eje_tematico": "trabajo_pensiones"
     },
     {
       "id": "mtt",
@@ -766,23 +771,28 @@
       "sigla": "MTT",
       "tipo": "ministerio",
       "dependencia": "Ministerio de Transportes y Telecomunicaciones",
-      "rol_ecosistema": "Registro de vehículos motorizados, licencias de conducir, transporte público regulado y fiscalización vial.",
+      "rol_ecosistema": "Rector de conectividad terrestre, subsidios al transporte público mayor y regulación del tránsito nacional.",
       "sitio_web": "https://www.mtt.gob.cl",
-      "nivel_madurez_digital": "medio",
-      "estado_adopcion_ley21180": "fase_2_procedimientos",
-      "indice_madurez_interoperabilidad": 58,
-      "nivel_madurez_interoperabilidad": 3,
+      "nivel_madurez_digital": "alto",
+      "estado_adopcion_ley21180": "fase_3_interoperabilidad",
+      "indice_madurez_interoperabilidad": 74,
+      "nivel_madurez_interoperabilidad": 4,
       "documentacion_oficial": [
         {
-          "titulo": "D.S. N° 212/1992 y D.S. N° 97/1984: Reglamento de Licencias de Conductor y Vehículos Motorizados",
+          "titulo": "Ley N° 18.290 de Tránsito",
           "tipo": "decreto",
-          "url": "https://www.mtt.gob.cl",
-          "ano": 2020,
-          "resumen": "Bases de interoperabilidad con Registro Civil y juzgados de policía local."
+          "url": "https://www.bcn.cl/leychile/navegar?idNorma=29708",
+          "ano": 1984,
+          "resumen": "Fija el régimen normativo de permisos de circulación, licencias de conducir y registro de vehículos."
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "territorio_medioambiente"
+      "eje_tematico": "transporte_movilidad",
+      "procesos_clave": [
+        "Permisos de Circulación",
+        "Subsidio al Transporte Público Regional y Metropolitano",
+        "Registro Nacional de Servicios de Transporte de Pasajeros"
+      ]
     },
     {
       "id": "sernac",
@@ -806,7 +816,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "identidad_ciudadana"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "ine",
@@ -830,7 +840,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "identidad_ciudadana"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "sna",
@@ -885,7 +895,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "proteccion_social_vivienda"
+      "eje_tematico": "trabajo_pensiones"
     },
     {
       "id": "interior",
@@ -909,7 +919,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "identidad_ciudadana"
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "hacienda",
@@ -981,7 +991,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "identidad_ciudadana"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "minrel",
@@ -1005,7 +1015,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "identidad_ciudadana"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "defensa",
@@ -1029,7 +1039,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "identidad_ciudadana"
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "mop",
@@ -1053,7 +1063,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "territorio_medioambiente"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "minvu",
@@ -1084,7 +1094,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "proteccion_social_vivienda"
+      "eje_tematico": "vivienda_urbanismo"
     },
     {
       "id": "mintrab",
@@ -1108,7 +1118,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "identidad_ciudadana"
+      "eje_tematico": "trabajo_pensiones"
     },
     {
       "id": "economia",
@@ -1132,7 +1142,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "identidad_ciudadana"
+      "eje_tematico": "finanzas_tributario"
     },
     {
       "id": "energia",
@@ -1156,7 +1166,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "identidad_ciudadana"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "mineria",
@@ -1180,7 +1190,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "identidad_ciudadana"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "bienes_nacionales",
@@ -1204,7 +1214,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "territorio_medioambiente"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "mma",
@@ -1228,7 +1238,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "territorio_medioambiente"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "minjusticia",
@@ -1276,7 +1286,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "identidad_ciudadana"
+      "eje_tematico": "educacion_becas"
     },
     {
       "id": "minmujer",
@@ -1300,7 +1310,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "identidad_ciudadana"
+      "eje_tematico": "proteccion_social"
     },
     {
       "id": "ciencia",
@@ -1324,7 +1334,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "identidad_ciudadana"
+      "eje_tematico": "educacion_becas"
     },
     {
       "id": "minagri",
@@ -1348,7 +1358,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "territorio_medioambiente"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "anid",
@@ -1420,7 +1430,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "territorio_medioambiente"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "serviu",
@@ -1444,7 +1454,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "proteccion_social_vivienda"
+      "eje_tematico": "vivienda_urbanismo"
     },
     {
       "id": "servel",
@@ -1564,7 +1574,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "territorio_medioambiente"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "sma",
@@ -1588,7 +1598,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "territorio_medioambiente"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "conadi",
@@ -1756,7 +1766,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "proteccion_social_vivienda"
+      "eje_tematico": "trabajo_pensiones"
     },
     {
       "id": "cbr",
@@ -1780,7 +1790,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "justicia_seguridad"
+      "eje_tematico": "vivienda_urbanismo"
     },
     {
       "id": "inapi",
@@ -1828,7 +1838,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "territorio_medioambiente"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "dga",
@@ -1852,7 +1862,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "territorio_medioambiente"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "gendarmeria",
@@ -1924,7 +1934,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "identidad_ciudadana"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "gores",
@@ -1948,7 +1958,7 @@
         }
       ],
       "ai_readiness_score": 0,
-      "eje_tematico": "territorio_medioambiente"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "sicex",
@@ -2019,7 +2029,7 @@
           "resumen": "Crea la Agencia de Protección de Datos Personales y establece principios de licitud, consentimiento y evaluaciones de impacto en el Estado."
         }
       ],
-      "eje_tematico": "identidad_ciudadana"
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "anci",
@@ -2192,7 +2202,7 @@
           "resumen": "Fija los formatos estandarizados de carga contable, fondos transferidos y cálculo del Fondo Común Municipal."
         }
       ],
-      "eje_tematico": "territorio_medioambiente"
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "pasarela_tgr",
@@ -2499,7 +2509,7 @@
       "madurez_tecnica": "realtime",
       "severity": "moderada",
       "normative_ref": "Art. 13 DS N° 12/2023 (Adecuación a modelo de acuerdos formales)",
-      "eje_tematico": "identidad_ciudadana",
+      "eje_tematico": "finanzas_tributario",
       "proceso_ciudadano": "Autenticación digital unificada y verificación de identidad ciudadana",
       "proceso_bloqueado_en_silo": "El ciudadano debe acudir a hacer filas a oficinas del Registro Civil"
     },
@@ -2604,7 +2614,7 @@
       "madurez_tecnica": "realtime",
       "severity": "optima",
       "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
-      "eje_tematico": "justicia_seguridad",
+      "eje_tematico": "finanzas_tributario",
       "proceso_ciudadano": "Retención judicial de devolución de impuestos por pensión alimenticia adeudada",
       "proceso_bloqueado_en_silo": "El deudor recibe la devolución completa y los hijos quedan desprotegidos"
     },
@@ -2645,7 +2655,8 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "subdere-municipalidades-sim-sinim",
@@ -2663,7 +2674,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "critica",
-      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)",
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "municipalidades-tgr-fondo-comun",
@@ -2723,7 +2735,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "salud_seguridad_social"
     },
     {
       "id": "mdsf-sii-cruce-ingresos-rsh",
@@ -2742,7 +2755,7 @@
       "madurez_tecnica": "batch",
       "severity": "critica",
       "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)",
-      "eje_tematico": "proteccion_social_vivienda",
+      "eje_tematico": "proteccion_social",
       "proceso_ciudadano": "Postulación y asignación de Subsidio Habitacional DS49 y Subsidio al Empleo",
       "proceso_bloqueado_en_silo": "La familia queda fuera de postulación al subsidio por discrepancia de datos"
     },
@@ -2763,7 +2776,7 @@
       "madurez_tecnica": "realtime",
       "severity": "moderada",
       "normative_ref": "Art. 13 DS N° 12/2023 (Adecuación a modelo de acuerdos formales)",
-      "eje_tematico": "proteccion_social_vivienda",
+      "eje_tematico": "proteccion_social",
       "proceso_ciudadano": "Postulación y asignación de Subsidio Habitacional DS49 y Subsidio al Empleo",
       "proceso_bloqueado_en_silo": "La familia queda fuera de postulación al subsidio por discrepancia de datos"
     },
@@ -2783,7 +2796,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "finanzas_tributario"
     },
     {
       "id": "sgd-ministerios-docdigital",
@@ -2801,7 +2815,8 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "moderada",
-      "normative_ref": "Art. 11 DS N° 12/2023 (Omisión de especificación en Catálogo de Servicios)"
+      "normative_ref": "Art. 11 DS N° 12/2023 (Omisión de especificación en Catálogo de Servicios)",
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "chilecompra-publico-api-datos",
@@ -2839,7 +2854,8 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "educacion_becas"
     },
     {
       "id": "pisee-sence-escolaridad",
@@ -2856,7 +2872,10 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "trabajo_pensiones",
+      "proceso_ciudadano": "Fiscalización laboral, contratos y finiquitos electrónicos de trabajadores",
+      "proceso_bloqueado_en_silo": "El trabajador no puede cobrar su finiquito o seguro de cesantía si la DT no cruza cotizaciones"
     },
     {
       "id": "pjud-pisee-pensiones",
@@ -2873,7 +2892,8 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "dt-pisee-contratos",
@@ -2890,7 +2910,10 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "trabajo_pensiones",
+      "proceso_ciudadano": "Fiscalización laboral, contratos y finiquitos electrónicos de trabajadores",
+      "proceso_bloqueado_en_silo": "El trabajador no puede cobrar su finiquito o seguro de cesantía si la DT no cruza cotizaciones"
     },
     {
       "id": "pisee-ips-subsidios",
@@ -2908,9 +2931,9 @@
       "madurez_tecnica": "realtime",
       "severity": "moderada",
       "normative_ref": "Art. 11 DS N° 12/2023 (Omisión de especificación en Catálogo de Servicios)",
-      "eje_tematico": "proteccion_social_vivienda",
-      "proceso_ciudadano": "Postulación y asignación de Subsidio Habitacional DS49 y Subsidio al Empleo",
-      "proceso_bloqueado_en_silo": "La familia queda fuera de postulación al subsidio por discrepancia de datos"
+      "eje_tematico": "trabajo_pensiones",
+      "proceso_ciudadano": "Fiscalización laboral, contratos y finiquitos electrónicos de trabajadores",
+      "proceso_bloqueado_en_silo": "El trabajador no puede cobrar su finiquito o seguro de cesantía si la DT no cruza cotizaciones"
     },
     {
       "id": "srcei-pdi-pasaportes",
@@ -2928,7 +2951,7 @@
       "madurez_tecnica": "realtime",
       "severity": "moderada",
       "normative_ref": "Art. 11 DS N° 12/2023 (Omisión de especificación en Catálogo de Servicios)",
-      "eje_tematico": "identidad_ciudadana",
+      "eje_tematico": "justicia_seguridad",
       "proceso_ciudadano": "Autenticación digital unificada y verificación de identidad ciudadana",
       "proceso_bloqueado_en_silo": "El ciudadano debe acudir a hacer filas a oficinas del Registro Civil"
     },
@@ -2947,7 +2970,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "critica",
-      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)",
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "minsal-fonasa-ges",
@@ -2964,7 +2988,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "salud_seguridad_social"
     },
     {
       "id": "cenabast-minsal-farmacos",
@@ -2981,7 +3006,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "critica",
-      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)",
+      "eje_tematico": "salud_seguridad_social"
     },
     {
       "id": "sna-sii-aduanas",
@@ -3038,7 +3064,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "critica",
-      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)",
+      "eje_tematico": "transporte_movilidad",
+      "proceso_ciudadano": "Renovación del Permiso de Circulación, multas de tránsito y registro de vehículos",
+      "proceso_bloqueado_en_silo": "El conductor queda impedido de pagar su permiso de circulación si multas ya pagadas no se eliminan del registro"
     },
     {
       "id": "carabineros-mtt-encargos",
@@ -3055,7 +3084,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "transporte_movilidad",
+      "proceso_ciudadano": "Renovación del Permiso de Circulación, multas de tránsito y registro de vehículos",
+      "proceso_bloqueado_en_silo": "El conductor queda impedido de pagar su permiso de circulación si multas ya pagadas no se eliminan del registro"
     },
     {
       "id": "municipalidades-mdsf-informes",
@@ -3072,7 +3104,8 @@
       "canal": "Manual",
       "madurez_tecnica": "manual",
       "severity": "critica",
-      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)"
+      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)",
+      "eje_tematico": "proteccion_social"
     },
     {
       "id": "sernac-cmf-reclamos",
@@ -3089,7 +3122,8 @@
       "canal": "Manual",
       "madurez_tecnica": "manual",
       "severity": "critica",
-      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)"
+      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)",
+      "eje_tematico": "finanzas_tributario"
     },
     {
       "id": "ine-subdere-proyecciones",
@@ -3106,7 +3140,8 @@
       "canal": "Manual",
       "madurez_tecnica": "manual",
       "severity": "critica",
-      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)"
+      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)",
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "ips-municipalidades-pensiones",
@@ -3123,7 +3158,10 @@
       "canal": "Manual",
       "madurez_tecnica": "manual",
       "severity": "critica",
-      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)"
+      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)",
+      "eje_tematico": "trabajo_pensiones",
+      "proceso_ciudadano": "Concesión y pago mensual de la Pensión Garantizada Universal (PGU) y jubilaciones",
+      "proceso_bloqueado_en_silo": "El adulto mayor debe acudir con liquidaciones en papel a ChileAtiende para destrabar su pensión"
     },
     {
       "id": "sna-sii-declaraciones-aduaneras",
@@ -3200,7 +3238,8 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "moderada",
-      "normative_ref": "Art. 15 DS N° 12/2023 (Incumplimiento de Estándar Semántico en Gestor de Códigos)"
+      "normative_ref": "Art. 15 DS N° 12/2023 (Incumplimiento de Estándar Semántico en Gestor de Códigos)",
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "sag-sicex-certificados-fitosanitarios",
@@ -3217,7 +3256,8 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "sernapesca-sicex-desembarque-pesquero",
@@ -3234,7 +3274,8 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "moderada",
-      "normative_ref": "Art. 15 DS N° 12/2023 (Incumplimiento de Estándar Semántico en Gestor de Códigos)"
+      "normative_ref": "Art. 15 DS N° 12/2023 (Incumplimiento de Estándar Semántico en Gestor de Códigos)",
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "isp-sicex-visacion-farmaceutica",
@@ -3251,7 +3292,8 @@
       "canal": "PISEE",
       "madurez_tecnica": "batch",
       "severity": "moderada",
-      "normative_ref": "Art. 13 DS N° 12/2023 (Adecuación a modelo de acuerdos formales)"
+      "normative_ref": "Art. 13 DS N° 12/2023 (Adecuación a modelo de acuerdos formales)",
+      "eje_tematico": "salud_seguridad_social"
     },
     {
       "id": "cochilco-sicex-exportacion-cobre",
@@ -3268,7 +3310,8 @@
       "canal": "PISEE",
       "madurez_tecnica": "batch",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "sicex-tgr-pago-electronico-tarifas",
@@ -3305,7 +3348,10 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "vivienda_urbanismo",
+      "proceso_ciudadano": "Permisos de edificación y recepción final en Direcciones de Obras Municipales (DOM en Línea)",
+      "proceso_bloqueado_en_silo": "Paralización de obras de vivienda social por oficios físicos entre municipios y SERVIU"
     },
     {
       "id": "municipalidades-sii-recepciones-obras",
@@ -3363,9 +3409,9 @@
       "madurez_tecnica": "realtime",
       "severity": "optima",
       "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
-      "eje_tematico": "finanzas_tributario",
-      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
-      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
+      "eje_tematico": "vivienda_urbanismo",
+      "proceso_ciudadano": "Escrituración, transferencias de dominio de propiedades y avalúo fiscal",
+      "proceso_bloqueado_en_silo": "El comprador debe pagar y esperar semanas por copias de dominio vigentes en el Conservador de Bienes Raíces"
     },
     {
       "id": "cbr-sii-transferencias-inmuebles",
@@ -3383,9 +3429,9 @@
       "madurez_tecnica": "batch",
       "severity": "critica",
       "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)",
-      "eje_tematico": "finanzas_tributario",
-      "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
-      "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
+      "eje_tematico": "vivienda_urbanismo",
+      "proceso_ciudadano": "Escrituración, transferencias de dominio de propiedades y avalúo fiscal",
+      "proceso_bloqueado_en_silo": "El comprador debe pagar y esperar semanas por copias de dominio vigentes en el Conservador de Bienes Raíces"
     },
     {
       "id": "minjusticia-cbr-archivo-judicial",
@@ -3402,7 +3448,10 @@
       "canal": "Manual",
       "madurez_tecnica": "manual",
       "severity": "critica",
-      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)"
+      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)",
+      "eje_tematico": "vivienda_urbanismo",
+      "proceso_ciudadano": "Escrituración, transferencias de dominio de propiedades y avalúo fiscal",
+      "proceso_bloqueado_en_silo": "El comprador debe pagar y esperar semanas por copias de dominio vigentes en el Conservador de Bienes Raíces"
     },
     {
       "id": "minvu-mdsf-rsh-postulaciones",
@@ -3420,7 +3469,7 @@
       "madurez_tecnica": "realtime",
       "severity": "optima",
       "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
-      "eje_tematico": "proteccion_social_vivienda",
+      "eje_tematico": "vivienda_urbanismo",
       "proceso_ciudadano": "Postulación y asignación de Subsidio Habitacional DS49 y Subsidio al Empleo",
       "proceso_bloqueado_en_silo": "La familia queda fuera de postulación al subsidio por discrepancia de datos"
     },
@@ -3440,9 +3489,9 @@
       "madurez_tecnica": "batch",
       "severity": "optima",
       "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
-      "eje_tematico": "proteccion_social_vivienda",
-      "proceso_ciudadano": "Postulación y asignación de Subsidio Habitacional DS49 y Subsidio al Empleo",
-      "proceso_bloqueado_en_silo": "La familia queda fuera de postulación al subsidio por discrepancia de datos"
+      "eje_tematico": "vivienda_urbanismo",
+      "proceso_ciudadano": "Postulación, selección y pago de subsidios habitacionales para familias (DS49 / DS1)",
+      "proceso_bloqueado_en_silo": "Las familias quedan frenadas para recibir su subsidio por retrasos en la verificación de propiedad"
     },
     {
       "id": "minvu-sii-propiedades-habitacionales",
@@ -3460,7 +3509,7 @@
       "madurez_tecnica": "realtime",
       "severity": "optima",
       "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
-      "eje_tematico": "finanzas_tributario",
+      "eje_tematico": "vivienda_urbanismo",
       "proceso_ciudadano": "Declaración de Renta e inicio de actividades para pymes",
       "proceso_bloqueado_en_silo": "Las pymes quedan bloqueadas para facturar y vender al Estado"
     },
@@ -3499,7 +3548,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "finanzas_tributario"
     },
     {
       "id": "mop-dga-derechos-aprovechamiento",
@@ -3517,7 +3567,7 @@
       "madurez_tecnica": "batch",
       "severity": "optima",
       "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
-      "eje_tematico": "territorio_medioambiente",
+      "eje_tematico": "transporte_movilidad",
       "proceso_ciudadano": "Fiscalización ambiental comunitaria y derechos de aprovechamiento de agua",
       "proceso_bloqueado_en_silo": "Comunidades locales no pueden denunciar contaminación en tiempo real"
     },
@@ -3537,7 +3587,7 @@
       "madurez_tecnica": "realtime",
       "severity": "optima",
       "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
-      "eje_tematico": "territorio_medioambiente",
+      "eje_tematico": "transporte_movilidad",
       "proceso_ciudadano": "Fiscalización ambiental comunitaria y derechos de aprovechamiento de agua",
       "proceso_bloqueado_en_silo": "Comunidades locales no pueden denunciar contaminación en tiempo real"
     },
@@ -3596,7 +3646,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "carabineros-fiscalia-partes-denuncias",
@@ -3613,7 +3664,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "pjud-gendarmeria-ordenes-libertad",
@@ -3630,7 +3682,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "dpp-pjud-asignacion-defensas",
@@ -3647,7 +3700,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "fiscalia-srcei-prontuario-penal",
@@ -3665,7 +3719,7 @@
       "madurez_tecnica": "realtime",
       "severity": "optima",
       "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
-      "eje_tematico": "identidad_ciudadana",
+      "eje_tematico": "justicia_seguridad",
       "proceso_ciudadano": "Autenticación digital unificada y verificación de identidad ciudadana",
       "proceso_bloqueado_en_silo": "El ciudadano debe acudir a hacer filas a oficinas del Registro Civil"
     },
@@ -3684,7 +3738,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "sma-sec-fiscalizacion-emisores",
@@ -3702,7 +3757,7 @@
       "madurez_tecnica": "realtime",
       "severity": "optima",
       "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
-      "eje_tematico": "territorio_medioambiente",
+      "eje_tematico": "transporte_movilidad",
       "proceso_ciudadano": "Fiscalización ambiental comunitaria y derechos de aprovechamiento de agua",
       "proceso_bloqueado_en_silo": "Comunidades locales no pueden denunciar contaminación en tiempo real"
     },
@@ -3722,7 +3777,7 @@
       "madurez_tecnica": "realtime",
       "severity": "optima",
       "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
-      "eje_tematico": "territorio_medioambiente",
+      "eje_tematico": "transporte_movilidad",
       "proceso_ciudadano": "Fiscalización ambiental comunitaria y derechos de aprovechamiento de agua",
       "proceso_bloqueado_en_silo": "Comunidades locales no pueden denunciar contaminación en tiempo real"
     },
@@ -3741,7 +3796,10 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "trabajo_pensiones",
+      "proceso_ciudadano": "Concesión y pago mensual de la Pensión Garantizada Universal (PGU) y jubilaciones",
+      "proceso_bloqueado_en_silo": "El adulto mayor debe acudir con liquidaciones en papel a ChileAtiende para destrabar su pensión"
     },
     {
       "id": "sence-dt-capacitacion-laboral",
@@ -3758,7 +3816,10 @@
       "canal": "PISEE",
       "madurez_tecnica": "batch",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "trabajo_pensiones",
+      "proceso_ciudadano": "Fiscalización laboral, contratos y finiquitos electrónicos de trabajadores",
+      "proceso_bloqueado_en_silo": "El trabajador no puede cobrar su finiquito o seguro de cesantía si la DT no cruza cotizaciones"
     },
     {
       "id": "mintrab-suseso-accidentes-trabajo",
@@ -3776,9 +3837,9 @@
       "madurez_tecnica": "realtime",
       "severity": "optima",
       "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
-      "eje_tematico": "salud_seguridad_social",
-      "proceso_ciudadano": "Pago oportuno de subsidio por incapacidad laboral (Licencia Médica)",
-      "proceso_bloqueado_en_silo": "El trabajador queda meses sin sueldo si COMPIN y FONASA no sincronizan el peritaje"
+      "eje_tematico": "trabajo_pensiones",
+      "proceso_ciudadano": "Fiscalización laboral, contratos y finiquitos electrónicos de trabajadores",
+      "proceso_bloqueado_en_silo": "El trabajador no puede cobrar su finiquito o seguro de cesantía si la DT no cruza cotizaciones"
     },
     {
       "id": "corfo-sii-garantias-fogape",
@@ -3815,7 +3876,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "finanzas_tributario"
     },
     {
       "id": "inapi-economia-patentes-marcas",
@@ -3832,7 +3894,8 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "gores-subdere-inversion-fndr",
@@ -3849,7 +3912,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "critica",
-      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)",
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "gores-dipres-ejecucion-regional",
@@ -3866,7 +3930,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "finanzas_tributario"
     },
     {
       "id": "municipalidades-gores-postulacion-fril",
@@ -3883,7 +3948,8 @@
       "canal": "Manual",
       "madurez_tecnica": "manual",
       "severity": "critica",
-      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)"
+      "normative_ref": "Art. 4 DS N° 12/2023 (Ausencia de Nodo de Interoperabilidad digital)",
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "cplt-cgr-declaraciones-patrimonio",
@@ -3900,7 +3966,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "conadi-mdsf-calidad-indigena",
@@ -3917,7 +3984,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "critica",
-      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)"
+      "normative_ref": "Art. 4 y 6 DS N° 12/2023 (Intercambio batch por lotes fuera de la Red de Nodos)",
+      "eje_tematico": "proteccion_social"
     },
     {
       "id": "senapred-interior-alertas-tempranas",
@@ -3934,7 +4002,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "dgac-defensa-trazabilidad-aerea",
@@ -3952,7 +4021,7 @@
       "madurez_tecnica": "realtime",
       "severity": "optima",
       "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
-      "eje_tematico": "territorio_medioambiente",
+      "eje_tematico": "transporte_movilidad",
       "proceso_ciudadano": "Fiscalización ambiental comunitaria y derechos de aprovechamiento de agua",
       "proceso_bloqueado_en_silo": "Comunidades locales no pueden denunciar contaminación en tiempo real"
     },
@@ -3971,7 +4040,8 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "segegob-sociedad-civil-consultas",
@@ -3988,7 +4058,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "minmujer-mdsf-cuidados",
@@ -4005,7 +4076,8 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "proteccion_social"
     },
     {
       "id": "culturas-hacienda-donaciones-culturales",
@@ -4022,7 +4094,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "finanzas_tributario"
     },
     {
       "id": "ciencia-anid-becas-investigacion",
@@ -4039,7 +4112,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "minagri-sag-sanidad-agropecuaria",
@@ -4056,7 +4130,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "conaf-mma-areas-protegidas",
@@ -4074,7 +4149,7 @@
       "madurez_tecnica": "batch",
       "severity": "optima",
       "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
-      "eje_tematico": "territorio_medioambiente",
+      "eje_tematico": "transporte_movilidad",
       "proceso_ciudadano": "Fiscalización ambiental comunitaria y derechos de aprovechamiento de agua",
       "proceso_bloqueado_en_silo": "Comunidades locales no pueden denunciar contaminación en tiempo real"
     },
@@ -4093,7 +4168,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "cochilco-mineria-politica-cobre",
@@ -4110,7 +4186,8 @@
       "canal": "Convenio",
       "madurez_tecnica": "batch",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "deportes-mineduc-juegos-escolares",
@@ -4127,7 +4204,8 @@
       "canal": "PISEE",
       "madurez_tecnica": "realtime",
       "severity": "optima",
-      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+      "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)",
+      "eje_tematico": "educacion_becas"
     },
     {
       "id": "docdigital-cgr-toma-razon",
@@ -4151,7 +4229,8 @@
         "identificatorios"
       ],
       "base_licitud": "obligacion_legal",
-      "requiere_eipd": false
+      "requiere_eipd": false,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "sgd-docdigital-orquestacion",
@@ -4172,7 +4251,8 @@
       "madurez_tecnica": "realtime",
       "involucra_datos_personales": false,
       "base_licitud": "mision_interes_publico",
-      "requiere_eipd": false
+      "requiere_eipd": false,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "docdigital-ministerios-oficios",
@@ -4196,7 +4276,8 @@
         "identificatorios"
       ],
       "base_licitud": "obligacion_legal",
-      "requiere_eipd": false
+      "requiere_eipd": false,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "sgd-notificaciones-domicilio-digital",
@@ -4220,7 +4301,8 @@
         "identificatorios"
       ],
       "base_licitud": "obligacion_legal",
-      "requiere_eipd": true
+      "requiere_eipd": true,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "notificaciones-sociedad-civil-alertas",
@@ -4244,7 +4326,8 @@
         "identificatorios"
       ],
       "base_licitud": "obligacion_legal",
-      "requiere_eipd": false
+      "requiere_eipd": false,
+      "eje_tematico": "identidad_ciudadana"
     },
     {
       "id": "anci-minsegpres-telemetria",
@@ -4265,7 +4348,8 @@
       "madurez_tecnica": "realtime",
       "involucra_datos_personales": false,
       "base_licitud": "obligacion_legal",
-      "requiere_eipd": false
+      "requiere_eipd": false,
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "anci-senapred-infraestructura",
@@ -4286,7 +4370,8 @@
       "madurez_tecnica": "realtime",
       "involucra_datos_personales": false,
       "base_licitud": "obligacion_legal",
-      "requiere_eipd": false
+      "requiere_eipd": false,
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "apdp-cplt-transferencia",
@@ -4311,7 +4396,8 @@
         "judiciales"
       ],
       "base_licitud": "obligacion_legal",
-      "requiere_eipd": false
+      "requiere_eipd": false,
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "sgd-apdp-auditoria-pisee",
@@ -4335,7 +4421,8 @@
         "identificatorios"
       ],
       "base_licitud": "obligacion_legal",
-      "requiere_eipd": true
+      "requiere_eipd": true,
+      "eje_tematico": "justicia_seguridad"
     },
     {
       "id": "compin-suseso-dictamenes",
@@ -4414,7 +4501,8 @@
       "madurez_tecnica": "batch",
       "involucra_datos_personales": false,
       "base_licitud": "mision_interes_publico",
-      "requiere_eipd": false
+      "requiere_eipd": false,
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "sinim-subdere-consolidacion",
@@ -4435,7 +4523,8 @@
       "madurez_tecnica": "realtime",
       "involucra_datos_personales": false,
       "base_licitud": "mision_interes_publico",
-      "requiere_eipd": false
+      "requiere_eipd": false,
+      "eje_tematico": "transporte_movilidad"
     },
     {
       "id": "municipalidades-pasarela-tgr-pagos",
@@ -4522,7 +4611,7 @@
       "destino": "subesup",
       "plataforma_o_bus": "Web Services RSH / Convenio MDSF",
       "tipo_dato": "Calificación Socioeconómica (RSH) del Grupo Familiar Postulante",
-      "eje_tematico": "proteccion_social_vivienda",
+      "eje_tematico": "educacion_becas",
       "proceso_ciudadano": "Determinación del 60% de menores ingresos para acceso a Gratuidad Universitaria",
       "proceso_bloqueado_en_silo": "Si la cartola RSH no coincide, el alumno queda sin gratuidad y debe acreditar ingresos con boletas en papel ante la asistente social universitaria",
       "estandar_o_protocolo": "SFTP / Batch plano o CSV",
@@ -4594,7 +4683,7 @@
       "destino": "tgr",
       "plataforma_o_bus": "Convenio Interinstitucional Ingresa-TGR",
       "tipo_dato": "Nómina de Deudores Morosos del Crédito CAE con Mandato de Retención Tributaria",
-      "eje_tematico": "finanzas_tributario",
+      "eje_tematico": "educacion_becas",
       "proceso_ciudadano": "Retención de la devolución anual de impuestos a la renta para amortización de deuda del CAE",
       "proceso_bloqueado_en_silo": "El deudor paga el crédito pero Tesorería le retiene la devolución por falta de actualización en línea entre bancos e Ingresa",
       "estandar_o_protocolo": "SFTP / Batch plano o CSV",
@@ -4618,7 +4707,7 @@
       "destino": "junji",
       "plataforma_o_bus": "Convenio de Interoperabilidad Civil-Parvularia",
       "tipo_dato": "Validación de Certificados de Nacimiento y Filiación Materna/Paterna",
-      "eje_tematico": "identidad_ciudadana",
+      "eje_tematico": "educacion_becas",
       "proceso_ciudadano": "Postulación y matrícula de lactantes y párvulos en Salas Cuna Públicas",
       "proceso_bloqueado_en_silo": "La madre debe acudir presencialmente con el certificado de nacimiento impreso para inscribir a su hijo en la sala cuna",
       "estandar_o_protocolo": "REST / JSON",
@@ -4651,6 +4740,49 @@
       "severity": "optima",
       "normative_ref": "Art. 4 DS N° 12/2023",
       "frecuencia_actualizacion": "Tiempo real / sincrónico",
+      "canal": "Convenio",
+      "madurez_tecnica": "realtime"
+    },
+    {
+      "id": "dt-ips-finiquitos-prevision",
+      "origen": "dt",
+      "destino": "ips",
+      "plataforma_o_bus": "Web Services DT-IPS / PISEE",
+      "tipo_dato": "Registro Electrónico Laboral (Finiquitos y Término de Relación Laboral)",
+      "eje_tematico": "trabajo_pensiones",
+      "proceso_ciudadano": "Cobro ágil del Seguro de Cesantía y tramitación de pensiones sin finiquito físico",
+      "proceso_bloqueado_en_silo": "El trabajador cesante debe ir presencialmente a una notaría y luego a la AFC con papeles impresos",
+      "estandar_o_protocolo": "REST / JSON",
+      "nivel_apertura": "Restringido interinstitucional",
+      "fuente_oficial_url": "https://www.dt.gob.cl/portal/1628/w3-propertyvalue-23985.html",
+      "brecha_observada": "Consumo aún parcial en faenas y empleadores rezagados que no declaran contratos en línea.",
+      "severity": "moderada",
+      "normative_ref": "Art. 8 DS N° 12/2023",
+      "frecuencia_actualizacion": "Tiempo real / sincrónico",
+      "canal": "Convenio",
+      "madurez_tecnica": "realtime",
+      "involucra_datos_personales": true,
+      "categoria_datos_personales": [
+        "identificatorios",
+        "economicos_tributarios"
+      ]
+    },
+    {
+      "id": "mtt-municipalidades-permisos-transito",
+      "origen": "mtt",
+      "destino": "municipalidades",
+      "plataforma_o_bus": "Plataforma Nacional de Tránsito MTT",
+      "tipo_dato": "Registro de Revisiones Técnicas Aprobadas, Homologaciones y Estado de Transporte",
+      "eje_tematico": "transporte_movilidad",
+      "proceso_ciudadano": "Pago expedito del Permiso de Circulación en línea sin llevar el cartón de la revisión técnica",
+      "proceso_bloqueado_en_silo": "El contribuyente debe imprimir el certificado de revisión técnica y llevarlo a la caseta municipal",
+      "estandar_o_protocolo": "REST / JSON",
+      "nivel_apertura": "Público",
+      "fuente_oficial_url": "https://www.mtt.gob.cl/prt-en-linea",
+      "brecha_observada": "Algunas plantas de revisión técnica en regiones operan con sincronización diferida diaria (batch).",
+      "severity": "moderada",
+      "normative_ref": "Art. 4 DS N° 12/2023",
+      "frecuencia_actualizacion": "Near-real-time",
       "canal": "Convenio",
       "madurez_tecnica": "realtime"
     }

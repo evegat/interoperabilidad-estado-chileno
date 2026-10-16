@@ -123,10 +123,12 @@ export type EjeTematico =
   | 'identidad_ciudadana'
   | 'educacion_becas'
   | 'salud_seguridad_social'
-  | 'proteccion_social_vivienda'
+  | 'vivienda_urbanismo'
+  | 'trabajo_pensiones'
+  | 'proteccion_social'
   | 'finanzas_tributario'
   | 'justicia_seguridad'
-  | 'territorio_medioambiente';
+  | 'transporte_movilidad';
 
 export interface NodoInstitucion {
   /** Slug unívoco identificador del nodo (ej. 'srcei', 'pisee', 'sii') */
