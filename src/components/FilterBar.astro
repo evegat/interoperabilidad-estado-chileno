@@ -136,20 +136,20 @@ const protocolos = Object.entries(PROTOCOLO_CONFIG) as [EstandarProtocolo, (type
         </select>
       </div>
 
-      <!-- IMI Level Filter -->
+      <!-- Conexión Digital Filter -->
       <div class="flex items-center space-x-1.5">
-        <label for="filter-imi" class="font-bold text-[#94a3b8] text-[11px] uppercase tracking-wider">Nivel IMI:</label>
+        <label for="filter-imi" class="font-bold text-[#94a3b8] text-[11px] uppercase tracking-wider">Conexión Digital:</label>
         <select
           id="filter-imi"
           data-filter="imi"
           class="bg-[#041a37] border border-[#1e3a5f] rounded-md px-2 py-1 text-xs text-[#f7f5ef] focus:outline-none focus:ring-1 focus:ring-[#54b995]"
         >
           <option value="all">Todos los niveles (1-5)</option>
-          <option value="5">Nivel 5: Once-Only & Gobernanza (81-100 pts)</option>
-          <option value="4">Nivel 4: Integrado DS N° 12 (61-80 pts)</option>
-          <option value="3">Nivel 3: Conectado Legacy (41-60 pts)</option>
-          <option value="2">Nivel 2: Bilateral Ad-Hoc (21-40 pts)</option>
-          <option value="1">Nivel 1: Silo Documental (0-20 pts)</option>
+          <option value="5">Nivel 5: 100% Digital / Cero Papel (81–100%)</option>
+          <option value="4">Nivel 4: Conectado por API (61–80%)</option>
+          <option value="3">Nivel 3: Conexión Básica (41–60%)</option>
+          <option value="2">Nivel 2: Trámite Manual / SFTP (21–40%)</option>
+          <option value="1">Nivel 1: Silo / Papel (0–20%)</option>
         </select>
       </div>
 

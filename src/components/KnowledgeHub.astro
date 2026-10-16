@@ -1,5 +1,5 @@
 ---
-// Componente de Curaduría Técnica e Interoperabilidad v3.0 (P029)
+// Componente de Curaduría Técnica · Observatorio de Interoperabilidad del Estado
 // Autor: Eduardo Vega Toledo (evegat.cl)
 // Cubre: Ley N° 21.180, DS N° 12/2023, Decreto 876/2025 Hacienda, Ley N° 21.719 (Datos Personales),
 // Ley N° 21.663 (Ciberseguridad) y Arquitectura de Nodos PISEE 2.0.
@@ -19,7 +19,7 @@
       <div class="space-y-1.5 pr-4">
         <div class="flex items-center gap-2 flex-wrap">
           <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#f7f5ef] bg-[#0b4aa2] px-2.5 py-0.5 rounded border border-[#1d4d91]">
-            Curaduría Técnica v3.0 · P029
+            Curaduría Técnica · Observatorio Estatal
           </span>
           <span class="text-[10px] font-mono text-[#54b995] bg-[#031329] px-2 py-0.5 rounded border border-[#1e3a5f]">
             DS N° 12/2023 · Nodos PISEE 2.0
@@ -101,6 +101,16 @@
         class="kh-tab-btn py-3 px-2 border-b-2 border-transparent text-[#94a3b8] hover:text-[#f7f5ef] flex items-center gap-1.5 transition-colors whitespace-nowrap"
       >
         <span>📚 5. Biblioteca & Fuentes</span>
+      </button>
+      <button
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="kh-panel-metodologia"
+        data-kh-tab="metodologia"
+        class="kh-tab-btn py-3 px-2 border-b-2 border-transparent text-[#94a3b8] hover:text-[#f7f5ef] flex items-center gap-1.5 transition-colors whitespace-nowrap"
+      >
+        <span>📐 6. Metodología de Medición (0–100%)</span>
       </button>
     </div>
 
@@ -560,6 +570,236 @@
           >
             Conocer más en evegat.cl ↗
           </a>
+        </div>
+      </div>
+
+      <!-- MÓDULO 6: METODOLOGÍA DE MEDICIÓN Y REPRODUCIBILIDAD (0-100%) -->
+      <div id="kh-panel-metodologia" role="tabpanel" aria-labelledby="kh-tab-metodologia" class="kh-panel hidden space-y-5">
+        <div class="p-4 rounded-xl bg-[#041a37] border border-[#1d4d91] space-y-2">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="text-[10px] font-mono text-[#54b995] font-bold uppercase tracking-wider bg-[#54b995]/15 px-2 py-0.5 rounded border border-[#54b995]/30">
+              Rigor Metodológico y Auditoría Abierta
+            </span>
+            <span class="text-[10px] font-mono text-[#cbd5e1] bg-[#031329] px-2 py-0.5 rounded border border-[#1e3a5f]">
+              Ley N° 21.180 · DS N° 12/2023 · Ley N° 21.719 · Ley N° 21.663
+            </span>
+          </div>
+          <h3 class="text-base font-black text-white">
+            Metodología de Medición del Nivel de Conexión Digital (0 a 100%)
+          </h3>
+          <p class="text-[#cbd5e1] leading-relaxed">
+            El <strong>Nivel de Conexión Digital</strong> evalúa la preparación técnico-jurídica de cada órgano del Estado para interoperar sin fricciones, sin intermediación del ciudadano y bajo estándares criptográficos modernos. Para erradicar calificaciones arbitrarias, la nota se calcula en base a <strong>5 dimensiones auditables de 20 puntos cada una</strong>, ponderadas sobre evidencias normativas y contratos técnicos verificables.
+          </p>
+        </div>
+
+        <!-- Fórmula y Ecuación -->
+        <div class="p-3.5 rounded-xl bg-[#031329] border border-[#1e3a5f] flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
+          <div class="space-y-1">
+            <span class="text-[10px] uppercase font-bold text-[#94a3b8] tracking-wider">Fórmula de Medición Aditiva</span>
+            <div class="font-mono font-bold text-white text-sm">
+              Conexión Digital (0–100%) = D₁ (Canal) + D₂ (Protocolo) + D₃ (Gobernanza) + D₄ (Once-Only) + D₅ (Seguridad)
+            </div>
+          </div>
+          <div class="px-3 py-1.5 rounded-lg bg-[#06234a] border border-[#54b995]/40 text-[#54b995] font-bold text-xs whitespace-nowrap text-center">
+            Escala: 5 Factores × 20 pts = 100%
+          </div>
+        </div>
+
+        <!-- 5 Dimensiones Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Dimensión 1 -->
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#0b4aa2] text-[#54b995] border border-[#1d4d91]">
+                Dimensión 1 · Máx. 20 pts
+              </span>
+              <span class="text-[10px] font-mono text-[#94a3b8]">DS N° 12/2023 Art. 4</span>
+            </div>
+            <h4 class="font-black text-white text-sm">Canal Oficial y Red de Nodos de Interoperabilidad</h4>
+            <p class="text-[#94a3b8] text-[11px] leading-relaxed">
+              Mide la pertenencia activa a la arquitectura federada del Estado (PISEE 2.0). El Art. 4 prohíbe enlaces bilaterales directos opacos y exige la operación mediante nodos formales.
+            </p>
+            <ul class="space-y-1 text-[11px] pt-1 border-t border-[#1e3a5f]/60">
+              <li class="flex items-center justify-between text-[#cbd5e1]">
+                <span>• Nodo propio federado con mTLS:</span>
+                <span class="font-mono font-bold text-[#54b995]">20 pts</span>
+              </li>
+              <li class="flex items-center justify-between text-[#cbd5e1]">
+                <span>• Nodo delegado u operado por SGD/sectorial:</span>
+                <span class="font-mono font-bold text-[#38bdf8]">16 pts</span>
+              </li>
+              <li class="flex items-center justify-between text-[#cbd5e1]">
+                <span>• Integración centralizada básica en catálogo:</span>
+                <span class="font-mono font-bold text-[#c5a75a]">10 pts</span>
+              </li>
+              <li class="flex items-center justify-between text-[#cbd5e1]">
+                <span>• Transferencias ad-hoc / sin nodo:</span>
+                <span class="font-mono font-bold text-[#e4b18e]">0–5 pts</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Dimensión 2 -->
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#0b4aa2] text-[#54b995] border border-[#1d4d91]">
+                Dimensión 2 · Máx. 20 pts
+              </span>
+              <span class="text-[10px] font-mono text-[#94a3b8]">DS N° 12/2023 Art. 8</span>
+            </div>
+            <h4 class="font-black text-white text-sm">Protocolo Técnico y Estándar de Transporte</h4>
+            <p class="text-[#94a3b8] text-[11px] leading-relaxed">
+              Evalúa la modernidad y sincronismo de las interfaces. Se priorizan estándares abiertos, sincrónicos y autodescriptivos que permitan integración instantánea.
+            </p>
+            <ul class="space-y-1 text-[11px] pt-1 border-t border-[#1e3a5f]/60">
+              <li class="flex items-center justify-between text-[#cbd5e1]">
+                <span>• REST / JSON sincrónico con OpenAPI 3.1:</span>
+                <span class="font-mono font-bold text-[#54b995]">20 pts</span>
+              </li>
+              <li class="flex items-center justify-between text-[#cbd5e1]">
+                <span>• SOAP / XML con WSDL legacy:</span>
+                <span class="font-mono font-bold text-[#38bdf8]">12 pts</span>
+              </li>
+              <li class="flex items-center justify-between text-[#cbd5e1]">
+                <span>• SFTP / Lotes planos o CSV batch:</span>
+                <span class="font-mono font-bold text-[#c5a75a]">6 pts</span>
+              </li>
+              <li class="flex items-center justify-between text-[#cbd5e1]">
+                <span>• Oficios, correos o procesos manuales:</span>
+                <span class="font-mono font-bold text-[#e4b18e]">0 pts</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Dimensión 3 -->
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#0b4aa2] text-[#54b995] border border-[#1d4d91]">
+                Dimensión 3 · Máx. 20 pts
+              </span>
+              <span class="text-[10px] font-mono text-[#94a3b8]">DS N° 12/2023 Art. 11 y 13</span>
+            </div>
+            <h4 class="font-black text-white text-sm">Gobernanza, Acuerdos y Catálogo SGD</h4>
+            <p class="text-[#94a3b8] text-[11px] leading-relaxed">
+              Formalización y transparencia de los contratos de intercambio. Los Art. 11 y 13 mandatan que los servicios se publiquen en el Catálogo y se acuerden formalmente.
+            </p>
+            <ul class="space-y-1 text-[11px] pt-1 border-t border-[#1e3a5f]/60">
+              <li class="flex items-center justify-between text-[#cbd5e1]">
+                <span>• Catálogo SGD + Gestor de Acuerdos activo:</span>
+                <span class="font-mono font-bold text-[#54b995]">20 pts</span>
+              </li>
+              <li class="flex items-center justify-between text-[#cbd5e1]">
+                <span>• Convenios vigentes formalizados (en migración):</span>
+                <span class="font-mono font-bold text-[#38bdf8]">14 pts</span>
+              </li>
+              <li class="flex items-center justify-between text-[#cbd5e1]">
+                <span>• Acuerdos informales bilaterales sin catálogo:</span>
+                <span class="font-mono font-bold text-[#c5a75a]">8 pts</span>
+              </li>
+              <li class="flex items-center justify-between text-[#cbd5e1]">
+                <span>• Inexistencia de acuerdos formales verificables:</span>
+                <span class="font-mono font-bold text-[#e4b18e]">0 pts</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Dimensión 4 -->
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#0b4aa2] text-[#54b995] border border-[#1d4d91]">
+                Dimensión 4 · Máx. 20 pts
+              </span>
+              <span class="text-[10px] font-mono text-[#94a3b8]">Ley N° 21.180 Art. 1°</span>
+            </div>
+            <h4 class="font-black text-white text-sm">Principio Once-Only (Cero Papel al Ciudadano)</h4>
+            <p class="text-[#94a3b8] text-[11px] leading-relaxed">
+              Consagra que el Estado no puede exigir al ciudadano certificados ni datos que ya obran en poder de cualquier órgano público. Premia la entrega directa telemática entre instituciones.
+            </p>
+            <ul class="space-y-1 text-[11px] pt-1 border-t border-[#1e3a5f]/60">
+              <li class="flex items-center justify-between text-[#cbd5e1]">
+                <span>• Cero certificados exigidos / API directa a OAEs:</span>
+                <span class="font-mono font-bold text-[#54b995]">20 pts</span>
+              </li>
+              <li class="flex items-center justify-between text-[#cbd5e1]">
+                <span>• Trámites mixtos (en fase de integración):</span>
+                <span class="font-mono font-bold text-[#38bdf8]">12 pts</span>
+              </li>
+              <li class="flex items-center justify-between text-[#cbd5e1]">
+                <span>• Alta dependencia de certificados en ventanilla:</span>
+                <span class="font-mono font-bold text-[#c5a75a]">6 pts</span>
+              </li>
+              <li class="flex items-center justify-between text-[#cbd5e1]">
+                <span>• Tramitación 100% física / papel:</span>
+                <span class="font-mono font-bold text-[#e4b18e]">0 pts</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Dimensión 5 -->
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] md:col-span-2 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#0b4aa2] text-[#54b995] border border-[#1d4d91]">
+                Dimensión 5 · Máx. 20 pts
+              </span>
+              <span class="text-[10px] font-mono text-[#94a3b8]">Ley N° 21.719 & Ley N° 21.663</span>
+            </div>
+            <h4 class="font-black text-white text-sm">Privacidad, Protección de Datos y Ciberseguridad</h4>
+            <p class="text-[#94a3b8] text-[11px] leading-relaxed">
+              Garantiza que la interoperabilidad no vulnere la confidencialidad de los titulares. Exige designación de Delegado de Protección de Datos (DPO), Registro de Actividades de Tratamiento (RAT) ante la APDP y medidas de ciberseguridad ANCI.
+            </p>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] pt-1 border-t border-[#1e3a5f]/60">
+              <li class="flex items-center justify-between text-[#cbd5e1]">
+                <span>• DPO + RAT + Política APDP + Resiliencia ANCI:</span>
+                <span class="font-mono font-bold text-[#54b995]">20 pts</span>
+              </li>
+              <li class="flex items-center justify-between text-[#cbd5e1]">
+                <span>• DPO y políticas aprobadas (RAT en proceso):</span>
+                <span class="font-mono font-bold text-[#38bdf8]">14 pts</span>
+              </li>
+              <li class="flex items-center justify-between text-[#cbd5e1]">
+                <span>• Medidas básicas de ciberseguridad sin DPO:</span>
+                <span class="font-mono font-bold text-[#c5a75a]">8 pts</span>
+              </li>
+              <li class="flex items-center justify-between text-[#cbd5e1]">
+                <span>• Sin adecuación legal verificable:</span>
+                <span class="font-mono font-bold text-[#e4b18e]">0 pts</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Escala de Niveles en Lenguaje Cotidiano -->
+        <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] space-y-3">
+          <h4 class="font-black text-white text-xs uppercase tracking-wider text-[#94a3b8]">
+            Escala de Niveles en Lenguaje Cotidiano
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-5 gap-2 text-center text-xs">
+            <div class="p-2.5 rounded-lg bg-[#54b995]/15 border border-[#54b995]/40 space-y-1">
+              <span class="font-mono font-black text-[#54b995] text-sm block">Nivel 5</span>
+              <span class="font-bold text-white block text-[11px]">100% Digital / Cero Papel</span>
+              <span class="text-[10px] text-[#94a3b8] font-mono">81–100%</span>
+            </div>
+            <div class="p-2.5 rounded-lg bg-[#0b4aa2]/40 border border-[#1d4d91] space-y-1">
+              <span class="font-mono font-black text-[#38bdf8] text-sm block">Nivel 4</span>
+              <span class="font-bold text-white block text-[11px]">Conectado por API</span>
+              <span class="text-[10px] text-[#94a3b8] font-mono">61–80%</span>
+            </div>
+            <div class="p-2.5 rounded-lg bg-[#1b4965]/30 border border-[#38bdf8]/30 space-y-1">
+              <span class="font-mono font-black text-[#38bdf8] text-sm block">Nivel 3</span>
+              <span class="font-bold text-white block text-[11px]">Conexión Básica</span>
+              <span class="text-[10px] text-[#94a3b8] font-mono">41–60%</span>
+            </div>
+            <div class="p-2.5 rounded-lg bg-[#c5a75a]/15 border border-[#c5a75a]/30 space-y-1">
+              <span class="font-mono font-black text-[#c5a75a] text-sm block">Nivel 2</span>
+              <span class="font-bold text-white block text-[11px]">Trámite Manual / SFTP</span>
+              <span class="text-[10px] text-[#94a3b8] font-mono">21–40%</span>
+            </div>
+            <div class="p-2.5 rounded-lg bg-[#9f1239]/20 border border-[#be123c]/40 space-y-1">
+              <span class="font-mono font-black text-[#fca5a5] text-sm block">Nivel 1</span>
+              <span class="font-bold text-white block text-[11px]">Silo / Papel</span>
+              <span class="text-[10px] text-[#94a3b8] font-mono">0–20%</span>
+            </div>
+          </div>
         </div>
       </div>
 

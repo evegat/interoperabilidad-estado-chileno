@@ -1,6 +1,6 @@
 /**
  * Declarative Cytoscape Stylesheet and Semantic Color Mappings
- * for P029 Interoperabilidad del Estado Chileno
+ * Observatorio de Interoperabilidad del Estado Chileno
  * Tailored to the visual identity and aesthetic of Eduardo Vega Toledo (evegat.cl)
  */
 
@@ -122,20 +122,23 @@ export const graphStyles: StylesheetStyle[] = [
     selector: 'node',
     style: {
       'label': 'data(display_label)',
-      'color': '#f8fafc',
-      'font-size': '11px',
+      'color': '#ffffff',
+      'font-size': '13.5px',
       'font-weight': 'bold',
       'font-family': 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
       'text-valign': 'center',
       'text-halign': 'center',
       'text-wrap': 'wrap',
-      'text-max-width': '72px',
-      'width': 66,
-      'height': 66,
-      'border-width': 2,
-      'border-color': '#cbd5e1',
-      'border-opacity': 0.9,
-      'transition-property': 'background-color, line-color, target-arrow-color, opacity, border-width, border-color',
+      'text-max-width': '104px',
+      'text-outline-color': '#031329',
+      'text-outline-width': 1.5,
+      'text-outline-opacity': 0.85,
+      'width': 94,
+      'height': 94,
+      'border-width': 2.5,
+      'border-color': '#e2e8f0',
+      'border-opacity': 0.95,
+      'transition-property': 'background-color, line-color, target-arrow-color, opacity, border-width, border-color, width, height',
       'transition-duration': 0.2,
       'opacity': 1,
     },
@@ -149,10 +152,11 @@ export const graphStyles: StylesheetStyle[] = [
     style: {
       'background-color': '#0b4aa2', // signature royal navy blue
       'shape': 'round-rectangle',
-      'width': 78,
-      'height': 54,
+      'width': 118,
+      'height': 78,
       'border-color': '#93c5fd',
-      'border-width': 2.5,
+      'border-width': 3,
+      'font-size': '13.5px',
     },
   },
   {
@@ -160,10 +164,11 @@ export const graphStyles: StylesheetStyle[] = [
     style: {
       'background-color': '#0369a1', // deep sky blue
       'shape': 'ellipse',
-      'width': 64,
-      'height': 64,
+      'width': 94,
+      'height': 94,
       'border-color': '#7dd3fc',
-      'border-width': 2,
+      'border-width': 2.5,
+      'font-size': '13.5px',
     },
   },
   {
@@ -171,11 +176,11 @@ export const graphStyles: StylesheetStyle[] = [
     style: {
       'background-color': '#d7653b', // signature terracotta
       'shape': 'diamond',
-      'width': 86,
-      'height': 86,
-      'border-width': 3,
+      'width': 126,
+      'height': 126,
+      'border-width': 3.5,
       'border-color': '#fed7aa',
-      'font-size': '12px',
+      'font-size': '14.5px',
     },
   },
   {
@@ -183,10 +188,11 @@ export const graphStyles: StylesheetStyle[] = [
     style: {
       'background-color': '#b45309', // warm amber/gold
       'shape': 'round-pentagon',
-      'width': 70,
-      'height': 70,
+      'width': 100,
+      'height': 100,
       'border-color': '#fde68a',
-      'border-width': 2,
+      'border-width': 2.5,
+      'font-size': '13.5px',
     },
   },
   {
@@ -194,10 +200,11 @@ export const graphStyles: StylesheetStyle[] = [
     style: {
       'background-color': '#4338ca', // deep indigo
       'shape': 'octagon',
-      'width': 68,
-      'height': 68,
+      'width': 98,
+      'height': 98,
       'border-color': '#c7d2fe',
-      'border-width': 2,
+      'border-width': 2.5,
+      'font-size': '13.5px',
     },
   },
   {
@@ -205,10 +212,11 @@ export const graphStyles: StylesheetStyle[] = [
     style: {
       'background-color': '#9f1239', // deep crimson
       'shape': 'barrel',
-      'width': 70,
-      'height': 58,
+      'width': 100,
+      'height': 82,
       'border-color': '#fecdd3',
-      'border-width': 2,
+      'border-width': 2.5,
+      'font-size': '13.5px',
     },
   },
 
@@ -218,25 +226,25 @@ export const graphStyles: StylesheetStyle[] = [
   {
     selector: 'edge',
     style: {
-      'width': 2.2,
-      'line-color': '#475569',
-      'target-arrow-color': '#475569',
+      'width': 2.8,
+      'line-color': '#64748b',
+      'target-arrow-color': '#64748b',
       'target-arrow-shape': 'triangle',
       'curve-style': 'bezier',
-      'arrow-scale': 1.15,
+      'arrow-scale': 1.35,
       'label': 'data(protocol_short)',
-      'font-size': '9px',
+      'font-size': '10px',
       'font-weight': 'bold',
       'font-family': 'ui-monospace, SFMono-Regular, Consolas, monospace',
       'text-rotation': 'autorotate',
-      'text-background-opacity': 0.92,
-      'text-background-color': '#041a37',
-      'text-background-padding': '3px',
+      'text-background-opacity': 0.95,
+      'text-background-color': '#06234a',
+      'text-background-padding': '4px',
       'text-background-shape': 'roundrectangle',
-      'text-border-width': 1,
+      'text-border-width': 1.5,
       'text-border-color': '#1d4d91',
-      'color': '#94a3b8',
-      'opacity': 0.88,
+      'color': '#f1f5f9',
+      'opacity': 0.92,
       'transition-property': 'line-color, target-arrow-color, width, opacity',
       'transition-duration': 0.2,
     },

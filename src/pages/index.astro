@@ -15,7 +15,7 @@ import type { DatasetInteroperabilidad } from '../types/interoperabilidad.js';
 const dataset = datasetRaw as DatasetInteroperabilidad;
 ---
 
-<Layout title="Mapeo de Interoperabilidad del Estado Chileno v3.0 (DS N° 12/2023 · Ley 21.180 · Nodos PISEE 2.0)">
+<Layout title="Observatorio de Interoperabilidad del Estado Chileno (Ley 21.180 · DS N° 12/2023 · Nodos PISEE 2.0)">
   <Header dataset={dataset} />
   <FilterBar />
   <main class="relative flex-1 w-full overflow-hidden bg-slate-950">
@@ -97,7 +97,7 @@ const dataset = datasetRaw as DatasetInteroperabilidad;
         return visited.size;
       }
 
-      const headers = ['ID', 'Sigla', 'Nombre', 'Tipo', 'Nivel IMI', 'Puntaje IMI', 'Agent-Ready', 'Flujos Entrantes', 'Flujos Salientes', 'Impacto Aguas Abajo (OAEs)', 'Brechas Criticas', 'Articulos DS 12'];
+      const headers = ['ID', 'Sigla', 'Nombre', 'Tipo', 'Nivel Digital', 'Cumplimiento (%)', 'Agent-Ready', 'Flujos Entrantes', 'Flujos Salientes', 'Impacto Aguas Abajo (OAEs)', 'Brechas Criticas', 'Articulos DS 12'];
       const rows = dataset.nodos.map((n) => {
         const inFl = dataset.aristas.filter((a) => getEndpointId(a.destino) === n.id).length;
         const outFl = dataset.aristas.filter((a) => getEndpointId(a.origen) === n.id).length;

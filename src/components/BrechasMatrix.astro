@@ -67,7 +67,7 @@ const totalBrechasCriticasCount = dataset.aristas.filter(
       <div>
         <div class="flex items-center gap-2">
           <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-[#d7653b]/20 text-[#e4b18e] border border-[#d7653b]/40">
-            Vista de Gestión y Auditoría · v3.0
+            Vista de Gestión y Auditoría Estatal
           </span>
           <span class="text-xs text-[#94a3b8]">Ley N° 21.180 & DS N° 12/2023 MinSegpres</span>
         </div>
@@ -109,8 +109,8 @@ const totalBrechasCriticasCount = dataset.aristas.filter(
         <thead>
           <tr class="bg-[#031329] border-b border-[#1e3a5f] text-[11px] font-extrabold uppercase tracking-wider text-[#94a3b8]">
             <th class="py-3 px-4">Organismo / Institución</th>
-            <th class="py-3 px-3 text-center">Nivel IMI (DS 12)</th>
-            <th class="py-3 px-3 text-center">Puntaje</th>
+            <th class="py-3 px-3 text-center">Nivel Digital (Ley 21.180)</th>
+            <th class="py-3 px-3 text-center">Cumplimiento</th>
             <th class="py-3 px-3 text-center">Sello IA</th>
             <th class="py-3 px-3 text-center">Flujos (In / Out)</th>
             <th class="py-3 px-3 text-center" title="Organismos afectados aguas abajo que dependen directa o transitivamente de los datos emitidos por esta entidad (Principio Once-Only Art. 1° Ley 21.180)">Impacto Aguas Abajo</th>
@@ -152,12 +152,12 @@ const totalBrechasCriticasCount = dataset.aristas.filter(
                   </span>
                 </td>
 
-                <!-- Puntaje IMI -->
+                <!-- Cumplimiento Digital -->
                 <td class="py-3 px-3 text-center font-mono font-bold text-white">
                   <span class={imiScore >= 80 ? 'text-[#54b995]' : imiScore >= 60 ? 'text-[#38bdf8]' : imiScore >= 40 ? 'text-[#c5a75a]' : 'text-[#e4b18e]'}>
                     {imiScore}
                   </span>
-                  <span class="text-[10px] text-[#94a3b8]">/100</span>
+                  <span class="text-[10px] text-[#94a3b8]">%</span>
                 </td>
 
                 <!-- Sello Agent-Ready Desacoplado -->

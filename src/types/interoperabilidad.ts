@@ -1,5 +1,5 @@
 /**
- * Tipos formales de dominio para el Grafo de Interoperabilidad del Estado de Chile (P029).
+ * Tipos formales de dominio para el Grafo de Interoperabilidad del Estado de Chile.
  * Basado en la Ley N° 21.180 sobre Transformación Digital del Estado, DFL 1/2020 Segpres,
  * arquitectura PISEE 2.0 y plataforma ClaveÚnica (Secretaría de Gobierno Digital).
  */
@@ -280,9 +280,9 @@ export interface MetricasGrafo {
   distribucion_tipologias: Record<TipoNodo, number>;
   /** Distribución de niveles de madurez digital */
   distribucion_madurez: Record<MadurezDigital, number>;
-  /** Promedio del Índice de Madurez de Interoperabilidad (0 a 120 puntos) */
+  /** Promedio del Nivel de Conexión Digital (0 a 100 puntos según DS 12) */
   promedio_imi?: number;
-  /** Distribución de organismos por nivel de madurez IMI (1 a 6) */
+  /** Distribución de organismos por nivel de conexión digital (1 a 5) */
   distribucion_imi?: Record<RangoMadurezIMI, number>;
 }
 

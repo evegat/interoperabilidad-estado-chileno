@@ -299,14 +299,26 @@ describe('Challenger Adversarial Stress Suite (Empirical Verification)', () => {
     assert.ok(res.errores.some((e) => e.includes('nivel_madurez_interoperabilidad')));
   });
 
-  test('ADV-15b: Level 6 without agent_ready: true or inconsistent score is rejected', () => {
+  test('ADV-15b: Level 6 (out of scale under DS 12 scale 1..5) is rejected', () => {
     const data = getCleanDataset();
-    data.nodos[0].indice_madurez_interoperabilidad = 115;
-    data.nodos[0].nivel_madurez_interoperabilidad = 6;
-    data.nodos[0].agent_ready = false; // Must be true for Level 6
+    data.nodos[0].indice_madurez_interoperabilidad = 100;
+    data.nodos[0].nivel_madurez_interoperabilidad = 6 as unknown as 5;
     const res = validarDatasetInteroperabilidad(data);
     assert.equal(res.valido, false);
-    assert.ok(res.errores.some((e) => e.includes('agent_ready')));
+    assert.ok(res.errores.some((e) => e.includes('nivel_madurez_interoperabilidad')));
+  });
+
+  test('ADV-15c: Invalid capacidades_agente structure is rejected', () => {
+    const data = getCleanDataset();
+    data.nodos[0].capacidades_agente = {
+      mcp_compatible: 'not-a-boolean' as unknown as boolean,
+      openapi_spec: true,
+      event_driven: true,
+      idempotencia: true,
+    };
+    const res = validarDatasetInteroperabilidad(data);
+    assert.equal(res.valido, false);
+    assert.ok(res.errores.some((e) => e.includes('capacidades_agente')));
   });
 
   // 11. Adversarial validation of Official Documentation

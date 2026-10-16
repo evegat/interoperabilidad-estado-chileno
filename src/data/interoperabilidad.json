@@ -1,7 +1,7 @@
 {
   "version": "3.0.0",
   "fecha_actualizacion": "2026-10-16",
-  "descripcion": "Catálogo de Interoperabilidad del Estado Chileno (Ley N° 21.180 / DS N° 12/2023 MinSegpres / D.S. N° 4/2020). Red representativa de 84 organismos públicos y plataformas transversales, 105 flujos interinstitucionales trazables, índice de madurez IMI (0-100 pts), sello Agent-Ready, adecuación a Ley N° 21.719 de Protección de Datos Personales y Ley N° 21.663 de Ciberseguridad.",
+  "descripcion": "Catálogo de Interoperabilidad del Estado Chileno (Ley N° 21.180 / DS N° 12/2023 MinSegpres / D.S. N° 4/2020). Red representativa de 84 organismos públicos y plataformas transversales, 105 flujos interinstitucionales trazables, Nivel de Conexión Digital (0–100%), sello Agent-Ready, adecuación a Ley N° 21.719 de Protección de Datos Personales y Ley N° 21.663 de Ciberseguridad.",
   "nodos": [
     {
       "id": "srcei",

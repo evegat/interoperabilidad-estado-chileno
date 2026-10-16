@@ -1,7 +1,7 @@
 /**
  * Pure Client TypeScript Controller for Cytoscape.js Network Graph
  * Runs strictly in the browser inside client script.
- * P029 - Interoperabilidad Estado Chileno
+ * Observatorio de Interoperabilidad del Estado Chileno
  */
 
 import cytoscape, { type Core, type ElementDefinition, type NodeSingular, type EdgeSingular } from 'cytoscape';
@@ -178,27 +178,31 @@ export class GraphController {
       layout: {
         name: 'cose',
         animate: false,
-        componentSpacing: 110,
-        nodeRepulsion: () => 580000,
-        nodeOverlap: 35,
-        idealEdgeLength: () => 170,
+        componentSpacing: 160,
+        nodeRepulsion: () => 1050000,
+        nodeOverlap: 50,
+        idealEdgeLength: () => 230,
         edgeElasticity: () => 100,
         nestingFactor: 5,
-        gravity: 65,
+        gravity: 42,
         numIter: 1200,
-        padding: 60,
+        padding: 40,
       },
-      minZoom: 0.25,
-      maxZoom: 3.5,
+      minZoom: 0.2,
+      maxZoom: 4.0,
       wheelSensitivity: 1.15,
     });
 
     this.cy = cy;
     this.bindEvents(cy);
 
-    // Initial fit with padding
+    // Initial fit with padding, ensuring legible starting view
     setTimeout(() => {
-      cy.fit(undefined, 50);
+      cy.fit(undefined, 35);
+      if (cy.zoom() < 0.60) {
+        cy.zoom(0.68);
+        cy.center();
+      }
       const loader = document.getElementById('graph-loader');
       if (loader) {
         loader.classList.add('hidden');
@@ -397,15 +401,15 @@ export class GraphController {
       name: 'cose',
       animate: true,
       animationDuration: 600,
-      componentSpacing: 110,
-      nodeRepulsion: () => 580000,
-      nodeOverlap: 35,
-      idealEdgeLength: () => 170,
+      componentSpacing: 160,
+      nodeRepulsion: () => 1050000,
+      nodeOverlap: 50,
+      idealEdgeLength: () => 230,
       edgeElasticity: () => 100,
       nestingFactor: 5,
-      gravity: 65,
+      gravity: 42,
       numIter: 1200,
-      padding: 60,
+      padding: 40,
     });
     layout.run();
   }
