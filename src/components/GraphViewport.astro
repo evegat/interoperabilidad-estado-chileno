@@ -1,20 +1,20 @@
 ---
 ---
 
-<div id="graph-container" class="relative w-full h-[calc(100vh-170px)] min-h-[550px] bg-[#041a37] overflow-hidden select-none">
+<div id="graph-container" class="relative w-full h-[calc(100vh-170px)] min-h-[550px] bg-[#090d16] overflow-hidden select-none">
   <!-- Cytoscape Canvas Mount Target -->
   <div id="cy" class="w-full h-full cursor-grab active:cursor-grabbing"></div>
 
   <!-- Loading Skeleton Overlay -->
   <div
     id="graph-loader"
-    class="absolute inset-0 flex flex-col items-center justify-center bg-[#041a37]/90 z-20 transition-opacity duration-300 pointer-events-none"
+    class="absolute inset-0 flex flex-col items-center justify-center bg-[#090d16]/90 z-20 transition-opacity duration-300 pointer-events-none"
   >
     <div class="relative w-16 h-16 mb-4">
-      <div class="absolute inset-0 rounded-full border-4 border-[#0b4aa2]"></div>
-      <div class="absolute inset-0 rounded-full border-4 border-[#d7653b] border-t-transparent animate-spin"></div>
+      <div class="absolute inset-0 rounded-full border-4 border-[#1e3a5f]"></div>
+      <div class="absolute inset-0 rounded-full border-4 border-[#c2542d] border-t-transparent animate-spin"></div>
     </div>
-    <span class="text-sm font-bold text-[#f7f5ef] animate-pulse">
+    <span class="text-sm font-bold text-[#f1f5f9] animate-pulse">
       Cargando ecosistema de interoperabilidad...
     </span>
     <span class="text-xs text-[#94a3b8] mt-1">
@@ -23,12 +23,12 @@
   </div>
 
   <!-- Floating Navigation HUD Controls -->
-  <div class="absolute top-4 left-4 z-10 flex flex-col space-y-1.5 bg-[#06234a]/95 backdrop-blur-md p-1.5 rounded-lg border border-[#1e3a5f] shadow-2xl">
+  <div class="absolute top-4 left-4 z-10 flex flex-col space-y-1.5 bg-[#0e1626]/95 backdrop-blur-md p-1.5 rounded-lg border border-[#1e293b] shadow-2xl">
     <button
       type="button"
       id="hud-zoom-in"
       data-action="zoom-in"
-      class="w-8 h-8 flex items-center justify-center text-[#f7f5ef] hover:text-[#54b995] bg-[#0b4aa2]/90 hover:bg-[#1d4d91] rounded transition-colors focus:outline-none focus:ring-1 focus:ring-[#d7653b]"
+      class="w-8 h-8 flex items-center justify-center text-[#f1f5f9] hover:text-[#54b995] bg-[#1e293b] hover:bg-[#334155] rounded transition-colors focus:outline-none focus:ring-1 focus:ring-[#c2542d]"
       title="Acercar (Zoom In)"
     >
       <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -39,19 +39,19 @@
       type="button"
       id="hud-zoom-out"
       data-action="zoom-out"
-      class="w-8 h-8 flex items-center justify-center text-[#f7f5ef] hover:text-[#54b995] bg-[#0b4aa2]/90 hover:bg-[#1d4d91] rounded transition-colors focus:outline-none focus:ring-1 focus:ring-[#d7653b]"
+      class="w-8 h-8 flex items-center justify-center text-[#f1f5f9] hover:text-[#54b995] bg-[#1e293b] hover:bg-[#334155] rounded transition-colors focus:outline-none focus:ring-1 focus:ring-[#c2542d]"
       title="Alejar (Zoom Out)"
     >
       <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 12H4" />
       </svg>
     </button>
-    <div class="h-px bg-[#1e3a5f] my-0.5"></div>
+    <div class="h-px bg-[#1e293b] my-0.5"></div>
     <button
       type="button"
       id="hud-fit"
       data-action="fit"
-      class="w-8 h-8 flex items-center justify-center text-[#f7f5ef] hover:text-[#54b995] bg-[#0b4aa2]/90 hover:bg-[#1d4d91] rounded transition-colors focus:outline-none focus:ring-1 focus:ring-[#d7653b]"
+      class="w-8 h-8 flex items-center justify-center text-[#f1f5f9] hover:text-[#54b995] bg-[#1e293b] hover:bg-[#334155] rounded transition-colors focus:outline-none focus:ring-1 focus:ring-[#c2542d]"
       title="Ajustar al encuadre (Fit Viewport)"
     >
       <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -62,7 +62,7 @@
       type="button"
       id="hud-reset"
       data-action="reset"
-      class="w-8 h-8 flex items-center justify-center text-[#f7f5ef] hover:text-[#54b995] bg-[#0b4aa2]/90 hover:bg-[#1d4d91] rounded transition-colors focus:outline-none focus:ring-1 focus:ring-[#d7653b]"
+      class="w-8 h-8 flex items-center justify-center text-[#f1f5f9] hover:text-[#54b995] bg-[#1e293b] hover:bg-[#334155] rounded transition-colors focus:outline-none focus:ring-1 focus:ring-[#c2542d]"
       title="Recalcular Layout (Reset)"
     >
       <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -72,22 +72,22 @@
   </div>
 
   <!-- Operational Interaction Hint -->
-  <div class="absolute bottom-3 left-4 z-10 hidden sm:flex items-center space-x-3 text-[11px] text-[#94a3b8] bg-[#06234a]/90 backdrop-blur px-3 py-1.5 rounded-md border border-[#1e3a5f] shadow">
+  <div class="absolute bottom-3 left-4 z-10 hidden sm:flex items-center space-x-3 text-[11px] text-[#94a3b8] bg-[#0e1626]/90 backdrop-blur px-3 py-1.5 rounded-md border border-[#1e293b] shadow">
     <span class="inline-flex items-center gap-1">
-      <kbd class="px-1.5 py-0.5 bg-[#0b4aa2] border border-[#1d4d91] rounded text-[10px] text-[#f7f5ef] font-bold">Click</kbd> Ficha
+      <kbd class="px-1.5 py-0.5 bg-[#1e293b] border border-[#334155] rounded text-[10px] text-[#f1f5f9] font-bold">Click</kbd> Ficha
     </span>
     <span class="inline-flex items-center gap-1">
-      <kbd class="px-1.5 py-0.5 bg-[#0b4aa2] border border-[#1d4d91] rounded text-[10px] text-[#f7f5ef] font-bold">Arrastrar</kbd> Paneo
+      <kbd class="px-1.5 py-0.5 bg-[#1e293b] border border-[#334155] rounded text-[10px] text-[#f1f5f9] font-bold">Arrastrar</kbd> Paneo
     </span>
     <span class="inline-flex items-center gap-1">
-      <kbd class="px-1.5 py-0.5 bg-[#0b4aa2] border border-[#1d4d91] rounded text-[10px] text-[#f7f5ef] font-bold">Rueda</kbd> Zoom
+      <kbd class="px-1.5 py-0.5 bg-[#1e293b] border border-[#334155] rounded text-[10px] text-[#f1f5f9] font-bold">Rueda</kbd> Zoom
     </span>
   </div>
 
   <!-- Author Signature Watermark (Discreet) -->
-  <div class="absolute bottom-3 left-1/2 transform -translate-x-1/2 z-10 hidden md:flex items-center space-x-2 text-[11px] text-[#94a3b8] bg-[#06234a]/80 backdrop-blur-md px-3.5 py-1 rounded-full border border-[#1e3a5f]">
+  <div class="absolute bottom-3 left-1/2 transform -translate-x-1/2 z-10 hidden md:flex items-center space-x-2 text-[11px] text-[#94a3b8] bg-[#0e1626]/80 backdrop-blur-md px-3.5 py-1 rounded-full border border-[#1e293b]">
     <span>Investigación y Desarrollo:</span>
-    <a href="https://evegat.cl" target="_blank" rel="noopener noreferrer" class="text-[#f7f5ef] hover:text-[#d7653b] font-bold underline decoration-[#d7653b] transition-colors">
+    <a href="https://evegat.cl" target="_blank" rel="noopener noreferrer" class="text-[#f1f5f9] hover:text-[#c2542d] font-bold underline decoration-[#c2542d] transition-colors">
       Eduardo Vega Toledo (evegat.cl)
     </a>
   </div>
