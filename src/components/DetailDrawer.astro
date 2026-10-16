@@ -337,11 +337,13 @@
       drawer?.classList.add('translate-x-full');
     });
 
-    // Close drawer on ESC key (only if benchmark modal is not open)
+    // Close drawer on ESC key (only if benchmark/guide modals are not open — BUG-08 fix)
     window.addEventListener('keydown', (e) => {
       const benchmarkModal = document.getElementById('benchmark-modal');
+      const guideModal = document.getElementById('guide-modal');
       const isBenchmarkOpen = benchmarkModal && !benchmarkModal.classList.contains('hidden');
-      if (e.key === 'Escape' && !isBenchmarkOpen && drawer && !drawer.classList.contains('translate-x-full')) {
+      const isGuideOpen = guideModal && !guideModal.classList.contains('hidden');
+      if (e.key === 'Escape' && !isBenchmarkOpen && !isGuideOpen && drawer && !drawer.classList.contains('translate-x-full')) {
         drawer.classList.add('translate-x-full');
       }
     });
@@ -407,8 +409,14 @@
       if (elOut) elOut.textContent = String(node.out_degree);
 
       if (elLink) {
-        elLink.href = node.sitio_web;
-        elLink.title = `Abrir ${node.sitio_web}`;
+        if (node.sitio_web && node.sitio_web !== '#') {
+          elLink.href = node.sitio_web;
+          elLink.title = `Abrir ${node.sitio_web}`;
+          elLink.classList.remove('hidden');
+        } else {
+          elLink.removeAttribute('href');
+          elLink.classList.add('hidden');
+        }
       }
 
       const elNodeReportLink = document.getElementById('node-report-update-link') as HTMLAnchorElement | null;
@@ -639,8 +647,14 @@
       }
 
       if (elLink) {
-        elLink.href = edge.fuente_oficial_url;
-        elLink.title = `Consultar fuente oficial: ${edge.fuente_oficial_url}`;
+        if (edge.fuente_oficial_url && edge.fuente_oficial_url !== '#') {
+          elLink.href = edge.fuente_oficial_url;
+          elLink.title = `Consultar fuente oficial: ${edge.fuente_oficial_url}`;
+          elLink.classList.remove('hidden');
+        } else {
+          elLink.removeAttribute('href');
+          elLink.classList.add('hidden');
+        }
       }
 
       const elEdgeReportLink = document.getElementById('edge-report-update-link') as HTMLAnchorElement | null;
@@ -673,6 +687,9 @@
     }) as EventListener);
 
     const btnMinuta = document.getElementById('btn-generate-evalti-minuta');
+    const originalBtnHtml = btnMinuta ? btnMinuta.innerHTML : '';
+    let copyFeedbackTimer: ReturnType<typeof setTimeout> | null = null;
+
     btnMinuta?.addEventListener('click', () => {
       if (!currentNodePayload) return;
       const n = currentNodePayload;
@@ -714,15 +731,15 @@
       ].join('\n');
 
       navigator.clipboard.writeText(minutaText).then(() => {
-        const originalText = btnMinuta.innerHTML;
+        if (copyFeedbackTimer) clearTimeout(copyFeedbackTimer);
         btnMinuta.innerHTML = `
           <svg class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
           </svg>
-          <span class="text-emerald-300 font-bold">¡Minuta Copiada al Portapapeles!</span>
+          <span class="text-emerald-300 font-bold">¡Minuta de ${n.sigla} Copiada!</span>
         `;
-        setTimeout(() => {
-          btnMinuta.innerHTML = originalText;
+        copyFeedbackTimer = setTimeout(() => {
+          btnMinuta.innerHTML = originalBtnHtml;
         }, 3000);
       }).catch(() => {
         alert('Copia el siguiente texto para tu minuta EvalTI:\n\n' + minutaText);

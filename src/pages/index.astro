@@ -35,13 +35,13 @@ const dataset = datasetRaw as DatasetInteroperabilidad;
   const dataset = datasetRaw as DatasetInteroperabilidad;
 
   function start() {
-    initGraphApp(dataset);
+    const controller = initGraphApp(dataset);
 
-    // Toggle view: Grafo vs Matriz de Brechas
+    // Toggle view: Grafo vs Matriz de Brechas (BUG-03 & BUG-04 fix)
     const btnToggleView = document.getElementById('btn-toggle-view');
     const graphContainer = document.getElementById('graph-container');
     const matrixContainer = document.getElementById('matrix-container');
-    const legend = document.getElementById('graph-legend');
+    const legend = document.getElementById('legend-card');
 
     btnToggleView?.addEventListener('click', () => {
       const isMatrixHidden = matrixContainer?.classList.contains('hidden');
@@ -59,6 +59,10 @@ const dataset = datasetRaw as DatasetInteroperabilidad;
         matrixContainer?.classList.add('hidden');
         graphContainer?.classList.remove('hidden');
         legend?.classList.remove('hidden');
+        requestAnimationFrame(() => {
+          controller.cy?.resize();
+          controller.fitViewport();
+        });
         btnToggleView.innerHTML = `
           <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
@@ -68,17 +72,23 @@ const dataset = datasetRaw as DatasetInteroperabilidad;
       }
     });
 
-    // Handle CSV export of the matrix
+    // Handle CSV export of the matrix (BUG-01 & BUG-06 fix: UTF-8 BOM + strict CSV cell escaping)
     window.addEventListener('export-matrix-csv', () => {
+      const getEndpointId = (ep: string | { id: string }): string =>
+        typeof ep === 'object' && ep !== null ? ep.id : String(ep);
+      const escapeCSV = (val: unknown): string => `"${String(val ?? '').replace(/"/g, '""')}"`;
+
       function calcDownstream(nodeId: string): number {
         const visited = new Set<string>();
         const queue: string[] = [nodeId];
         while (queue.length > 0) {
           const curr = queue.shift()!;
           for (const edge of dataset.aristas) {
-            if (edge.origen === curr && !visited.has(edge.destino) && edge.destino !== nodeId) {
-              visited.add(edge.destino);
-              queue.push(edge.destino);
+            const orig = getEndpointId(edge.origen);
+            const dest = getEndpointId(edge.destino);
+            if (orig === curr && !visited.has(dest) && dest !== nodeId) {
+              visited.add(dest);
+              queue.push(dest);
             }
           }
         }
@@ -87,17 +97,17 @@ const dataset = datasetRaw as DatasetInteroperabilidad;
 
       const headers = ['ID', 'Sigla', 'Nombre', 'Tipo', 'Nivel IMI', 'Puntaje IMI', 'Agent-Ready', 'Flujos Entrantes', 'Flujos Salientes', 'Impacto Aguas Abajo (OAEs)', 'Brechas Criticas', 'Articulos DS 12'];
       const rows = dataset.nodos.map((n) => {
-        const inFl = dataset.aristas.filter((a) => a.destino === n.id).length;
-        const outFl = dataset.aristas.filter((a) => a.origen === n.id).length;
+        const inFl = dataset.aristas.filter((a) => getEndpointId(a.destino) === n.id).length;
+        const outFl = dataset.aristas.filter((a) => getEndpointId(a.origen) === n.id).length;
         const downstream = calcDownstream(n.id);
-        const flujos = dataset.aristas.filter((a) => a.destino === n.id || a.origen === n.id);
+        const flujos = dataset.aristas.filter((a) => getEndpointId(a.destino) === n.id || getEndpointId(a.origen) === n.id);
         const crit = flujos.filter((f) => f.severity === 'critica').length;
         const arts = Array.from(new Set(flujos.map((f) => f.normative_ref).filter(Boolean))).join('; ');
         return [
-          `"${n.id}"`,
-          `"${n.sigla}"`,
-          `"${n.nombre.replace(/"/g, '""')}"`,
-          `"${n.tipo}"`,
+          n.id,
+          n.sigla,
+          n.nombre,
+          n.tipo,
           n.nivel_madurez_interoperabilidad || 1,
           n.indice_madurez_interoperabilidad || 0,
           n.agent_ready ? 'SI' : 'NO',
@@ -105,12 +115,12 @@ const dataset = datasetRaw as DatasetInteroperabilidad;
           outFl,
           downstream,
           crit,
-          `"${arts}"`,
-        ].join(',');
+          arts,
+        ].map(escapeCSV).join(';');
       });
 
-      const csvContent = [headers.join(','), ...rows].join('\n');
-      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const csvContent = [headers.map(escapeCSV).join(';'), ...rows].join('\r\n');
+      const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.setAttribute('href', url);
@@ -118,6 +128,7 @@ const dataset = datasetRaw as DatasetInteroperabilidad;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+      URL.revokeObjectURL(url);
     });
 
     // Update Header KPI counts dynamically on filter changes

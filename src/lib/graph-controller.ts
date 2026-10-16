@@ -392,11 +392,18 @@ export class GraphController {
     const node = this.cy.getElementById(nodeId);
     if (node && node.length > 0) {
       this.selectNode(node);
-      this.cy.animate({
-        center: { eles: node },
-        zoom: 1.5,
-        duration: 350,
-      });
+      const graphContainer = document.getElementById('graph-container');
+      const isGraphVisible = !graphContainer || !graphContainer.classList.contains('hidden');
+      if (isGraphVisible) {
+        this.cy.animate({
+          center: { eles: node },
+          zoom: 1.5,
+          duration: 350,
+        });
+      } else {
+        const matrixRow = document.querySelector<HTMLElement>(`#matrix-container [data-node-id="${nodeId}"]`);
+        matrixRow?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     }
   }
 
@@ -513,17 +520,9 @@ export class GraphController {
       });
     });
 
-    // If a single node is isolated by search, focus it
+    // If a single node is isolated by search, focus it safely (BUG-03 guard)
     if (normalizedQuery.length > 0 && activeNodes.length === 1) {
-      const target = this.cy.getElementById(activeNodes[0].id);
-      if (target.length > 0) {
-        this.selectNode(target);
-        this.cy.animate({
-          center: { eles: target },
-          zoom: 1.4,
-          duration: 300,
-        });
-      }
+      this.focusNode(activeNodes[0].id);
     }
 
     const piseeCount = matchedEdges.filter(e => (e.canal === 'PISEE' || e.plataforma_o_bus.includes('PISEE'))).length;
@@ -634,20 +633,15 @@ export function initGraphApp(dataset: DatasetInteroperabilidad): GraphController
       controller.applyFilters({ search: val });
     });
 
-    // Enter key selects and centers first matched node immediately
+    // Enter key selects and centers first matched node immediately (BUG-03 safe)
     input.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         const val = input.value.trim().toLowerCase();
         if (val.length > 0 && controller.cy) {
-          const matched = controller.cy.nodes(':visible');
+          const matched = controller.cy.nodes().filter((n) => !n.hasClass('hidden'));
           if (matched.length > 0) {
             const firstNode = matched[0];
-            controller.selectNode(firstNode);
-            controller.cy.animate({
-              center: { eles: firstNode },
-              zoom: 1.5,
-              duration: 300,
-            });
+            controller.focusNode(firstNode.id());
             input.blur();
           }
         }
@@ -655,10 +649,20 @@ export function initGraphApp(dataset: DatasetInteroperabilidad): GraphController
     });
   });
 
-  // Global Cmd+K / Ctrl+K listener
+  // Global Cmd+K / Ctrl+K listener (BUG-08: close open modals before focusing search)
   window.addEventListener('keydown', (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
       e.preventDefault();
+      const guideModal = document.getElementById('guide-modal');
+      const benchmarkModal = document.getElementById('benchmark-modal');
+      if (guideModal && !guideModal.classList.contains('hidden')) {
+        guideModal.classList.add('hidden');
+      }
+      if (benchmarkModal && !benchmarkModal.classList.contains('hidden')) {
+        benchmarkModal.classList.add('hidden');
+      }
+      document.body.classList.remove('overflow-hidden');
+
       const primarySearch = document.getElementById('search-input') as HTMLInputElement | null;
       if (primarySearch) {
         primarySearch.focus();
