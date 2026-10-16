@@ -91,7 +91,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-[11px]">
             <div class="p-3 rounded-lg bg-[#06234a] border border-[#1e3a5f] space-y-1.5">
               <div class="font-extrabold text-[#38bdf8] flex items-center gap-1.5">
-                <span>🔷 1. Las Figuras (77 Organismos)</span>
+                <span>🔷 1. Las Figuras (84 Organismos)</span>
               </div>
               <p class="text-[#cbd5e1]">
                 Cada figura es una institución pública. Su tamaño refleja cuántas conexiones tiene y su forma indica su rol: <strong>Hexágonos azules</strong> (nodos centrales como Registro Civil, ClaveÚnica, PISEE), <strong>Rectángulos verdes</strong> (Servicios como SII, FONASA, TGR) y <strong>Octágonos dorados</strong> (Ministerios).
@@ -99,10 +99,10 @@
             </div>
             <div class="p-3 rounded-lg bg-[#06234a] border border-[#1e3a5f] space-y-1.5">
               <div class="font-extrabold text-[#54b995] flex items-center gap-1.5">
-                <span>⚡ 2. Las Flechas (90 Flujos de Datos)</span>
+                <span>⚡ 2. Las Flechas (105 Flujos de Datos)</span>
               </div>
               <p class="text-[#cbd5e1]">
-                Las <strong>líneas continuas (verdes/azules)</strong> son conexiones automáticas por API o bus oficial. Las <strong>líneas punteadas naranjas/rojas (19 casos)</strong> son <strong>Brechas Críticas</strong>: instituciones que aún intercambian datos por oficio en papel, planillas SFTP o canales aislados.
+                Las <strong>líneas continuas (verdes/azules)</strong> son conexiones automáticas por API o bus oficial. Las <strong>líneas punteadas naranjas/rojas</strong> son <strong>Brechas Críticas</strong>: instituciones que aún intercambian datos por oficio en papel, planillas SFTP o canales aislados.
               </p>
             </div>
             <div class="p-3 rounded-lg bg-[#06234a] border border-[#1e3a5f] space-y-1.5">
@@ -147,7 +147,7 @@
               <h4 class="font-bold text-white text-xs">Cambia a la "Matriz de Brechas" (Tabla)</h4>
             </div>
             <p class="text-[11px] text-[#cbd5e1]">
-              Si prefieres una tabla ejecutiva en vez del grafo, pulsa el botón naranja <strong>[Matriz de Brechas]</strong> arriba a la derecha. Verás el ranking de los 77 organismos ordenados por criticidad y su efecto dominó aguas abajo, exportable a CSV.
+              Si prefieres una tabla ejecutiva en vez del grafo, pulsa el botón naranja <strong>[Matriz de Brechas]</strong> arriba a la derecha. Verás el ranking de los 84 organismos ordenados por criticidad y su efecto dominó aguas abajo, exportable a CSV.
             </p>
           </div>
 
@@ -410,6 +410,10 @@
     const panels = document.querySelectorAll<HTMLElement>('.guide-panel');
 
     function openModal() {
+      const knowledgeHubModal = document.getElementById('knowledge-hub-modal');
+      if (knowledgeHubModal && !knowledgeHubModal.classList.contains('hidden')) {
+        knowledgeHubModal.classList.add('hidden');
+      }
       modal?.classList.remove('hidden');
       document.body.classList.add('overflow-hidden');
     }

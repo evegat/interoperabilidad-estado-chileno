@@ -8,13 +8,14 @@ import Legend from '../components/Legend.astro';
 import BenchmarkModal from '../components/BenchmarkModal.astro';
 import BrechasMatrix from '../components/BrechasMatrix.astro';
 import GuideModal from '../components/GuideModal.astro';
+import KnowledgeHub from '../components/KnowledgeHub.astro';
 import datasetRaw from '../data/interoperabilidad.json';
 import type { DatasetInteroperabilidad } from '../types/interoperabilidad.js';
 
 const dataset = datasetRaw as DatasetInteroperabilidad;
 ---
 
-<Layout title="Mapeo de Interoperabilidad del Estado Chileno (Ley 21.180)">
+<Layout title="Mapeo de Interoperabilidad del Estado Chileno v3.0 (DS N° 12/2023 · Ley 21.180 · Nodos PISEE 2.0)">
   <Header dataset={dataset} />
   <FilterBar />
   <main class="relative flex-1 w-full overflow-hidden bg-slate-950">
@@ -24,6 +25,7 @@ const dataset = datasetRaw as DatasetInteroperabilidad;
     <DetailDrawer />
     <BenchmarkModal />
     <GuideModal />
+    <KnowledgeHub />
   </main>
 </Layout>
 

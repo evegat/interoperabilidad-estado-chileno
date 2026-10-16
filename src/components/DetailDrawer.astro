@@ -142,6 +142,39 @@
         </div>
       </div>
 
+      <!-- Ley N° 21.663 & Ley N° 21.719 Governance Card (v3.0) -->
+      <div id="node-v3-governance-card" class="bg-[#031329] p-3 rounded-lg border border-[#1e3a5f] space-y-2">
+        <div class="flex items-center justify-between border-b border-[#1e3a5f] pb-1.5">
+          <span class="text-[10px] font-extrabold text-[#38bdf8] uppercase tracking-wider flex items-center gap-1.5">
+            <span>🛡️</span> Gobernanza Ley 21.719 & Ley 21.663
+          </span>
+          <span class="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-[#0b4aa2] text-[#54b995] border border-[#1d4d91]">
+            v3.0
+          </span>
+        </div>
+        <div class="grid grid-cols-2 gap-1.5 text-[11px]">
+          <div class="p-2 rounded bg-[#06234a] border border-[#1e3a5f]">
+            <span class="text-[#94a3b8] block text-[10px] uppercase font-bold">Ciberseguridad (ANCI)</span>
+            <span id="node-ciberseguridad" class="font-bold text-[#f7f5ef] block mt-0.5 truncate">-</span>
+          </div>
+          <div class="p-2 rounded bg-[#06234a] border border-[#1e3a5f]">
+            <span class="text-[#94a3b8] block text-[10px] uppercase font-bold">Despliegue Nodo</span>
+            <span id="node-despliegue" class="font-bold text-[#54b995] block mt-0.5 truncate">-</span>
+          </div>
+        </div>
+        <div id="node-compliance-pdp" class="p-2 rounded bg-[#06234a] border border-[#1e3a5f] text-[10px] space-y-1">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-[#cbd5e1]">Adecuación Datos Personales (APDP):</span>
+            <span id="node-pdp-badge" class="px-1.5 py-0.5 rounded font-mono font-bold text-[#54b995] bg-[#54b995]/20">-</span>
+          </div>
+          <div class="grid grid-cols-3 gap-1 pt-1 text-center font-mono text-[9px]">
+            <div id="node-dpo-status" class="p-1 rounded bg-[#031329] border border-[#1e3a5f] text-[#cbd5e1]">DPO</div>
+            <div id="node-rat-status" class="p-1 rounded bg-[#031329] border border-[#1e3a5f] text-[#cbd5e1]">RAT</div>
+            <div id="node-pol-status" class="p-1 rounded bg-[#031329] border border-[#1e3a5f] text-[#cbd5e1]">POLÍTICA</div>
+          </div>
+        </div>
+      </div>
+
       <!-- Ecosystem Role -->
       <div class="bg-[#031329] p-3 rounded-lg border border-[#1e3a5f]">
         <span class="block text-[10px] font-extrabold text-[#94a3b8] uppercase tracking-wider mb-1">Rol en el Ecosistema</span>
@@ -276,6 +309,28 @@
         <span id="edge-base-legal" class="font-semibold text-[#f1f5f9] mt-0.5 block leading-relaxed">-</span>
       </div>
 
+      <!-- Ley N° 21.719 Data Protection Card (v3.0) -->
+      <div id="edge-privacy-card" class="bg-[#031329] p-2.5 rounded-lg border border-[#1e3a5f] text-xs space-y-1.5">
+        <div class="flex items-center justify-between border-b border-[#1e3a5f] pb-1">
+          <span class="text-[10px] font-extrabold text-[#54b995] uppercase tracking-wider flex items-center gap-1">
+            <span>🛡️</span> Datos Personales (Ley 21.719)
+          </span>
+          <span id="edge-eipd-badge" class="px-1.5 py-0.5 rounded text-[9px] font-bold font-mono bg-[#041a37] text-[#94a3b8] border border-[#1e3a5f]">
+            EIPD: No requerida
+          </span>
+        </div>
+        <div class="grid grid-cols-2 gap-1.5 text-[11px]">
+          <div>
+            <span class="text-[#94a3b8] block text-[10px] uppercase font-bold">Base de Licitud</span>
+            <span id="edge-base-licitud" class="font-bold text-white block mt-0.5 capitalize">-</span>
+          </div>
+          <div>
+            <span class="text-[#94a3b8] block text-[10px] uppercase font-bold">Categoría de Datos</span>
+            <span id="edge-categoria-datos" class="font-bold text-[#38bdf8] block mt-0.5 truncate">-</span>
+          </div>
+        </div>
+      </div>
+
       <!-- Observed Gap Alert Banner -->
       <div id="edge-gap-container" class="bg-[#d7653b]/15 border border-[#d7653b]/40 rounded-lg p-3 text-xs space-y-1">
         <div class="flex items-center space-x-1.5 text-[#e4b18e] font-extrabold">
@@ -337,13 +392,15 @@
       drawer?.classList.add('translate-x-full');
     });
 
-    // Close drawer on ESC key (only if benchmark/guide modals are not open — BUG-08 fix)
+    // Close drawer on ESC key (only if benchmark/guide/knowledge-hub modals are not open — BUG-08 fix)
     window.addEventListener('keydown', (e) => {
       const benchmarkModal = document.getElementById('benchmark-modal');
       const guideModal = document.getElementById('guide-modal');
+      const knowledgeHubModal = document.getElementById('knowledge-hub-modal');
       const isBenchmarkOpen = benchmarkModal && !benchmarkModal.classList.contains('hidden');
       const isGuideOpen = guideModal && !guideModal.classList.contains('hidden');
-      if (e.key === 'Escape' && !isBenchmarkOpen && !isGuideOpen && drawer && !drawer.classList.contains('translate-x-full')) {
+      const isKnowledgeHubOpen = knowledgeHubModal && !knowledgeHubModal.classList.contains('hidden');
+      if (e.key === 'Escape' && !isBenchmarkOpen && !isGuideOpen && !isKnowledgeHubOpen && drawer && !drawer.classList.contains('translate-x-full')) {
         drawer.classList.add('translate-x-full');
       }
     });
@@ -487,6 +544,47 @@
         } else {
           elAgentReadyCard.classList.add('hidden');
         }
+      }
+
+      // Populate v3.0 Governance Fields (Ley 21.663 & Ley 21.719)
+      const elCiber = document.getElementById('node-ciberseguridad');
+      const elDespliegue = document.getElementById('node-despliegue');
+      const elPdpBadge = document.getElementById('node-pdp-badge');
+      const elDpoStatus = document.getElementById('node-dpo-status');
+      const elRatStatus = document.getElementById('node-rat-status');
+      const elPolStatus = document.getElementById('node-pol-status');
+
+      if (elCiber) {
+        const ciberMap: Record<string, string> = {
+          operador_importancia_vital: 'OIV (Importancia Vital)',
+          prestador_servicios_esenciales: 'PSE (Servicio Esencial)',
+          organo_sector_publico: 'Órgano Sector Público',
+          estandar: 'Estándar',
+        };
+        elCiber.textContent = ciberMap[node.calificacion_ciberseguridad || ''] || 'Sector Público';
+      }
+
+      if (elDespliegue) {
+        const despMap: Record<string, string> = {
+          nodo_perimetral_p2p: 'Nodo Perimetral P2P',
+          nodo_centralizado: 'Nodo Centralizado',
+          gateway_api: 'Gateway API',
+          nodo_hibrido: 'Nodo Híbrido',
+        };
+        elDespliegue.textContent = despMap[node.tipo_despliegue_nodo || ''] || 'Nodo Perimetral P2P';
+      }
+
+      if (node.compliance_ley21719) {
+        const cmp = node.compliance_ley21719;
+        if (elPdpBadge) elPdpBadge.textContent = cmp.nivel_cumplimiento.toUpperCase();
+        if (elDpoStatus) elDpoStatus.innerHTML = cmp.oficial_proteccion_datos ? '<span class="text-[#54b995]">✔ DPO</span>' : '<span class="text-[#e4b18e]">✖ DPO</span>';
+        if (elRatStatus) elRatStatus.innerHTML = cmp.registro_actividades_tratamiento ? '<span class="text-[#54b995]">✔ RAT</span>' : '<span class="text-[#e4b18e]">✖ RAT</span>';
+        if (elPolStatus) elPolStatus.innerHTML = cmp.politica_privacidad_actualizada ? '<span class="text-[#54b995]">✔ POL</span>' : '<span class="text-[#e4b18e]">✖ POL</span>';
+      } else {
+        if (elPdpBadge) elPdpBadge.textContent = 'EN ADECUACIÓN';
+        if (elDpoStatus) elDpoStatus.textContent = 'DPO';
+        if (elRatStatus) elRatStatus.textContent = 'RAT';
+        if (elPolStatus) elPolStatus.textContent = 'POL';
       }
 
       // Populate Official Legal & Technical Documents (Clip section)
@@ -637,6 +735,37 @@
         elMadurezBadge.textContent = mad === 'realtime' ? '⚡ API Tiempo Real' : mad === 'batch' ? '📦 Lotes / SFTP' : '📄 Documental / Manual';
       }
 
+      // Populate v3.0 Data Protection / Privacy Fields (Ley 21.719)
+      const elPrivacyCard = document.getElementById('edge-privacy-card');
+      const elEipdBadge = document.getElementById('edge-eipd-badge');
+      const elBaseLicitud = document.getElementById('edge-base-licitud');
+      const elCategoriaDatos = document.getElementById('edge-categoria-datos');
+
+      if (elPrivacyCard) {
+        if (edge.involucra_datos_personales) {
+          elPrivacyCard.classList.remove('hidden');
+          if (elEipdBadge) {
+            if (edge.requiere_eipd) {
+              elEipdBadge.textContent = 'EIPD: OBLIGATORIA (Art. 21)';
+              elEipdBadge.className = 'px-1.5 py-0.5 rounded text-[9px] font-bold font-mono bg-[#be123c]/20 text-[#fca5a5] border border-[#be123c]/40';
+            } else {
+              elEipdBadge.textContent = 'EIPD: No requerida';
+              elEipdBadge.className = 'px-1.5 py-0.5 rounded text-[9px] font-bold font-mono bg-[#041a37] text-[#54b995] border border-[#1e3a5f]';
+            }
+          }
+          if (elBaseLicitud) {
+            elBaseLicitud.textContent = (edge.base_licitud || 'obligacion_legal').replace(/_/g, ' ');
+          }
+          if (elCategoriaDatos) {
+            elCategoriaDatos.textContent = (edge.categoria_datos_personales && edge.categoria_datos_personales.length > 0)
+              ? edge.categoria_datos_personales.map((c) => c.replace(/_/g, ' ')).join(', ')
+              : 'identificatorios';
+          }
+        } else {
+          elPrivacyCard.classList.add('hidden');
+        }
+      }
+
       if (elGapContainer && elGapText) {
         if (hasGap) {
           elGapContainer.classList.remove('hidden');
@@ -702,7 +831,7 @@
         `**Tipología:** ${n.tipo.toUpperCase()} | Dependencia: ${n.dependencia}`,
         `**Marco Jurídico Mandante:** Ley N° 21.180 (Transformación Digital del Estado) y DS N° 12/2023 MinSegpres (Norma Técnica de Interoperabilidad)`,
         `**Fecha de Emisión:** ${new Date().toLocaleDateString('es-CL')}`,
-        `**Fuente de Auditoría:** Laboratorio GovTech evegat.cl (P029 - Mapeo de Interoperabilidad v2.1)`,
+        `**Fuente de Auditoría:** Laboratorio GovTech evegat.cl (P029 - Mapeo de Interoperabilidad v3.0)`,
         ``,
         `---`,
         `## 1. Diagnóstico de Madurez Normativa (IMI DS N° 12/2023)`,

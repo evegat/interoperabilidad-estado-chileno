@@ -1,0 +1,709 @@
+---
+// Componente de Curaduría Técnica e Interoperabilidad v3.0 (P029)
+// Autor: Eduardo Vega Toledo (evegat.cl)
+// Cubre: Ley N° 21.180, DS N° 12/2023, Decreto 876/2025 Hacienda, Ley N° 21.719 (Datos Personales),
+// Ley N° 21.663 (Ciberseguridad) y Arquitectura de Nodos PISEE 2.0.
+---
+
+<div
+  id="knowledge-hub-modal"
+  class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-3 sm:p-5 hidden transition-opacity duration-200"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="knowledge-hub-title"
+>
+  <div class="bg-[#06234a] border border-[#1e3a5f] rounded-2xl max-w-5xl w-full max-h-[92vh] overflow-hidden shadow-2xl flex flex-col text-[#94a3b8]">
+    
+    <!-- Modal Header -->
+    <div class="p-4 sm:p-5 border-b border-[#1e3a5f] flex items-start justify-between bg-[#041a37]/95">
+      <div class="space-y-1.5 pr-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#f7f5ef] bg-[#0b4aa2] px-2.5 py-0.5 rounded border border-[#1d4d91]">
+            Curaduría Técnica v3.0 · P029
+          </span>
+          <span class="text-[10px] font-mono text-[#54b995] bg-[#031329] px-2 py-0.5 rounded border border-[#1e3a5f]">
+            DS N° 12/2023 · Nodos PISEE 2.0
+          </span>
+          <span class="text-[10px] font-mono text-[#38bdf8] bg-[#031329] px-2 py-0.5 rounded border border-[#1e3a5f]">
+            Ley 21.719 (Privacidad) & Ley 21.663 (Ciberseguridad)
+          </span>
+        </div>
+        <h2 id="knowledge-hub-title" class="text-lg sm:text-xl font-black text-white tracking-tight flex items-center gap-2">
+          <span>🏛️</span>
+          <span>Curaduría de Interoperabilidad del Estado Chileno</span>
+        </h2>
+        <div class="inline-flex flex-wrap items-center gap-2 text-xs text-[#cbd5e1]">
+          <span>Investigación aplicada por <a href="https://evegat.cl" target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#d7653b] font-bold underline decoration-[#d7653b] underline-offset-2">Eduardo Vega Toledo (evegat.cl)</a></span>
+          <span class="text-[#1e3a5f]">•</span>
+          <span>Arquitectura de Red de Nodos · Marco Jurídico Vinculante · Radiografía de Flujos</span>
+        </div>
+      </div>
+      <button
+        id="btn-close-knowledge-hub"
+        type="button"
+        class="text-[#94a3b8] hover:text-white p-1.5 rounded-lg hover:bg-[#0b4aa2] transition-colors focus:outline-none flex-shrink-0"
+        title="Cerrar curaduría técnica"
+      >
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Tab Navigation Bar -->
+    <div class="flex border-b border-[#1e3a5f] bg-[#031329] px-4 sm:px-6 gap-2 sm:gap-3 overflow-x-auto text-xs font-bold scrollbar-thin" role="tablist" aria-label="Secciones de la Curaduría Técnica">
+      <button
+        type="button"
+        role="tab"
+        aria-selected="true"
+        aria-controls="kh-panel-normativo"
+        data-kh-tab="normativo"
+        class="kh-tab-btn py-3 px-2 border-b-2 border-[#54b995] text-white flex items-center gap-1.5 transition-colors whitespace-nowrap"
+      >
+        <span>📜 1. Marco Normativo</span>
+      </button>
+      <button
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="kh-panel-anatomia"
+        data-kh-tab="anatomia"
+        class="kh-tab-btn py-3 px-2 border-b-2 border-transparent text-[#94a3b8] hover:text-[#f7f5ef] flex items-center gap-1.5 transition-colors whitespace-nowrap"
+      >
+        <span>🌐 2. Nodos PISEE 2.0</span>
+      </button>
+      <button
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="kh-panel-flujos"
+        data-kh-tab="flujos"
+        class="kh-tab-btn py-3 px-2 border-b-2 border-transparent text-[#94a3b8] hover:text-[#f7f5ef] flex items-center gap-1.5 transition-colors whitespace-nowrap"
+      >
+        <span>🔄 3. Cinco Grandes Flujos</span>
+      </button>
+      <button
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="kh-panel-checklist"
+        data-kh-tab="checklist"
+        class="kh-tab-btn py-3 px-2 border-b-2 border-transparent text-[#94a3b8] hover:text-[#f7f5ef] flex items-center gap-1.5 transition-colors whitespace-nowrap"
+      >
+        <span>🛡️ 4. Checklist Ley 21.719</span>
+      </button>
+      <button
+        type="button"
+        role="tab"
+        aria-selected="false"
+        aria-controls="kh-panel-fuentes"
+        data-kh-tab="fuentes"
+        class="kh-tab-btn py-3 px-2 border-b-2 border-transparent text-[#94a3b8] hover:text-[#f7f5ef] flex items-center gap-1.5 transition-colors whitespace-nowrap"
+      >
+        <span>📚 5. Biblioteca & Fuentes</span>
+      </button>
+    </div>
+
+    <!-- Scrollable Content Body -->
+    <div class="flex-1 overflow-y-auto p-5 sm:p-6 space-y-6 text-xs text-[#cbd5e1] leading-relaxed">
+
+      <!-- MÓDULO 1: MARCO NORMATIVO CONSOLIDADO -->
+      <div id="kh-panel-normativo" role="tabpanel" aria-labelledby="kh-tab-normativo" class="kh-panel space-y-4">
+        <div class="p-4 rounded-xl bg-[#041a37] border border-[#1d4d91] space-y-2">
+          <span class="text-[10px] font-mono text-[#54b995] font-bold uppercase tracking-wider">Pilar Jurídico y Vinculante</span>
+          <h3 class="text-sm font-black text-white">
+            La Pirámide Normativa de la Interoperabilidad en Chile (2019 - 2026)
+          </h3>
+          <p class="text-[#cbd5e1]">
+            La interoperabilidad en el Estado chileno dejó de ser una recomendación de buenas prácticas técnicas para convertirse en un mandato legal de cumplimiento obligatorio sujeto a fiscalización de Contraloría (CGR), la Agencia de Protección de Datos Personales (APDP) y la Agencia Nacional de Ciberseguridad (ANCI).
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+          <!-- Ley 21.180 -->
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] hover:border-[#1d4d91] transition-all space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#0b4aa2] text-white">Ley N° 21.180</span>
+              <span class="text-[10px] font-mono text-[#94a3b8]">Nov 2019 (Gradual)</span>
+            </div>
+            <h4 class="font-extrabold text-white text-xs">Transformación Digital del Estado</h4>
+            <p class="text-[#94a3b8] leading-relaxed">
+              Consagra el principio <strong class="text-[#f7f5ef]">Once-Only</strong> (Solo una Vez, Art. 1°): prohíbe exigir a ciudadanos y empresas documentos o certificados ya emitidos o en poder de otro órgano del Estado. Obliga a que todas las comunicaciones y actos administrativos se tramiten electrónicamente.
+            </p>
+          </div>
+
+          <!-- DS 12/2023 -->
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] hover:border-[#1d4d91] transition-all space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#d7653b]/20 text-[#e4b18e] border border-[#d7653b]/40">D.S. N° 12/2023</span>
+              <span class="text-[10px] font-mono text-[#94a3b8]">MinSegpres</span>
+            </div>
+            <h4 class="font-extrabold text-white text-xs">Norma Técnica de Interoperabilidad</h4>
+            <p class="text-[#94a3b8] leading-relaxed">
+              Reglamento vinculante que define la arquitectura de la <strong class="text-[#f7f5ef]">Red de Interoperabilidad</strong>. Formaliza los Nodos de Interoperabilidad distribuidos (Arts. 4 y 6), estándares REST/JSON y autenticación segura con certificados mTLS, y el Gestor de Consentimiento (Art. 16).
+            </p>
+          </div>
+
+          <!-- Decreto 876/2025 -->
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] hover:border-[#1d4d91] transition-all space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#1b4965]/40 text-[#38bdf8] border border-[#38bdf8]/40">Decreto N° 876/2025</span>
+              <span class="text-[10px] font-mono text-[#94a3b8]">MinHda (SGD)</span>
+            </div>
+            <h4 class="font-extrabold text-white text-xs">Reglamento de Notificaciones del Estado</h4>
+            <p class="text-[#94a3b8] leading-relaxed">
+              Fija los estándares de fehaciencia jurídica y cómputo de plazos para notificaciones electrónicas. Articula la integración obligatoria de los órganos públicos con el sistema transversal de notificaciones y la verificación de domicilio digital único (Art. 30 Ley 21.180).
+            </p>
+          </div>
+
+          <!-- Ley 21.719 -->
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] hover:border-[#1d4d91] transition-all space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#54b995]/20 text-[#54b995] border border-[#54b995]/40">Ley N° 21.719</span>
+              <span class="text-[10px] font-mono text-[#94a3b8]">Nueva Ley de Datos</span>
+            </div>
+            <h4 class="font-extrabold text-white text-xs">Protección de Datos Personales y APDP</h4>
+            <p class="text-[#94a3b8] leading-relaxed">
+              Reemplaza la ley 19.628 adaptándola a estándares GDPR. En el sector público (Arts. 20-21), exige base de licitud legal estricta para intercambios de datos, evaluaciones de impacto (EIPD) obligatorias en datos sensibles y crea la <strong class="text-[#f7f5ef]">Agencia de Protección de Datos Personales (APDP)</strong>.
+            </p>
+          </div>
+
+          <!-- Ley 21.663 -->
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] hover:border-[#1d4d91] transition-all space-y-2 md:col-span-2">
+            <div class="flex items-center justify-between">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-[#be123c]/20 text-[#fca5a5] border border-[#be123c]/40">Ley N° 21.663</span>
+              <span class="text-[10px] font-mono text-[#94a3b8]">Abril 2024</span>
+            </div>
+            <h4 class="font-extrabold text-white text-xs">Ley Marco de Ciberseguridad e Infraestructura Crítica</h4>
+            <p class="text-[#94a3b8] leading-relaxed">
+              Crea la <strong class="text-[#f7f5ef]">Agencia Nacional de Ciberseguridad (ANCI)</strong> y el CSIRT Nacional. Clasifica a las entidades estatales como prestadores de servicios esenciales u operadores de importancia vital (OIV), obligando al reporte de incidentes en plazos de 3 horas y a auditorías de seguridad en canales de interoperabilidad y APIs.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MÓDULO 2: ANATOMÍA DE NODOS PISEE 2.0 -->
+      <div id="kh-panel-anatomia" role="tabpanel" aria-labelledby="kh-tab-anatomia" class="kh-panel hidden space-y-4">
+        <div class="p-4 rounded-xl bg-[#041a37] border border-[#1d4d91] space-y-2">
+          <span class="text-[10px] font-mono text-[#38bdf8] font-bold uppercase tracking-wider">Arquitectura Técnica</span>
+          <h3 class="text-sm font-black text-white">
+            De la Estrella Monolítica a la Malla Federada: Arquitectura PISEE 2.0
+          </h3>
+          <p class="text-[#cbd5e1]">
+            El Decreto Supremo N° 12/2023 marca el fin del paradigma del bus centralizador único (PISEE 1.0 legado) y define una <strong class="text-white">Red de Interoperabilidad Federada</strong> inspirada en X-Road (Estonia) y GovTech Data Exchanges (Singapur).
+          </p>
+        </div>
+
+        <!-- Comparativa Visual: PISEE 1.0 vs PISEE 2.0 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#be123c]/40 space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-[#be123c]"></span>
+              <h4 class="font-black text-white text-xs uppercase tracking-wider">PISEE 1.0 Legacy (Bus Centralizado)</h4>
+            </div>
+            <ul class="space-y-2 text-[#94a3b8]">
+              <li class="flex items-start gap-1.5">
+                <span class="text-[#be123c]">✖</span>
+                <span><strong>Cuello de botella único:</strong> Todas las transacciones pasan por servidores centrales de Segpres/SGD.</span>
+              </li>
+              <li class="flex items-start gap-1.5">
+                <span class="text-[#be123c]">✖</span>
+                <span><strong>Riesgo de privacidad:</strong> Concentración de metadatos y payload en un punto de falla institucional.</span>
+              </li>
+              <li class="flex items-start gap-1.5">
+                <span class="text-[#be123c]">✖</span>
+                <span><strong>Protocolos rígidos:</strong> Dependencia histórica de SOAP/XML y adaptadores bilaterales frágiles.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#54b995]/40 space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-[#54b995]"></span>
+              <h4 class="font-black text-white text-xs uppercase tracking-wider">PISEE 2.0 (Red de Nodos Distribuidos)</h4>
+            </div>
+            <ul class="space-y-2 text-[#94a3b8]">
+              <li class="flex items-start gap-1.5">
+                <span class="text-[#54b995]">✔</span>
+                <span><strong>Tráfico Peer-to-Peer (P2P):</strong> Los datos viajan cifrados directamente entre la entidad emisora y la receptora.</span>
+              </li>
+              <li class="flex items-start gap-1.5">
+                <span class="text-[#54b995]">✔</span>
+                <span><strong>mTLS 1.3 & Certificados X.509:</strong> Autenticación mutua criptográfica sin intermediación en el payload.</span>
+              </li>
+              <li class="flex items-start gap-1.5">
+                <span class="text-[#54b995]">✔</span>
+                <span><strong>Plano de Control Centralizado:</strong> SGD provee Catálogo, Gestor de Acuerdos y Gestor de Consentimiento sin almacenar datos.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Cuatro Componentes del Nodo -->
+        <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] space-y-3">
+          <h4 class="font-black text-white text-xs flex items-center gap-2">
+            <span>⚙️</span>
+            <span>Componentes Obligatorios de un Nodo de Interoperabilidad (DS N° 12/2023)</span>
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 text-[11px]">
+            <div class="p-2.5 rounded-lg bg-[#06234a] border border-[#1e3a5f]">
+              <strong class="text-[#54b995] block mb-1">1. Gateway de Seguridad</strong>
+              <span>Proxy inverso perimetral mTLS que valida certificados y firma JWT institucional.</span>
+            </div>
+            <div class="p-2.5 rounded-lg bg-[#06234a] border border-[#1e3a5f]">
+              <strong class="text-[#38bdf8] block mb-1">2. Catálogo OpenAPI</strong>
+              <span>Definición estricta machine-readable JSON Schema de los servicios provistos.</span>
+            </div>
+            <div class="p-2.5 rounded-lg bg-[#06234a] border border-[#1e3a5f]">
+              <strong class="text-[#e4b18e] block mb-1">3. Conector de Gobernanza</strong>
+              <span>Sincronización con el Catálogo Nacional y validación de licitud en tiempo real.</span>
+            </div>
+            <div class="p-2.5 rounded-lg bg-[#06234a] border border-[#1e3a5f]">
+              <strong class="text-[#a78bfa] block mb-1">4. Registro Inmutable</strong>
+              <span>Logs criptográficos sellados con timestamp para auditoría de la APDP y CGR.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MÓDULO 3: CINCO GRANDES FLUJOS -->
+      <div id="kh-panel-flujos" role="tabpanel" aria-labelledby="kh-tab-flujos" class="kh-panel hidden space-y-4">
+        <div class="p-4 rounded-xl bg-[#041a37] border border-[#1d4d91] space-y-2">
+          <span class="text-[10px] font-mono text-[#e4b18e] font-bold uppercase tracking-wider">Radiografía Operacional</span>
+          <h3 class="text-sm font-black text-white">
+            Los 5 Grandes Flujos de Datos que Mueven el Estado Chileno
+          </h3>
+          <p class="text-[#cbd5e1]">
+            Más del 80% de las transacciones interinstitucionales del sector público se concentran en estos cinco corredores estructurantes. Analizamos sus nodos críticos, estándares y brechas normativas pendientes.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <!-- Flujo 1: Identidad -->
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] hover:border-[#1d4d91] transition-all space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-white text-xs flex items-center gap-2">
+                <span>🆔</span> 1. Corredor de Identidad Civil y Acceso Digital
+              </span>
+              <span class="text-[10px] font-mono text-[#54b995] bg-[#0b4aa2] px-2 py-0.5 rounded">SRCEI ↔ ClaveÚnica ↔ OAEs</span>
+            </div>
+            <p class="text-[#cbd5e1] text-[11px]">
+              El Registro Civil actúa como la raíz de confianza nacional emitiendo padrones de nacimiento, defunciones, estado civil y vigencia de cédulas. ClaveÚnica autentica sobre OpenID Connect a más de 15 millones de personas.
+            </p>
+            <div class="bg-[#06234a] p-2.5 rounded-lg border border-[#1e3a5f] text-[11px]">
+              <strong class="text-[#e4b18e]">Brecha DS N° 12/2023:</strong> Coexistencia de consultas síncronas REST con viejos servicios SOAP legacy y falta de scopes granulares bajo Ley N° 21.719 para limitar acceso a datos de filiación.
+            </div>
+          </div>
+
+          <!-- Flujo 2: Salud -->
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] hover:border-[#1d4d91] transition-all space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-white text-xs flex items-center gap-2">
+                <span>🏥</span> 2. Corredor de Licencias Médicas y Subsidios
+              </span>
+              <span class="text-[10px] font-mono text-[#38bdf8] bg-[#0b4aa2] px-2 py-0.5 rounded">SUSESO ↔ COMPIN ↔ FONASA</span>
+            </div>
+            <p class="text-[#cbd5e1] text-[11px]">
+              Procesamiento de más de 7 millones de licencias médicas electrónicas anuales, dictámenes periciales y cálculo del Subsidio por Incapacidad Laboral (SIL) transferido a FONASA e Isapres.
+            </p>
+            <div class="bg-[#06234a] p-2.5 rounded-lg border border-[#1e3a5f] text-[11px]">
+              <strong class="text-[#e4b18e]">Brecha DS N° 12/2023:</strong> Asincronía entre las 29 COMPIN regionales y operadores privados genera demoras de hasta 20 días en pagos; requiere consolidación en API tiempo real.
+            </div>
+          </div>
+
+          <!-- Flujo 3: Social -->
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] hover:border-[#1d4d91] transition-all space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-white text-xs flex items-center gap-2">
+                <span>👥</span> 3. Corredor de Registro Social de Hogares (RSH)
+              </span>
+              <span class="text-[10px] font-mono text-[#a78bfa] bg-[#0b4aa2] px-2 py-0.5 rounded">MDSF ↔ SII ↔ SRCEI ↔ Municipios</span>
+            </div>
+            <p class="text-[#cbd5e1] text-[11px]">
+              Calificación socioeconómica del 85% de la población nacional cruzando rentas del SII, registro civil, bienes raíces, matrículas educativas y cotizaciones previsionales.
+            </p>
+            <div class="bg-[#06234a] p-2.5 rounded-lg border border-[#1e3a5f] text-[11px]">
+              <strong class="text-[#e4b18e]">Brecha DS N° 12/2023:</strong> Ingestas por lotes mensuales en vez de eventos reactivos (Webhooks); datos personales altamente sensibles sin auditoría de consentimiento de consulta.
+            </div>
+          </div>
+
+          <!-- Flujo 4: Compras -->
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] hover:border-[#1d4d91] transition-all space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-white text-xs flex items-center gap-2">
+                <span>💼</span> 4. Corredor de Compras Públicas y Presupuesto
+              </span>
+              <span class="text-[10px] font-mono text-[#54b995] bg-[#0b4aa2] px-2 py-0.5 rounded">ChileCompra ↔ SIGFE/DIPRES ↔ TGR</span>
+            </div>
+            <p class="text-[#cbd5e1] text-[11px]">
+              Trazabilidad integral del ciclo de gasto: licitación en Mercado Público, compromiso presupuestario en SIGFE II, recepción conforme de bienes y pago efectivo por la Tesorería General.
+            </p>
+            <div class="bg-[#06234a] p-2.5 rounded-lg border border-[#1e3a5f] text-[11px]">
+              <strong class="text-[#e4b18e]">Brecha DS N° 12/2023:</strong> Acoplamiento en la recepción conforme en municipios y hospitales que retrasa el cumplimiento de la Ley de Pago a 30 Días.
+            </div>
+          </div>
+
+          <!-- Flujo 5: Comercio Exterior -->
+          <div class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] hover:border-[#1d4d91] transition-all space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-white text-xs flex items-center gap-2">
+                <span>🚢</span> 5. Corredor de Ventanilla Única de Comercio Exterior
+              </span>
+              <span class="text-[10px] font-mono text-[#38bdf8] bg-[#0b4aa2] px-2 py-0.5 rounded">SICEX ↔ Aduanas ↔ SAG ↔ TGR</span>
+            </div>
+            <p class="text-[#cbd5e1] text-[11px]">
+              Ventanilla única para autorización de exportaciones e importaciones, desaduanamiento, certificados fito/zoosanitarios y pago simultáneo de derechos arancelarios.
+            </p>
+            <div class="bg-[#06234a] p-2.5 rounded-lg border border-[#1e3a5f] text-[11px]">
+              <strong class="text-[#e4b18e]">Brecha DS N° 12/2023:</strong> Aunque SICEX es de alto estándar, persisten visaciones secundarias manuales en puertos secos y pasos fronterizos.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MÓDULO 4: CHECKLIST INTERACTIVO DE LICITUD Y PRIVACIDAD -->
+      <div id="kh-panel-checklist" role="tabpanel" aria-labelledby="kh-tab-checklist" class="kh-panel hidden space-y-4">
+        <div class="p-4 rounded-xl bg-[#041a37] border border-[#1d4d91] space-y-2">
+          <span class="text-[10px] font-mono text-[#54b995] font-bold uppercase tracking-wider">Herramienta de Evaluación Rápida</span>
+          <h3 class="text-sm font-black text-white">
+            Checklist de Licitud y Privacidad para Flujos Estatales (Ley N° 21.719)
+          </h3>
+          <p class="text-[#cbd5e1]">
+            Evalúa interactivamente si un intercambio de datos entre órganos del Estado cumple con los requerimientos vinculantes de la nueva Ley de Protección de Datos Personales (Arts. 13, 20 y 21).
+          </p>
+        </div>
+
+        <!-- Checklist Questions -->
+        <div class="space-y-2.5" id="kh-checklist-form">
+          <label class="flex items-start gap-3 p-3 rounded-lg bg-[#031329] border border-[#1e3a5f] hover:border-[#54b995] cursor-pointer transition-colors">
+            <input type="checkbox" class="kh-check mt-0.5 rounded text-[#54b995] focus:ring-[#54b995] bg-[#041a37] border-[#1e3a5f] w-4 h-4" data-weight="20" />
+            <div>
+              <strong class="text-white block text-xs">1. Base de Licitud Excluyente (Art. 13 y 20)</strong>
+              <span class="text-[#94a3b8] text-[11px]">¿El flujo se fundamenta en un mandato legal expreso de la ley orgánica de la institución o en una misión de interés público directo?</span>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3 rounded-lg bg-[#031329] border border-[#1e3a5f] hover:border-[#54b995] cursor-pointer transition-colors">
+            <input type="checkbox" class="kh-check mt-0.5 rounded text-[#54b995] focus:ring-[#54b995] bg-[#041a37] border-[#1e3a5f] w-4 h-4" data-weight="15" />
+            <div>
+              <strong class="text-white block text-xs">2. Principio de Minimización de Datos (Art. 5°)</strong>
+              <span class="text-[#94a3b8] text-[11px]">¿Los campos transferidos en la API se limitan estrictamente a los requeridos para la resolución del trámite sin payloads excesivos?</span>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3 rounded-lg bg-[#031329] border border-[#1e3a5f] hover:border-[#54b995] cursor-pointer transition-colors">
+            <input type="checkbox" class="kh-check mt-0.5 rounded text-[#54b995] focus:ring-[#54b995] bg-[#041a37] border-[#1e3a5f] w-4 h-4" data-weight="15" />
+            <div>
+              <strong class="text-white block text-xs">3. Oficial de Protección de Datos (DPO) Notificado</strong>
+              <span class="text-[#94a3b8] text-[11px]">¿Tanto la entidad emisora como la receptora cuentan con DPO formalmente designado e inscrito ante la APDP?</span>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3 rounded-lg bg-[#031329] border border-[#1e3a5f] hover:border-[#54b995] cursor-pointer transition-colors">
+            <input type="checkbox" class="kh-check mt-0.5 rounded text-[#54b995] focus:ring-[#54b995] bg-[#041a37] border-[#1e3a5f] w-4 h-4" data-weight="15" />
+            <div>
+              <strong class="text-white block text-xs">4. Inscripción en el Registro de Tratamientos (RAT)</strong>
+              <span class="text-[#94a3b8] text-[11px]">¿El intercambio está inventariado en el Registro de Actividades de Tratamiento con indicación de categorías y plazos de conservación?</span>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3 rounded-lg bg-[#031329] border border-[#1e3a5f] hover:border-[#54b995] cursor-pointer transition-colors">
+            <input type="checkbox" class="kh-check mt-0.5 rounded text-[#54b995] focus:ring-[#54b995] bg-[#041a37] border-[#1e3a5f] w-4 h-4" data-weight="20" />
+            <div>
+              <strong class="text-white block text-xs">5. Evaluación de Impacto (EIPD) en Datos Especiales</strong>
+              <span class="text-[#94a3b8] text-[11px]">Si el flujo incluye datos de salud, biométricos o socioeconómicos masivos, ¿se elaboró y aprobó la EIPD previa?</span>
+            </div>
+          </label>
+
+          <label class="flex items-start gap-3 p-3 rounded-lg bg-[#031329] border border-[#1e3a5f] hover:border-[#54b995] cursor-pointer transition-colors">
+            <input type="checkbox" class="kh-check mt-0.5 rounded text-[#54b995] focus:ring-[#54b995] bg-[#041a37] border-[#1e3a5f] w-4 h-4" data-weight="15" />
+            <div>
+              <strong class="text-white block text-xs">6. Trazabilidad Inmutable y Logs de Consulta</strong>
+              <span class="text-[#94a3b8] text-[11px]">¿Cada transacción registra ID de funcionario o agente, motivo fundado del acceso y timestamp auditable por el ciudadano?</span>
+            </div>
+          </label>
+        </div>
+
+        <!-- Score Banner -->
+        <div class="p-4 rounded-xl bg-[#06234a] border border-[#1e3a5f] flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div>
+            <span class="text-[10px] text-[#94a3b8] uppercase font-bold tracking-wider">Índice de Conformidad Ley 21.719</span>
+            <div class="flex items-baseline gap-2 mt-0.5">
+              <span id="kh-score-text" class="text-2xl font-black text-[#e4b18e]">0%</span>
+              <span id="kh-level-text" class="text-xs font-bold text-[#e4b18e]">Riesgo Crítico / No Conforme</span>
+            </div>
+          </div>
+          <button
+            type="button"
+            id="btn-reset-kh-checklist"
+            class="px-3 py-1.5 rounded-lg bg-[#041a37] hover:bg-[#0b4aa2] text-xs font-bold text-[#f7f5ef] border border-[#1e3a5f] transition-colors"
+          >
+            Limpiar Checklist
+          </button>
+        </div>
+      </div>
+
+      <!-- MÓDULO 5: BIBLIOTECA DE FUENTES Y BENCHMARKS -->
+      <div id="kh-panel-fuentes" role="tabpanel" aria-labelledby="kh-tab-fuentes" class="kh-panel hidden space-y-4">
+        <div class="p-4 rounded-xl bg-[#041a37] border border-[#1d4d91] space-y-2">
+          <span class="text-[10px] font-mono text-[#54b995] font-bold uppercase tracking-wider">Repositorio Documental</span>
+          <h3 class="text-sm font-black text-white">
+            Biblioteca de Fuentes Oficiales, Normativa y Benchmarks Internacionales
+          </h3>
+          <p class="text-[#cbd5e1]">
+            Acceso directo a la legislación oficial, especificaciones técnicas de interoperabilidad y métricas de desempeño internacional de la gobernanza digital chilena.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+          <!-- BCN -->
+          <a
+            href="https://www.bcn.cl/leychile/navegar?idNorma=1138541"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] hover:border-[#54b995] transition-all group flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex items-center justify-between text-[10px] text-[#94a3b8] font-mono mb-1">
+                <span>BCN LEY CHILE</span>
+                <span class="text-[#54b995] group-hover:underline">Visitar ↗</span>
+              </div>
+              <h4 class="font-extrabold text-white text-xs group-hover:text-[#54b995] transition-colors">
+                Ley N° 21.180 sobre Transformación Digital
+              </h4>
+              <p class="text-[#94a3b8] text-[11px] mt-1">
+                Texto íntegro oficial publicado en Diario Oficial con los plazos de vigencia y fases obligatorias.
+              </p>
+            </div>
+          </a>
+
+          <!-- DS 12/2023 -->
+          <a
+            href="https://www.bcn.cl/leychile/navegar?idNorma=1198547"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] hover:border-[#54b995] transition-all group flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex items-center justify-between text-[10px] text-[#94a3b8] font-mono mb-1">
+                <span>MINSEGPRES</span>
+                <span class="text-[#54b995] group-hover:underline">Visitar ↗</span>
+              </div>
+              <h4 class="font-extrabold text-white text-xs group-hover:text-[#54b995] transition-colors">
+                Decreto Supremo N° 12/2023 (Norma Técnica)
+              </h4>
+              <p class="text-[#94a3b8] text-[11px] mt-1">
+                Reglamento vinculante sobre estándares, protocolos, Nodos de Interoperabilidad y catálogo de metadatos.
+              </p>
+            </div>
+          </a>
+
+          <!-- digital.gob.cl -->
+          <a
+            href="https://digital.gob.cl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] hover:border-[#54b995] transition-all group flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex items-center justify-between text-[10px] text-[#94a3b8] font-mono mb-1">
+                <span>MINISTERIO DE HACIENDA</span>
+                <span class="text-[#54b995] group-hover:underline">Visitar ↗</span>
+              </div>
+              <h4 class="font-extrabold text-white text-xs group-hover:text-[#54b995] transition-colors">
+                Secretaría de Gobierno Digital (SGD)
+              </h4>
+              <p class="text-[#94a3b8] text-[11px] mt-1">
+                Órgano rector de PISEE, ClaveÚnica, DocDigital y las guías metodológicas de arquitectura de microservicios.
+              </p>
+            </div>
+          </a>
+
+          <!-- OCDE DGI -->
+          <a
+            href="https://www.oecd.org/en/topics/sub-issues/digital-government-index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="p-4 rounded-xl bg-[#031329] border border-[#1e3a5f] hover:border-[#54b995] transition-all group flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex items-center justify-between text-[10px] text-[#94a3b8] font-mono mb-1">
+                <span>OCDE (PARÍS)</span>
+                <span class="text-[#54b995] group-hover:underline">Visitar ↗</span>
+              </div>
+              <h4 class="font-extrabold text-white text-xs group-hover:text-[#54b995] transition-colors">
+                OECD Digital Government Index (DGI)
+              </h4>
+              <p class="text-[#94a3b8] text-[11px] mt-1">
+                Medición comparada donde Chile alcanza posición de liderazgo en Iberoamérica y Top 10 mundial en gobierno digital.
+              </p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Prominent Author & Project Footer -->
+        <div class="mt-4 p-4 rounded-xl bg-[#06234a] border border-[#1e3a5f] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-[#0b4aa2] border border-[#d7653b] text-white font-black text-xs flex items-center justify-center flex-shrink-0">
+              EV
+            </div>
+            <div>
+              <span class="font-bold text-white block">Observatorio de Interoperabilidad del Estado Chileno</span>
+              <span class="text-[11px] text-[#94a3b8]">Publicado en <a href="https://interoperabilidadpublica.evegat.cl" target="_blank" rel="noopener noreferrer" class="text-[#54b995] hover:underline font-mono">interoperabilidadpublica.evegat.cl</a> por Eduardo Vega Toledo.</span>
+            </div>
+          </div>
+          <a
+            href="https://evegat.cl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-3 py-1.5 rounded-lg bg-[#0b4aa2] hover:bg-[#1d4d91] text-white font-bold text-xs transition-colors border border-[#1d4d91] whitespace-nowrap"
+          >
+            Conocer más en evegat.cl ↗
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  function initKnowledgeHub() {
+    const modal = document.getElementById('knowledge-hub-modal');
+    const openBtn = document.getElementById('btn-knowledge-hub');
+    const closeBtn = document.getElementById('btn-close-knowledge-hub');
+    const tabBtns = document.querySelectorAll<HTMLButtonElement>('.kh-tab-btn');
+    const panels = document.querySelectorAll<HTMLElement>('.kh-panel');
+
+    function openModal() {
+      if (!modal) return;
+      const guideModal = document.getElementById('guide-modal');
+      const benchmarkModal = document.getElementById('benchmark-modal');
+      if (guideModal && !guideModal.classList.contains('hidden')) {
+        guideModal.classList.add('hidden');
+      }
+      if (benchmarkModal && !benchmarkModal.classList.contains('hidden')) {
+        benchmarkModal.classList.add('hidden');
+      }
+      modal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeModal() {
+      if (!modal) return;
+      modal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    openBtn?.addEventListener('click', openModal);
+    closeBtn?.addEventListener('click', closeModal);
+    window.addEventListener('open-knowledge-hub', openModal);
+
+    // Tab switcher with ARIA attribute updates
+    tabBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const tabId = btn.dataset.khTab;
+        if (!tabId) return;
+
+        tabBtns.forEach((b) => {
+          b.classList.remove('border-[#54b995]', 'text-white');
+          b.classList.add('border-transparent', 'text-[#94a3b8]');
+          b.setAttribute('aria-selected', 'false');
+        });
+
+        btn.classList.add('border-[#54b995]', 'text-white');
+        btn.classList.remove('border-transparent', 'text-[#94a3b8]');
+        btn.setAttribute('aria-selected', 'true');
+
+        panels.forEach((p) => {
+          if (p.id === `kh-panel-${tabId}`) {
+            p.classList.remove('hidden');
+          } else {
+            p.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // Close on backdrop
+    modal?.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Close on Escape
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+
+    // Checklist interactive calculator with dynamic color grading
+    const checkboxes = document.querySelectorAll<HTMLInputElement>('#kh-checklist-form .kh-check');
+    const scoreText = document.getElementById('kh-score-text');
+    const levelText = document.getElementById('kh-level-text');
+    const resetChecklistBtn = document.getElementById('btn-reset-kh-checklist');
+
+    function updateChecklistScore() {
+      let total = 0;
+      checkboxes.forEach((cb) => {
+        if (cb.checked) {
+          total += Number(cb.dataset.weight || 0);
+        }
+      });
+
+      if (scoreText) {
+        scoreText.textContent = `${total}%`;
+        if (total >= 85) {
+          scoreText.className = 'text-2xl font-black text-[#54b995]';
+        } else if (total >= 60) {
+          scoreText.className = 'text-2xl font-black text-[#38bdf8]';
+        } else if (total >= 30) {
+          scoreText.className = 'text-2xl font-black text-[#c5a75a]';
+        } else {
+          scoreText.className = 'text-2xl font-black text-[#e4b18e]';
+        }
+      }
+
+      if (levelText) {
+        if (total >= 85) {
+          levelText.textContent = 'Nivel Óptimo / Conforme Ley 21.719';
+          levelText.className = 'text-xs font-bold text-[#54b995]';
+        } else if (total >= 60) {
+          levelText.textContent = 'Conformidad Media / Acciones Requeridas';
+          levelText.className = 'text-xs font-bold text-[#38bdf8]';
+        } else if (total >= 30) {
+          levelText.textContent = 'Brecha Significativa / En Adecuación';
+          levelText.className = 'text-xs font-bold text-[#c5a75a]';
+        } else {
+          levelText.textContent = 'Riesgo Crítico / No Conforme';
+          levelText.className = 'text-xs font-bold text-[#e4b18e]';
+        }
+      }
+    }
+
+    checkboxes.forEach((cb) => {
+      cb.addEventListener('change', updateChecklistScore);
+    });
+
+    resetChecklistBtn?.addEventListener('click', () => {
+      checkboxes.forEach((cb) => (cb.checked = false));
+      updateChecklistScore();
+    });
+
+    // Direct hash or param deep-link trigger (#curaduria or ?curaduria)
+    try {
+      const params = new URLSearchParams(window.location.search);
+      if (params.has('curaduria') || window.location.hash === '#curaduria') {
+        openModal();
+      }
+    } catch {}
+  }
+
+  if (typeof window !== 'undefined') {
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', initKnowledgeHub);
+    } else {
+      initKnowledgeHub();
+    }
+  }
+</script>

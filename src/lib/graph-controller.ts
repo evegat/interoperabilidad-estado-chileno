@@ -53,6 +53,14 @@ export interface NodeDrawerPayload {
     ano: number | string;
     resumen: string;
   }>;
+  calificacion_ciberseguridad?: string;
+  tipo_despliegue_nodo?: string;
+  compliance_ley21719?: {
+    oficial_proteccion_datos: boolean;
+    registro_actividades_tratamiento: boolean;
+    politica_privacidad_actualizada: boolean;
+    nivel_cumplimiento: string;
+  };
 }
 
 export interface EdgeDrawerPayload {
@@ -73,6 +81,12 @@ export interface EdgeDrawerPayload {
   base_legal: string;
   canal?: CanalInteroperabilidad;
   madurez_tecnica?: MadurezFlujo;
+  severity?: string;
+  normative_ref?: string;
+  involucra_datos_personales?: boolean;
+  categoria_datos_personales?: string[];
+  base_licitud?: string;
+  requiere_eipd?: boolean;
 }
 
 export type SelectionEventDetail =
@@ -253,6 +267,9 @@ export class GraphController {
       nivel_madurez_interoperabilidad: nodeData.nivel_madurez_interoperabilidad,
       agent_ready: nodeData.agent_ready,
       capacidades_agente: nodeData.capacidades_agente,
+      calificacion_ciberseguridad: nodeData.calificacion_ciberseguridad,
+      tipo_despliegue_nodo: nodeData.tipo_despliegue_nodo,
+      compliance_ley21719: nodeData.compliance_ley21719,
       documentacion_oficial: nodeData.documentacion_oficial || [],
       aristas_entrantes: incoming.map((e) => {
         const origenNode = this.nodeMap.get(e.origen);
@@ -320,6 +337,12 @@ export class GraphController {
       base_legal: edgeData.base_legal || 'Ley N° 21.180',
       canal: edgeData.canal || (edgeData.plataforma_o_bus.includes('PISEE') ? 'PISEE' : edgeData.plataforma_o_bus.includes('Manual') ? 'Manual' : 'Convenio'),
       madurez_tecnica: edgeData.madurez_tecnica || (edgeData.estandar_o_protocolo.includes('REST') ? 'realtime' : edgeData.estandar_o_protocolo.includes('SFTP') ? 'batch' : 'manual'),
+      severity: edgeData.severity,
+      normative_ref: edgeData.normative_ref,
+      involucra_datos_personales: edgeData.involucra_datos_personales,
+      categoria_datos_personales: edgeData.categoria_datos_personales,
+      base_licitud: edgeData.base_licitud,
+      requiere_eipd: edgeData.requiere_eipd,
     };
 
     window.dispatchEvent(

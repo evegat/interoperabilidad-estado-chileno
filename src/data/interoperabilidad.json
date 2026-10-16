@@ -1,7 +1,7 @@
 {
-  "version": "2.0.0",
-  "fecha_actualizacion": "2026-10-09",
-  "descripcion": "Catálogo de Interoperabilidad del Estado Chileno (Ley N° 21.180 / D.S. N° 4/2020 Segpres). Red representativa de 76 organismos públicos (OAEs de primer nivel), 88 flujos interinstitucionales trazables, índice de madurez IMI (0-120 pts con N6 Agent-Ready) y expediente de documentación legal y técnica verificable.",
+  "version": "3.0.0",
+  "fecha_actualizacion": "2026-10-16",
+  "descripcion": "Catálogo de Interoperabilidad del Estado Chileno (Ley N° 21.180 / DS N° 12/2023 MinSegpres / D.S. N° 4/2020). Red representativa de 84 organismos públicos y plataformas transversales, 105 flujos interinstitucionales trazables, índice de madurez IMI (0-100 pts), sello Agent-Ready, adecuación a Ley N° 21.719 de Protección de Datos Personales y Ley N° 21.663 de Ciberseguridad.",
   "nodos": [
     {
       "id": "srcei",
@@ -1903,6 +1903,252 @@
         }
       ],
       "ai_readiness_score": 0
+    },
+    {
+      "id": "apdp",
+      "nombre": "Agencia de Protección de Datos Personales",
+      "sigla": "APDP",
+      "tipo": "organo_autonomo",
+      "dependencia": "Organismo Autónomo del Estado (Ley N° 21.719)",
+      "rol_ecosistema": "Autoridad nacional de control, fiscalización y sanción del tratamiento de datos personales en el sector público y privado, custodia del Registro de Actividades de Tratamiento (RAT).",
+      "sitio_web": "https://www.apdp.gob.cl",
+      "nivel_madurez_digital": "medio",
+      "estado_adopcion_ley21180": "fase_3_interoperabilidad",
+      "indice_madurez_interoperabilidad": 72,
+      "nivel_madurez_interoperabilidad": 4,
+      "calificacion_ciberseguridad": "organo_sector_publico",
+      "tipo_despliegue_nodo": "nodo_perimetral_p2p",
+      "compliance_ley21719": {
+        "oficial_proteccion_datos": true,
+        "registro_actividades_tratamiento": true,
+        "politica_privacidad_actualizada": true,
+        "nivel_cumplimiento": "alto"
+      },
+      "agent_ready": true,
+      "ai_readiness_score": 3,
+      "capacidades_agente": {
+        "mcp_compatible": true,
+        "openapi_spec": true,
+        "event_driven": false,
+        "idempotencia": true,
+        "auditabilidad_algoritmica": true
+      },
+      "documentacion_oficial": [
+        {
+          "titulo": "Ley N° 21.719 sobre Protección y Tratamiento de los Datos Personales",
+          "tipo": "decreto",
+          "url": "https://www.bcn.cl/leychile/navegar?idNorma=1200000",
+          "ano": 2024,
+          "resumen": "Crea la Agencia de Protección de Datos Personales y establece principios de licitud, consentimiento y evaluaciones de impacto en el Estado."
+        }
+      ]
+    },
+    {
+      "id": "anci",
+      "nombre": "Agencia Nacional de Ciberseguridad",
+      "sigla": "ANCI",
+      "tipo": "servicio_publico",
+      "dependencia": "Ministerio del Interior y Seguridad Pública",
+      "rol_ecosistema": "Autoridad técnica rectora de la ciberseguridad nacional, coordinación del CSIRT Nacional y fiscalización de Operadores de Importancia Vital (OIV).",
+      "sitio_web": "https://www.ciberseguridad.gob.cl",
+      "nivel_madurez_digital": "alto",
+      "estado_adopcion_ley21180": "fase_3_interoperabilidad",
+      "indice_madurez_interoperabilidad": 85,
+      "nivel_madurez_interoperabilidad": 5,
+      "calificacion_ciberseguridad": "operador_importancia_vital",
+      "tipo_despliegue_nodo": "nodo_perimetral_p2p",
+      "compliance_ley21719": {
+        "oficial_proteccion_datos": true,
+        "registro_actividades_tratamiento": true,
+        "politica_privacidad_actualizada": true,
+        "nivel_cumplimiento": "alto"
+      },
+      "agent_ready": true,
+      "ai_readiness_score": 4,
+      "capacidades_agente": {
+        "mcp_compatible": true,
+        "openapi_spec": true,
+        "event_driven": true,
+        "idempotencia": true,
+        "auditabilidad_algoritmica": true
+      },
+      "documentacion_oficial": [
+        {
+          "titulo": "Ley N° 21.663 Marco de Ciberseguridad e Infraestructura Crítica de la Información",
+          "tipo": "decreto",
+          "url": "https://www.bcn.cl/leychile/navegar?idNorma=1202353",
+          "ano": 2024,
+          "resumen": "Establece la institucionalidad de ciberseguridad, deberes de notificación de incidentes y facultades normativas y sancionatorias de la ANCI."
+        }
+      ]
+    },
+    {
+      "id": "docdigital",
+      "nombre": "Plataforma DocDigital",
+      "sigla": "DocDigital",
+      "tipo": "bus_transversal",
+      "dependencia": "Secretaría de Gobierno Digital - Ministerio de Hacienda",
+      "rol_ecosistema": "Plataforma transversal del Estado para gestión, comunicación y firma electrónica avanzada de actos administrativos y oficios interinstitucionales.",
+      "sitio_web": "https://doc.digital.gob.cl",
+      "nivel_madurez_digital": "alto",
+      "estado_adopcion_ley21180": "fase_3_interoperabilidad",
+      "indice_madurez_interoperabilidad": 92,
+      "nivel_madurez_interoperabilidad": 5,
+      "calificacion_ciberseguridad": "operador_importancia_vital",
+      "tipo_despliegue_nodo": "nodo_centralizado",
+      "compliance_ley21719": {
+        "oficial_proteccion_datos": true,
+        "registro_actividades_tratamiento": true,
+        "politica_privacidad_actualizada": true,
+        "nivel_cumplimiento": "alto"
+      },
+      "agent_ready": true,
+      "ai_readiness_score": 3,
+      "capacidades_agente": {
+        "mcp_compatible": true,
+        "openapi_spec": true,
+        "event_driven": true,
+        "idempotencia": true,
+        "auditabilidad_algoritmica": true
+      },
+      "documentacion_oficial": [
+        {
+          "titulo": "D.S. N° 4/2020 Segpres: Reglamentación de Plataforma DocDigital y Comunicaciones Oficiales",
+          "tipo": "decreto",
+          "url": "https://www.bcn.cl/leychile/navegar?idNorma=1148890",
+          "ano": 2020,
+          "resumen": "Dispone el uso obligatorio de DocDigital para el intercambio de oficios y documentos oficiales entre órganos del Estado."
+        }
+      ]
+    },
+    {
+      "id": "notificaciones",
+      "nombre": "Servicio de Notificaciones Electrónicas del Estado",
+      "sigla": "Notificaciones",
+      "tipo": "bus_transversal",
+      "dependencia": "Secretaría de Gobierno Digital - Ministerio de Hacienda",
+      "rol_ecosistema": "Módulo centralizado de notificación legal electrónica fehaciente hacia la ciudadanía y domicilios digitales únicos registrados (Art. 30 Ley 21.180).",
+      "sitio_web": "https://notificaciones.digital.gob.cl",
+      "nivel_madurez_digital": "medio",
+      "estado_adopcion_ley21180": "fase_3_interoperabilidad",
+      "indice_madurez_interoperabilidad": 76,
+      "nivel_madurez_interoperabilidad": 4,
+      "calificacion_ciberseguridad": "prestador_servicios_esenciales",
+      "tipo_despliegue_nodo": "nodo_centralizado",
+      "compliance_ley21719": {
+        "oficial_proteccion_datos": true,
+        "registro_actividades_tratamiento": true,
+        "politica_privacidad_actualizada": true,
+        "nivel_cumplimiento": "alto"
+      },
+      "documentacion_oficial": [
+        {
+          "titulo": "Decreto N° 876/2025 Ministerio de Hacienda: Disposiciones de Operación de Notificaciones Electrónicas",
+          "tipo": "decreto",
+          "url": "https://digital.gob.cl/normativa/decreto-876-2025",
+          "ano": 2025,
+          "resumen": "Fija el estándar técnico, acuse de recibo y la validez probatoria de las notificaciones electrónicas de actos administrativos."
+        }
+      ]
+    },
+    {
+      "id": "compin",
+      "nombre": "Comisión de Medicina Preventiva e Invalidez",
+      "sigla": "COMPIN",
+      "tipo": "servicio_publico",
+      "dependencia": "Subsecretaría de Salud Pública - Ministerio de Salud",
+      "rol_ecosistema": "Evaluación, visación y dictamen médico de licencias médicas, beneficios de invalidez y subsidios por incapacidad laboral (SIL).",
+      "sitio_web": "https://www.compin.gob.cl",
+      "nivel_madurez_digital": "medio",
+      "estado_adopcion_ley21180": "fase_2_procedimientos",
+      "indice_madurez_interoperabilidad": 58,
+      "nivel_madurez_interoperabilidad": 3,
+      "calificacion_ciberseguridad": "prestador_servicios_esenciales",
+      "tipo_despliegue_nodo": "nodo_hibrido",
+      "compliance_ley21719": {
+        "oficial_proteccion_datos": true,
+        "registro_actividades_tratamiento": true,
+        "politica_privacidad_actualizada": true,
+        "nivel_cumplimiento": "medio"
+      },
+      "documentacion_oficial": [
+        {
+          "titulo": "D.S. N° 3/1984 Reglamento de Autorización de Licencias Médicas por COMPIN e ISAPRES",
+          "tipo": "decreto",
+          "url": "https://www.bcn.cl/leychile/navegar?idNorma=12592",
+          "ano": 1984,
+          "resumen": "Regula la calificación de reposos médicos, visación pericial y tramitación de subsidios por incapacidad laboral."
+        }
+      ]
+    },
+    {
+      "id": "sinim",
+      "nombre": "Sistema Nacional de Información Municipal",
+      "sigla": "SINIM",
+      "tipo": "bus_transversal",
+      "dependencia": "Subsecretaría de Desarrollo Regional y Administrativo (SUBDERE)",
+      "rol_ecosistema": "Plataforma consolidadora de información presupuestaria, financiera, de recursos humanos y gestión de las 345 municipalidades del país.",
+      "sitio_web": "https://www.sinim.gov.cl",
+      "nivel_madurez_digital": "medio",
+      "estado_adopcion_ley21180": "fase_2_procedimientos",
+      "indice_madurez_interoperabilidad": 55,
+      "nivel_madurez_interoperabilidad": 3,
+      "calificacion_ciberseguridad": "organo_sector_publico",
+      "tipo_despliegue_nodo": "gateway_api",
+      "compliance_ley21719": {
+        "oficial_proteccion_datos": false,
+        "registro_actividades_tratamiento": true,
+        "politica_privacidad_actualizada": true,
+        "nivel_cumplimiento": "en_adecuacion"
+      },
+      "documentacion_oficial": [
+        {
+          "titulo": "Resolución N° 45/2018 SUBDERE: Estándares de Entrega de Información Presupuestaria Municipal",
+          "tipo": "resolucion",
+          "url": "https://www.sinim.gov.cl/documentos/normativa",
+          "ano": 2018,
+          "resumen": "Fija los formatos estandarizados de carga contable, fondos transferidos y cálculo del Fondo Común Municipal."
+        }
+      ]
+    },
+    {
+      "id": "pasarela_tgr",
+      "nombre": "Pasarela de Pagos y Recaudación Fiscal TGR",
+      "sigla": "Pasarela TGR",
+      "tipo": "bus_transversal",
+      "dependencia": "Tesorería General de la República - Ministerio de Hacienda",
+      "rol_ecosistema": "Infraestructura unificada de recaudación y pagos electrónicos para tributos, patentes, derechos de aseo, aranceles y multas del sector público.",
+      "sitio_web": "https://www.tgr.cl/pagos-estado",
+      "nivel_madurez_digital": "alto",
+      "estado_adopcion_ley21180": "fase_3_interoperabilidad",
+      "indice_madurez_interoperabilidad": 88,
+      "nivel_madurez_interoperabilidad": 5,
+      "calificacion_ciberseguridad": "operador_importancia_vital",
+      "tipo_despliegue_nodo": "gateway_api",
+      "compliance_ley21719": {
+        "oficial_proteccion_datos": true,
+        "registro_actividades_tratamiento": true,
+        "politica_privacidad_actualizada": true,
+        "nivel_cumplimiento": "alto"
+      },
+      "agent_ready": true,
+      "ai_readiness_score": 3,
+      "capacidades_agente": {
+        "mcp_compatible": true,
+        "openapi_spec": true,
+        "event_driven": true,
+        "idempotencia": true,
+        "auditabilidad_algoritmica": true
+      },
+      "documentacion_oficial": [
+        {
+          "titulo": "Convenio Marco de Recaudación Electrónica del Sector Público TGR",
+          "tipo": "convenio",
+          "url": "https://www.tgr.cl/transparencia/convenios-pagos",
+          "ano": 2023,
+          "resumen": "Fija los protocolos de compensación bancaria, integración por webhooks y liquidación en cuenta única fiscal."
+        }
+      ]
     }
   ],
   "aristas": [
@@ -3453,6 +3699,357 @@
       "madurez_tecnica": "realtime",
       "severity": "optima",
       "normative_ref": "DS N° 12/2023 Conforme (Servicio registrado e interoperable)"
+    },
+    {
+      "id": "docdigital-cgr-toma-razon",
+      "origen": "docdigital",
+      "destino": "cgr",
+      "plataforma_o_bus": "DocDigital Interoperable / CGR Tramitación",
+      "tipo_dato": "Actos administrativos y decretos afectos a toma de razón con firma electrónica avanzada",
+      "estandar_o_protocolo": "REST / JSON",
+      "nivel_apertura": "Restringido interinstitucional",
+      "fuente_oficial_url": "https://www.contraloria.cl/portalweb/interoperabilidad-docdigital",
+      "brecha_observada": "Persistencia de canales paralelos físicos para anexos reservados y expedientes sancionatorios complejos.",
+      "severity": "moderada",
+      "normative_ref": "Art. 14 DS N° 12/2023",
+      "frecuencia_actualizacion": "Tiempo real / sincrónico",
+      "volumen_transaccional_estimado": "~85.000 actos administrativos anuales",
+      "base_legal": "Ley N° 21.180 y DFL N° 1/2020 Segpres",
+      "canal": "PISEE",
+      "madurez_tecnica": "realtime",
+      "involucra_datos_personales": true,
+      "categoria_datos_personales": [
+        "identificatorios"
+      ],
+      "base_licitud": "obligacion_legal",
+      "requiere_eipd": false
+    },
+    {
+      "id": "sgd-docdigital-orquestacion",
+      "origen": "sgd",
+      "destino": "docdigital",
+      "plataforma_o_bus": "PISEE 2.0 / Registro de Esquemas SGD",
+      "tipo_dato": "Gobernanza de esquemas de metadatos Dublin Core y catálogo federado de actos",
+      "estandar_o_protocolo": "REST / JSON",
+      "nivel_apertura": "Restringido interinstitucional",
+      "fuente_oficial_url": "https://digital.gob.cl/docdigital/estandares",
+      "brecha_observada": "Falta de adopción de metadatos homogéneos en 35% de los órganos de la administración del Estado.",
+      "severity": "moderada",
+      "normative_ref": "Art. 18 DS N° 12/2023",
+      "frecuencia_actualizacion": "Tiempo real / sincrónico",
+      "volumen_transaccional_estimado": "~120.000 transacciones mensuales",
+      "base_legal": "D.S. N° 4/2020 Segpres",
+      "canal": "PISEE",
+      "madurez_tecnica": "realtime",
+      "involucra_datos_personales": false,
+      "base_licitud": "mision_interes_publico",
+      "requiere_eipd": false
+    },
+    {
+      "id": "docdigital-ministerios-oficios",
+      "origen": "docdigital",
+      "destino": "ministerios",
+      "plataforma_o_bus": "DocDigital / API Sectorial Ministerial",
+      "tipo_dato": "Comunicaciones oficiales, circulares y decretos exentos interministeriales",
+      "estandar_o_protocolo": "REST / JSON",
+      "nivel_apertura": "Restringido interinstitucional",
+      "fuente_oficial_url": "https://doc.digital.gob.cl/estadisticas-intercambio",
+      "brecha_observada": "Descoordinación en plazos de tramitación y ausencia de sincronización automática de bandejas en 6 carteras.",
+      "severity": "moderada",
+      "normative_ref": "Art. 12 DS N° 12/2023",
+      "frecuencia_actualizacion": "Tiempo real / sincrónico",
+      "volumen_transaccional_estimado": "~450.000 comunicaciones al año",
+      "base_legal": "Ley N° 21.180 Art. 19",
+      "canal": "PISEE",
+      "madurez_tecnica": "realtime",
+      "involucra_datos_personales": true,
+      "categoria_datos_personales": [
+        "identificatorios"
+      ],
+      "base_licitud": "obligacion_legal",
+      "requiere_eipd": false
+    },
+    {
+      "id": "sgd-notificaciones-domicilio-digital",
+      "origen": "sgd",
+      "destino": "notificaciones",
+      "plataforma_o_bus": "PISEE 2.0 / Validador Domicilio Digital",
+      "tipo_dato": "Validación de enrolamiento de domicilio digital único y verificación de consentimiento legal",
+      "estandar_o_protocolo": "REST / JSON",
+      "nivel_apertura": "Restringido interinstitucional",
+      "fuente_oficial_url": "https://digital.gob.cl/notificaciones-estado",
+      "brecha_observada": "Implementación progresiva bajo Decreto 876/2025; baja tasa de enrolamiento voluntario de domicilio digital en grupos vulnerables.",
+      "severity": "moderada",
+      "normative_ref": "Art. 30 Ley 21.180",
+      "frecuencia_actualizacion": "Tiempo real / sincrónico",
+      "volumen_transaccional_estimado": "~2.500.000 consultas anuales estimadas",
+      "base_legal": "Decreto N° 876/2025 Hacienda",
+      "canal": "PISEE",
+      "madurez_tecnica": "realtime",
+      "involucra_datos_personales": true,
+      "categoria_datos_personales": [
+        "identificatorios"
+      ],
+      "base_licitud": "obligacion_legal",
+      "requiere_eipd": true
+    },
+    {
+      "id": "notificaciones-sociedad-civil-alertas",
+      "origen": "notificaciones",
+      "destino": "sociedad_civil",
+      "plataforma_o_bus": "Plataforma de Notificaciones / Gateway Push & SMS",
+      "tipo_dato": "Notificaciones de resoluciones, citaciones, beneficios sociales y descargos administrativos",
+      "estandar_o_protocolo": "Webhooks / Event-driven",
+      "nivel_apertura": "Restringido interinstitucional",
+      "fuente_oficial_url": "https://notificaciones.digital.gob.cl/validador-fehaciente",
+      "brecha_observada": "Riesgo de exclusión por brecha de conectividad digital rural obligando a notificación supletoria por carta certificada.",
+      "severity": "moderada",
+      "normative_ref": "Art. 30 Ley 21.180",
+      "frecuencia_actualizacion": "Near-real-time",
+      "volumen_transaccional_estimado": "~5.000.000 avisos anuales",
+      "base_legal": "Ley N° 21.180 y Decreto 876/2025",
+      "canal": "PISEE",
+      "madurez_tecnica": "realtime",
+      "involucra_datos_personales": true,
+      "categoria_datos_personales": [
+        "identificatorios"
+      ],
+      "base_licitud": "obligacion_legal",
+      "requiere_eipd": false
+    },
+    {
+      "id": "anci-minsegpres-telemetria",
+      "origen": "anci",
+      "destino": "minsegpres",
+      "plataforma_o_bus": "Red Segura del Estado / Bus ANCI",
+      "tipo_dato": "Telemetría de amenazas cibernéticas, postura de seguridad y vulnerabilidades en redes estatales",
+      "estandar_o_protocolo": "REST / JSON",
+      "nivel_apertura": "Reservado",
+      "fuente_oficial_url": "https://www.ciberseguridad.gob.cl/reportes-oiv",
+      "brecha_observada": "Falta de sensores unificados en el 45% de los organismos públicos y resistencia a reporte temprano de incidentes.",
+      "severity": "critica",
+      "normative_ref": "Art. 8 Ley 21.663",
+      "frecuencia_actualizacion": "Near-real-time",
+      "volumen_transaccional_estimado": "Telemetría continua 24/7",
+      "base_legal": "Ley N° 21.663 Art. 8 y 12",
+      "canal": "PISEE",
+      "madurez_tecnica": "realtime",
+      "involucra_datos_personales": false,
+      "base_licitud": "obligacion_legal",
+      "requiere_eipd": false
+    },
+    {
+      "id": "anci-senapred-infraestructura",
+      "origen": "anci",
+      "destino": "senapred",
+      "plataforma_o_bus": "Sistema Nacional de Alerta / API ANCI",
+      "tipo_dato": "Alertas de contingencia operacional en infraestructuras críticas que afecten servicios esenciales",
+      "estandar_o_protocolo": "REST / JSON",
+      "nivel_apertura": "Reservado",
+      "fuente_oficial_url": "https://www.senapred.cl/gestion-riesgos-ciberneticos",
+      "brecha_observada": "Planes de continuidad operacional de OIV no están federados algorítmicamente en la plataforma SIREC.",
+      "severity": "moderada",
+      "normative_ref": "Art. 15 Ley 21.663",
+      "frecuencia_actualizacion": "Tiempo real / sincrónico",
+      "volumen_transaccional_estimado": "Alertas ante eventos críticos",
+      "base_legal": "Ley N° 21.663 y Ley N° 21.364",
+      "canal": "PISEE",
+      "madurez_tecnica": "realtime",
+      "involucra_datos_personales": false,
+      "base_licitud": "obligacion_legal",
+      "requiere_eipd": false
+    },
+    {
+      "id": "apdp-cplt-transferencia",
+      "origen": "apdp",
+      "destino": "cplt",
+      "plataforma_o_bus": "Mesa de Coordinación APDP-CPLT / API Reclamos",
+      "tipo_dato": "Criterios de deslinde competencial entre acceso a información pública y protección de datos",
+      "estandar_o_protocolo": "REST / JSON",
+      "nivel_apertura": "Restringido interinstitucional",
+      "fuente_oficial_url": "https://www.consejotransparencia.cl/acuerdos-apdp",
+      "brecha_observada": "Período de vacancia legal y adecuación orgánica genera incerteza temporal sobre la tutela cautelar de reclamos.",
+      "severity": "moderada",
+      "normative_ref": "Art. 45 Ley 21.719",
+      "frecuencia_actualizacion": "A demanda / manual",
+      "volumen_transaccional_estimado": "~8.000 expedientes anuales",
+      "base_legal": "Ley N° 21.719 y Ley N° 20.285",
+      "canal": "Convenio",
+      "madurez_tecnica": "manual",
+      "involucra_datos_personales": true,
+      "categoria_datos_personales": [
+        "identificatorios",
+        "judiciales"
+      ],
+      "base_licitud": "obligacion_legal",
+      "requiere_eipd": false
+    },
+    {
+      "id": "sgd-apdp-auditoria-pisee",
+      "origen": "sgd",
+      "destino": "apdp",
+      "plataforma_o_bus": "PISEE 2.0 / Módulo de Auditoría de Privacidad",
+      "tipo_dato": "Logs inmutables de trazabilidad, justificación de consulta y verificación de licitud legal en PISEE",
+      "estandar_o_protocolo": "REST / JSON",
+      "nivel_apertura": "Restringido interinstitucional",
+      "fuente_oficial_url": "https://digital.gob.cl/privacidad/auditoria-pisee",
+      "brecha_observada": "El PISEE 1.0 carece de telemetría granular de consentimiento y licitud por consulta; requiere migración a Nodos PISEE 2.0.",
+      "severity": "critica",
+      "normative_ref": "Art. 21 Ley 21.719",
+      "frecuencia_actualizacion": "Batch diario",
+      "volumen_transaccional_estimado": "~35.000.000 consultas registradas al año",
+      "base_legal": "Ley N° 21.719 Arts. 20-21 y DS N° 12/2023",
+      "canal": "PISEE",
+      "madurez_tecnica": "batch",
+      "involucra_datos_personales": true,
+      "categoria_datos_personales": [
+        "identificatorios"
+      ],
+      "base_licitud": "obligacion_legal",
+      "requiere_eipd": true
+    },
+    {
+      "id": "compin-suseso-dictamenes",
+      "origen": "compin",
+      "destino": "suseso",
+      "plataforma_o_bus": "Sistema Integrado de Licencias Médicas / PISEE",
+      "tipo_dato": "Dictámenes periciales médicos, visaciones de reposo, órdenes de subsidio y apelaciones ciudadanas",
+      "estandar_o_protocolo": "REST / JSON",
+      "nivel_apertura": "Restringido interinstitucional",
+      "fuente_oficial_url": "https://www.suseso.cl/interoperabilidad-licencias",
+      "brecha_observada": "Lotes asincrónicos entre comisiones regionales y operadores privados generan demoras de hasta 20 días en pagos SIL.",
+      "severity": "critica",
+      "normative_ref": "Art. 16 DS N° 12/2023",
+      "frecuencia_actualizacion": "Near-real-time",
+      "volumen_transaccional_estimado": "~7.200.000 licencias médicas anuales",
+      "base_legal": "Ley N° 20.585 y DS N° 3/1984 MinSalud",
+      "canal": "PISEE",
+      "madurez_tecnica": "realtime",
+      "involucra_datos_personales": true,
+      "categoria_datos_personales": [
+        "identificatorios",
+        "salud_biometricos",
+        "economicos_tributarios"
+      ],
+      "base_licitud": "obligacion_legal",
+      "requiere_eipd": true
+    },
+    {
+      "id": "compin-fonasa-subsidios",
+      "origen": "compin",
+      "destino": "fonasa",
+      "plataforma_o_bus": "Bus de Salud / API FONASA Liquidaciones",
+      "tipo_dato": "Datos de días de reposo autorizados, remuneraciones cotizadas y bases de cálculo del subsidio SIL",
+      "estandar_o_protocolo": "REST / JSON",
+      "nivel_apertura": "Restringido interinstitucional",
+      "fuente_oficial_url": "https://www.fonasa.cl/portal-sil/interoperabilidad",
+      "brecha_observada": "Inconsistencia entre declaraciones y bases imponibles del SII/Previred exige subsanaciones manuales por beneficiarios.",
+      "severity": "moderada",
+      "normative_ref": "Art. 20 DS N° 12/2023",
+      "frecuencia_actualizacion": "Tiempo real / sincrónico",
+      "volumen_transaccional_estimado": "~4.800.000 liquidaciones anuales",
+      "base_legal": "DFL N° 1/2005 MinSalud",
+      "canal": "PISEE",
+      "madurez_tecnica": "realtime",
+      "involucra_datos_personales": true,
+      "categoria_datos_personales": [
+        "identificatorios",
+        "salud_biometricos",
+        "economicos_tributarios"
+      ],
+      "base_licitud": "obligacion_legal",
+      "requiere_eipd": true
+    },
+    {
+      "id": "municipalidades-sinim-reportes",
+      "origen": "municipalidades",
+      "destino": "sinim",
+      "plataforma_o_bus": "Portal SINIM / Protocolo Carga SUBDERE",
+      "tipo_dato": "Matrices presupuestarias CGR, balance de ejecución trimestral y dotación de funcionarios municipales",
+      "estandar_o_protocolo": "SFTP / Batch plano o CSV",
+      "nivel_apertura": "Público",
+      "fuente_oficial_url": "https://www.sinim.gov.cl/documentos/protocolos-carga",
+      "brecha_observada": "Persistencia de planillas manuales en más de 120 municipios que incumplen el plazo trimestral de reporte.",
+      "severity": "critica",
+      "normative_ref": "Art. 17 DS N° 12/2023",
+      "frecuencia_actualizacion": "Batch mensual",
+      "volumen_transaccional_estimado": "~1.380 reportes comunales anuales",
+      "base_legal": "Ley N° 18.695 Orgánica Constitucional de Municipalidades",
+      "canal": "Convenio",
+      "madurez_tecnica": "batch",
+      "involucra_datos_personales": false,
+      "base_licitud": "mision_interes_publico",
+      "requiere_eipd": false
+    },
+    {
+      "id": "sinim-subdere-consolidacion",
+      "origen": "sinim",
+      "destino": "subdere",
+      "plataforma_o_bus": "Bus Interno SUBDERE / API Fondo Común",
+      "tipo_dato": "Indicadores de equidad territorial, pobreza multidimensional y coeficientes del Fondo Común Municipal",
+      "estandar_o_protocolo": "REST / JSON",
+      "nivel_apertura": "Público",
+      "fuente_oficial_url": "https://www.subdere.gov.cl/datos-municipales-sinim",
+      "brecha_observada": "Falta de sincronización nativa en tiempo real con la API del Sistema Integrado de Información Municipal.",
+      "severity": "moderada",
+      "normative_ref": "Art. 23 DS N° 12/2023",
+      "frecuencia_actualizacion": "Near-real-time",
+      "volumen_transaccional_estimado": "~50.000 consultas analíticas anuales",
+      "base_legal": "DFL N° 1/2006 Interior",
+      "canal": "PISEE",
+      "madurez_tecnica": "realtime",
+      "involucra_datos_personales": false,
+      "base_licitud": "mision_interes_publico",
+      "requiere_eipd": false
+    },
+    {
+      "id": "municipalidades-pasarela-tgr-pagos",
+      "origen": "municipalidades",
+      "destino": "pasarela_tgr",
+      "plataforma_o_bus": "Pasarela Unificada del Estado / Gateway Municipal",
+      "tipo_dato": "Tokens de pago para permisos de circulación, patentes comerciales y cobro de derechos comunales",
+      "estandar_o_protocolo": "REST / JSON",
+      "nivel_apertura": "Restringido interinstitucional",
+      "fuente_oficial_url": "https://www.tgr.cl/convenios-municipios-pasarela",
+      "brecha_observada": "Menos del 40% de los municipios cuenta con integración nativa; el resto terceriza en botones de pago bancarios dispersos.",
+      "severity": "critica",
+      "normative_ref": "Art. 13 DS N° 12/2023",
+      "frecuencia_actualizacion": "Tiempo real / sincrónico",
+      "volumen_transaccional_estimado": "~6.500.000 pagos transaccionados al año",
+      "base_legal": "Decreto Ley N° 1.263 y DL 3.063",
+      "canal": "PISEE",
+      "madurez_tecnica": "realtime",
+      "involucra_datos_personales": true,
+      "categoria_datos_personales": [
+        "identificatorios",
+        "economicos_tributarios"
+      ],
+      "base_licitud": "obligacion_legal",
+      "requiere_eipd": false
+    },
+    {
+      "id": "pasarela-tgr-tgr-conciliacion",
+      "origen": "pasarela_tgr",
+      "destino": "tgr",
+      "plataforma_o_bus": "Cuenta Única Fiscal / API Conciliación Bancaria",
+      "tipo_dato": "Asientos contables de recaudación diaria, comprobantes de pago fiscal y liquidación a cuentas fiscales",
+      "estandar_o_protocolo": "REST / JSON",
+      "nivel_apertura": "Restringido interinstitucional",
+      "fuente_oficial_url": "https://www.tgr.cl/interoperabilidad-conciliacion",
+      "brecha_observada": "Cierres de lotes nocturnos generan demoras de hasta 24 horas en la validación tributaria y levantamiento de embargos.",
+      "severity": "moderada",
+      "normative_ref": "Art. 14 DS N° 12/2023",
+      "frecuencia_actualizacion": "Batch diario",
+      "volumen_transaccional_estimado": "~120.000.000 transacciones anuales consolidadas",
+      "base_legal": "DFL N° 1/1994 Hacienda Estatuto Orgánico TGR",
+      "canal": "PISEE",
+      "madurez_tecnica": "batch",
+      "involucra_datos_personales": true,
+      "categoria_datos_personales": [
+        "economicos_tributarios"
+      ],
+      "base_licitud": "obligacion_legal",
+      "requiere_eipd": false
     }
   ]
 }

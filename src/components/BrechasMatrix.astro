@@ -53,6 +53,10 @@ const nodosConStats = dataset.nodos.map((nodo) => {
     downstreamDependents,
   };
 }).sort((a, b) => (a.indice_madurez_interoperabilidad || 0) - (b.indice_madurez_interoperabilidad || 0));
+
+const totalBrechasCriticasCount = dataset.aristas.filter(
+  (e) => e.severity === 'critica' || (!e.severity && e.brecha_observada && e.brecha_observada.trim().length > 5 && (e.canal === 'Manual' || e.estandar_o_protocolo.includes('SFTP') || e.estandar_o_protocolo === 'Bilateral Propietario'))
+).length;
 ---
 
 <div id="matrix-container" class="hidden absolute inset-0 z-10 bg-[#041a37] overflow-y-auto px-4 sm:px-8 py-6 select-text">
@@ -63,7 +67,7 @@ const nodosConStats = dataset.nodos.map((nodo) => {
       <div>
         <div class="flex items-center gap-2">
           <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-[#d7653b]/20 text-[#e4b18e] border border-[#d7653b]/40">
-            Vista de Gestión y Auditoría · v2.1
+            Vista de Gestión y Auditoría · v3.0
           </span>
           <span class="text-xs text-[#94a3b8]">Ley N° 21.180 & DS N° 12/2023 MinSegpres</span>
         </div>
@@ -83,7 +87,7 @@ const nodosConStats = dataset.nodos.map((nodo) => {
         </div>
         <div class="bg-[#041a37] border border-[#1e3a5f] px-3 py-2 rounded-lg text-center">
           <span class="block text-[10px] text-[#94a3b8] uppercase font-bold">Críticas</span>
-          <span class="text-sm font-black text-[#e4b18e]">19 Flujos</span>
+          <span class="text-sm font-black text-[#e4b18e]">{totalBrechasCriticasCount} Flujos</span>
         </div>
         <button
           type="button"

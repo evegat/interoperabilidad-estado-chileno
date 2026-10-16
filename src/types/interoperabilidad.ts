@@ -60,6 +60,65 @@ export interface CapacidadesAgenteIA {
 
 export type SeveridadBrecha = 'critica' | 'moderada' | 'optima';
 
+/**
+ * Calificación de Ciberseguridad según Ley N° 21.663 (Marco de Ciberseguridad e Infraestructura Crítica)
+ */
+export type CalificacionCiberseguridad =
+  | 'operador_importancia_vital'
+  | 'prestador_servicios_esenciales'
+  | 'organo_sector_publico'
+  | 'estandar';
+
+/**
+ * Tipología de Despliegue de Nodos en la Red de Interoperabilidad (DS N° 12/2023 y PISEE 2.0)
+ */
+export type TipoDespliegueNodo =
+  | 'nodo_centralizado'
+  | 'nodo_perimetral_p2p'
+  | 'nodo_hibrido'
+  | 'gateway_api';
+
+/**
+ * Categorías de datos personales reguladas por Ley N° 21.719
+ */
+export type CategoriaDatosPersonales =
+  | 'identificatorios'
+  | 'economicos_tributarios'
+  | 'salud_biometricos'
+  | 'judiciales'
+  | 'sensibles_especiales'
+  | 'ninguno';
+
+/**
+ * Bases de licitud para tratamiento en órganos públicos (Arts. 13, 20 y 21 Ley N° 21.719)
+ */
+export type BaseLicitud =
+  | 'obligacion_legal'
+  | 'mision_interes_publico'
+  | 'ejecucion_contrato'
+  | 'consentimiento_expreso'
+  | 'vital_salud';
+
+/**
+ * Indicadores institucionales de cumplimiento Ley N° 21.719
+ */
+export interface ComplianceLey21719Institucion {
+  oficial_proteccion_datos: boolean;
+  registro_actividades_tratamiento: boolean;
+  politica_privacidad_actualizada: boolean;
+  nivel_cumplimiento: 'alto' | 'medio' | 'en_adecuacion' | 'critico';
+}
+
+/**
+ * Indicadores por flujo de interoperabilidad bajo Ley N° 21.719
+ */
+export interface ComplianceLey21719Flujo {
+  base_licitud: BaseLicitud;
+  requiere_eipd: boolean;
+  involucra_datos_personales: boolean;
+  categoria_datos_personales?: CategoriaDatosPersonales[];
+}
+
 export interface NodoInstitucion {
   /** Slug unívoco identificador del nodo (ej. 'srcei', 'pisee', 'sii') */
   id: string;
@@ -91,6 +150,12 @@ export interface NodoInstitucion {
   capacidades_agente?: CapacidadesAgenteIA;
   /** Expediente de documentación oficial y respaldo legal verificable */
   documentacion_oficial?: DocumentoOficial[];
+  /** Calificación bajo Ley N° 21.663 de Ciberseguridad */
+  calificacion_ciberseguridad?: CalificacionCiberseguridad;
+  /** Modelo de despliegue de nodo en la red de interoperabilidad (PISEE 2.0) */
+  tipo_despliegue_nodo?: TipoDespliegueNodo;
+  /** Compliance con Ley N° 21.719 de Protección de Datos Personales */
+  compliance_ley21719?: ComplianceLey21719Institucion;
 }
 
 export type EstandarProtocolo =
@@ -150,6 +215,16 @@ export interface AristaInteroperabilidad {
   canal?: CanalInteroperabilidad;
   /** Nivel de madurez técnica del flujo (realtime, batch, manual) */
   madurez_tecnica?: MadurezFlujo;
+  /** Indica si el flujo transfiere datos personales amparados por Ley N° 21.719 */
+  involucra_datos_personales?: boolean;
+  /** Tipología o categoría de datos personales transferidos */
+  categoria_datos_personales?: CategoriaDatosPersonales[];
+  /** Fundamento o base de licitud para el intercambio (Arts. 13, 20-21 Ley 21.719) */
+  base_licitud?: BaseLicitud;
+  /** Indica si el flujo amerita Evaluación de Impacto en Protección de Datos (EIPD) */
+  requiere_eipd?: boolean;
+  /** Compliance o estado de gobernanza del flujo respecto a Ley N° 21.719 */
+  compliance_ley21719?: boolean | ComplianceLey21719Flujo;
 }
 
 export interface DatasetInteroperabilidad {
